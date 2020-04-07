@@ -64,3 +64,33 @@ Exams
 -  V18lf
 -  V19en
 -  V19lf
+
+
+Goal:
+
+7. April
+o  ex2
+-  ex3
+-  ex4
+o  lec2
+-  lec3A
+-  lec3_extra
+-  lec4
+
+8. April
+-  ex5
+-  lec5
+-  lec6
+-  lec7
+-  lec8
+-  lec9
+-  lec10
+
+9. April
+-  ex5
+-  lec5
+-  lec6
+-  lec7
+-  lec8
+-  lec9
+-  lec10
