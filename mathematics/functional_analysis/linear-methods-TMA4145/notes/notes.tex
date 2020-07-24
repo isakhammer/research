@@ -151,7 +151,18 @@ is bounded.
 \end{definition}
 
 \begin{definition}[Closed Set]
+
+  Let $X$ be a subset of a set $Y$.
+  If $X$ is closed is this true.
+  \begin{enumerate}[(i)]
+    \item The compliment $X^{c}$ is an open set.
+    \item $X$ is it own set closure.
+    \item Sequences/nets/filters in $X$ that converge do so in $X$.
+    \item Every point outside  $X$ has a neightbourhood disjoint from $X$
+  \end{enumerate}
+
 \end{definition}
+
 
 \subsection{Linear Operator}%
 \label{sub:linear_operator}
@@ -172,6 +183,35 @@ is bounded.
 \begin{definition}[Bounded Linear Operator]
   An linear operator $T: X \mapsto Y$ is bounded if $\forall x \in X$ and $c > 0$ such that $\|Tx\|= \|T\|\|x\| \le c \|x\|$
 \end{definition}
+\begin{remark}
+  What is the smallest possible $c$ such that $\|Tx\| \le c \|x\|$ still hold for all non-zero $x \in \mathbb{D}\left( T \right) $? (We can leave out $x=0$ since $Tx=0$ for $x=0$) By division, \[
+  \frac{\|Tx\|}{\|x\|} \le c.
+\] and this shows that  $c$ must be at least as big as the supremum of the expression on the left taken over the range $\mathbb{D}\left( T \right) - \{0\} $. Hense the answer to our question is that the smallest possible c is that supremum. This quantity denoted by $\|T\|$, thus \[
+\|T\| = \sup_{\substack{ x \in \mathbb{D}\left( T \right) \\ x \neq 0}}  \frac{\|Tx\|}{\|x\|}
+\] 
+$\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D}\left( T \right) = \{0\} $, we define $\|T\| = 0$. Note that with $c = \|T\|$ is \[
+\|Tx\| \le  \|T\| \|x\| 
+\] which is a quite frequently used formula. 
+
+\end{remark}
+
+\begin{lemma}
+  Let $T$ be a bounded linear operator. Then is this true,
+  \begin{enumerate}[(i)]
+    \item 
+\[
+.
+        \|T\| = \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0 } }  \frac{\|Tx\|}{\|x\|}= \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x = 1 } } \|Tx\| 
+\] 
+    \item The norm satisfy general norm aksioms.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{enumerate}[(i)]
+    \item Let $y = \frac{x}{a} $ 
+  \end{enumerate}
+\end{proof}
 
 \begin{theorem}
   Let $T: \mathbb{D} \mapsto Y$ be a linear operator where $\mathbb{D} \subset X  $ and $X, Y$ are normed spaces, then
