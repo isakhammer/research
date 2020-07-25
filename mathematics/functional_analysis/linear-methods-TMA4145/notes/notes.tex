@@ -32,17 +32,6 @@
 \newmdtheoremenv{lemma}{Lemma}[section]
 
 
-%% Swap the definition of \abs* and \norm*, so that \abs
-%% and \norm resizes the size of the brackets, and the 
-%% starred version does not.
-%\makeatletter
-%\let\oldabs\abs
-%\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-%%
-%\let\oldnorm\norm
-%\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-%\makeatother
-
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
@@ -52,8 +41,12 @@
 \begin{document}
 \maketitle
 
-\section{Problem 1}%
-\label{sec:Problem 1}
+\section{Exam 18h}%
+\label{sec:exam_18h}
+
+\subsection{Problem 1}%
+\label{sub:problem_1}
+
 
 Determine whether the followeing statements are true or false. if the statement are true, no further explanation is required. If the statement is false, give a counter example.
 
@@ -61,12 +54,13 @@ Determine whether the followeing statements are true or false. if the statement 
     \item The Kerner of a bounded linear operator $T: X \mapsto Y$ between normed spaces $X$ and $Y$ is closed.
       \begin{tcolorbox}
         \textbf{Answer.}  
-        A subset is only closed if and only if its complement $A=X^{c}$ is open.   
+        A subset is only closed if and only if its complement $A=X^{c}$ is open.  
 
       \end{tcolorbox}
     \item The range of a bounded linear operator $T: X \to Y$ between normed spaces $X$ and $Y$ is closed.
       \begin{tcolorbox}
         \textbf{Answer.} 
+        This is true since the 
       \end{tcolorbox}
     \item The dual space $X^{'}$ of a normed space is a Banach Space.
       \begin{tcolorbox}
@@ -163,6 +157,22 @@ is bounded.
 
 \end{definition}
 
+\subsection{subsection name}%
+\label{sub:subsection_name}
+
+\subsection{Norms}%
+\label{sub:norms}
+
+Criterias for norms
+\begin{enumerate}[(i)]
+  \item $\|cx\| = c\|x\|$
+  \item $\|xy\| \le \|x\| \|y\|$
+  \item $\|x + y\| \le \|x\| +  \|y\|$
+  \item $\|x\| = 0 \quad \text{only if} \quad x = 0 $ 
+\end{enumerate}
+
+
+
 
 \subsection{Linear Operator}%
 \label{sub:linear_operator}
@@ -209,9 +219,22 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
 
 \begin{proof}
   \begin{enumerate}[(i)]
-    \item Let $y = \frac{x}{a} $ 
+    \item Let $\|x\| = a $ and define $y = \frac{x}{a}$. Using this definition can we see that $ \|y\|= 1$. Hense can we rewrite the definition. \[
+        \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \frac{\|Tx\|}{\|x\|} = \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \frac{\|Tx\|}{a} = \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \|\frac{Tx}{a}\| = \sup_{\substack{y \in \mathbb{D}\left( T \right)  \\ y = 1 }  }  \|Ty\|
+    \] 
+
+    \item We need to prove that it satisfy the criteria $\|cT\| = c\|T\|$ and $\|T_1 + T_2\| \le \|T_1\| + \|T_{2}\| $. \[
+
+        \|cT\| = \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  \|Tcy\|  = \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  c\|Ty\|  =  c \|T\| 
+    \]
+    \[
+      \|T_{1} + T_{2}\| = \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \|\left(  T_1x + T_2x \right)\|  \le \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \| T_1x \|  +\|T_2x\| = \|T_1\| + \|T_2\| 
+
+    \]
+
   \end{enumerate}
 \end{proof}
+
 
 \begin{theorem}
   Let $T: \mathbb{D} \mapsto Y$ be a linear operator where $\mathbb{D} \subset X  $ and $X, Y$ are normed spaces, then
