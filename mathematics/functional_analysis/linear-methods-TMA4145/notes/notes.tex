@@ -54,8 +54,7 @@ Determine whether the followeing statements are true or false. if the statement 
     \item The Kerner of a bounded linear operator $T: X \mapsto Y$ between normed spaces $X$ and $Y$ is closed.
       \begin{tcolorbox}
         \textbf{Answer.}  
-        A subset is only closed if and only if its complement $A=X^{c}$ is open.  
-
+        True
       \end{tcolorbox}
     \item The range of a bounded linear operator $T: X \to Y$ between normed spaces $X$ and $Y$ is closed.
       \begin{tcolorbox}
@@ -90,7 +89,25 @@ Determine whether the followeing statements are true or false. if the statement 
   .\] whenever $n \ge N$..
 \end{definition}
 
+\begin{definition}
+  Given a point $x_0 \in X$ and a real number $r>0$, we define three types of sets:
+  \begin{enumerate}[(i)]
+    \item $B\left( x_0; r \right)  = \{x\in X  \mid d\left( x,x_0 \right) < r\} $ \textbf{(Open ball)} 
+    \item $\hat{B}\left( x_0; r \right)  = \{x\in X  \mid d\left( x,x_0 \right) \le r \} $ \textbf{(Closed ball)} 
+    \item $S\left( x_0; r \right)  = \{x\in X  \mid d\left( x,x_0 \right) = r\} $ \textbf{(Sphere)} 
+  \end{enumerate}
 
+  Here is $x_0$ called the center and $r$ the radius. Remark that $S\left( x_0, r \right)  = \hat{B}\left( x_0,r \right) - B\left( x_0,r \right) $.
+\end{definition}
+
+
+\begin{definition}[Open and Closed Set]
+  A subset $M$ of a metric space $X$ is said to be open if it contains a ball around each of its points. A subset $K$ of $X$ is said to be closed if its complement (in $X$ ) is open, that is, $K^{c} = X - K$ is open.  
+\end{definition}
+
+\begin{remark}
+  A complement set is defined such that $A^{c} = U \setminus A $ or more formally $A^{c} = \{x \in U  \mid x \not\in A\} $ .
+\end{remark}
 
 \subsection{Cauchy Sequence}%
 \label{sub:Cauchy Sequence}
@@ -134,13 +151,13 @@ is bounded.
   \] 
 \end{definition}
 
+\newpage
 \begin{definition}
   Let $f: X \mapsto Y$ be a function. 
   \begin{enumerate}
     \item We call $f$ injective or one-to-one if $f\left( x_1 \right)  = f\left( x_2 \right) $ implies $x_1=x_2$, i.e, no two elements of the domain have tha same image. Equivalently, if $x \neq x_2$ then $f\left( x_1 \right) \neq f\left( x_2 \right) $. 
     \item We call $f$ surjective or onto if $range\left( f \right) = Y$, i.e each $y \in Y$ is the image of at least one $x \in X$ .
     \item We call $f$ bijective if f is both injective and surjective.
-      
   \end{enumerate}
 \end{definition}
 
@@ -217,25 +234,27 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
   \end{enumerate}
 \end{lemma}
 
+\newpage
 \begin{proof}
   \begin{enumerate}[(i)]
     \item Let $\|x\| = a $ and define $y = \frac{x}{a}$. Using this definition can we see that $ \|y\|= 1$. Hense can we rewrite the definition. \[
         \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \frac{\|Tx\|}{\|x\|} = \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \frac{\|Tx\|}{a} = \sup_{\substack{x \in \mathbb{D}\left( T \right) \\ x \neq 0} } \|\frac{Tx}{a}\| = \sup_{\substack{y \in \mathbb{D}\left( T \right)  \\ y = 1 }  }  \|Ty\|
     \] 
 
-    \item We need to prove that it satisfy the criteria $\|cT\| = c\|T\|$ and $\|T_1 + T_2\| \le \|T_1\| + \|T_{2}\| $. \[
+    \item We need to prove that it satisfy the criteria $\|cT\| = c\|T\|$ and $\|T_1 + T_2\| \le \|T_1\| + \|T_{2}\| $. 
+      \begin{align*}
+        \|cT\| &= \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  \|Tcy\|  = \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  c\|Ty\|  \\ &=  c \|T\| 
+      .\end{align*}
 
-        \|cT\| = \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  \|Tcy\|  = \sup_{\substack{ y \in \mathbb{D}\left( T \right) \\ \|y\| = 1 } }  c\|Ty\|  =  c \|T\| 
-    \]
-    \[
-      \|T_{1} + T_{2}\| = \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \|\left(  T_1x + T_2x \right)\|  \le \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \| T_1x \|  +\|T_2x\| = \|T_1\| + \|T_2\| 
-
-    \]
-
+      \begin{align*}
+        \label{eq:label}
+        \|T_{1} + T_{2}\| &= \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \|\left(  T_1x + T_2x \right)\|  \le \sup_{x \in \mathbb{D}\left( T \right), \|x\| = 1} \| T_1x \|  +\|T_2x\| \\ &= \|T_1\| + \|T_2\| 
+      .\end{align*}
   \end{enumerate}
 \end{proof}
 
 
+\newpage
 \begin{theorem}
   Let $T: \mathbb{D} \mapsto Y$ be a linear operator where $\mathbb{D} \subset X  $ and $X, Y$ are normed spaces, then
   \begin{enumerate}
