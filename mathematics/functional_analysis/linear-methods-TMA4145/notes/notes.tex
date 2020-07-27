@@ -89,6 +89,19 @@ Determine whether the followeing statements are true or false. if the statement 
 \section{Appendix}%
 \label{sec:Notes}
 
+\subsection{Norms}%
+\label{sub:norms}
+
+Criterias for norms
+\begin{enumerate}[(i)]
+  \item $\|cx\| = c\|x\|$
+  \item $\|xy\| \le \|x\| \|y\|$
+  \item $\|x + y\| \le \|x\| +  \|y\|$
+  \item $\|x\| = 0 \quad \text{only if} \quad x = 0 $ 
+\end{enumerate}
+
+
+
 \subsection{Sequences in metric spaces and normed spaces}%
 \label{sub:sequences_in_metric_spaces_and_normed_spaces}
 
@@ -119,51 +132,6 @@ Determine whether the followeing statements are true or false. if the statement 
 \begin{remark}
   A complement set is defined such that $A^{c} = U \setminus A $ or more formally $A^{c} = \{x \in U  \mid x \not\in A \} $
 \end{remark}
-
-\subsection{Common}%
-\label{sub:common}
-
-\begin{definition}[Range]
-  A range of a function $f: X \mapsto Y$, is denoted by $range\left( f \right) $ or $f\left( X \right) $, is the set of all $y \in Y$ that are the image of some $x \in X$. More compact can this be written. \[
-    range\left( f \right) = \{y \in Y  \mid \text{there exist } x \in X \text{ such that } f\left( x \right) = y\} 
-  \] 
-\end{definition}
-
-\newpage
-\begin{definition}
-  Let $f: X \mapsto Y$ be a function. 
-  \begin{enumerate}
-    \item We call $f$ injective or one-to-one if $f\left( x_1 \right)  = f\left( x_2 \right) $ implies $x_1=x_2$, i.e, no two elements of the domain have tha same image. Equivalently, if $x \neq x_2$ then $f\left( x_1 \right) \neq f\left( x_2 \right) $. 
-    \item We call $f$ surjective or onto if $range\left( f \right) = Y$, i.e each $y \in Y$ is the image of at least one $x \in X$ .
-    \item We call $f$ bijective if f is both injective and surjective.
-  \end{enumerate}
-\end{definition}
-
-\begin{definition}[Closed Set]
-
-  Let $X$ be a subset of a set $Y$.
-  If $X$ is closed is this true.
-  \begin{enumerate}[(i)]
-    \item The compliment $X^{c}$ is an open set.
-    \item $X$ is it own set closure.
-    \item Sequences/nets/filters in $X$ that converge do so in $X$.
-    \item Every point outside  $X$ has a neightbourhood disjoint from $X$
-  \end{enumerate}
-
-\end{definition}
-
-
-\subsection{Norms}%
-\label{sub:norms}
-
-Criterias for norms
-\begin{enumerate}[(i)]
-  \item $\|cx\| = c\|x\|$
-  \item $\|xy\| \le \|x\| \|y\|$
-  \item $\|x + y\| \le \|x\| +  \|y\|$
-  \item $\|x\| = 0 \quad \text{only if} \quad x = 0 $ 
-\end{enumerate}
-
 
 
 
@@ -263,10 +231,10 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
   \end{enumerate}
 \end{proof}
 
-\subsection{Cauchy Sequence}%
-\label{sub:Cauchy Sequence}
+\subsection{Banach Spaces}%
+\label{sub: Banach Spaces}
 
-\begin{definition}
+\begin{definition}[Cauchy Sequence]
   
   Let $(x_n)_{n \in \mathbb{N}}$ be a sequence in the metric space $(X, d)$. We say that $\left( x_n \right)_{n \in \mathbb{N}} $ is \textbf{Cauchy Sequence} if for any $ \epsilon > 0$ there exist an $N \in \mathbb{N}$ such that \[  
     d(x_{n}, x_{m}) < \epsilon      
@@ -296,6 +264,43 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
 is bounded. 
 
 \end{proof}
+
+\begin{definition}[Banach Space and Hilbert Space]
+  A metric space $\left( X,d \right) $ is said to be complete if every Cauchy sequence $\left( x_n \right) _{x_{n}\in\mathbb{N}} \in X$ converges to a limit $x \in X$. A complete normed space $\left( X,\|.\| \right) $ is classed a Banach Space. Similary, a complete inner product space $\left( X, \left<.,. \right> \right) $ is called a Hilbert space. 
+\end{definition}
+
+\subsection{Common}%
+\label{sub:common}
+
+\begin{definition}[Range]
+  A range of a function $f: X \mapsto Y$, is denoted by $range\left( f \right) $ or $f\left( X \right) $, is the set of all $y \in Y$ that are the image of some $x \in X$. More compact can this be written. \[
+    range\left( f \right) = \{y \in Y  \mid \text{there exist } x \in X \text{ such that } f\left( x \right) = y\} 
+  \] 
+\end{definition}
+
+\begin{definition}
+  Let $f: X \mapsto Y$ be a function. 
+  \begin{enumerate}
+    \item We call $f$ injective or one-to-one if $f\left( x_1 \right)  = f\left( x_2 \right) $ implies $x_1=x_2$, i.e, no two elements of the domain have tha same image. Equivalently, if $x \neq x_2$ then $f\left( x_1 \right) \neq f\left( x_2 \right) $. 
+    \item We call $f$ surjective or onto if $range\left( f \right) = Y$, i.e each $y \in Y$ is the image of at least one $x \in X$ .
+    \item We call $f$ bijective if f is both injective and surjective.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Closed Set]
+
+  Let $X$ be a subset of a set $Y$.
+  If $X$ is closed is this true.
+  \begin{enumerate}[(i)]
+    \item The compliment $X^{c}$ is an open set.
+    \item $X$ is it own set closure.
+    \item Sequences/nets/filters in $X$ that converge do so in $X$.
+    \item Every point outside  $X$ has a neightbourhood disjoint from $X$
+  \end{enumerate}
+
+\end{definition}
+
+
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
