@@ -120,39 +120,6 @@ Determine whether the followeing statements are true or false. if the statement 
   A complement set is defined such that $A^{c} = U \setminus A $ or more formally $A^{c} = \{x \in U  \mid x \not\in A \} $
 \end{remark}
 
-\subsection{Cauchy Sequence}%
-\label{sub:Cauchy Sequence}
-
-\begin{definition}
-  
-  Let $(x_n)_{n \in \mathbb{N}}$ be a sequence in the metric space $(X, d)$. We say that $\left( x_n \right)_{n \in \mathbb{N}} $ is \textbf{Cauchy Sequence} if for any $ \epsilon > 0$ there exist an $N \in \mathbb{N}$ such that \[  
-    d(x_{n}, x_{m}) < \epsilon      
-  .\]  
-  In particular if $\left( x_n \right)_{n \in \mathbb{N}}$ is a sequence in the normed space $\left( X,\|.\| \right) $, then $\left( x_n \right) _{n \in\mathbb{N}}$ is Cauchy if for any $\epsilon > 0$ there exist an $N \in \mathbb{N}$ such that
-
-  \[
-  \|x_{n}  - x_{m}\| < \epsilon,\quad \textrm{s.t.} \quad  n,m \ge N
-  .\] 
-  In an inner product space $(X, \left< .,. \right> )$, we say that a sequenxe $\left( x_n \right)_{n \in \mathbb{N}}$ is Cauchy if the sequence is Cauchy with respect to the indeuced norn $\|x\| := \left< x,x \right>^{ \frac{1}{2} }$ . 
-\end{definition}
-
-\begin{lemma}
-  Any Cauchy sequence in $\left( X,d \right)$ is bounded.
-\end{lemma}
-
-\begin{proof}
-  Let $\left( x_n \right) _{n \in \mathbb{N}}$ be a Cauchy sequence. Then there exist $N \in \mathbb{N}$ such that for all $ m,n \ge N$ we have \[
-    d(x_{m}, x_{n}) < 1
-  .\] In particular, we have \[
-  d(x_{N},x_{m})  < 1 \quad \forall \quad m \ge N      
-  .\] 
-  Or equivalently $x_{m} \in B_1(x_N)$ for all $m \ge N$. Now let \[
-    r = max \{ 1, d(x_1, x_N), d(x_2, x_N), \ldots, d(x_{N-1}, x_N)\} 
-  .\] 
-  Then for any $n \in \mathbb{N}$ we have $x_n \in B_{r+1}\left( x_N \right) $\, so $\left( x_n \right) _{n \in \mathbb{N}}$
-is bounded. 
-
-\end{proof}
 \subsection{Common}%
 \label{sub:common}
 
@@ -299,6 +266,39 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
   \end{enumerate}
 \end{proof}
 
+\subsection{Cauchy Sequence}%
+\label{sub:Cauchy Sequence}
+
+\begin{definition}
+  
+  Let $(x_n)_{n \in \mathbb{N}}$ be a sequence in the metric space $(X, d)$. We say that $\left( x_n \right)_{n \in \mathbb{N}} $ is \textbf{Cauchy Sequence} if for any $ \epsilon > 0$ there exist an $N \in \mathbb{N}$ such that \[  
+    d(x_{n}, x_{m}) < \epsilon      
+  .\]  
+  In particular if $\left( x_n \right)_{n \in \mathbb{N}}$ is a sequence in the normed space $\left( X,\|.\| \right) $, then $\left( x_n \right) _{n \in\mathbb{N}}$ is Cauchy if for any $\epsilon > 0$ there exist an $N \in \mathbb{N}$ such that
+
+  \[
+  \|x_{n}  - x_{m}\| < \epsilon,\quad \textrm{s.t.} \quad  n,m \ge N
+  .\] 
+  In an inner product space $(X, \left< .,. \right> )$, we say that a sequenxe $\left( x_n \right)_{n \in \mathbb{N}}$ is Cauchy if the sequence is Cauchy with respect to the indeuced norn $\|x\| := \left< x,x \right>^{ \frac{1}{2} }$ . 
+\end{definition}
+
+\begin{lemma}
+  Any Cauchy sequence in $\left( X,d \right)$ is bounded.
+\end{lemma}
+
+\begin{proof}
+  Let $\left( x_n \right) _{n \in \mathbb{N}}$ be a Cauchy sequence. Then there exist $N \in \mathbb{N}$ such that for all $ m,n \ge N$ we have \[
+    d(x_{m}, x_{n}) < 1
+  .\] In particular, we have \[
+  d(x_{N},x_{m})  < 1 \quad \forall \quad m \ge N      
+  .\] 
+  Or equivalently $x_{m} \in B_1(x_N)$ for all $m \ge N$. Now let \[
+    r = max \{ 1, d(x_1, x_N), d(x_2, x_N), \ldots, d(x_{N-1}, x_N)\} 
+  .\] 
+  Then for any $n \in \mathbb{N}$ we have $x_n \in B_{r+1}\left( x_N \right) $\, so $\left( x_n \right) _{n \in \mathbb{N}}$
+is bounded. 
+
+\end{proof}
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
