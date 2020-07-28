@@ -13,6 +13,7 @@
 \usepackage{mathtools}
 \usepackage{enumerate} 
 
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
@@ -69,41 +70,63 @@ Determine whether the followeing statements are true or false. if the statement 
     \item The range of a bounded linear operator $T: X \to Y$ between normed spaces $X$ and $Y$ is closed.
       \begin{tcolorbox}
         \textbf{Answer.} 
-      true 
+      False. Lets assume that $X$ and $Y$ is closed. Then is this true. 
       \end{tcolorbox}
     \item The dual space $X^{'}$ of a normed space is a Banach Space.
       \begin{tcolorbox}
         \textbf{Answer.} 
+        True.
       \end{tcolorbox}
 
     \item A closed subspace of a Banach Space is itself a Banach Space.
       \begin{tcolorbox}
         \textbf{Answer.} 
-        Let $(X,\|.\| )$ be a Banach space and let $Y \subset X$ be a closed subset. Then is 
+          True
       \end{tcolorbox}
   \end{enumerate}
 
+\subsection{Problem 2}%
+\label{sub:problem_2}
+
+Let $\left( x_{k} \right)_{k \in \mathbb{N}} $ be a sequence in a normed space $\left( X, \|.\| \right) $. 
+
+\begin{enumerate}
+  \item[a)] Prove that $\left( x_{k} \right)_{k \in \mathbb{N}}$ is a Cauchy sequence, then $\left( x_{k} \right)_{k \in \mathbb{N}}$ is bounded. 
+      \par
+      \begin{tcolorbox}
+        \textbf{Answer.} 
+        Let  v
+
+      \end{tcolorbox}
+
+    \item[b)]  Let $\|.\|_{a}$ and $\|.\|_{b}$ be equivalent norms on $X$ and let $x \in X$. Prove that  $\left( x_{k} \right)_{k \in \mathbb{N}}$ converges to $x$ in $\left( X, \|.\|_a \right)$ if and only if $\left( x_{k} \right)k \in \mathbb{N}$ converges to $x$ in $\left( X, \|.\|_{b} \right)$.
+      \begin{tcolorbox}
+        \textbf{Answer.} 
+      \end{tcolorbox}
+
+
+
+\end{enumerate}
 
 
 \newpage
 \section{Appendix}%
 \label{sec:Notes}
 
-\subsection{Norms}%
-\label{sub:norms}
-
-Criterias for norms
-\begin{enumerate}[(i)]
-  \item $\|cx\| = c\|x\|$
-  \item $\|xy\| \le \|x\| \|y\|$
-  \item $\|x + y\| \le \|x\| +  \|y\|$
-  \item $\|x\| = 0 \quad \text{only if} \quad x = 0 $ 
-\end{enumerate}
-
-
-
 \subsection{Sequences in metric spaces and normed spaces}%
 \label{sub:sequences_in_metric_spaces_and_normed_spaces}
+
+\begin{definition}[Norm]
+  Criterias for norms
+  \begin{enumerate}[(i)]
+    \item $\|cx\| = c\|x\|$
+    \item $\|xy\| \le \|x\| \|y\|$
+    \item $\|x + y\| \le \|x\| +  \|y\|$
+    \item $\|x\| = 0 \quad \text{only if} \quad x = 0 $ 
+  \end{enumerate}
+
+\end{definition}
+
 
 \begin{definition}[Sequence]
   Let $\left( X,d \right) $ be a metric space. A sequence $\left( x_{n} \right) _{n \in \mathbb{N}}$ in $X$ is said to \textbf{converge to} $x \in X$ for every $\epsilon > 0$ one can find $N=N(\epsilon) \in \mathbb{N}$ such that \[
@@ -133,6 +156,9 @@ Criterias for norms
   A complement set is defined such that $A^{c} = U \setminus A $ or more formally $A^{c} = \{x \in U  \mid x \not\in A \} $
 \end{remark}
 
+\begin{lemma}
+  A convergent sequence in a metric space $\left( X,d \right) $ is bounded. 
+\end{lemma}
 
 
 \subsection{Linear Operator}%
@@ -265,12 +291,106 @@ is bounded.
 
 \end{proof}
 
+\begin{remark}
+A set is  \textbf{closed} if the set contains all of its boundary points ( the closure of the set is equal to the set). There are some other definitions for closed also.  A set is \textbf{bounded} if the distance between any two points in the set is less then some finite constant. A set in $\mathbb{R}^{n}$ is bounded if all of the points are contained within a disc of finite radius.
+\end{remark}
+
+
+\begin{definition}[Completeness]
+  A sequence $\left( x_{n} \right)_{n \in \mathbb{N}}$ in a metric space $X=\left( X,d \right)$ is said to be Cauchy (or fundemental) if for every $\epsilon> 0$ there is an $N = N\left( \epsilon \right)$ such that $d\left( x_{m}, x_{n} \right) < \epsilon$  for every $m,n \ge N$. The space $X$ is said to be complete if every Ceachy sequence in $X$ converges (that is, has a limit which is an element of $X$). 
+\end{definition}
+
+\begin{remark}[Procedure for Completeness proofs]
+  
+  To prove completeness do we choose an arbitary Cauchy sequence $\left( x_n \right)_{n \in \mathbb{N}}$ in $X$ and show that it does converge in $X$. They often have the same pattern.
+
+  \begin{enumerate}
+    \item Contruct an element $x$ (to be used as an limit).
+    \item Prove that x is in the space considered.
+    \item Prove convergence $x_{n} \mapsto x$
+  \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Convergent sequences]
+  Every convergent sequences in a metric space is a Cauchy Sequence.
+\end{theorem}
+\begin{proof}
+  Let $x_{n} \mapsto x$ for $x \in X$, then is for an $N = N\left( \epsilon \right)$\[
+  d\left( x_{n},x \right) < \frac{\epsilon}{2} \quad \text{for any} \quad  n > N 
+  .\] 
+  To prove that this is Cauchy can we use the triangulation theorem such that \[
+  d\left( x_{n}, x_{m} \right) \le d\left( x,x_{n} \right) + d\left( x, x_{m} \right) < \epsilon \quad \text{such that} \quad m,n \ge N\left( \epsilon \right)
+  \]  
+  This proves that $\left( x_{n} \right)_{n \in \mathbb{N}} $ is Cauchy.
+  
+\end{proof}
+
 \begin{definition}[Banach Space and Hilbert Space]
   A metric space $\left( X,d \right) $ is said to be complete if every Cauchy sequence $\left( x_n \right) _{x_{n}\in\mathbb{N}} \in X$ converges to a limit $x \in X$. A complete normed space $\left( X,\|.\| \right) $ is classed a Banach Space. Similary, a complete inner product space $\left( X, \left<.,. \right> \right) $ is called a Hilbert space. 
 \end{definition}
 
+\begin{theorem}
+  Let $\left( f_n \right) $ be a sequence of continious functions on $[a,b]$ which converges uniformly to a limit function $f$. Then $f$ is continious on $[a,b]$.
+\end{theorem}
+
+\begin{proof}
+  We want to show that for any fixed $y \in [a,b]$ and $\epsilon > 0$ we can find a $\delta > 0 $ such that \[
+    \|x-y\| < \delta \quad \implies \quad \|f\left( x \right) - f\left( y \right) \| < \epsilon 
+  \] By the uniformly convergence $\left( f_n \right) $ to $f$, there exist an $N$ such that \[
+  \|f_n\left( x \right) - f\left( x \right) \| < \epsilon \quad \text{for all} \quad x \in [a,b], n\ge N. 
+  \] 
+  Moreover, the function $f_n$ is continious, so there exist a $\delta >0 $ such that \[
+    \|x-y\| < \delta \quad \implies \quad \|f_N\left( x \right) - f_N\left( y \right) \| < \frac{\epsilon}{3}. 
+  \] 
+  It follow that 
+  \begin{align*}
+    \|f\left( x \right) - f\left( y \right) \| &\le \|f\left( x \right) - f_N\left( x \right) \| - \|f_N\left( x \right) - f_N\left( y \right) \| + \|f_N\left( y \right) - f\left( y \right) \|
+                                               < \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon
+  .\end{align*}
+
+  whenever $\|x-y\| < \delta$
+\end{proof}
+
+
+\begin{theorem}
+  $\left( C[a,b] , \|.\|_{\infty} \right) $ is a Banach Space 
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}[(i)]
+    \item \textbf{Find a candidate for the limit}  
+    \par  
+    Fix $x \in [a,b]$ and note that \[
+      \|f_{n}\left( x \right)  - f\left( x \right) \| \le \|f_n - f_m\|_{\infty} = \text{max}_{a \le x \le b } \|f_n\left( x \right) - f_m\left( x \right) \|.
+    \] 
+
+    This if $\left( f_n \right) $ is a Cauchy sequence in $\left( C[a,b], \|.\|_{\infty} \right) $, then $\left( f_n\left( x \right)  \right)_{n \in \mathbb{N}} $ is a Cauchy Sequence in $\left( \mathbb{R}, \|.\| \right) $. Since $\left( \mathbb{R}, \|.\| \right) $ is complete, there exist a point $f\left( x \right) \in \mathbb{R}$ such that $f_{n}\left( x \right) \mapsto f\left( x \right) $. A reasonable candidate for the limit is the function $f$ given by the pointwise limits. 
+
+  \item \textbf{Show that $f \in C[a,b]$} 
+      \par
+      We observe that the convergence of $f_n$ to $f$ is not onlypointwise, but in fact uniform; Since $\left( f_n \right) $ is Cauchy, there is for every $\epsilon > 0 $ an integer $N$ such that \[
+        \|f_n - f\|_{\infty} =  \text{max}_{a \le x \le b} \|f_n\left( x \right) -  f_m\left( x \right) \| < \frac{\epsilon}{2}, \quad n,m \ge N \quad  
+      \] 
+      In particular, this hold as $m \mapsto \infty$, and we get 
+      \begin{equation}
+      \label{eq:1}
+      \text{max}_{a \le x \le b} \|f_n\left( x \right)  - f\left( x \right) \| \le \frac{\epsilon}{2} < \epsilon, \quad n\ge N \quad  
+      .\end{equation}
+
+      Thus, $f_n$ converges uniformly to $f$ on the interval $[a,b]$, and it follows by Theorem 3.13 (linear method lecture notes) that $f \in C[a,b]$ .
+
+    \item \textbf{Show that $f_n \mapsto f$} 
+        \par
+        Follows from \eqref{eq:1} 
+
+  \end{enumerate}
+\end{proof}
+
 \subsection{Common}%
 \label{sub:common}
+
+
+
 
 \begin{definition}[Range]
   A range of a function $f: X \mapsto Y$, is denoted by $range\left( f \right) $ or $f\left( X \right) $, is the set of all $y \in Y$ that are the image of some $x \in X$. More compact can this be written. \[
