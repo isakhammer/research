@@ -527,6 +527,19 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
 \subsection{Hilber Spaces}%
 \label{sub:hilber_spaces}
 
+\begin{definition}[Inner product space, Hilbert space]
+  An inner product space (or pre-Hilbert space) is a vector space $X$ with an inner product defined on  $X$. A Hilbert space is a complete inner product space. Here, an \textbf{inner product} on $X$ is a mapping from $X \times X $ into the scalar field $K$ of $X$ ; that is,  with every pair of vectors $x$ and $y$ there is assiciated a scalar which is written \[
+  \left<x,y \right>
+  \] and is called the inner product of $x$ and  $y$ such that for all vectors $x,y,z$ and scalars $\alpha$ we have 
+  \begin{enumerate}
+    \item[IP1)] $\left< x +y ,z\right> = \left<x,z \right> + \left<y,z \right>$ 
+    \item[IP2)] $\left<\alpha x , y \right> = \alpha \left<x,y \right> $
+    \item[IP3)] $ \left<x,y \right> =\overline{\left<  y,x\right>} $
+    \item[IP4)] $ \left<x,x \right> \ge 0 \quad \text{and} \quad \left<x,x \right> = 0 \quad \implies \quad x= 0    $
+  \end{enumerate}
+  
+\end{definition}
+
 \begin{definition}[Hilbert-adjoint operator ]
   Let $T: H_1 \mapsto H_2$ be a bounded linear operator, where $H_1$ and $H_2$ then the Hilbert adjoint operator $T^{*}$ of $T$ is the operator \[
   T^{*}: H_2 \mapsto H_1 .
