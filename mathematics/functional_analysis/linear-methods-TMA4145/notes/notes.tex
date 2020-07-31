@@ -78,7 +78,7 @@ Determine whether the followeing statements are true or false. if the statement 
         True.
       \end{tcolorbox}
 
-    \item A closed subspace of a Banach Space is itself a Banach Space.
+    \item A closed subspace of a Banach Space is itself a Banish Space.
       \begin{tcolorbox}
         \textbf{Answer.} 
           True
@@ -95,19 +95,115 @@ Let $\left( x_{k} \right)_{k \in \mathbb{N}} $ be a sequence in a normed space $
       \par
       \begin{tcolorbox}
         \textbf{Answer.} 
-        Let  v
-
+        We need to show that it exist $d\left( x_{m}, x_{n} \right)< \epsilon$.
+        First let $x_{n} \mapsto x $, then does is this true $d\left( x_{n}, x \right) < \frac{\epsilon}{2}$ for an $n \ge N$. Using the triangle equality can we determine \[
+        d\left( x_{n}, x_{m} \right) = d\left( x,x_{m} \right) + d\left( x, x_{n} \right) < \epsilon
+        \] 
+        This is then true. 
       \end{tcolorbox}
-
-    \item[b)]  Let $\|.\|_{a}$ and $\|.\|_{b}$ be equivalent norms on $X$ and let $x \in X$. Prove that  $\left( x_{k} \right)_{k \in \mathbb{N}}$ converges to $x$ in $\left( X, \|.\|_a \right)$ if and only if $\left( x_{k} \right)k \in \mathbb{N}$ converges to $x$ in $\left( X, \|.\|_{b} \right)$.
+  \item[b)]  Let $\|.\|_{a}$ and $\|.\|_{b}$ be equivalent norms on $X$ and let $x \in X$. Prove that  $\left( x_{k} \right)_{k \in \mathbb{N}}$ converges to $x$ in $\left( X, \|.\|_a \right)$ if and only if $\left( x_{k} \right)_{ k \in \mathbb{N}}$ converges to $x$ in $\left( X, \|.\|_{b} \right)$.
       \begin{tcolorbox}
         \textbf{Answer.} 
-      \end{tcolorbox}
+        
+        \begin{proof}
+          Let $x_{n} \mapsto x$ and $x_{m} \mapsto x$. Then is $\|x_{n} - x\|_{a} < \frac{\epsilon}{2}$ for an $n > N_{a}$.  This also holds for $x_{m}$ such that $\|x_{m} - x\|_{b} < \frac{\epsilon}{2}$ for an $m > N_{b}$. If we let $m,n > \text{max}\left( N_{a}, N_{b} \right)$ then can we conclude that \[
+          \|x_{n} - x\|_{a} + \|x_{m} - x\|_{b} < \epsilon
+          .\] 
+          Which proves that if $\|.\|_b$ is converging does this hold for $\|.\|_a$ for all $\left( x_n \right)_{n \in \mathbb{N}}$ 
+        \end{proof}
 
+      \end{tcolorbox}
 
 
 \end{enumerate}
 
+
+\subsection{Problem 3}%
+\label{sub:problem_3}
+
+Let $\left( \ell^{2}, \left<.,. \right> \right)$ be the inner product space of complex-valued sequences $x \in \left( x_{k} \right)_{k \in \mathbb{N}}$ equipped with the standard inner product 
+\begin{equation}
+\label{eq:3a}
+\left<x,y \right> = \sum_{k=1}^{\infty} x_k \overline{y_k}  \quad \text{for} \quad  x,y \in \ell^{2}.
+\end{equation}
+and let $T: \ell^{2} \mapsto \ell^{2}$ be the multiplication operator given by \[
+Tx = \left( i^{k} x_{k}/k \right)_{k \in \mathbb{N}}
+\] 
+
+where $i =\sqrt{-1} $.
+
+\begin{enumerate}
+  \item[a)] Show that $T $  is a bounded linear operator on $\ell^{2}$, and determine the operator norm $\|T\|$. 
+    \begin{tcolorbox}
+      \textbf{Answer.} 
+      We want to show that $T$ is Cauchy. Let $\left( x_n \right)_{n \in \mathbb{N}}$ be a Cauchy sequence and let $\epsilon > 0$ such that $\| x_{n} - x\|< \frac{\epsilon}{2}$ for a $N$. By observing that \[
+      Tx_{m} \mapsto Tx
+      \] 
+      can we use the argument such that $\|Tx_{m} - Tx\| = \|T\left( x_{m} - x \right)\| < \frac{\epsilon}{2} $ if $m > M$. Applying the triangle in equality can it be shown that \[
+        \|Tx_{m} - Tx_{n}\| \le \|Tx_{m} - Tx\| + \|Tx_{n} - Tx\| < \epsilon \quad n,m = \text{max}\left( N,M \right)
+      \]  
+      And then shows that $T$ is bounded.
+       \par
+      The operator norm of $T$  is \[
+      \|T\| = \text{sup}_{\substack{x_{k} \in X \\ \|x_{k}\| = 1} }  \frac{\|Tx_{k}\|}{\|x_{k}\|} = \|\frac{i^{k}}{k}\| = \frac{1}{k}
+      \] 
+    \end{tcolorbox}
+  \item[b)] Determine the adjoint operator $T^{*}$. State what it means for an operator to be normal, and determine whether or not $T$ is normal. 
+    \begin{tcolorbox}
+      \textbf{Answer.} The adjoint operator should have this property, $\left<T^{*}y, y \right> = \left<y,Tx \right>$. 
+    \end{tcolorbox}
+  \item[c)] Show that the range of $T$ is dense in $\ell^{2}$. 
+
+
+\end{enumerate}
+
+\subsection{Problem 4}%
+\label{sub:problem_4}
+Let 
+\[
+A =
+\begin{bmatrix} 
+2  & 2 \\
+2 & 2 \\
+-1  & -1
+\end{bmatrix} 
+\] 
+\begin{enumerate}
+  \item[a)]  Find a singular value decomposition of $A$.
+  \item[b)] Find the pseudoinverse $A^{+}$ of $A$ and use it to find the best approximation for a solution of the inconsistent system.
+    \begin{align*}
+      2x_1 + 2x_2 &= 3 \\
+      2x_1 + 2x_2 &= 4 \\
+      -x_1 - x_2 &= -4
+    .\end{align*}
+\end{enumerate}
+
+
+\subsection{Problem 5}%
+\label{sub:problem_5}
+
+Find $a,b \in \mathbb{C}$ such that \[
+\int_{0}^{2\pi} \left\lvert t - a\sin\left( t \right) - b  \sin\left( 2t \right) \right\rvert ^{2} dt 
+\] 
+Tip: You might find the formula $\left( \sin \left( t \right) \right)^2 = \frac{1- \cos\left( 2t \right)}{2}$ useful.
+
+\subsection{Problem 6}%
+\label{sub:problem_6}
+
+\begin{enumerate}
+  \item[a)] Show that if $X \neq \O$ is a complete metric space, and $T: X \to X$ is a mapping such that \[
+  T^{k} = T \cdot T\cdot \ldots \cdot T
+\] Is a contraction for some natural number $k> 1 $, then $T$ has a unique fixed point. 
+\item[b)]  Consider the space of continuous functionsa $C\left[ 0,1 \right]$ equppised with the metric induced by the supremenum norm \[
+    d\left( f,g \right) = \|f-g\|_{\infty} \sup_{0\le t \le 1} \left| f\left( t \right) - g\left( t \right)  \right|
+\] 
+and let $T: C\left[ 0,1 \right] \to C\left[ 0,1 \right]$ be given by \[
+\left( Tf \right)\left( t \right) = 1 - \int_{0}^{t} f\left( s \right) ds , \quad 0 \le t \le 1. 
+\] 
+Show that $T$ has a unique fixed point, and use iteration to find it starting with $f_0\left( t \right) = 1 $ 
+\par 
+\textit{Tip: You can use the results from  a) even if you did not solve this problem.} 
+\end{enumerate}
 
 \newpage
 \section{Appendix}%
@@ -159,6 +255,13 @@ Let $\left( x_{k} \right)_{k \in \mathbb{N}} $ be a sequence in a normed space $
 \begin{lemma}
   A convergent sequence in a metric space $\left( X,d \right) $ is bounded. 
 \end{lemma}
+
+\begin{definition}[Dense Set]
+  Formally, $S \subset X$ is dense in $X$ if, for any $\epsilon > 0$ and $x \in X$, there is some $s \in S$ such that $\|x-s\| < \epsilon$. An equivalent definition is that $S$ is dense in $X$ if, for any $x \in X$, there is a sequence $\{x_{n}\} \subset S$ such that \[
+  \lim_{n \to \infty} x_{n} = x
+  \] 
+  
+\end{definition}
 
 
 \subsection{Linear Operator}%
@@ -242,12 +345,12 @@ $\|T\|$ is called the \textbf{norm} of the operator $T$. If the range $\mathbb{D
     \]. Since $x_0 \in \mathbb{D}\left( T \right) $ was arbitary, this shows that $T$ is continous. 
     \par Conversely, assume that $T$ is continous at an arbitary $x_0 \in \mathbb{D}\left( T \right) $ then, given any $\epsilon > 0$, there is a $\delta > 0$ such that 
     \begin{equation}
-    \label{eq:1}
+    \label{eq:2}
       \|Tx- Tx_0\| \le \epsilon \quad \text{for all } x \in \mathbb{D}\left( T \right) \text{satisfying} \quad \|x- x_0\|\le \delta.       
     .\end{equation}
      We now take any $y \neq 0$ in $\mathbb{D}\left( T \right)  $ and set \[
     x = x_0+ \frac{\delta}{\|y\|} y. \quad \text{then} \quad x - x_0 = \frac{\delta}{\|y\|} y. 
-  \]  Hence $\|x- x_0\| = \delta$,  so that we may use the result in \eqref{eq:1} . Since $T$ is linear we have  \[
+  \]  Hence $\|x- x_0\| = \delta$,  so that we may use the result in \eqref{eq:2} . Since $T$ is linear we have  \[
   \| Tx_0 - Tx\| = \|T\left( x-x_0 \right)  \| =  \|T\left( \frac{\delta}{\|y\|}y \right) \| = \frac{\delta}{\|y\|} \|Ty\|
   \] and this implies \[
   \frac{\delta}{\|y\|}\|Ty\| \le \epsilon. \quad \text{Thus} \quad \|Ty \le \frac{\epsilon}{\delta}\|\|y\| 
@@ -419,6 +522,45 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
     \item Every point outside  $X$ has a neightbourhood disjoint from $X$
   \end{enumerate}
 
+\end{definition}
+
+\subsection{Hilber Spaces}%
+\label{sub:hilber_spaces}
+
+\begin{definition}[Hilbert-adjoint operator ]
+  Let $T: H_1 \mapsto H_2$ be a bounded linear operator, where $H_1$ and $H_2$ then the Hilbert adjoint operator $T^{*}$ of $T$ is the operator \[
+  T^{*}: H_2 \mapsto H_1 .
+  \] 
+  Such that for all $x \in H_1$ and $y \in H_2$ 
+  \begin{equation}
+  \label{eq:ajoint}
+  \left<Tx,y \right> = \left<x,  T^{*}y \right>
+  .\end{equation}
+  
+\end{definition}
+
+\begin{theorem}[Properties of Hilber adjoint operators]
+  Let $H_1$ and $H_2$ be hilbert spaces, $S: H_1 \mapsto H_2$ and $T: H_1 \mapsto H_2$ bounded linear operators and $\alpha$ any scalar. Then we have
+  \begin{align}
+    \left<T^{*}y,x \right> &= \left<y,Tx \right> \\
+    \left( S +T \right)^{*} &= S^{*} + T^{*} \\
+    \left( \alpha T \right)^{*} &= \hat{\alpha} T^{*} \\
+    \left( T^{*} \right)^{*} &=   T^{*}\\  
+    \|T T^{*}\| &=  \|T^{*} T\| =  \|T\|^{2} \\
+    T^{*}T &= 0 \quad \implies \quad T=0   \\
+    \left( ST \right)^{*} &= T^{*}S^{*} 
+  .\end{align}
+  
+\end{theorem}
+
+\begin{definition}[Self, Adjoint, unitary and normal operators]
+  A bounded linear operator $T: H \mapsto H$ on a Hilbert space $H$ is said to be 
+  \begin{align*}
+    \text{Self adjoint or Hermition} \quad T^{*} &= T ,\\
+    \text{Unitary if $T$ is bijective and} \quad T^{*} &= T^{-1} ,\\
+    \text{Normal if} \quad TT^{*} &= T^{*}T. \\ 
+  .\end{align*}
+  
 \end{definition}
 
 
