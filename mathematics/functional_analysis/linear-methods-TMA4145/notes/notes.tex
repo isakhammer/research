@@ -490,40 +490,6 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   \end{enumerate}
 \end{proof}
 
-\subsection{Common}%
-\label{sub:common}
-
-
-
-
-\begin{definition}[Range]
-  A range of a function $f: X \mapsto Y$, is denoted by $range\left( f \right) $ or $f\left( X \right) $, is the set of all $y \in Y$ that are the image of some $x \in X$. More compact can this be written. \[
-    range\left( f \right) = \{y \in Y  \mid \text{there exist } x \in X \text{ such that } f\left( x \right) = y\} 
-  \] 
-\end{definition}
-
-\begin{definition}
-  Let $f: X \mapsto Y$ be a function. 
-  \begin{enumerate}
-    \item We call $f$ injective or one-to-one if $f\left( x_1 \right)  = f\left( x_2 \right) $ implies $x_1=x_2$, i.e, no two elements of the domain have tha same image. Equivalently, if $x \neq x_2$ then $f\left( x_1 \right) \neq f\left( x_2 \right) $. 
-    \item We call $f$ surjective or onto if $range\left( f \right) = Y$, i.e each $y \in Y$ is the image of at least one $x \in X$ .
-    \item We call $f$ bijective if f is both injective and surjective.
-  \end{enumerate}
-\end{definition}
-
-\begin{definition}[Closed Set]
-
-  Let $X$ be a subset of a set $Y$.
-  If $X$ is closed is this true.
-  \begin{enumerate}[(i)]
-    \item The compliment $X^{c}$ is an open set.
-    \item $X$ is it own set closure.
-    \item Sequences/nets/filters in $X$ that converge do so in $X$.
-    \item Every point outside  $X$ has a neightbourhood disjoint from $X$
-  \end{enumerate}
-
-\end{definition}
-
 \subsection{Hilber Spaces}%
 \label{sub:hilber_spaces}
 
@@ -581,4 +547,38 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
 \bibliography{references}
 \end{document}
 
+
+\subsection{Common}%
+\label{sub:common}
+
+
+
+
+\begin{definition}[Range]
+  A range of a function $f: X \mapsto Y$, is denoted by $range\left( f \right) $ or $f\left( X \right) $, is the set of all $y \in Y$ that are the image of some $x \in X$. More compact can this be written. \[
+    range\left( f \right) = \{y \in Y  \mid \text{there exist } x \in X \text{ such that } f\left( x \right) = y\} 
+  \] 
+\end{definition}
+
+\begin{definition}
+  Let $f: X \mapsto Y$ be a function. 
+  \begin{enumerate}
+    \item We call $f$ injective or one-to-one if $f\left( x_1 \right)  = f\left( x_2 \right) $ implies $x_1=x_2$, i.e, no two elements of the domain have tha same image. Equivalently, if $x \neq x_2$ then $f\left( x_1 \right) \neq f\left( x_2 \right) $. 
+    \item We call $f$ surjective or onto if $range\left( f \right) = Y$, i.e each $y \in Y$ is the image of at least one $x \in X$ .
+    \item We call $f$ bijective if f is both injective and surjective.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Closed Set]
+
+  Let $X$ be a subset of a set $Y$.
+  If $X$ is closed is this true.
+  \begin{enumerate}[(i)]
+    \item The compliment $X^{c}$ is an open set.
+    \item $X$ is it own set closure.
+    \item Sequences/nets/filters in $X$ that converge do so in $X$.
+    \item Every point outside  $X$ has a neightbourhood disjoint from $X$
+  \end{enumerate}
+
+\end{definition}
 
