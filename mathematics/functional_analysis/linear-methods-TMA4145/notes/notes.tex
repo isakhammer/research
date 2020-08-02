@@ -401,7 +401,7 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
 
 
 \begin{definition}[Completeness]
-  A sequence $\left( x_{n} \right)_{n \in \mathbb{N}}$ in a metric space $X=\left( X,d \right)$ is said to be Cauchy (or fundemental) if for every $\epsilon> 0$ there is an $N = N\left( \epsilon \right)$ such that $d\left( x_{m}, x_{n} \right) < \epsilon$  for every $m,n \ge N$. The space $X$ is said to be complete if every Ceachy sequence in $X$ converges (that is, has a limit which is an element of $X$). 
+  A sequence $\left( x_{n} \right)_{n \in \mathbb{N}}$ in a metric space $X=\left( X,d \right)$ is said to be Cauchy (or fundemental) if for every $\epsilon> 0$ there is an $N = N\left( \epsilon \right)$ such that $d\left( x_{m}, x_{n} \right) < \epsilon$  for every $m,n \ge N$. The space $X$ is said to be complete if every Cauchy sequence in $X$ converges (that is, has a limit which is an element of $X$). 
 \end{definition}
 
 \begin{remark}[Procedure for Completeness proofs]
@@ -490,6 +490,66 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   \end{enumerate}
 \end{proof}
 
+\subsection{Banach Fixed Point}%
+\label{sub:banach_fixed_point}
+
+\begin{definition}[Contraction]
+  Let $X = \left( X,d \right)$ be a metric space. A mapping $T: X \mapsto X$ is called a \textbf{contraction}  on X if there is a positive real number $\alpha < 1$ such that for all $x,y \in X$ \[
+    d\left( Tx,Ty \right) \le \alpha d\left( x,y \right) \quad , \alpha  < 1 
+  \] 
+  Geometrically this means that any point $x$ and $y$ have images that are closer together than those points $x$ and $y$; more precisely, the ratio  \[
+\frac{d\left( Tx, Ty \right)}{d \left( x,y \right)}
+  \] 
+  does not exceed a constant $\alpha $ which is strictly less than $1$.
+\end{definition}
+
+\begin{theorem}[Banach Fixed Point Theorem]
+  Consider a metric space $X=\left( X,d \right)$, where $X \neq \O$. Suppose that $X$ is complete and let $T: X \mapsto X$ be a contraction on $X$. Then $T$ has precisely one fixed point.
+\end{theorem}
+
+\begin{proof}
+  We constrict a sequence $\left( x_{n} \right)$ and show that it is Cauchy so that it converges in the complete space $X$, and then we prove that its limit $x$ is a fixed point on $T$ and $T$ has no further fixed points. This is the idea of the proof. 
+  \par
+  We choose any $x_0 \in X$ and define the "iterative sequence " $\left( x_{n} \right)$ by 
+  \begin{equation}
+  \label{eq:fp_1}
+    x_0, \quad  x_1 = Tx_0, \quad  x_2 =Tx_1 = T^{2}x_0 \quad \ldots \quad x_{n} = T^{n} x_0, \quad   \ldots    
+  .\end{equation}
+  Clearly, this is the sequence of the image of $x_0$ under repeated application of $T$. We show that $\left( x_{n} \right)$ is Cauchy by the contraction definition and \eqref{eq:fp_1} , 
+
+  \begin{align}
+    d\left( x_{m+1}, x_{m} \right) &= d\left( Tx_{m}, Tx_{m-1} \right) \\
+    &\le \alpha d\left( x_{m}, x_{m-1} \right)  \\
+    &= \alpha d\left( Tx_{m-1}. Tx_{m-2} \right) \\
+    &\le \alpha ^{2} d\left( x_{m-1}, x_{m-2} \right) \\
+    \ldots&= \alpha ^{m} d\left( x_1, x_0 \right) \\
+  .\end{align}
+  Hense by the triangle inequality and the formula for the sum of a geometric progression we obtain for $n\ge m$.
+  \begin{align*}
+    \left( x_{m}, x_{n} \right) &\le d\left( x_{m}, x_{m+1}  \right) d\left( x_{m+1}, x_{m+2} \right) +  \ldots  + d\left( x_{n-1}, x_{n} \right) \\
+  &\le \left( \alpha ^{m} + \alpha ^{m+1} + \ldots + \alpha ^{n-1}  \right) d\left( x_0, x_1 \right)  \\
+  &= \alpha ^{m} \frac{1- \alpha ^{n-m}}{1- \alpha } d\left( x_0, x_1 \right) \\
+  .\end{align*}
+  Since $0 < \alpha  <1 $, in the numerator we have $1 - \alpha ^{n-m} < 1 $. Consequently
+  \begin{equation}
+  \label{eq:fp_3}
+  d\left( x_{m}, x_{n} \right) \le \frac{\alpha ^{m}}{1- \alpha } d\left( x_0, x_1 \right), \quad n>m. 
+  .\end{equation}
+  On the right is $0< \alpha  < 1$and $d\left( x_0,x_1 \right) $ is fixed, so that we can make the right-hand side as small as we please by taking $m$ sufficiently large (and $n>m$). This proves that $\left( x_{m} \right)$ is Cauchy. Since $X$ is complete, $\left( x_{m} \right)$ converges, say, $x_{m} \mapsto x$. We show hat this limit $x$ is a fixed point of the mapping $T$.
+  \par
+  From the triangle inequality and the contraction theorem  we have
+  \begin{align}
+    d\left( x,Tx \right) &= d\left( x,x_{m} \right) +  d\left( x_{m}, Tx \right) \\
+    &\le d\left( x, x_{m} \right) +  \alpha d\left( x_{m-1}, x \right) 
+  .\end{align}
+  and can make the sum in the second line smaller than any preassigned $\epsilon > 0$ because $x_{m} \mapsto x$. We conclude that $d\left( x,Tx \right) = 0$, so that $x=Tx$. This shows that $x$ is a fixed point of $T$ . 
+  \par
+  $x $ is the only fixed point of $T$ because from $Tx= x$ and $T\hat{x} = \hat{x}$ we obtain by \[
+    d\left( \hat{x}, x \right) = d\left( T \hat{x}, Tx \right) \le \alpha d\left( \hat{x}, x \right)
+  \] 
+  Which implies $d\left( \hat{x}, x, \right) = 0$ since $\alpha  < 1 $. Hense $x = \hat{x}$ and the theorem is proved. 
+\end{proof}
+
 
 \subsection{Hilber Spaces}%
 \label{sub:hilber_spaces}
@@ -554,6 +614,9 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   
 \end{definition}
 
+\begin{theorem}[Finite-dimensional norm equivalence]
+  On a finite-dimensional vector space $X$, all norms are equivalent. For instance, all norms are quivalent on $\mathbb{R}^{n}$
+\end{theorem}
 
 
 \subsection{Common}%
@@ -574,6 +637,11 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   \end{enumerate}
 \end{definition}
 
+\begin{definition}[Testing]
+  I am a big test 
+  
+\end{definition}
+
 \begin{definition}[Closed Set]
 
   Let $X$ be a subset of a set $Y$.
@@ -586,4 +654,8 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   \end{enumerate}
 
 \end{definition}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
 
