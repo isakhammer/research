@@ -223,6 +223,19 @@ Show that $T$ has a unique fixed point, and use iteration to find it starting wi
 
 \end{definition}
 
+\begin{theorem}[Inequalities]
+  \textbf{Holder Inequality} for sums can be described as \[
+  \sum_{n=1}^{\infty} \left| \chi_{n} \mu_{n}  \right| \le \left( \sum_{k=1}^{\infty} \left| \chi_{k} \right|^{p} \right)^{\frac{1}{p}} \cdot \left( \sum_{m=1}^{\infty} \left| \mu_{m} \right|^{q} \right)^{\frac{1}{p}}  
+  \] 
+  If $p=2$, then $q=2$. Then its called \textbf{CauchySchwartz Inequality} for sums, \[
+  \sum_{n=1}^{\infty} \left| \chi_{n} \mu_{n} \right| = \sqrt{\sum_{k=1}^{\infty} \left| \chi_{k} \right|^{2}} + \sqrt{  \sum_{j=1}^{\infty} \left| \mu_{k} \right|^{2} }
+  \] 
+
+
+  \textbf{Minowsky in equality} for sums is  \[
+  \left( \sum_{n=1}^{\infty} \left| \chi_{n} + \mu_{n} \right|^{p} \right)^{\frac{1}{p}} \le \left( \sum_{k=1}^{\infty} \left| \chi_{k} \right| \right)^{\frac{1}{p}} + \left(   \sum_{i=1}^{\infty} \left| \mu_{i} \right|^{p} \right)^{\frac{1}{p}}
+  \] 
+\end{theorem}
 
 \begin{definition}[Sequence]
   Let $\left( X,d \right) $ be a metric space. A sequence $\left( x_{n} \right) _{n \in \mathbb{N}}$ in $X$ is said to \textbf{converge to} $x \in X$ for every $\epsilon > 0$ one can find $N=N(\epsilon) \in \mathbb{N}$ such that \[
