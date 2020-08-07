@@ -12,6 +12,7 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{enumerate}
+\usepackage{todonotes}
 
 
 \usepackage{hyperref} 
@@ -51,21 +52,53 @@
 \newpage
 \section{Linear Systems I}%
 \label{sec:linear_systems_i}
-
 \subsection{Gaussian Elimination}%
 \label{sub:gaussian_elimination}
 \begin{tcolorbox}
   Introduction of linear systems (nxn), Cramer's rule to compute solution vector
 \end{tcolorbox}
+\todo{ Did not find sources. To prove }
+
+
+
  \begin{tcolorbox}
    Reviewed GEM, rewrote GEM with help of matrix multiplication from the left (using Frobenius matrices), derived fundamental properties for upper and lower triangulate matrices (e.g. products and inversion of lower triangular matrices), stated and proved LU factorizations for matrices A with invertible leading principal submatrices up to order n-1.
  \end{tcolorbox}
+
+ \begin{definition}[Frobenius Matrix]
+   A \textbf{Frobenius matrix}  is a square matric with the following properties,
+   \begin{itemize}
+     \item All entries on the main diagonal are ones.
+     \item The entries below the main diagonal of at most one column are arbitrary.
+     \item Every other entry is zero.
+   \end{itemize}
+ \end{definition}
+
+ Example of a Fobenium matrix is,
+ \[
+   A = 
+   \begin{pmatrix}
+     1 & 0 & 0 & \ldots & 0 \\
+     0 & 1 & 0 & \ldots & 0 \\
+     0 & a_{32} & 1 & \ldots & 0 \\
+     \vdots & \vdots & \vdots  & \ddots \\
+     0  & a_{n 2}  & 0  & \ddots  &  1
+   \end{pmatrix} 
+ \] 
+
+
+ \begin{definition}[Upper and Lower triangular Matrices]
+   Let $n$ be an integer , $n> 2$. The matrix $L \in \mathbb{R}^{n\times n}$ is said to be \textbf{Lower Triangular} if $l_{ij} = 0$ for every $i$ and $j$ with $1 \le i < j \le n$. The matrix $L \in \mathbb{R}^{n\times n }$ is calles the \textbf{unit lower triangular }  if it is lower triangular , and also the diagonal elements are all equal to unity, that is $l_{ii} = 1$  for $i = 1,2, \ldots , n$.
+ \end{definition}
+ 
+
 
 \subsection{LU Factorization}%
 \label{sub:lu_factorization}
 \begin{tcolorbox}
   Split solution of linear system into 1) LU factorization, 2) forward substitution, 3) backward substitution, derived various ways to compute LU factorization directly, give example where pivoting might be necessary or avoids large errors,  discussed permutation matrices P and GEM algorithm with partial column pivoting, proved formally PA = LU factorization. 
 \end{tcolorbox}
+
 
 \begin{tcolorbox}
   Finished proof from last time (complete proof can be found under teaching material, lecture03), derived complexity of LU factorization ( $O(n^3)$  and forward/backward substitution algorithms ( $O(n^2)$, introduced symmetric and positive definite (spd) matrices and started to discuss Cholesky factorization	
@@ -156,6 +189,10 @@
 \begin{tcolorbox}
   Estimates of the interpolation error, condition of the interpolation problem	
 \end{tcolorbox}
+
+\subsection{Aiken-Neville Algorithm}%
+\label{sub:aiken_neville_algorithm}
+
 
 \begin{tcolorbox}
   A recursion formula for the interpolationpolynomial is derived  which leads to the Aiken-Neville algorithm which evaluates an interpolation polynomial at a certain point	
