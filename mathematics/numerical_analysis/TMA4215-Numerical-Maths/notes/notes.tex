@@ -1,0 +1,236 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Numerical Math}
+\author{isakhammer }
+\date{August}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Linear Systems I}%
+\label{sec:linear_systems_i}
+
+\subsection{Gaussian Elimination}%
+\label{sub:gaussian_elimination}
+\begin{tcolorbox}
+  Introduction of linear systems (nxn), Cramer's rule to compute solution vector
+\end{tcolorbox}
+ \begin{tcolorbox}
+   Reviewed GEM, rewrote GEM with help of matrix multiplication from the left (using Frobenius matrices), derived fundamental properties for upper and lower triangulate matrices (e.g. products and inversion of lower triangular matrices), stated and proved LU factorizations for matrices A with invertible leading principal submatrices up to order n-1.
+ \end{tcolorbox}
+
+\subsection{LU Factorization}%
+\label{sub:lu_factorization}
+\begin{tcolorbox}
+  Split solution of linear system into 1) LU factorization, 2) forward substitution, 3) backward substitution, derived various ways to compute LU factorization directly, give example where pivoting might be necessary or avoids large errors,  discussed permutation matrices P and GEM algorithm with partial column pivoting, proved formally PA = LU factorization. 
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Finished proof from last time (complete proof can be found under teaching material, lecture03), derived complexity of LU factorization ( $O(n^3)$  and forward/backward substitution algorithms ( $O(n^2)$, introduced symmetric and positive definite (spd) matrices and started to discuss Cholesky factorization	
+\end{tcolorbox}
+
+\subsection{Pivoting}%
+\label{sub:pivoting}
+\begin{tcolorbox}
+  Stated and proved Cholesky factorization for spd matrices, discussed in detail an example of spd matrix from discretization of a boundary value problem, introduced overdetermined system. Stated minimization property of orthogonal projections.
+\end{tcolorbox}
+
+\newpage
+\section{Stability and Error Analysis}%
+\label{sec:stability_and_error_analysis}
+
+
+\subsection{Stability, forward and backward analysis}%
+\label{sub:stability_forward_and_backward_analysis}
+
+\begin{tcolorbox}
+  Sources of error in numerical computations, reviewed machine representation of numbers using floating point numbers, introduced concept of local (absolute and relative) condition numbers, discussed computation of condition numbers for small data errors, considered linear system and introduced condition number of a matrix, programmed example using Hilbert matrix to illustrate effect of an ill-conditioning problem	
+\end{tcolorbox}
+\subsection{Convergence}%
+\label{sub:convergence}
+
+\newpage
+\section{Linear Systems II}%
+\label{sec:linear_systems_ii}
+
+\subsection{Undetermined systems and Least-square Problems}%
+\label{sub:undetermined_systems_and_least_square_problems}
+\begin{tcolorbox}
+  Show that the orthornormal projection into some subspace gives a the best-approximation of some given data in that subspace, used this connection to derive the normal equations solved by x iff x solves least-squares problem (l.s.p), discussed algorithm to l.s.p based on Normal equations and Cholesky factorization of AT A. Discussed possible disadvantages of this approach and introduced QR factorization of A as an alternative way to solve the l.s.p.	
+\end{tcolorbox}
+
+\subsection{Cholesky decomposition}%
+\label{sub:chelesky_decomposition}
+\begin{tcolorbox}
+  Discussed full and reduced QR factorization. Recall Gram-Schmidt orthogonalization methods and reinterpreted it as a first method to compute the reduced QR factorization	
+\end{tcolorbox}
+
+\subsection{Eigenvalue and Eigenvector computations}%
+\label{sub:eigenvalue_and_eigenvector_computations}
+
+\newpage
+\section{Nonlinear Systems}%
+\label{sec:nonlinear_systems}
+
+\subsection{Banach Fixed Point Iteration}%
+\label{sub:banach_fixed_point_iteration}
+\begin{tcolorbox}
+  Briefly discussed conditioning of root finding problem, bisection method as a 1 dimensional method to compute a root, introduced the concept of convergence order for an sequence approaching a root, fixpoint iterations
+
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Implemented and test bisection methods, introduced concept of convergence order, implemented fixpoint iterations and tested it for 2 different fixpoint formulation of the same root finding problem 
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Finalize proof of contraction mapping theorem, consider convergence order, discussed how to estimate Lipschitz constant via derivatives. Introduced polynomial interpolation, Lagrange polynomials, discussed Lagrange form of the interpolation polynomial	
+\end{tcolorbox}
+\subsection{Newtons method}%
+\label{sub:newtons_method}
+
+\subsection{Gauss-Newton Method for non-linear least squared problems}%
+\label{sub:gauss_newton_method_for_non_linear_least_squared_problems}
+
+\newpage
+\section{Interpolation and Approximation}%
+\label{sec:interpolation_and_approximation}
+
+\subsection{Polynomial Interpolation}%
+\label{sub:polynomial_interpolation}
+
+\begin{tcolorbox}
+  Implementing and plotting Lagrange polynomials, computing interpolation for some functions, Runge example, example of different nodes distribution (Chebyshev nodes)	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+   Introduce Newton's method, stated and proved local quadratic convergence. 	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Newton polynomials, computing interpolation polynom in Newton form, n-th Newton divided difference	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Estimates of the interpolation error, condition of the interpolation problem	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  A recursion formula for the interpolationpolynomial is derived  which leads to the Aiken-Neville algorithm which evaluates an interpolation polynomial at a certain point	
+\end{tcolorbox}
+
+
+\subsection{Orthogonal polynoms}%
+\label{sub:orthogonal_polynoms}
+
+\newpage
+\section{Numerical Integration}%
+\label{sec:numerical_integration}
+
+\subsection{Integration Methods}%
+\label{sub:trapezoid_rule}
+\begin{tcolorbox}
+  Integral as positive linearform, simplest examples of  quadrature rules (midpoint and trapezoidal rules), degree of exactness, Newton-Cotes formulas and estimates for quadrature error, composite trapezoidal rule (CTR)
+\end{tcolorbox}
+
+\subsection{Gauss-Christoffel Quadrature}%
+\label{sub:gauss_christoffel_quadrature}
+\begin{tcolorbox}
+  Derived error estimate for CTR, implementation and convergence rate experiments, same for composite Simpson rule	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Derivation of quadrature rules of max order 2n+1 for weighted integrals, ortogonality properties for Gaussian quadrature rules, orthogonal polynomials,
+
+I skipped some proofs and a theorem, please read proof of Lemma 9.16 (orthogonal polynomials of order n has n simple real roots)  and Thm 9.18 + proof (the weigths of the Gaussian quadrature are positive) in A3YEB
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Proved that there is no QR with n+1 points and order 2n+2, use Gram-Schmidt to orthogonalize polynomials, computed roots and weights for Gaussian quadrature rule with 3 nodes on [-1,1] and weight function w(x) = 1
+
+
+\end{tcolorbox}
+
+\subsection{Romberg/ extrapolation}%
+\label{sub:romberg_extrapolation}
+
+\newpage
+\section{Numerical ODE}%
+\label{sec:numerical_ode}
+
+\subsection{Runge Kutta Explicit }%
+\label{sub:runge_kutta_explicit_}
+
+\begin{tcolorbox}
+  	First order ordinary differential equations as initial value proble and examples, derivation of explicit and implicit Euler's method via difference quotient and quadrature approach, definition of  one-step-methods (OSM) and their consistency and convergence order, stated and discussed main convergence theorem for OSM
+\end{tcolorbox}
+ 
+\begin{tcolorbox}
+  Derivation and formulation of Runge-Kutta methods, reformulation via stage-derivatives, definition of Butcher tableaus, implementation of RK method up to to order	
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  Proof of the main convergence theorem stated in Lecture 21, discrete Gronwall's inequality, autonomous systems and RKM, multivariate Taylor expansion, derivation of order condition up to p=3	
+\end{tcolorbox}
+
+\subsection{Adams-Bashforth Methods}%
+\label{sub:adams_bashforth_methods}
+
+\subsection{Stiff Problems}%
+\label{sub:stiff_problems}
+\begin{tcolorbox}
+  Stiff problems, implicit Runge-Kutta methods, stability function associated with RKM, A-stability	
+\end{tcolorbox}
+
+\subsection{Linear Multi Step Method}%
+\label{sub:linear_multi_step_method}
+
+ 
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
