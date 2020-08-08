@@ -138,6 +138,55 @@ where $\Delta_j$ is the determinant of the matrix obtained by substituting the $
   Finished proof from last time (complete proof can be found under teaching material, lecture03), derived complexity of LU factorization ( $O(n^3)$  and forward/backward substitution algorithms ( $O(n^2)$, introduced symmetric and positive definite (spd) matrices and started to discuss Cholesky factorization	
 \end{tcolorbox}
 
+
+\begin{theorem}
+  Let $A \in \mathbb{R}^{n\times n }$. The LU factorization of $A$ with $l_{ii}=1$ for $i = 1, \ldots , n$ exist and is unique if the principal sub matrices $A_{i}$ of $A$ of order $i  = 1, \ldots, n-1$ are non-singular.
+  \end{theorem}  
+
+  \begin{proof}
+    The existence of the LU factorization can be proved following the steps of the GEM. Here we prefer ti pursuer an alternative approach, which allows for proving at the same time both existence and uniqueness and that will be used again in later sections.
+    \par
+    Let us assume that the principalsubmatrices $A_{i}$ of $A$ are nonsingular for $i = 1, \ldots, n-1$ and prove, by induction on $i$, that under this hypothesis the LU factorization of $A$ with $l_{ii} = 1$ for $i = 1, \ldots, n$ exists and is unique. 
+    \par
+    The property is obvious true if $i=1$. Assume therefore that there exists an unique LU factorization of $A_{i-1}$ on the form $A_{i-1} = L^{i-1} U^{i-1} $ with $l_{kk}^{i-1} = 1$  for $k = 1, \ldots , i-1$, and show that there exists an unique factorization also for $A_{i}$. We partition $A_{i}$ by block matrices as \[
+    A_{i} = \begin{bmatrix} 
+      A_{i-1} & c \\
+      d^{T} & a_{ii}
+    \end{bmatrix} 
+    \] 
+    and look for a factorization of $A_{i}$ on the form  \[
+    A_{i} = L^{i} U^{i} = 
+    \begin{bmatrix} 
+      L^{i-1} & 0 \\
+      \mathbf{l}^{T} & 1
+    \end{bmatrix} 
+    \begin{bmatrix} 
+      U^{i-1} & u \\
+      0^{T} & u_{ii}
+    \end{bmatrix} 
+    \] 
+    Having also partitioned by blocks the factor $ L^{i}$ and $U^{i}$.  COmputing the product of these two factors and qeuating by blocks the element of $A_{i}$, it turn out that the vectors $\mathbf{l}$ and $u$ are the solution to the linear system $L^{i-1}u = c$ and $\mathbf{l}^{T} U^{i-1}$ = $d^{T}$. 
+    \par
+    On the other hand, since $det\left( A_{i-1} \right) =  det\left( L^{i-1} \right) det\left( U^{i-1} \right) \neq 0$, the matrices $L^{i-1}$ and $U^{i-1}$ are nonsingular and , as a result, $u$ and $\mathbf{l}$ exist and are unique.
+    \par
+    Thus, there exist a unique factorization of $A_{i}$, where $u_{ii}$ is the unique solution of the equation $u_{ii} = a_{ii} - \mathbf{l}^{T} u$. This completes the induction step of the proof.
+    \par
+    it now remains to prove that, if the factorization at hand exists and is unique,  then the first $n-1$ principall submatrices of $A$ must be nonsingular. We shall distinguish the case where $A$ is singular and when it is non-singular.
+    \par
+    Let us start from the second one and assume that the LU factorization of $A$ with $l_{ii} = 1$ for $i  =  1, \ldots, n$ ecists and is unique.  Then due to the previous equation of $A_{i} = L^{i} U ^{i}$ for $i = 1, \ldots, n$. Thus
+    \begin{equation}
+    \label{eq:Ai_1}
+    det\left( A_{i} \right) = det\left( L^{i} \right) det\left( U^{i} \right) =  det\left( U^{i} \right) =  u_{11} u_{22} \ldots u_{ii}
+    .\end{equation}
+    from which, taking $i = n$ and $A$ nonsingular, we obstain $u_{11} u_{22} \ldots u_{ii} \neq 0$ for $i =  1, \ldots, n-1$. 
+    \par
+    Now let $A$ be a singular matric and assume that (at least) one diagonal entru of $U$ is qual to zero.  Denote by $u_{kk}$ the null entry of $U$ with minimum indec $k$. Thanks to the assumption of $A_{i}$, the fectiruzatuib can be cinouted without troubles until the $k+1$-th step. From that steo on, since the matric $U^{k}$ is singular, existence and uniqueness of the vector $\mathbf{l}^{T} $ are certainly lost, and, this, the same holds for the uniqueness of the factorization. In order tor
+    this not to occur before the process has factorized the whole matrix $A$, the $u_{kk}$ entries must all be nonzero up to the index $k = n-1$, included, and this , due to \eqref{eq:Ai_1}, all the principal submatrices $A_{i}$ must be nonsingular for $k = 1, \ldots, n-1$ .
+
+  \end{proof}
+
+
+
 \subsection{Pivoting}%
 \label{sub:pivoting}
 \begin{tcolorbox}
@@ -158,7 +207,20 @@ where $\Delta_j$ is the determinant of the matrix obtained by substituting the $
   Sources of error in numerical computations, reviewed machine representation of numbers using floating point numbers, introduced concept of local (absolute and relative) condition numbers, discussed computation of condition numbers for small data errors, considered linear system and introduced condition number of a matrix, programmed example using Hilbert matrix to illustrate effect of an ill-conditioning problem	
 \end{tcolorbox}
 
-\begin{definition}[Condition Number]
+\begin{definition}
+  Consider a mapping $f$ from a subset $D$ of a normed linear space  $V$ with norm $\|\cdot \|_{V}$ into another normed linear space $W$ with norm $\|\cdot \|_{W}$ where $x \in D \subset V$ s. t. $f\left( x \right) \in W$. We shall be concerned with the sensitivity of the output to perturbation in the input; therefore, as a measure of sensitivity, we define the \textbf{absolute condition number} of $f$ by \[
+    Cond\left( f \right) = \sup_{\substack{x,y \in D \subset V \\ x \neq y}} \frac{\|f\left( x \right) \le- f\left( y \right) f\left( x \right)\|_{W}}{\|y-x\|} 
+  \] 
+  If $Cond\left( f \right) = +\infty$ or if $ 1 \ll Cond\left( f \right) < \infty$, we say the mapping is \textbf{ill-conditioned}.
+\end{definition}
+ 
+\begin{definition}[Absolute Local Condition Number]
+  When $\frac{\|f\left( y \right) - f\left( x \right)\|_{W}}{\|y-x\|_{V}}$ exhibits large variations as $\left( x,y \right)$ ranges through $D \times D $, it is more helpful to consider a finer local condition, \textbf{abslute local condition number}, as $x \in D \subset V$ of the function $f$, defined by \[
+    \text{Cond}_x\left( f \right) = \sup_{\substack{\delta x \in  V \setminus \{0\}  \\ x + \delta x \in D}} { \frac{\|f\left( x + \delta x \right) -  f\left( x \right)\|_{W} }{\|\delta x\|_{V}} } 
+  \] 
+\end{definition}
+
+\begin{definition}[Condition Number Matrix]
   A \textbf{condition number} of a matrix $A \in \mathbb{C}^{n\times n }$ is defined as 
 \begin{equation}
 \label{eq:condition_number}
@@ -203,6 +265,16 @@ In general are mathematical errors
 
 \end{tcolorbox}
 \todo{ Seems like he lookes more into 3.4 and similar }
+
+
+\begin{theorem}
+  Suppose that $A \in \mathbb{R}^{m \times  n }$ where $ m \le n$.  Then, $A$ can be written in the form \[
+  A = \hat{Q} \hat{R}
+  \] 
+  where $\hat{R}$ is an upper triangular $n \times n $ matrix and $\hat{Q}$ is an $m \times  n $ matrix which satisfies \[
+  \hat{Q}^{T} \hat{Q} =  I_n
+  \] where $I_n$ is the $n \times n $ identity matrix. If $rank\left( A \right) = n$ then is $\hat{R}$ nonsingular.
+\end{theorem}
 
 
 \subsection{Cholesky decomposition}%
