@@ -54,18 +54,30 @@
 \label{sec:linear_systems_i}
 \subsection{Gaussian Elimination}%
 \label{sub:gaussian_elimination}
+
 \begin{tcolorbox}
   Introduction of linear systems (nxn), Cramer's rule to compute solution vector
 \end{tcolorbox}
-\todo{ Did not find sources. To prove }
 
+For a matrix $A \in \mathbb{R}^{n\times n }$ to solve the system of equation $Ax = b$ must this equivalent statements hold ,
+\begin{itemize}
+  \item $A$ is invertible.
+  \item $rank\left( A \right) = n$ 
+    \item The homogenous system $Ax = 0$ only admits the null solution.
+\end{itemize}
 
+A way to compute the solution is formally prvided by \textbf{Cramers rule} 
+\begin{equation}
+\label{eq:cramers-rule}
+x_{j} = \frac{\Delta_j}{det\left( A \right)} \quad j = 1,\ldots,n 
+.\end{equation}
+where $\Delta_j$ is the determinant of the matrix obtained by substituting the $j$-th column of $A$ with the right hand side $b$. This formula is, however, of little practical use. Indeed, if the determinant are evaluated by the recursive relation s.t the computation effort solving this is $\left( n+1 \right)!$
 
  \begin{tcolorbox}
    Reviewed GEM, rewrote GEM with help of matrix multiplication from the left (using Frobenius matrices), derived fundamental properties for upper and lower triangulate matrices (e.g. products and inversion of lower triangular matrices), stated and proved LU factorizations for matrices A with invertible leading principal submatrices up to order n-1.
  \end{tcolorbox}
 
- \begin{definition}[Frobenius Matrix]
+\begin{definition}[Frobenius Matrix]
    A \textbf{Frobenius matrix}  is a square matric with the following properties,
    \begin{itemize}
      \item All entries on the main diagonal are ones.
@@ -102,6 +114,8 @@
 \end{tcolorbox}
 
 
+
+
 \begin{tcolorbox}
   Finished proof from last time (complete proof can be found under teaching material, lecture03), derived complexity of LU factorization ( $O(n^3)$  and forward/backward substitution algorithms ( $O(n^2)$, introduced symmetric and positive definite (spd) matrices and started to discuss Cholesky factorization	
 \end{tcolorbox}
@@ -109,12 +123,14 @@
 \subsection{Pivoting}%
 \label{sub:pivoting}
 \begin{tcolorbox}
-  Stated and proved Cholesky factorization for spd matrices, discussed in detail an example of spd matrix from discretization of a boundary value problem, introduced overdetermined system. Stated minimization property of orthogonal projections.
+  Stated and proved Cholesky factorization for spd matrices, discussed in detail an example of spd matrix from discrimination of a boundary value problem, introduced overdetermined system. Stated minimization property of orthogonal projections.
 \end{tcolorbox}
 
 \newpage
 \section{Stability and Error Analysis}%
 \label{sec:stability_and_error_analysis}
+
+ 
 
 
 \subsection{Stability, forward and backward analysis}%
@@ -123,8 +139,38 @@
 \begin{tcolorbox}
   Sources of error in numerical computations, reviewed machine representation of numbers using floating point numbers, introduced concept of local (absolute and relative) condition numbers, discussed computation of condition numbers for small data errors, considered linear system and introduced condition number of a matrix, programmed example using Hilbert matrix to illustrate effect of an ill-conditioning problem	
 \end{tcolorbox}
+
+\begin{definition}[Condition Number]
+  A \textbf{condition number} of a matrix $A \in \mathbb{C}^{n\times n }$ is defined as 
+\begin{equation}
+\label{eq:condition_number}
+K\left( A \right) =  \frac{\|A\|}{\|A^{-1}\|}
+.\end{equation}
+Where $\|\cdot\|$ is the induced matrix norm. 
+\end{definition}
+
+\begin{remark}
+  Condition number of a singular matrix is set equal to infinity.
+\end{remark}
+
+\begin{definition}[Forward and backward analysis]
+  \begin{itemize}
+    \item \textbf{Forward analysis}, which provides bound to the variations $\|\delta x_{n}\|$ on the solution due to both perturbation in the data and to errors that are intrinsic to the numerical method.
+  \item \textbf{Backward analysis} , which aims at estimating the perturbations that should be "impressed" to the data of a given problem in order to obtain the results actually computed under the assumptions of working in exact arithmetic. Equivalently, given a certain computed solution $\hat{x_n}$, backwards analysis looks for the perturbations $\delta d_{n}$ on the data such that $F_{n} \left( \hat{x_n}, d_n + \delta_n \right)$. Notice that, when performing such an
+    estimate, no account at al is taken into the way $\hat{x_{n}}$ has been obtained.
+  \end{itemize}
+\end{definition}
+  
 \subsection{Convergence}%
 \label{sub:convergence}
+
+In general are mathematical errors 
+\begin{itemize}
+  \item Error's due to the model, that can be controlled by a proper choice of the mathematical model . 
+  \item Errors in the data, that can be reduced by enhancing the accuracy in the measurement of the data themself .
+  \item Trunction errors, arising from having replaced the numerical model limits by operations that involve a finite number of steps.
+  \item Rounding errors.
+\end{itemize}
 
 \newpage
 \section{Linear Systems II}%
@@ -134,12 +180,19 @@
 \label{sub:undetermined_systems_and_least_square_problems}
 \begin{tcolorbox}
   Show that the orthornormal projection into some subspace gives a the best-approximation of some given data in that subspace, used this connection to derive the normal equations solved by x iff x solves least-squares problem (l.s.p), discussed algorithm to l.s.p based on Normal equations and Cholesky factorization of AT A. Discussed possible disadvantages of this approach and introduced QR factorization of A as an alternative way to solve the l.s.p.	
+  \par
+  YAYEB: 3.1.1, 3.1.2, 3.2 until 3.2.1.
+
 \end{tcolorbox}
+\todo{ Seems like he want through stability analysis such as convergent numbers. }
+
 
 \subsection{Cholesky decomposition}%
 \label{sub:chelesky_decomposition}
 \begin{tcolorbox}
   Discussed full and reduced QR factorization. Recall Gram-Schmidt orthogonalization methods and reinterpreted it as a first method to compute the reduced QR factorization	
+  \par
+  YEB:3.4.3
 \end{tcolorbox}
 
 \subsection{Eigenvalue and Eigenvector computations}%
@@ -153,15 +206,20 @@
 \label{sub:banach_fixed_point_iteration}
 \begin{tcolorbox}
   Briefly discussed conditioning of root finding problem, bisection method as a 1 dimensional method to compute a root, introduced the concept of convergence order for an sequence approaching a root, fixpoint iterations
-
+  \par
+  YEB: 6.1, 6.2.1, 7.1.5
+  BLUB: 4.2.1 (pp.108-112)
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Implemented and test bisection methods, introduced concept of convergence order, implemented fixpoint iterations and tested it for 2 different fixpoint formulation of the same root finding problem 
+  \par
+  see L9
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Finalize proof of contraction mapping theorem, consider convergence order, discussed how to estimate Lipschitz constant via derivatives. Introduced polynomial interpolation, Lagrange polynomials, discussed Lagrange form of the interpolation polynomial	
+  BLUB: 4.2.1 (pp.108-112) and 6.2
 \end{tcolorbox}
 \subsection{Newtons method}%
 \label{sub:newtons_method}
