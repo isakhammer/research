@@ -234,6 +234,7 @@ Where $\|\cdot\|$ is the induced matrix norm.
 \end{remark}
 
 \begin{definition}[Forward and backward analysis]
+  The methods can be described as follows,  
   \begin{itemize}
     \item \textbf{Forward analysis}, which provides bound to the variations $\|\delta x_{n}\|$ on the solution due to both perturbation in the data and to errors that are intrinsic to the numerical method.
   \item \textbf{Backward analysis} , which aims at estimating the perturbations that should be "impressed" to the data of a given problem in order to obtain the results actually computed under the assumptions of working in exact arithmetic. Equivalently, given a certain computed solution $\hat{x_n}$, backwards analysis looks for the perturbations $\delta d_{n}$ on the data such that $F_{n} \left( \hat{x_n}, d_n + \delta_n \right)$. Notice that, when performing such an
@@ -243,6 +244,7 @@ Where $\|\cdot\|$ is the induced matrix norm.
   
 \subsection{Convergence}%
 \label{sub:convergence}
+
 
 In general are mathematical errors 
 \begin{itemize}
@@ -292,6 +294,17 @@ In general are mathematical errors
 \section{Nonlinear Systems}%
 \label{sec:nonlinear_systems}
 
+ \subsection{Newtons method}
+ \label{sub:newtons_method}
+
+ \textbf{Newtons Method} Assuming that $f \in C^{1}\left( I \right)$ and that $f'\left( \alpha \right) \neq 0$ (i.e, $\alpha$ is a simple root of $f$  ), if we let \[
+ q_{k} = f'\left( x^{(k)} \right) \quad \forall k \ge 0 
+ \] 
+ and assign the inital value $x^{(0)}$, we obstain the socalled Newtons method \[
+ x^{(k+1)} = x^{(k)} - \frac{f\left( x^{(k)} \right)}{f'\left( x^{(k)} \right)} \quad k\ge 0 
+ \] 
+
+
 \subsection{Banach Fixed Point Iteration}%
 \label{sub:banach_fixed_point_iteration}
 \begin{tcolorbox}
@@ -300,6 +313,39 @@ In general are mathematical errors
   YEB: 6.1, 6.2.1, 7.1.5
   BLUB: 4.2.1 (pp.108-112)
 \end{tcolorbox}
+
+\par
+The problem of fixed point iterations is often described like this \[
+  \text{Given} \quad  \mathbf{G}: \mathbb{R}^{n} \to \mathbb{R}^{n}, \quad \text{find } x^{*} \quad \text{such that }  \mathbf{G} \left( \mathbf{x^{*}} \right) = \mathbf{x}^{*}   
+\] 
+Where $\mathbf{G}$ is related to $\mathbf{F}$ through the following property if $x^{*}$ is a fixed point of $\mathbf{G}$ then $\mathbf{F}\left( \mathbf{x^{*}} \right) = 0$ 
+
+\begin{definition}[Contraction]
+  A mapping $\mathbf{G}: D \subset \mathbb{R}^{n} \to \mathbb{R}^{n}$ is contractive on a set $D_0 \subset D$ if there exist a constant $\alpha < 1$ such that $\|\mathbf{G}\left( \mathbf{x} - \mathbf{G}\left( \mathbf{y} \right) \right)\| \le \alpha \|\mathbf{x} - \mathbf{y}\|$ for all $\mathbf{y}, \mathbf{x} $ in $D_0$, where $\|\cdot \|$ is a suitable vector norm.
+\end{definition}
+
+
+\begin{theorem}[Contraction-mapping theorem]
+  Suppose that $\mathbf{G}: D \subset \mathbb{R}^{n} \to \mathbb{R}^{n}$ is contractive on a closed set $D_0 \subset D$ and that $\mathbf{G}\left( x \right) \subset D_0$ for all $\mathbf{x} \in D_0=$ . then $\mathbf{G}$ has a unique fixed point in $D_0$.  
+\end{theorem}
+
+\begin{proof}
+  Let us first prove the uniqueness of the fixed point. For this assume that there exist two distinv fixed point $\mathbf{x}^{*}, \mathbf{y}^{*}$. Then \[
+  \|\mathbf{x}^{*} - \mathbf{y}^{*}\| =  \|\mathbf{G} \left( \mathbf{x}^{*} \right) - \mathbf{G}\left( \mathbf{y}^{*} \right)\| \le \alpha \|\mathbf{x}^{*} - \mathbf{y}^{*}\|
+  \] from which $\left( 1- \alpha \right) \|\mathbf{x^{*} - \mathbf{y}^{*}} \| \le 0$. Since $\left( 1- \alpha \right) > 0$, it must necessarily be that $\|\mathbf{x}^{*} - \mathbf{y}^{*}\| = 0$ , i.e. , $\mathbf{x}^{*} = \mathbf{y}^{*}$.
+  \par  
+  To prove the existence we show that $\mathbf{x}^{(k)}$ is a Cauchy sequence. This in turn implies that $\mathbf{x}^{(k)}$ is convergent to a point $\mathbf{x}^{(*)} \in D_0$. Take $\mathbf{x}^{(0)}$. Take $\mathbf{x^{(0)}}$ arbitary in $D_0$. Then, since the image of $\mathbf{G}$ is included in $D_0$, the sequence $\mathbf{x}^{(k)}$ is well defined as \[
+  \|\mathbf{x}^{(k+1)} - \mathbf{x}^{(k)}\| = \|\mathbf{G}\left( \mathbf{x}^{(k)} \right) - \mathbf{G}\left( \mathbf{x}^{(k-1)} \right)\| \le \alpha \|\mathbf{x^{k}} - \mathbf{x}^{(k-1)}\|
+  \] 
+  After $p$ steps, $p\ge 1$ we obtain 
+  \begin{align}
+    \|\mathbf{x}^{(k+p)}- \mathbf{x}^{(k)}\| &\le \sum_{i=1}^{p} \|\mathbf{x}^{(k+i)} - \mathbf{x}^{(k+i-1)}\| \le \left( \alpha ^{p-1} + \ldots + 1 \right) \|\mathbf{x}^{(k+1)}- \mathbf{x}^{(k)}\| \\
+                                             &\le \frac{\alpha ^{k}}{ 1- \alpha } \|\mathbf{x}^{(1)} - \mathbf{x}^{(0)}\|
+  .\end{align}
+  Owing to the continutity of $\mathbf{G}$ it follow that $\lim_{rk \to \infty} \mathbf{G}\left( \mathbf{x}^{(k)} \right) = \mathbf{G}\left( \mathbf{x}^{(*)} \right)$ Which proves that $\mathbf{x^{(*)}}$ is a fixed point of $\mathbf{G}$.
+
+
+\end{proof}
 
 \begin{tcolorbox}
   Implemented and test bisection methods, introduced concept of convergence order, implemented fixpoint iterations and tested it for 2 different fixpoint formulation of the same root finding problem 
@@ -311,9 +357,6 @@ In general are mathematical errors
   Finalize proof of contraction mapping theorem, consider convergence order, discussed how to estimate Lipschitz constant via derivatives. Introduced polynomial interpolation, Lagrange polynomials, discussed Lagrange form of the interpolation polynomial	
   BLUB: 4.2.1 (pp.108-112) and 6.2
 \end{tcolorbox}
-\subsection{Newtons method}%
-\label{sub:newtons_method}
-
 \subsection{Gauss-Newton Method for non-linear least squared problems}%
 \label{sub:gauss_newton_method_for_non_linear_least_squared_problems}
 
@@ -326,18 +369,23 @@ In general are mathematical errors
 
 \begin{tcolorbox}
   Implementing and plotting Lagrange polynomials, computing interpolation for some functions, Runge example, example of different nodes distribution (Chebyshev nodes)	
+  YEB 8.1, BLUB 6.2
 \end{tcolorbox}
 
 \begin{tcolorbox}
    Introduce Newton's method, stated and proved local quadratic convergence. 	
+   YEB 7.1
+
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Newton polynomials, computing interpolation polynom in Newton form, n-th Newton divided difference	
+  YEB 8.2, 8.2.1
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Estimates of the interpolation error, condition of the interpolation problem	
+   BLUB 6.2/6.3, YEYEB : 7-7.1.2
 \end{tcolorbox}
 
 \subsection{Aiken-Neville Algorithm}%
@@ -346,6 +394,8 @@ In general are mathematical errors
 
 \begin{tcolorbox}
   A recursion formula for the interpolationpolynomial is derived  which leads to the Aiken-Neville algorithm which evaluates an interpolation polynomial at a certain point	
+  YEYEB: 7.1.2 (first 2 pages)
+
 \end{tcolorbox}
 
 
@@ -360,23 +410,30 @@ In general are mathematical errors
 \label{sub:trapezoid_rule}
 \begin{tcolorbox}
   Integral as positive linearform, simplest examples of  quadrature rules (midpoint and trapezoidal rules), degree of exactness, Newton-Cotes formulas and estimates for quadrature error, composite trapezoidal rule (CTR)
+  BLUB: 7.1-7.5
+
+  (Similar and additional material in YEB:9 - 9.4)
 \end{tcolorbox}
 
 \subsection{Gauss-Christoffel Quadrature}%
 \label{sub:gauss_christoffel_quadrature}
 \begin{tcolorbox}
   Derived error estimate for CTR, implementation and convergence rate experiments, same for composite Simpson rule	
+  BLUB:7.5
+YEB:9.4
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Derivation of quadrature rules of max order 2n+1 for weighted integrals, ortogonality properties for Gaussian quadrature rules, orthogonal polynomials,
 
 I skipped some proofs and a theorem, please read proof of Lemma 9.16 (orthogonal polynomials of order n has n simple real roots)  and Thm 9.18 + proof (the weigths of the Gaussian quadrature are positive) in A3YEB
+A3YEB: 9.3
+
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Proved that there is no QR with n+1 points and order 2n+2, use Gram-Schmidt to orthogonalize polynomials, computed roots and weights for Gaussian quadrature rule with 3 nodes on [-1,1] and weight function w(x) = 1
-
+None sources.
 
 \end{tcolorbox}
 
@@ -391,15 +448,18 @@ I skipped some proofs and a theorem, please read proof of Lemma 9.16 (orthogonal
 \label{sub:runge_kutta_explicit_}
 
 \begin{tcolorbox}
-  	First order ordinary differential equations as initial value proble and examples, derivation of explicit and implicit Euler's method via difference quotient and quadrature approach, definition of  one-step-methods (OSM) and their consistency and convergence order, stated and discussed main convergence theorem for OSM
+  	First order ordinary differential equations as initial value proble and examples, derivation of explicit and implicit Euler's method via difference quotient and quadrature approach, definition of  one-step-methods (OSM) and their consistency and convergence order, stated and discussed main convergence theorem for OSM,
+handnotes.
 \end{tcolorbox}
  
 \begin{tcolorbox}
-  Derivation and formulation of Runge-Kutta methods, reformulation via stage-derivatives, definition of Butcher tableaus, implementation of RK method up to to order	
+  Derivation and formulation of Runge-Kutta methods, reformulation via stage-derivatives, definition of Butcher tableaus, implementation of RK method up to to order.
+  None notes.
 \end{tcolorbox}
 
 \begin{tcolorbox}
   Proof of the main convergence theorem stated in Lecture 21, discrete Gronwall's inequality, autonomous systems and RKM, multivariate Taylor expansion, derivation of order condition up to p=3	
+  handnotes.
 \end{tcolorbox}
 
 \subsection{Adams-Bashforth Methods}%
@@ -409,10 +469,15 @@ I skipped some proofs and a theorem, please read proof of Lemma 9.16 (orthogonal
 \label{sub:stiff_problems}
 \begin{tcolorbox}
   Stiff problems, implicit Runge-Kutta methods, stability function associated with RKM, A-stability	
+  ODE-notes  Ch5
 \end{tcolorbox}
 
 \subsection{Linear Multi Step Method}%
 \label{sub:linear_multi_step_method}
+
+\begin{tcolorbox}
+   Linear multistep methods (LMM), consistency order and conditions, null stability, main convergence theorem for LMMs, Examples of LMMs including Adam-Bashforth-Moulton and BDF	. ODE notes ch6
+\end{tcolorbox}
 
  
 
