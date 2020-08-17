@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Numerical Maths}
+\author{isakhammer }
+\date{A20}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} }
+\pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Lecture 1}%
+\label{sec:lecture_1}
+
+\subsection{Practical Information}%
+\label{sub:practical_information}
+
+\begin{itemize}
+  \item Brynjulf Owren, room 1350, Sentralbygg 2, brynjulf.owren@ntnu.no
+  \item Alvar Lindell, room 1201, Sentralbygg 2, alvar.lindell@ntnu.no
+\end{itemize}
+
+There will be a total of 6 assignment where 4 should be approved. It should be delivered in blackboard as a jupyter notebook file including some control questions.   
+
+
+\begin{itemize}
+  \item \textbf{Project 1} It counts 10 procent on the final grade, relativaly small work, but somewhat large assignment. Every student submits her own separate .ipynb file. Discuss problem if you like, but make your own write-up. Likely to be a topic of algebra. Deadline. 10-15 September.
+  \item \textbf{Project 2} Counts 20 procent on the final grade. Group project 1-3 students. Numerical ODE and may some optimization. 
+\end{itemize}
+
+
+\par
+Lecture contents of the course
+\begin{itemize}
+  \item Introduction 3.6\%
+  \item Numerical linear algebra 21.4\%
+  \item Numerical ODE 28.6\%
+  \item Nonlinear Systems and Numerical Optization 7.1\%
+\end{itemize}
+
+\textbf{May be jupyter programming on the exam.}  
+
+\subsection{M2 Basic Linear Algebra}%
+\label{sub:m2_basic_linear_algebra}
+
+\subsubsection{Background summary}%
+\label{ssub:background_summary}
+
+\textbf{Vectors}. Most of the time we think of vectors as $n$-plets of real numbers.\[
+v = \begin{bmatrix} 
+v_1 \\
+v_2 \\
+\vdots \\
+v_n
+\end{bmatrix} 
+\]   
+
+Vecotrs are columns vectors if row vectors are needed use. \[
+v^{T} = \begin{bmatrix} 
+  v_1 & v_2 & v_3 & \ldots & v_{n}
+\end{bmatrix} 
+\]    
+
+Linear Transformations are given by $A: \mathbb{R}^{n} \to \mathbb{R}^{m}$. These are represented ass $m \times n $ matrices.  $A = \left( \left( a_{ij} \right) \right)$ such that $ 1 \le i \le m$ and $1 \le j \le n$ . Notation $A \in \mathbb{R}^{m \times n }$ \[
+  (Av)_{i} = \sum_{j=1}^{n} a_{ij} v_{j}, \quad  i = 1,\ldots, m. 
+\] 
+
+If $A = \left( \left( a_{ij} \right) \right)$, B $\left( \left( b_{ij} \right) \right)$ then $A +B = C$, $C = \left(\left( c_{ij} \right)  \right)$, $c_{ij} = a_{ij} + b_{ij}$.  
+
+\par
+
+Given to matrices, $A \in \mathbb{R}^{m \times k }$ and $B \in \mathbb{R}^{k\times n }$ \[
+\mathbb{R}^{n} \to \mathbb{R}^{k} \to\mathbb{R}^{m}
+\] 
+\[
+\mathbb{R}^{n} \to \mathbb{R}^{m}
+\] 
+\[
+\left( A\cdot B \right)_{ij} =  \sum_{r=1}^{k}a_{ir}b_{ri}
+\] 
+
+\todo{ Fix a way to have notation on top of arrow and a better snippet for the summation. Might also train making quick vector notations. }
+
+\subsubsection{Linear Independence}%
+\label{ssub:linear_independence}
+
+Let assume that we have $v_{1}, \ldots, v_{k}$ be vectors in $\mathbb{R}^{n}$ and let $\alpha_1, \alpha_2, \ldots , \alpha_{k}$ be scalar if \[
+\sum_{n=1}^{k} \alpha_i v_i = 0 \quad \text{then is} \quad \alpha_1=\alpha_2 = \ldots = 0   
+\] 
+Then $v_1, v_2, \ldots, v_{k}$ is linear independent. 
+
+\subsubsection{Inverse of an $n\times n $ matrix}%
+\label{ssub:inverse_of_an_ntimes_n_matrix}
+
+If there is a matrix $B \in \mathbb{R}^{n\times n }$ such that \[
+A\cdot B= B\cdot A = I
+\] Then $B$ is the inverse of A.
+B is denoted $B = A ^{-1}$ 
+Basis of $\mathbb{R}^{n}$. Any set of $n$ linearly independent vectors in $\mathbb{R}^{n}$ is called a basis. \par
+
+\subsubsection{Permutation Matrix}%
+\label{ssub:permutation_matrix}
+
+
+\textbf{Permuation Matrix.} Let $I \in \mathbb{R}^{n\times n }$ be the identity matrix. $I$ has columns $e_1, e_2, \ldots , e_n$ where $e_i$ is the $i$-th canonical unit vector \[
+\begin{bmatrix} 
+  0 & 0 & \ldots 1 \ldots 0 
+\end{bmatrix} 
+= e^{T}
+\] 
+
+
+Let $p = \begin{bmatrix} 
+i_1, i_2, \ldots, i_n
+\end{bmatrix}^{T} $ 
+Be a permutation of the set $\left\{ 1, \ldots, n \right\}$ then \[
+P = \begin{bmatrix} 
+  e_1 & e_2 & e_2 
+\end{bmatrix} 
+\] 
+The permutation metrix. 
+
+\todo[inline]{ Implement example snippet }
+
+The inverse of a permutation matrix in $P^{-1} = P^{T}$ and $\left( P^{-1} \right)_{ij} = P_{ji}$.
+
+\subsubsection{Types of Matrices}%
+\label{ssub:types_of_matrices}
+
+\begin{itemize}
+  \item Symmetric: $A^{T} = A$
+  \item Skew symmetric: $A^{T} = -A$
+  \item Orthogonal. $A^{T} A = I$
+\end{itemize}
+
+
+
+
+
+  
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
