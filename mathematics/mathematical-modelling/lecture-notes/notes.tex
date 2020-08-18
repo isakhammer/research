@@ -1,0 +1,172 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Mathematical Modelling}
+\author{isakhammer }
+\date{2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_Tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Test}%
+\label{sec:test}
+
+\begin{equation}
+\label{eq:n1}
+  \begin{split}
+    m \frac{d}{dt^{*}} x^{*} &=  gm - k \frac{d}{dt ^{*}} x^{*} , \\
+     & x^{*} \left( 0 \right) = 0  \quad  \frac{d}{dt ^{*}} x^{*}\left( 0 \right) =V
+  \end{split}
+.\end{equation}
+
+
+
+Let \[
+T_{0} = \frac{L}{v_{0}} = \frac{Lk}{mg} 
+\] 
+and
+
+\begin{equation*}
+  \frac{d ^2 x ^{*}}{d t^{*}^2} = \frac{- R^2 g}{\left( R + x^{*} \right)^2} = - \frac{-g}{ \left( 1 + \frac{x^{*}}{R} \right)^2} \approx  -g 
+.\end{equation*}
+
+this equation may be solved given \[
+x^{*}\left( t^{*} \right) \approx -  \frac{1}{2} g t^{*}^2 + V t^{*}
+\] 
+
+The height can be approximated by \[
+\frac{d x^{*}}{d t^{*}}  \approx gt^{*} + V = 0 
+\] 
+
+or \[
+t_{\text{Max}} \approx  \frac{V}{g}
+\] 
+
+Thus \[
+X = \frac{V^2}{g}, \quad  T = \frac{V}{g} 
+\] 
+
+Inserted does this lead to 
+
+\begin{equation*}
+  \frac{d ^2 \left( \frac{V^2x / g}{} \right)}{d \left( \frac{Vt}{g} \right)^2} = - \frac{R^2g}{ \left( R + \frac{V^2}{g}x \right)^2} 
+.\end{equation*}
+
+and 
+\begin{equation*}
+  \frac{V^2}{g}x\left( 0 \right) = 0 \quad  \frac{d \left( \frac{V^2}{g}x \right)}{d \frac{V}{g}t} = V 
+.\end{equation*}
+
+Let us repeat 
+
+\begin{equation*}
+  \frac{d ^2 x^{*}}{d t^2^{*}}  = - \frac{R^2}{\left( R + x^{*} \right)^2} g  = \frac{-g}{\left( 1 + \frac{x^{*}}{R} \right)^2} \approx -g
+.\end{equation*}
+
+
+\begin{equation*}
+  x^{*} \approx -g t^{*} + V = 0
+.\end{equation*}
+
+
+Inserted to the equation does it lead to 
+\begin{equation*}
+  \frac{d ^2 \left( \frac{V^2}{g}x \right)}{d \left( \frac{Vt}{g} \right)^2}  = - \frac{R^2g}{\left( R + \frac{V^2}{g}x \right)^2}
+.\end{equation*}
+and
+\begin{equation*}
+  \frac{V^2}{g}x\left( 0 \right) = 0 \quad  , \quad  \frac{d \left( \frac{V^2}{g}x \right)}{d \left( \frac{V}{g}t \right)}   
+.\end{equation*}
+
+\begin{align*}
+  \ddot{x} &= \frac{-1}{\left( 1 + \epsilon x \right)^2} \\
+   & x\left( 0 \right) = 0   \quad  \dot{x}\left( 0 \right) = 1  \quad  \epsilon = \frac{V^2}{Rg} 
+.\end{align*}
+
+
+
+We should study 
+\begin{equation*}
+  x\left( t \right) = x_{0}\left( t \right) + \epsilon x_{1}\left( t \right) + \epsilon ^{2} x_{1}\left( t \right) + \ldots
+.\end{equation*}
+
+into the equation
+
+
+\begin{equation*}
+  \left[ T \right] = \frac{\left[ \sigma \right]}{ \left[ \frac{\partial ^2 \eta}{\partial x^2}  \right]} = \left( \frac{kgm}{s^2 m ^2} \right)  \cdot  \frac{m^2}{m} = \frac{kg}{s^2}
+.\end{equation*}
+
+which often ends up with 
+\begin{equation*}
+  \omega  = \left( a, k ,T V \right)
+.\end{equation*}
+
+\subsubsection{Equation}%
+\label{ssub:equation}
+
+\begin{align}
+  \label{eq:label}
+  \frac{d v^{*}}{d x^{*}} &= \frac{Pc}{A} \left( C^{*}\left( x^{*} \right) - C_0 \right) , \quad  0 \le x^{*} \le L   \\
+  C^{*} v^{*} - D \frac{d C^{*}}{d x^{*}}  &=  \begin{cases}
+    \frac{N_0 c}{A} x^{*}  &  \quad  x^{*} < \delta \\
+    \frac{N_0 c}{A}  \delta  & \quad  \delta \le x^{*} 
+  \end{cases} 
+.\end{align}
+
+Boundary conditions
+\begin{align*}
+  v^{*}\left( 0 \right) &=  0 \quad    C^{*}\left( L \right) = 0  \\
+                        & v^{*}, C^{*} \quad   \text{is continious for} \quad  x^{*} = \delta 
+.\end{align*}
+
+Determine \[
+O s^{*} = \frac{F^{*}\left( L \right)}{v^{*}\left( L \right)} = \frac{c N_{0}\delta /A }{v^{*}\left( L \right)}
+\] 
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
+

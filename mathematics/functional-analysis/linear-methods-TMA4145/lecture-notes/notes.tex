@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Linear Methods Lecture}
+\author{isakhammer }
+\date{2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Lecture 1}%
+\label{sec:lecture_1}
+
+\subsection{Set Theory}%
+\label{sub:set_theory}
+
+\begin{definition}
+  A \textbf{set} is a collection of distinct objects, its elements. \[
+  x \in X \quad  x \text{ is a element of the set } X 
+  \] 
+  and similary 
+  \[
+  x \not\in X \quad  \text{ x is not an element of X} 
+  \] 
+
+  \par
+   Two sets are identical $X=Y$ , if \[
+   x \in X \leftrightarrow x \in Y
+   \] 
+   for any element  $x$ .
+\end{definition}
+
+\begin{definition}
+  $Y$ is a subset of $X$, $Y \mathbb{C}  X$ if for all $y \in X$. If $Y \subset X $ and $Y \neq X$, we write $y \subset X$ (or $Y \not \subset X$). $Y$ is then a proper subset of $X$ .
+  Showing to sets are equal, 
+  \begin{itemize}
+    \item $x \in X \leftrightarrow x \in Y$
+    \item $x \subset Y$ and $ y \subset X$
+  \end{itemize}
+  The empty set are denoted by $\O$
+\end{definition}
+
+\begin{example}
+  \begin{itemize}
+    \item $\mathbb{N}  = \left\{ 1,2,3,4,5, \ldots \right\}$
+    \item $\mathbb{Z}  = \left\{ \ldots, -1,0,1,\ldots \right\}$
+    \item $\mathbb{Q}  = \left\{ \frac{p}{q}: p,q \in \mathbb{Z} , q \neq0 \right\}$ 
+    \item $\mathbb{R}  = \text{reals}$ 
+    \item $\mathbb{C}: \text{Complex numbers} \quad  a + ib  $ 
+    \item Finite set $\left\{ 3,4,5,6 \right\}$ 
+    \item Intervals in $\mathbb{R} $ For real numbers $a < b < \infty$
+      \begin{align*}
+        & (a,b)\\
+        & \left[ a,b \right] \\
+        & (a,b] , \quad  [a,b) 
+      .\end{align*}
+  \end{itemize} 
+\end{example}
+
+
+\begin{definition}
+  Let $X$ and $Y$ be two sets then
+  \begin{itemize}
+    \item Union. $X \cup Y = \left\{ z  \mid z \in X \quad \text{or} \quad  z \in Y     \right\}$ 
+      \[
+      \bigcup_{i \in  I}  X_{i} = \left\{ z  \mid z \in X_{i} \quad   \text{ for some } \quad   i \in I \right\}
+      \] 
+    \item Intersection if $\bigcap_{i \in  I}  = \{ z  \mid z \in X_i \quad \text{For every} \quad  i \in I  \} $
+    \item Complement if $S$ is a subset of $X$ , then the complement of $S$ is \[
+    X \setminus S = S^{c} = \{ x \in X: x \not\in S\} .
+    \] 
+  \item Cartesian product \[
+  X \times  Y = \{ \left( x,y \right) : x \in X , \quad   y \in Y\}  
+  \] 
+  \end{itemize}
+\end{definition}
+
+
+\begin{lemma}
+  \begin{itemize}
+    \item $x \cap \left( Y \cup Z \right) = \left( X \cap Y \right) \cup \left( X \cap Z \right) \quad   $  and \[
+    X \cup \left( Y \cap Z \right) = \left( X \cup Y \right) \cap \left( X \cup Z \right)
+    \] 
+  \item $\left( X \cup Y \right)^{c} = X^{c} \cap Y^{c}$
+  \item $\left( X \cap Y \right)^{c} = X^{c} \cup Y^{c}$
+  \item Demo organs law 
+
+    \begin{align*}
+      X \setminus \left( Y \cup Z \right) &= \left( X \setminus Y\right) \cap \left( X \setminus Z \right) \\
+    .\end{align*}
+  \item $\left( X^{c} \right)^{c} = X$
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  Proof of $\left( X \cup Y \right)^{c} ) =  X^{c} \cap Y^{c}$
+  \begin{equation*}
+    \begin{split}
+      x \in \left( X \cup Y \right)^{c} & \to x \in X \cup U\\
+       & x \not\in X \quad \text{and} \quad  x \not\in Y \\
+       & x \in X^{c} \quad \text{and} \quad  x \in Y \\
+       & x \in X^{c} \cap Y^{c}
+    \end{split}
+  .\end{equation*}
+\end{proof}
+
+\subsection{Functions}%
+\label{sub:functions}
+
+Let $X,Y$ be sets. A function $f$ from $X$ to $Y$, denoted $f: X \to Y$ , is defined by a set $G$ of ordered pairs $\left( x,y \right) $, where $x \in X, \quad  y \in Y  $ and with the property that;
+\par
+For each set is there a unique $y \in Y \quad  \text{ s.t.} \quad  \left( x,y \right) \in G $. We write $f\left( x \right) = y$. 
+\begin{itemize}
+  \item We say that $X$ is the domain and $Y$ is the codomain.
+  \item The (direct) image of a set $ A \subset X$ under f is \[
+  f\left( A \right) = \{f\left( t \right): t \in A\} \subset Y
+  \] 
+\item The \textbf{inverse image}  of a set $B \subset Y$ under f is \[
+    f^{-1} \left(  B \right)  = \{x \in X  \mid f\left( x \right) \in B\} \subset X
+\] 
+\item The \textbf{range} if $f$ is the image of its domain $X$ is \[
+    ran\left( f \right) = f\left( X \right) = \{f\left( t \right): t \in X\} 
+\] 
+\end{itemize}
+
+\begin{example}
+  Let $f: \mathbb{R}  \to \mathbb{R} $ given by \[
+  f\left( x \right) = max\left\{ x,0 \right\} = x^{+}
+  \] 
+  Then is the $ran\left( f \right) = [0, \infty)$.  The inverse is $f^{-1} \left( \left\{ y \right\} \right) = \left\{ y \right\}$ and $f^{-1}\left( \left\{ 0 \right\} \right) = (- \infty , 0]$  and \[
+  f^{-1} \left( \left\{ y \right\} \right) = \O \quad \text{if} \quad  y < 0  
+  \] 
+\end{example}
+
+
+\begin{definition}
+  Let $f: X \to Y$ be a function
+  \begin{itemize}
+    \item $f$ is \textbf{injective}  or \textbf{one-to-one}  if $f\left( x_{1} \right) \to x_{1} = x_{1}$ 
+    \item $f$ is \textbf{surjective}  or \textbf{onto}  if $ran\left( f \right) = y$ 
+    \item $f$ is \textbf{bijective}  if it is both surjective and injective.
+  \end{itemize}
+\end{definition}
+
+\begin{example}
+  Lets continue the example.
+  \begin{itemize}
+    \item
+  Let $f: \mathbb{R} \to \mathbb{R} $ , $f\left( x \right) = max \left\{ x,0 \right\}$. Injective? No; $f\left( x_{1} \right) = \underbrace{f\left( x_{2} \right)}_\text{$= 0$}  $ for any two $x_{1}, x_{1} < 0$ .
+\item  A \textbf{bijection}  $f:  X \in Y$ has a \textbf{inverse}  function $f^{-1} : Y \to X$, defined by $f^{-1} \left( y \right) = x$ if $f\left( x \right) = y$ . \par
+  THe inverse function $f^{-1} $ is also a bijection. 
+  \end{itemize}
+\end{example}
+\begin{remark}
+  Not to be confused with the inverse image of a set $f^{-1} \left( B \right) $ introduced earlier.
+\end{remark}
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
