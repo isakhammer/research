@@ -1,0 +1,204 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Partial Differential Equations}
+\author{isakhammer }
+\date{2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Lecture 1}%
+\label{sec:lecture_1}
+ \subsection{Praktiske Ting}%
+ \label{sub:book}
+ 
+ \begin{itemize}
+   \item
+ Borthwick, Introduction to Partial Differential Equations - Springer Link
+ \item Ingen obligatoriske øvinger.
+
+ \end{itemize}
+
+ \subsection{Bevaring av Konserveringslov}%
+ \label{sub:bevaring_av_konserveringslov}
+ 
+ \begin{itemize}
+   \item
+\textbf{Konserveringslov}  \[
+  \begin{split}
+    \frac{\partial u}{\partial t} + \frac{\partial }{\partial x} f\left( u \right) &= 0\\
+    u\left( t,x \right)  &  \quad \text{ukjent}  \\
+    f \quad  & \text{er oppgit} 
+  \end{split}
+\] 
+\item
+\textbf{Hamilton Jacobi} \[
+\frac{\partial u}{\partial t}  +  f \left( \frac{\partial u}{\partial x} \right)  = 0
+\] 
+\item \textbf{Bølgelingingen}  \[
+\frac{\partial ^{2} u }{\partial t^{2}} - c^2 \frac{\partial ^2u}{\partial x^2}  = 0
+\] 
+\item \textbf{Varmeligningen} \[
+\frac{\partial u}{\partial t} - \mathbb{H} \frac{\partial ^2}{\partial x^2}  = f\left( t,x \right) 
+\] 
+\item  \textbf{Possion lingingen} \[
+    \begin{split}
+- \frac{\partial ^2}{\partial x^2}  - \frac{\partial ^2}{\partial y^2}   & = f\left( x,y \right) \\
+-\left( \frac{\partial ^2}{\partial x^2}  + \frac{\partial ^2}{\partial y^2}  \right)u &= f 
+    \end{split}
+\] 
+\item \textbf{Korteweg - de vries} \[
+\frac{\partial u}{\partial t}  + \frac{\partial ^{3}}{\partial x^{3}}  - 6u \frac{\partial u}{\partial x} = 0
+\]  
+\item \textbf{Navier Stokes} \[
+\rho \left( \frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \nabla \mathbf{u} \right) = - \nabla p + \mu \Delta \mathbf{u} + \rho \mathbf{g} 
+\] 
+
+ \end{itemize}
+
+ \subsection{Notation}%
+ \label{sub:notation}
+
+ En generell pde kan beskrives som \[
+ F\left( t, x, y, \ldots, u_{t}, u_{t} , \ldots , u_{y} , u_{xy}, \ldots  \right) = 0
+ \] 
+
+ og blir beskrevet som en partiell diffligning. \[
+ u_{t} + f'\left( u \right) u_{x} = 0
+ \] 
+
+ En \textbf{klassisk løsning }  til en PDE av order $m$ er en $C^{m}$- funksjon som i ligningen. 
+
+ \begin{example}
+   Bølgeligningen $u_{tt} - c^2 u_{x x} = 0$ har en klassisk løsning $u\left( t,u \right) = f\left( x \pm ct \right)$ med $f \in C^2 $  der $\left[ f, f', f''  \right]$ er kontinuerlig. 
+   \begin{align*}
+     u_{t} &=  \pm c f'\left( x \pm ct \right) \\
+     u_{t t} &=  f''\left( x \pm ct \right) \\
+     u_{x x} &=  c^2 f''\left( x \pm ct \right) \\
+     u_{t t} &=  f'' \left( x \pm ct \right) \\
+     u_{tt} &=  c^2 u_{x x}     
+   .\end{align*}
+   Der av løsningen \[
+   u\left( t,x \right) = f_{1}\left( x + ct \right) + f_{2}\left( x -ct \right)
+   \] 
+ \end{example}
+
+
+ \subsection{PDE-Teori}%
+ \label{sub:pde_teori}
+ 
+ \begin{itemize}
+   \item  Fine løsninger
+   \item Analyse  
+     \begin{itemize}
+       \item Velstilt.
+         \begin{itemize}
+           \item Løsninger eksisteres
+           \item De er entydige.
+           \item De avhenger kontiuerlig av data. 
+         \end{itemize}
+       \item General opp oppførsel
+         \[
+           \begin{split}
+         u_{t} - u_{x x}  &  \quad  t > 0 \\
+         u\left( 0,x \right) &= u_{0} \left( x \right)
+           \end{split}
+         \] 
+       \item Tilnærmede løsninger (numerikk)
+     \end{itemize}
+
+ \end{itemize}
+ 
+
+ \subsection{Kap 3, Transportligningen}%
+ \label{sub:kap_3_transportligningen}
+
+ \[
+ u_{t} + v u_{x} =0 \quad  \text{der } \quad  v\left( t,x \right) = 0 \quad  , u\left( 0,x \right) = u_{0} \left( x \right)   
+ \] 
+ Som kan omskrives til \[
+   \begin{split}
+ \frac{d u\left( t,x\left( t \right) \right)}{d t} &= u_{t} + \dot{x} u_{x} = 0  \\
+ \text{dersom} \quad  & \dot{x} = v\left( t,x \right) \quad \text{har entydig løsning gitt}\quad x\left( 0 \right) = x_{0} \\
+ \text{forutsatt} \quad   &  v \in C^{1} 
+   \end{split}
+ \] 
+ derfor er $u\left( t, x\left( t \right) \right) = u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)$. La oss definere $X\left( t, x_{0} \right) = x\left( t \right)$ \[
+ \text{dersom} \quad  x \quad \text{løser} \quad \begin{cases}
+   \dot{x} &= v\left( t,x \right) \\
+   x\left( 0 \right) &= x_{0}  
+ \end{cases}  
+ \] 
+
+ La $u\left( t, X\left( t,x_{0} \right) \right) = u_{0} \left( x_{0} \right)$ . For a finne $u\left( t,x \right)$, løs $\left( X\left( t,x_{0} \right) \right)$ med hennold 
+ pa $x_{0} $ og sett inn  
+ 
+ \begin{example}
+   \[
+   u_{t} + \left( at +b \right)u_{x} = 0  \quad  a,b \quad \text{er kont}  
+   \]
+   Da er ligningen $\dot{x} + at = b$ slik at \[
+   \begin{split}
+     x &=  \frac{1}{2} at^2  + bt  +c\\
+     x_{0} &=  x - \frac{1}{2  } at^2 - bt \\
+     u\left( t,x \right) &= u_{0} \left( x-\frac{1}{2} at^2 -bt \right)\\
+     u_{t} &= -\left( at +b \right)
+   \end{split}
+   \] 
+ \end{example}
+
+
+
+ 
+ 
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
