@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Mathematical Modelling}
+\title{Mathemathical Modelling}
 \author{isakhammer }
 \date{2020}
 
@@ -31,7 +31,7 @@
 \usepackage{xcolor}
 \newcommand{\incfig}[2][1]{%
 \def\svgwidth{#1\columnwidth}
-\import{./figures/}{#2.pdf_Tex} } \pdfsuppresswarningpagegroup=1
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
 
 % Box environment
 \usepackage{tcolorbox}
@@ -42,131 +42,152 @@
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
 
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
-
 \newpage
-\section{Test}%
-\label{sec:test}
+\section{Lecture 1}%
+\label{sec:lecture_1}
 
-\begin{equation}
-\label{eq:n1}
+\subsection{Practical Information}%
+\label{sub:practical_information}
+
+You need to know 
+\begin{itemize}
+  \item Separable 1. order equations.
+  \item Linear 1. order equations.
+  \item 2. order linear equations with constant coefficients.
+\end{itemize}
+
+\subsection{Dimensional Analysis}%
+\label{sub:dimensional_analysis}
+
+Basic facts
+\begin{itemize}
+  \item Any physical relation has to make sense dimensionally.
+  \item Any physical relation must be valid for any choice of fundamental units.
+\end{itemize}
+\begin{remark}
+  \todo{ Make sure remark looks better }
+  \begin{itemize}
+    \item
+  \textbf{Forbidden} $3m + 2kg = ?$ 
+\item $m = f\left( x,t \right)$ is legal
+\item  $e^{-t}$ and $s = 5t ^{2}$ , is nonsense
+  \end{itemize}
+\end{remark}
+
+\begin{itemize}
+  \item
+\textbf{Dimension}  is length, mass , energy, etc.
+\item
+\textbf{Unit} is meter, feet, year, etc
+\end{itemize}
+Given a variable $R$, we write $R =\overbrace{v\left( R \right)}^\text{numerical value}   \underbrace{\left[ R \right]}_\text{unit}$.   
+\par
+If we have a physical relation that is dimensionall correct that \[
+f\left( R_{1}, R_{2}, \ldots, R_{n} \right) = 0 \quad  \to \quad f\left( v\left( R_{1} \right), v\left( R_{2} \right), \ldots, v\left( R_n \right) \right)   = 0
+\] 
+\subsection{Fundamental Units}%
+\label{sub:fundamental_units}
+
+Given units $F_{1}, F_{2}, \ldots , F_{m}$ for fundamental if \[
+  F_{1}^{\alpha_1}, F_{2}^{\alpha_2}, \ldots , F_{m}^{\alpha m} = 0 \quad  \to \quad  \alpha_1 = \alpha_{2} = \ldots = 0   
+\] 
+This units are then independent.
+\begin{example}
+  The units $kg, m, s$ are independent.  
+\end{example}
+\begin{example}
+  In a right angle triangle with angle $\alpha $ and hypothenus $c$. We know the area $A$ is uniquely determined by $\alpha $ and $c$ \[
+  A = f\left( c,\alpha  \right)
+  \] 
+  $\alpha $ is dimensialless since  $\alpha  = \frac{s}{r}$. Since $A$ scales as the square of the length, then is \[
+  f\left( ac, \alpha  \right) = a^2f\left( c,\alpha  \right)
+  \]   
+  \[
+    c = 1 \to f\left( a, \alpha  \right) = a^2f\left( 1,\alpha  \right) = a^2h\left( \alpha  \right)
+  \] 
+  Which then ends up with the relation \[
+  A = a^2h\left( \alpha  \right)
+  \] 
+\end{example} 
+
+\todo[inline]{ Make corollary environmet }
+
+
+Lets derive $A = a ^2 h\left( \alpha   \right)$ somwhat differently. We know there is a relation $f\left( A, c, \alpha  \right) = 0$ . We want to introduce new variables.\[
+\Pi_1 = \frac{A}{c^2}, \quad  c = c_1, \quad \alpha = \alpha _1   
+\] 
+which means $f\left( c^2 \Pi_1, c, \alpha   \right) = 0$  and $h\left( \Pi_1, \alpha , c \right) = 0$. $h$ must be dimensially consistent $\to$ $h$ must be independent of $c$. 
+\begin{equation*}
   \begin{split}
-    m \frac{d}{dt^{*}} x^{*} &=  gm - k \frac{d}{dt ^{*}} x^{*} , \\
-     & x^{*} \left( 0 \right) = 0  \quad  \frac{d}{dt ^{*}} x^{*}\left( 0 \right) =V
+    h\left( \Pi_1, \alpha  \right) &= 0 \leftrightarrow \Pi_1 = k\left( \alpha  \right) \\
+    \to  \frac{A}{c^2} &= k\left( \alpha  \right) \quad   \leftrightarrow \quad A = c^2k\left( \alpha  \right) 
   \end{split}
-.\end{equation}
-
-
-
-Let \[
-T_{0} = \frac{L}{v_{0}} = \frac{Lk}{mg} 
-\] 
-and
-
-\begin{equation*}
-  \frac{d ^2 x ^{*}}{d t^{*}^2} = \frac{- R^2 g}{\left( R + x^{*} \right)^2} = - \frac{-g}{ \left( 1 + \frac{x^{*}}{R} \right)^2} \approx  -g 
 .\end{equation*}
 
-this equation may be solved given \[
-x^{*}\left( t^{*} \right) \approx -  \frac{1}{2} g t^{*}^2 + V t^{*}
+\subsection{Trinity of the first atomic blast}%
+\label{sub:trinity_of_the_first_atomic_blast}
+
+We assume there is a relation \[
+f\left( E, \rho, r , t \right) = 0
 \] 
 
-The height can be approximated by \[
-\frac{d x^{*}}{d t^{*}}  \approx gt^{*} + V = 0 
+\begin{itemize}
+  \item Energy: $E$, $\left[ E \right] = kg m^2 s^{-2}$ 
+  \item Mass density of air: $\rho$, $\left[ \rho \right] = kg ^{-3}$
+  \item Radius: $r$ , $\left[ r \right] = m$
+  \item Time: $t$, $\left[ t \right] =s$ 
+\end{itemize}
+
+We choose 3 independent variables, say $r, t, \rho$. Also we call $r, t, \rho  $ \textbf{core variables}.  Let is define a dimensionalless number $\Pi_{1} $ such that \[
+\left[ \Pi _{1} \right] = 0
 \] 
 
-or \[
-t_{\text{Max}} \approx  \frac{V}{g}
+The relation is now given by $h\left( \Pi , t, r, \rho \right) = 0$, where $h$ is independent of $t$ , $r$ and $\rho$. Which in fact is $h\left( \Pi  \right) = 0$, where $\Pi _{1} = c$ s.t. $\left[ c \right] = 1$.  
+\par
+Given by the definitnion is \[
+\frac{E t^{2}}{\rho r ^{5}} = c \quad  \to \quad  E = \frac{c \rho r^{5}}{t^{2}}  
+\] 
+Using $\rho = 12 kgm^{-3}$, $r = 110m$ , $t = 6 \cdot 10^{-3}$ do we end up with the relation \[
+E = c \cdot  7.5 \cdot  10 ^{13} J
 \] 
 
-Thus \[
-X = \frac{V^2}{g}, \quad  T = \frac{V}{g} 
+\subsection{Steady-state single phase flow in a uniform straight pipeline}%
+\label{sub:steady_state_single_phase_flow}
+\todo[inline]{ Figure of a pipe }
+
+Pipe with flow $u$, length $L$ and pressure drop $\Delta p$ Then there is a relation between 
+\begin{itemize}
+  \item $L$ : length, $\left[ L \right] = m$ 
+  \item $D$: diameter $\left[ D \right] = m$
+  \item $u$: flow rate $\left[ u \right] = ms^{-1}$
+  \item $\Delta p$: Pressure drop, $\left[ \Delta kg m^{-1} s^{-2} \right]$
+  \item $\mu$: (Shear) viscousity $\left[ \mu \right] = kg m^{-1} s^{-1}$ 
+  \item $\rho$: mass density: $\left[ \rho \right] = kg m^{-3}$
+  \item $E$: Wall roughness: $\left[ E \right] = m$
+\end{itemize}
+
+We have to choose $3$ core variables and they are not unique.  Since we have $3$ independent units $\rho , u, D$ are independent such that it can be a core variable: \[
+\Pi _{1} = \frac{L}{D} \quad , \quad  \Pi _{2} = \frac{\Delta p}{\rho u^2} \quad , \quad \Pi _{3} = \frac{\rho}{\mu} \quad , \quad  \Pi _{4} = \frac{E}{D}    
 \] 
-
-Inserted does this lead to 
-
-\begin{equation*}
-  \frac{d ^2 \left( \frac{V^2x / g}{} \right)}{d \left( \frac{Vt}{g} \right)^2} = - \frac{R^2g}{ \left( R + \frac{V^2}{g}x \right)^2} 
-.\end{equation*}
-
-and 
-\begin{equation*}
-  \frac{V^2}{g}x\left( 0 \right) = 0 \quad  \frac{d \left( \frac{V^2}{g}x \right)}{d \frac{V}{g}t} = V 
-.\end{equation*}
-
-Let us repeat 
-
-\begin{equation*}
-  \frac{d ^2 x^{*}}{d t^2^{*}}  = - \frac{R^2}{\left( R + x^{*} \right)^2} g  = \frac{-g}{\left( 1 + \frac{x^{*}}{R} \right)^2} \approx -g
-.\end{equation*}
-
-
-\begin{equation*}
-  x^{*} \approx -g t^{*} + V = 0
-.\end{equation*}
-
-
-Inserted to the equation does it lead to 
-\begin{equation*}
-  \frac{d ^2 \left( \frac{V^2}{g}x \right)}{d \left( \frac{Vt}{g} \right)^2}  = - \frac{R^2g}{\left( R + \frac{V^2}{g}x \right)^2}
-.\end{equation*}
-and
-\begin{equation*}
-  \frac{V^2}{g}x\left( 0 \right) = 0 \quad  , \quad  \frac{d \left( \frac{V^2}{g}x \right)}{d \left( \frac{V}{g}t \right)}   
-.\end{equation*}
-
-\begin{align*}
-  \ddot{x} &= \frac{-1}{\left( 1 + \epsilon x \right)^2} \\
-   & x\left( 0 \right) = 0   \quad  \dot{x}\left( 0 \right) = 1  \quad  \epsilon = \frac{V^2}{Rg} 
-.\end{align*}
+THen the relation is \[
+  \begin{split}
+    f\left( \Pi _{1}, \Pi _{2} , \Pi _3, \Pi ^{4},\rho, D, u \right) &= 0  \quad  \Pi _{2} = h\left( \Pi _{1}, \Pi _{3}, \Pi _{4} \right) \leftrightarrow \frac{\Delta p}{\rho u^2} = h\left( \Pi _{1}, \Pi _3 , \Pi _{4} \right) \\
+    \to  & \frac{\Delta p}{ u^2 \rho} = \Pi _{1} k\left( \Pi _{3}, \Pi _{4} \right)\\
+    \Delta p &= u^2 \rho \frac{L}{D} k \left( \frac{\rho D u}{\mu}, \frac{E}{D} \right)   \\
+    \text{measure} \quad & \frac{\rho D \mu}{ \mu} \quad ,\quad    k= \frac{\Delta p D }{u^2\rho}
+  \end{split}
+\]
+  
 
 
 
-We should study 
-\begin{equation*}
-  x\left( t \right) = x_{0}\left( t \right) + \epsilon x_{1}\left( t \right) + \epsilon ^{2} x_{1}\left( t \right) + \ldots
-.\end{equation*}
-
-into the equation
-
-
-\begin{equation*}
-  \left[ T \right] = \frac{\left[ \sigma \right]}{ \left[ \frac{\partial ^2 \eta}{\partial x^2}  \right]} = \left( \frac{kgm}{s^2 m ^2} \right)  \cdot  \frac{m^2}{m} = \frac{kg}{s^2}
-.\end{equation*}
-
-which often ends up with 
-\begin{equation*}
-  \omega  = \left( a, k ,T V \right)
-.\end{equation*}
-
-\subsubsection{Equation}%
-\label{ssub:equation}
-
-\begin{align}
-  \label{eq:label}
-  \frac{d v^{*}}{d x^{*}} &= \frac{Pc}{A} \left( C^{*}\left( x^{*} \right) - C_0 \right) , \quad  0 \le x^{*} \le L   \\
-  C^{*} v^{*} - D \frac{d C^{*}}{d x^{*}}  &=  \begin{cases}
-    \frac{N_0 c}{A} x^{*}  &  \quad  x^{*} < \delta \\
-    \frac{N_0 c}{A}  \delta  & \quad  \delta \le x^{*} 
-  \end{cases} 
-.\end{align}
-
-Boundary conditions
-\begin{align*}
-  v^{*}\left( 0 \right) &=  0 \quad    C^{*}\left( L \right) = 0  \\
-                        & v^{*}, C^{*} \quad   \text{is continious for} \quad  x^{*} = \delta 
-.\end{align*}
-
-Determine \[
-O s^{*} = \frac{F^{*}\left( L \right)}{v^{*}\left( L \right)} = \frac{c N_{0}\delta /A }{v^{*}\left( L \right)}
-\] 
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
-
-
