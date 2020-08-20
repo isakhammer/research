@@ -80,7 +80,7 @@
     \item $x \in X \leftrightarrow x \in Y$
     \item $x \subset Y$ and $ y \subset X$
   \end{itemize}
-  The empty set are denoted by $\O$
+  The empty set are denoted by null.
 \end{definition}
 
 \begin{example}
@@ -171,7 +171,7 @@ For each set is there a unique $y \in Y \quad  \text{ s.t.} \quad  \left( x,y \r
   f\left( x \right) = max\left\{ x,0 \right\} = x^{+}
   \] 
   Then is the $ran\left( f \right) = [0, \infty)$.  The inverse is $f^{-1} \left( \left\{ y \right\} \right) = \left\{ y \right\}$ and $f^{-1}\left( \left\{ 0 \right\} \right) = (- \infty , 0]$  and \[
-  f^{-1} \left( \left\{ y \right\} \right) = \O \quad \text{if} \quad  y < 0  
+  f^{-1} \left( \left\{ y \right\} \right) = \text{NULL} \quad \text{if} \quad  y < 0  
   \] 
 \end{example}
 
@@ -280,12 +280,13 @@ These two sets \textbf{do not}  have the same cardinality.
 \end{tcolorbox}
 
 \begin{definition}
-  Let $X$ be a set. We say $X$ is \textbf{finite} if either $X = \O $ or there exist $n \in \mathbb{N} $ s. T. $X$ has the same cardinality as $\{ 1,2,3,4, \ldots, n\} $ if \[
+  Let $X$ be a set. We say $X$ is \textbf{finite} if either $X = \text{NULL} $ or there exist $n \in \mathbb{N} $ s. T. $X$ has the same cardinality as $\{ 1,2,3,4, \ldots, n\} $ if \[
  \text{ There exist} \quad  f: \{1,2,3, \ldots m b\}  \to X \quad \text{for some} \quad  n    
   \] 
   $X$ is \textbf{infinite }  if it is not finite.
 \end{definition}
 
+\newpage 
 \begin{definition}
   A set $X$ is 
   \begin{itemize}
@@ -300,6 +301,98 @@ These two sets \textbf{do not}  have the same cardinality.
   \item Uncountable if it is not countable.
   \end{itemize}
 \end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.} 
+  \begin{itemize}
+    \item Any finitie set is, e.g. $\{ 2,5,9\} $ 
+    \item $X = \{ 1,4,9,16, \ldots , n^2 , \ldots\} $  such that \[
+    f: \mathbb{N}  \to X, \quad  f\left( n \right) = n^2 
+    \] 
+  \item $\mathbb{N} \times  \mathbb{N}  $ is countable ; \par
+    We arrange $N\times N $ in a table. \[
+    \begin{split}
+         f: \mathbb{N}  &\to \mathbb{N} \times  \mathbb{N}  \\
+        f\left( 1 \right) &=  \left( 1,1 \right) \\
+        f\left( 2 \right) &=  \left(2,1  \right)  \\
+        f\left( 3 \right) &=  \left( 1,2 \right) \\
+        f\left( 4 \right) &=  \left( 3,1 \right) \\
+        \vdots   
+    \end{split} 
+    \]  
+  \item $\mathbb{Z} $ and $\mathbb{Q} $ are countable (Prob set 1).
+  \item If $X$ and $Y$ are countable, then so is $X \cup  Y$ .
+  \end{itemize}
+\end{tcolorbox}
+
+\subsection{Schroeder Bernstein Theorem}%
+\label{sub:schroeder_bernstein_theorem}
+
+Let $X$ and $Y$ by two be two sets. Suppose there are injective maps $f: X \to Y$ and $g: Y \to X$. Then there exists a bijection between $X$ and $Y$. 
+
+\begin{tcolorbox}
+  \textbf{Example.} The interval $\left( 0,1 \right) \subseteq  \mathbb{R} $. Claim it is uncountable.  
+  \begin{proof}
+    The Cantor diagonalization argument. Suppose that $\left( 0,1 \right) $ is countable. \[
+      \begin{split}
+        \left( 0,1 \right) = &\{x_{1}, x_{2}, x_{3}, x_{4} , \ldots\} \\
+         & f\left( 1 \right), f\left( 2 \right) , f\left( 3 \right), \ldots\\
+         \\
+      f: \mathbb{N}  & \to \left( 0,1 \right) \\
+      x_{i} = 0,  & x_{i1}, x_{i2} , x_{i3}, \ldots 
+      \end{split} 
+    \] 
+    Now let \[
+    a = 0, a_{1}, a_{2}, a_{3}, a_{4}, a_{5}, \ldots
+    \] 
+    where \[
+    a_{i} = \begin{cases}
+      3 &  \text{if} \quad   x_{ii} \neq 3 \\
+      1  & \text{if} \quad   x_{ii} =3  
+    \end{cases}
+    \] 
+    Then $a_{i} \neq x_{ii} $ , so by construction $a \neq x_{i}$ for all $i$. Moreover, we must have $a \in \left( 0,1 \right)$. This is a contradiction, so $\left( 0,1 \right) $ cannot be countable. 
+  \end{proof}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+  \textbf{Example.} The set of all binary sequences $ X = \left\{ \left( x_{1}, x_{2}, x_{3} , \ldots \right) \right\} : \quad  x_{i} \in \left\{ 0,1 \right\}  $
+  is uncountable . 
+
+  \begin{proof}
+    Problem set 2.
+  \end{proof}
+\end{tcolorbox}
+
+\newpage
+  \begin{lemma}
+    Let $X$ and $Y$ be sets. Then 
+    \begin{itemize}
+      \item If $X$ is countable and $ Y \subseteq  X$ , then $Y$ is also countable. \[
+      \left\{ 1,2,3,4,5, \ldots \right\} \to \{x_{1}, x_{2} , x_{3}, x_{4} , \ldots\} 
+      \] 
+    \item If $X$ is uncountable and $X \subseteq  Y$, then $Y$ is uncountable. 
+    \item If $X$ is countable and there is an injection \[
+    f: Y \to X   
+    \] 
+    then $Y$ is countable.
+  \item If $X$ is uncountable and \[
+  \exists \quad  \text{injective} \quad  f: X \to Y,   
+  \] 
+  then $Y$ is uncountable.
+    \end{itemize}
+  \end{lemma}
+   \begin{tcolorbox}
+     \textbf{Example.} Have proed formally that $\left( 0,1 \right) \subseteq  \mathbb{R} $ is countable $\overbrace{\to}^\text{ii)}  \mathbb{R} $ must be uncountable \[
+       R \subset \mathbb{C}  \overbrace{\longrightarrow}^\text{ii)} \mathbb{C} \quad \text{is uncountable} 
+     \] 
+   \end{tcolorbox}
+
+   \begin{tcolorbox}
+     \textbf{Example.} $R = \mathbb{Q}  \cup \mathbb{I}$. Know: $\mathbb{Q} $ countable.  \par
+     Assume $\mathbb{I}$ countable. Then $R \cup \mathbb{I}$ which is a contradiction. So $\mathbb{I}$ is uncountable
+   \end{tcolorbox}
 
 
 \bibliographystyle{plain}
