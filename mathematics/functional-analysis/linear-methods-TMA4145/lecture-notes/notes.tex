@@ -198,7 +198,108 @@ For each set is there a unique $y \in Y \quad  \text{ s.t.} \quad  \left( x,y \r
   Not to be confused with the inverse image of a set $f^{-1} \left( B \right) $ introduced earlier.
 \end{remark}
 
+\newpage
+\section{Lecture 2}%
+\label{sec:lecture_2}
 
+\subsection{Recall}%
+\label{sub:recall}
+
+Let $f: X \to Y$ then is 
+\begin{itemize}
+  \item[i)] Inective: $f\left( x_{1} \right) = f\left( x_{2} \right) \to \quad x_{1} = x_{2} $ 
+  \item [ii)] Surjective:  For all $y$ in $Y$ there is a $x$ in $X$ s.t. $f\left( x \right) = y$. 
+  \item [iii)] Bijective if i) and ii) holds.
+\end{itemize}
+
+
+\begin{itemize}
+  \item If $F: X \to Y$ is a bijective then there is an inverse \[
+      f^{-1} : Y \to X
+  \] 
+  Given by \[
+  f^{-1} \left( y \right) = x \quad  \text{if} \quad  f\left( x \right)   = y
+  \] 
+\item Identify function/map 
+  \begin{itemize}
+    \item id: $X \to X$
+    \item $id_{x}\left( x \right) = x$ for all $x \in X$
+  \end{itemize}
+\item The composition of a function \[
+    g: Y \to Z \quad  \text{with} \quad  f: X \to X  
+\] is the function $g\cdot f : X \to Y$   defined by \[
+\left( g\cdot f \right)\left( x \right) = g\left( f\left( x \right) \right) \quad  \text{for} \quad  x \in X  
+\] 
+\end{itemize}
+
+\begin{definition}
+  Anternative version. Given a bijection $f: X\to Y$ the inverse function $f^{-1}: Y \to X$ is the unique function satisftying $f^{-1} \cdot  f = id_{x}$ and $f\cdot f^{-1} = id_{y} $
+\end{definition}
+\begin{example}
+  $\frac{d }{d x}: C^{1}\left( \mathbb{R} , \mathbb{R}  \right) \to C \left( \mathbb{R} ,\mathbb{R}  \right) $. Inverse? no. 
+  \par
+  Let $g \in C^{1} \left( \mathbb{R} ,\mathbb{R}  \right)$. Then is \[
+  \frac{d \left( g + c \right)}{d x} = \frac{d g}{d x} \quad \text{where c is the constant.} 
+  \] 
+  It is surjective because given any $f \in C\left( \mathbb{R} ,\mathbb{R}  \right)$
+  we can define $F \in C^{1}\left( \mathbb{R} ,\mathbb{R}  \right)$ by \[
+  F: X \to \int_{0}^{x} f\left( t \right)dt
+  \] 
+  and \[
+  \frac{d F}{d x} = f \quad  \text{fundamental theorem of calculus.} 
+  \] 
+\end{example}
+
+\subsection{Cardinality}%
+\label{sub:cardinality}
+
+Cardinality is a tool for comparing the sizes of sets. 
+\begin{definition}
+  We say that two sets $A$ and $B$ has the same cardinality if there exist a bijection between $A$ and $B$. 
+\end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.}
+  \par
+  \begin{itemize}
+    \item [i)] The two inervals $\left[ 0,2 \right]$ and $\left[ 0,1 \right]$ have the same cardinality. \[
+    \begin{split}
+       &  f:\left[ 0,2 \right] \to \left[ 0,1 \right]  \\
+        &  f\left( t \right) = \frac{t}{2}
+    \end{split}
+    \] 
+  \item [ii)] Let $\mathbb{N}  = \{ 1,2,3,4, \ldots \} $ and $\mathbb{N} \setminus \{1\} = \{2,3,4,5, \ldots\}  $ have the same cardinality \[
+  f\left( n \right) = n+1
+  \] 
+\item [iii)] $n$ is finite integer. Then there is no bijection \[
+    f: \{1,2,3, \ldots , n\}  \to \mathbb{N} 
+\] 
+These two sets \textbf{do not}  have the same cardinality. 
+  \end{itemize}
+
+\end{tcolorbox}
+
+\begin{definition}
+  Let $X$ be a set. We say $X$ is \textbf{finite} if either $X = \O $ or there exist $n \in \mathbb{N} $ s. T. $X$ has the same cardinality as $\{ 1,2,3,4, \ldots, n\} $ if \[
+ \text{ There exist} \quad  f: \{1,2,3, \ldots m b\}  \to X \quad \text{for some} \quad  n    
+  \] 
+  $X$ is \textbf{infinite }  if it is not finite.
+\end{definition}
+
+\begin{definition}
+  A set $X$ is 
+  \begin{itemize}
+    \item Countable infinite if it has the same cardinality as $\mathbb{N} $. \[
+    \exists \text{bijection} \quad  f: X \to \mathbb{N}  
+    \] 
+  \item Countable if it is either countably infinite or finite. or equivalently 
+    \begin{itemize}
+      \item if $\exists$ injection $f: X \to \mathbb{N} $ 
+      \item $\exists$ surjection $f: \mathbb{N}  \to X$
+    \end{itemize}
+  \item Uncountable if it is not countable.
+  \end{itemize}
+\end{definition}
 
 
 \bibliographystyle{plain}
