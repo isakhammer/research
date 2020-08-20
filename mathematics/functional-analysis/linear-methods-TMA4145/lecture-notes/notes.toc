@@ -1,7 +1,0 @@
-\contentsline {section}{\numberline {1}Lecture 1}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Set Theory}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Functions}{4}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Lecture 2}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Recall}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Cardinality}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Schroeder Bernstein Theorem}{7}{subsection.2.3}%
