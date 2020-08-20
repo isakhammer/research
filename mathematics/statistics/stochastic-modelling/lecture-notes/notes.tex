@@ -1,0 +1,323 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Stochastic Modelling}
+\author{isakhammer }
+\date{2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Lecture 1}%
+\label{sec:lecture_1}
+
+\subsection{Practical Information}%
+\label{sub:practical_information}
+
+Two projects 
+\begin{itemize}
+  \item The projects count $20 \%$ and exam $80 \%$.
+  \item Must be done with two people.
+  \item If you want to do statistics is it worth learning $R$.
+\end{itemize}
+
+\textbf{Course Overview} 
+\begin{itemize}
+  \item Markov chains for discret time and discrete outcome.
+    \begin{itemize}
+      \item Set of states and discrete time points.
+      \item Transition between states
+      \item Future depends on the present, but not the past.
+    \end{itemize}
+  \item Continious time Markoc chains. (continious time and discrete toutcome.
+  \item Brownian motion and Gaussian processes (continionus time and continious outcome.)
+\end{itemize}
+
+
+\subsection{Mathematical description}%
+\label{sub:mathematical_description}
+ \begin{definition}
+   A \textbf{stochastic process} $\{ x\left( t \right), t \in T\} $ is a family of random variables, where $T$ is a set of indicies, and $X\left( t \right)$ is a random variable for each value of $t$.
+ \end{definition}
+
+\subsection{Recall from Statistics Course}%
+\label{sub:recall_from_statistics_course}
+
+A random experiment is perfomed the outcome of the experiment is random.
+\begin{itemize}
+  \item THe set of possible outcomes is the \textbf{sample space}  $\omega $ 
+    \begin{itemize}
+      \item An \textbf{event}  $A \subset \omega $  if the outcome is contained in $A$
+      \item The \textbf{complement}  of an event $A$ is  $A^{c} = \omega  \setminus A$ 
+      \item The \textbf{null event} $\emptyset$ is the empty set $\emptyset = \omega \setminus \omega $ 
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Combining Event}%
+\label{ssub:combining_event}
+
+Let $A$ and B be events 
+\begin{itemize}
+  \item The \textbf{union} $A \cup  B$ is the event that at least one of $A$ and $B$ occur.
+  \item the \textbf{intersection}  $A \cap B$ is the event that both $A$ and $B$ occur.
+\end{itemize}
+
+The events $A_{1}, A_{2}, \ldots$ are called disjoint (or \textbf{mutually exclusive} ) if $A_{i} \cap A_{j} = \emptyset$ for $i \neq j$
+
+\subsubsection{Probability}%
+\label{ssub:probability}
+
+$Pr$ is called a probability on $\omega $ if 
+
+\begin{itemize}
+  \item Pr $\{ \omega \} = 1  $ 
+  \item $0 \le P\left\{ A \right\} \le 1$ for all events $A$ 
+  \item For $A_{1}, A_{2} , \ldots$ that are mutually exclusive \[
+  P \left\{ \bigcup_{i = 1}^{\infty}A_{i}  \right\} = \sum_{i=1}^{\infty} P \left\{ A_{i} \right\}
+  \] 
+\end{itemize}
+We call $P\left\{ A \right\}$ the probability of $A$.
+
+
+\subsubsection{Law of total probability}%
+\label{ssub:law_of_total_probability}
+
+Let $A_{1}, A_{2}, \ldots$ be a partition of $\omega $ ie 
+\begin{itemize}
+  \item $\omega  = \bigcup_{i=1}^{\infty} A_{i}$
+  \item $A_{1}, A_{2}, A_{3}, \ldots$ are mutually exclusive.
+\end{itemize}
+
+Then for any event $B$ \[
+  P\left\{ B \right\} = \sum_{i=1}^{\infty} P\left\{ B \cap A_{i} \right\}
+\] 
+
+\textbf{This concept is very important.} 
+
+\subsubsection{Independence}%
+\label{ssub:independence}
+Event $A$ and $B$ are independent of \[
+P\left\{ A\cap B \right\} = P\left\{ A \right\}P\left\{ B \right\}
+\] 
+Events $A_{1}, \ldots, A_{n}$ are independent if for any subset \[
+P\left\{ \bigcap_{j=1}^{k} A_{i_j} \right\} = \prod_{j=1}^{k} P \left\{ A_{i_j} \right\} 
+\] 
+
+In this case $P\left\{ \bigcap_{i = 1}^{n} A_{1} \right\} =  \prod_{i = 1}^{n} P\left\{ A_{i} \right\} $
+
+
+\subsubsection{Random Variables}%
+\label{ssub:random_variables}
+
+\begin{definition}
+  A \textbf{random variable}  is a real-vaued function on the sample space. Informally:  A random variable is a real valued variable that takes on its value by chance.
+\end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.} 
+  \begin{itemize}
+    \item Throw two dice. $X = \text{sum of the two dice}$
+    \item Throw a coin.  $X$ is $1$ for heads and $X$ is $0$ for tails.
+  \end{itemize}
+\end{tcolorbox}
+
+
+\subsubsection{Notation for random variables}%
+\label{ssub:notation_for_random_variables}
+
+We use 
+\begin{itemize}
+  \item upper case letters such at $X$, $Y$ and $Z$  to represent random variables.
+  \item lower case letters as $x$, $y$, $z$ to denote the real-valued realized value of a the random variable.
+\end{itemize}
+
+Expression such as $\left\{ X \le x \right\}$ denators the event that $X$ assumes a valye less than or earl to the real number x.
+
+\subsubsection{Discrete random variables}%
+\label{ssub:discrete_random_variables}
+
+The random variable $X$ is \textbf{discrete}  if it has a finite or countablle number of possible outcomes $x_{1}, x_{2}, \ldots$ \par
+\begin{itemize}
+  \item The \textbf{probability mass function } $p_{x} \left( x \right) $ is given by \[
+  p_{x}\left( x \right) = P \left\{ X = x \right\}
+  \] and satisfies \[
+  \sum_{i=1}^{\infty} p_{x}\left( x_{i} \right) = 1 \quad  \text{and} \quad  0\le p_{x} \left( x_{i} \right) \le  1 
+  \] 
+\item The \textbf{cumulative distribution function} (CDF) a of $X$ can be written \[
+F_{x}\left( x \right) = P\left\{ X \le x \right\} = \sum_{i: x_{i} \le x}^{} p_{x}\left( x_{i} \right) 
+\]  
+\end{itemize}
+
+\subsubsection{CFD}%
+\label{ssub:cfd} 
+
+The CDF of $X$ may also be called the \textbf{distrobution function}  of $X$ \par 
+Let $F_{x}\left( x \right)$ be the CDF of $X$, then 
+\begin{itemize}
+  \item $F_{x}\left( x \right)$ is monetonaly increasing.
+  \item $F_{x}$ is a stepfunction, which is a pieace-wise constant with jumps at $x_{i}.$
+  \item $\lim_{x \to \infty} F_{x}\left( x \right) = 1$
+  \item $\lim_{x \to - \infty} F_{x}\left( x \right) = 0$
+\end{itemize}
+
+
+\subsubsection{Continious random vairbales}%
+\label{ssub:continious_random_vairbales}
+ A \textbf{continious} random variables takes value o a continious scale.
+ \begin{itemize}
+   \item The CDF, $F_{x}\left( x \right) = P \left( X \le x \right)$ is continious.
+   \item The \textbf{probability density function} (PDF) $f_{x}\left( x \right) = F_{x}' \left( x \right)$ can be used to calculate probablities \[
+   \begin{split}
+     Pr \left\{ a < X < b \right\} &=  Pr \left\{ a \le X < b \right\} = Pr\left\{ a < X \le b \right\} \\
+     &=  Pr\left\{ a \le X \le b \right\} = \int_{a}^{b}  f_{x}\left( x \right)dx   
+   \end{split} 
+   \] 
+ \end{itemize}
+
+
+ \subsubsection{Important properties}%
+ \label{ssub:important_properties}
+
+ \begin{itemize}
+   \item CDF:
+     \begin{itemize}
+       \item Monotonely increaing
+       \item continious
+        \item $\lim_{x \to \infty} F_{x} = 1$ and $\lim_{x \to - \infty} F_{x}\left( x \right) = 0$
+     \end{itemize}
+   \item PDF
+     \begin{itemize}
+       \item $f_{x}\left( x \right) \ge 0$ for $x \in\mathbb{R} $
+       \item $\int_{-\infty}^{\infty} f_{x}\left( x \right)dx = 1$
+     \end{itemize}
+ \end{itemize}
+
+
+\subsubsection{Expectation}%
+\label{ssub:expectation}
+
+Let $g: \mathbb{R}  \to \mathbb{R} $ be a function and $X$ be a random variable.
+\begin{itemize}
+  \item If $X$ is discrete, the expected value of $g\left( X \right) $ is \[
+  E\left[ g\left( X \right) \right] =  \sum_{x: p_{x}\left( x \right)> 0}^{} g\left( x \right) p_{x}\left( x \right)  
+  \] 
+\item If $X$ is continous, the expected value of $g\left( X \right) $ is  \[
+E\left[ g\left( X \right) \right] = \int_{-\infty}^{\infty} g\left( x \right)f_{x}\left( x \right) dx 
+\] 
+\end{itemize}
+
+\subsubsection{Variance}%
+\label{ssub:variance}
+
+The variance of the random variable $X$ is \[
+  Var\left[ X \right] =  E \left[( X - E\left[ X \right])^{2} \right] =  E\left[ X^2 \right] - E\left[ X \right]^2 
+\] 
+Important properties of expectation and variance.
+\begin{itemize}
+  \item Expectations is linear \[
+  E\left[ aX + bY +c \right] = aE\left[ X \right] + bE\left[ Y \right] + c.
+  \] 
+\item Variance scales quadratically and is invaraient to the addition of constants \[
+Var\left[ aX + b \right] = a^2 Var \left[ X \right] 
+\] 
+\item fir independent stochastic variables.\[
+    Var \left[ X + Y \right] = Var \left[ X \right] + Var\left[ Y \right]
+\] 
+\end{itemize}
+
+\subsubsection{Joint CDF}%
+\label{ssub:joint_cdf}
+
+If $\left( X,Y \right)$ is a pair for random variables, their \textbf{joint comulative distribution function } is given by \[
+F_{X,Y} = F\left( x,y \right) =  Pr\left\{ X \le x \cap Y \le y \right\}
+\]. 
+\subsubsection{Joint distrubution for discrete random variables}%
+\label{ssub:joint_distrobution_for_discrete_random_variables}
+If $X$ and $Y$  are discrete, the \textbf{joint probability mass function } $ p_{x,y} = Pr\left\{ X = x, Y =y \right\} $. can be used to compute probabilities \[
+Pr\left\{ a < X < b, c < Y \le d \right\} =  \sum_{a < x \le b}^{}  \sum_{c < y \le d}^{} p_{X,Y}   \left( x,y \right)
+\] 
+
+\subsubsection{Joint distrubution for continous random variables}%
+\label{ssub:joint_distrobution_for_continous_random_variables}
+
+If $X$ and $Y$ are continious the \textbf{joint probability density function}  $f_{X,Y} \left( x,y \right) = f\left( x,y \right) = \frac{\partial ^2}{\partial x \partial y } F\left( x,y \right)   $ can be used to compute probabilities \[
+Pr\left\{ a < X \le b,  \quad  c < Y \le d  \right\} = \int_{a}^{b} \int_{c}^{d} f\left( x,y \right)dxdy    
+\] 
+
+\subsubsection{Independence}%
+\label{ssub:independence}
+
+The random variables $X$ and Y are independent if \[
+Pr\left\{ X \le a , Y \le b \right\} =  Pr\left\{ X \le a \right\} \cdot  Pr\left\{ Y \le b \right\}, \quad  \forall a,b \in  \mathbb{R}  
+\] 
+In terms of CDFs:  $F_{X,Y}(a,b ) =  F_{X}\left( a \right)\cdot F_{Y}\left( b \right) \quad  \forall a,b \in \mathbb{R}  $
+\par
+Thus we have 
+\begin{itemize}
+  \item $p_{X,Y} \left( x,y \right) = p_{X}\left( x \right) \cdot  p_{Y}\left( Y \right)$ for discrete random variables
+  \item $f_{X,Y}\left( x,y \right) = f_{X}\left( x \right) \cdot  f_{Y}\left( Y \right)$ for continuous random variables.
+\end{itemize}
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
