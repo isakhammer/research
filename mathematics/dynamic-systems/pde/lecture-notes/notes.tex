@@ -194,8 +194,221 @@
 
 
 
- 
- 
+\newpage
+\section{Lecture 2}%
+\label{sec:lecture_2}
+
+\subsection{Høy Dimensional Kalkulus}%
+\label{sub:introduction}
+
+Definition av funksjon
+\[
+\begin{split}
+  f: & \mathbb{R} ^{2} \implies \mathbb{R} \\
+  f \in & C^{1}\left( \mathbb{R} ^{n}; \mathbb{R} \mathbb{R}  \right) \quad  \text{betyr kontinuerlig}    \\ 
+\end{split} 
+\]  
+
+For gradienter \[
+\begin{split}
+\nabla f &=  \partial _{x_{1}} f_{1}, \ldots, \partial _{x_{n}} f & 
+&= \begin{pmatrix}
+  \partial _{x_{1}} f \\
+  \vdots \\
+  \partial _{x_{n}} f
+\end{pmatrix} 
+\end{split} 
+\] 
+
+For vectorfelt \[
+  \begin{split}
+    \mathbf{F}:  & \mathbb{R} ^{n} \to \mathbb{R} ^{n} \\
+    \mathbf{F} \in  &  C_{1} \left( \mathbb{R} ^{n} , \mathbb{R} ^{n} \right) \\
+    \nabla \mathbf{F} &= \partial F_{1} + \ldots + \partial  F_{n}
+  \end{split} 
+\] 
+
+\begin{definition}
+  Divergensteoremet \[
+  \int_{\omega }^{}   \nabla  \mathbf{F} d^{n} x = \int_{\partial \omega }^{}  \mathbf{F} \cdot \mathbf{v} dS 
+  \] 
+\end{definition}
+
+% \begin{figure}[ht]
+%     \centering
+%     \incfig{divfigure}
+%     \caption{divfigure}
+%     \label{fig:divfigure}
+% \end{figure}
+
+
+\begin{proof}
+  \[
+  \int_{\mathbf{\sigma}}^{}  f dS = \int_{w}^{} f\left( \mathbf{\sigma}\left( \mathbf{y} \right) \right) det \left[ \frac{\partial \mathbf{v}}{\partial y_{1}}   \ldots , \frac{\partial \mathbf{\sigma}}{\partial y_{n-1}} , \mathbf{v} \right] dy_{1} \ldots dy_{n-1}
+  \] 
+\end{proof}, 
+
+\begin{definition}
+  Området er definert som åpen delmengde av $\mathbb{R} ^{n} $ sammenhengende. La $x_{0}$ være sentrum av sirkelen med radius $R$, da er \[
+    \begin{split}
+  B\left( \mathbf{x_{0}}; R \right)  & =  B_{R} \left( \mathbf{x_{0}} \right)\\
+  &= \left\{ \mathbf{x_{0}} \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{x_{0}}\| < R \right\} \\
+  \\
+    & \begin{cases}
+       & \text{En omegn om } \mathbf{x_{0}} \text{er en mengde som inneholder  } B\left( \mathbf{x_{0}}; R \right) \text{ for en }  R > 0\\
+       &\text{En åpent mengde som er en omegn }  \text{om alle sine punkter.}
+  \end{cases}
+    \end{split} 
+  \] 
+\end{definition}
+
+
+\subsection{Konserveringslov}%
+\label{sub:konserveringslov}
+
+$u\left( t , \mathbf{x}\right)$ er en tetthet, det vil si \[
+\int_{\omega }^{} u\left( t, \mathbf{x} \right) d^{n} \mathbf{x} .
+\] 
+Menger av $u$ inneholdt i $\omega $ vet tid $t^{n}$. \[
+\frac{d }{d t} \int_{\omega }^{} u\left( t, \mathbf{x} \right) d ^{n} \mathbf{x} = \int_{\omega }^{} \partial _{t} u\left( t, \mathbf{x} \right) d^{n}x     
+\] 
+
+Derivasjon under integraltegniet. Ok dersom
+\begin{itemize}
+  \item $\omega $ er begrenset.
+  \item $\partial _{t} u  \in  C \left( \overline{\omega } \right) $ der $\overline{\omega } = \omega \cup \partial \omega $
+\end{itemize}
+
+\[
+  \begin{split}
+    &  \frac{\int_{\Omega }^{} u\left( t + \Delta  t, \mathbf{x} \right) d^{n} \mathbf{x}}{\Delta t}  - \int_{\Omega }^{} u_{t} \left( t, \mathbf{y} \right) d^{n}    \mathbf{x}  \\
+    &=  \int_{\Omega }^{} \left( \frac{u\left( t + \Delta t , \mathbf{x}\right) - u_{t}\left(t, \mathbf{x}  \right) }{\Delta t}   \right) d^{n} \mathbf{x}  \\
+     &=   \int_{\Omega }^{} u_{t} \left( \theta \left( \mathbf{x}, \Delta t \right), \mathbf{x} \right) - u_{t}\left( t, \mathbf{x} \right) d^{n} \mathbf{x}  \\
+      &  \theta \text{ mellom } t \text{ og } t + \Delta t \\
+       &  \le \int_{-\infty}^{\infty}  
+  \end{split} 
+\] 
+
+\todo[inline]{ Bruker alt for lang tid på å skrive dette. Må øve på ø-operator, fjerne default values på dint og begynne å skrive tegninger for å ta bilde av på mobil(?)}
+
+\subsection{Flukstetthet}%
+\label{sub:flukstetthet}
+
+Fluks gjennom $S$ pr tidsenhet \[
+\int_{S}^{} \mathbf{q} \left( t, \mathbf{x} \right) \mathbf{v} dS  
+\] 
+
+Der $\mathbf{v}$ er en enhetsnormal.
+\par
+\textbf{Bevaringslov.} \[
+  \begin{split}
+\frac{d }{d t} \int_{\Omega }^{}  u d ^{n} \mathbf{x} + \int_{\partial \Omega }^{} \mathbf{q} \cdot  \mathbf{v} dS  & = 0   .\\
+\int_{\Omega }^{} u_{t} d^{n} \mathbf{x} + \int_{\Omega }^{} d ^{n} x  &= 0  \\
+\int_{\Omega }^{} \left( u_{t} + \nabla \mathbf{q} \right) d^{n} \mathbf{x} = 0  
+  \end{split} 
+\]  
+For et området $\Omega $ (begrenset ,  $C_{1} $ rand.)
+
+\begin{definition}
+  Generell bevaringslov på differensiell form \[
+  u_{t} + \nabla \mathbf{q} = 0
+  \] 
+\end{definition}
+
+\subsubsection{Spesialtilfelle}%
+\label{ssub:spesialtilfelle}
+
+\[
+\begin{split}
+\mathbf{q}  & = u \mathbf{v}\left( t, \mathbf{x} \right) \\
+\nabla \cdot \mathbf{q}  &  = \nabla u \cdot \mathbf{v} + v \nabla \mathbf{v}\\
+q_{1}  & = u v_{j} \\
+\frac{\partial q_{j}}{\partial x_{j}}  &= u_{x_{j}} v_{j} + u \cdot v_{x_{j}} \\
+u_{t} + \mathbf{v} \nabla u &=  -u \nabla \mathbf{v} \\
+\nabla \mathbf{v}  & = 0 \text{ som gir } \\
+u_{t} + \mathbf{v} \nabla u = 0 \\
+\end{split} 
+\]  
+
+\begin{definition}
+  Transportlingingen. \[
+  u_{t} + v\cdot \nabla u = 0
+  \] 
+  For $n = 1$ er \[
+  u_{t} + v u_{x} = 0
+  \] 
+\end{definition}
+
+Karakteristisk kunne $\mathbf{x}\left( t \right)$ løse \[
+\dot{\mathbf{x}} = \mathbf{v} \left( t, \mathbf{x} \right)
+\] 
+
+eller
+\[
+  \begin{split}
+\dot{\mathbf{u}} \frac{Du}{Dt}   & = \frac{d}{dt}  u\left( t, \mathbf{x}\left( t \right) \right) = u_{t} + \dot{\mathbf{x}} u\\
+&= u_{t} + \mathbf{v}\nabla u 
+  \end{split} 
+\] 
+
+Mer generell variant kan skrives som \[
+u_{t} + \mathbf{v} \nabla u = w\left( t, \mathbf{x}, u \right)
+\]  
+
+Nå blir \[
+\frac{Du}{Dt}  = w\left( t,x\left( t \right), u \right)
+\] 
+Anta initialverdi \[
+u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)
+\] 
+\begin{figure}[ht]
+    \centering
+    \incfig{figg}
+    \label{fig:figg}
+\end{figure}
+
+Her er $x_{t} \left( t \right) = \mathbf{v}\left( t, \mathbf{x} \right)$ og $x\left( 0 \right) = x_{0}$. \par Løs \[
+\begin{split}
+  \dot{\hat{u}}   & = w\left( t, x\left( t \right), n \right) \\
+  \hat{u} \left( 0 \right)  & = u_{0} \left( \mathbf{x}_{0} \right) \\
+  \text{ og finne} \quad   & u\left( t, \mathbf{x}\left( t \right) \right) = \hat{u} \left( t \right) \\
+  \mathbf{x}    \to \mathbf{X} &\left( t, \mathbf{x}_{0} \right) \quad \text{er kontinuerlig og one-to-one} 
+\end{split} 
+\] 
+
+\subsection{Kvasilineære ligninger}%
+\label{sub:kvasilineaere_ligninger}
+
+\[
+u_{t} + a\left( u \right) u_{x} = 0
+\] 
+Eksempel \[
+  \begin{split}
+u_{t} + f\left( u \right)_{x}   & = 0  \quad \implies  \quad  u_{t}  + f'\left( u  \right)  u_{x} = 0
+  \end{split} 
+\] 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{bil}
+    \caption{Bil}
+    \label{fig:bil}
+\end{figure}
+
+Kan. Ligning $\dot{x} = a\left( u\left( t,x \right) \right)$ \[
+\frac{Du}{Dt}  = u_{t}  +  a\left( u \right) u_{x} = 0 \quad  \implies  \quad  \text{u er kontakt langt kovakttastikk.}
+\] 
+\[
+  \frac{\partial x}{\partial x_{0}}  = 1 + t\left( a \circ u_{0} \right)' \left( x_{0} \right) \ge 1+ t\cdot  min\left( a_{0 } u_{0}  \right)'
+  \begin{cases}
+x\left( t \right)  & = x_{0} + t a\left( u \right) \\
+&= x_{0} + t a\left( u_{0} \left( x_{0} \right) \right) 
+  \end{cases}
+\] 
+
+
+
+
 
 
 \bibliographystyle{plain}
