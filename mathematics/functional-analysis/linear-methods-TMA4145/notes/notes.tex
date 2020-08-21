@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Linear Methods Exams}
+title{Linear Methods Exams}
 \author{isakhammer }
 \date{July 2020}
 
@@ -286,6 +286,29 @@ Show that $T$ has a unique fixed point, and use iteration to find it starting wi
   The \textbf{completeness}  axiom says that every nonempty subset of $\mathbb{R} $ that is bounded above has a supremum. Equivalently is that nonempty subset that is bounded below as a infimum ("greated lower bound").
 \end{definition}
 
+\newpage
+\begin{definition}
+  \textbf{Lots of definitions.} 
+  Given a metric space $X$ , we make the following definitions 
+  \begin{itemize}
+    \item If $x \in  X$ and $r > 0$ then the \textbf{open ball}  in $X$ is centered at $x$ with radius $r$ is the set \[
+    B_{r} \left( x \right) =  \left\{ y \in  X : d\left( x,y \right) < r \right\}
+    \] 
+  \item A set $U \subseteq  X$ is \textbf{open}  if for each $x \in  U$ there exist a radius $r > 0$ such that $B_{r} \subseteq  U$.
+  \item The \textbf{topoplogy}  of $X$ is the collection of all open subsets of $X$ .
+  \item The \textbf{interior}  of a set $E \subseteq X$ is the largest open set $E ^{ \circ } $ that is contained in $E$. Explicity, $E^{\circ } = \cup \left\{ U: U \quad \text{is open and } \quad  U \subseteq E   \right\}$ 
+  \item A set $E \subseteq  X$ is \textbf{ closed}  if uts complement $X \setminus E$ is open.
+  \item A set $E \subseteq  X$ is \textbf{bounded}  if it is contained in some open ball,  i.e, there exists some $x \in  X$ and some $r > 0$ such that $E \subseteq  B_{r } \left( x \right)$ 
+  \item A point $x \in  X$ is a \textbf{accumulation point}  of a set $E \subseteq  X$ if there exist  points $x_{n} \in   E$ with all  $x_{n} \neq x$ such that $x_{n} \to x$
+  \item A point $x \in  X$ is a \textbf{boundary point}  of a set $E \subseteq X$ if for every $ r > 0$ we have both $B_{r} \left( x \right) \cap E \neq \emptyset  $. The set of all boundary point of $E$ is called the \textbf{boundary}  if $E$, and it is denoted by $\partial  E$ .
+  \item The \textbf{closure}  if a set $E \subseteq  X$ is the smallest closed set $\overline{E} $ that containst $E$. Explicity, $\overline{E} = \cap \left\{ F: F \text{ is closed and } E \subseteq  F \right\}$
+  \item $E \subseteq X$ is \textbf{dense}  in X if $\overline{E} = X$
+  \item We say that $X$ is \textbf{separable}  if there exists a countable sebset $E$ that is dense in X.
+  \end{itemize}
+
+\end{definition}
+
+
 
 \subsection{Linear Operator}%
 \label{sub:linear_operator}
@@ -527,7 +550,7 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
 \end{definition}
 
 \begin{theorem}[Banach Fixed Point Theorem]
-  Consider a metric space $X=\left( X,d \right)$, where $X \neq \O$. Suppose that $X$ is complete and let $T: X \mapsto X$ be a contraction on $X$. Then $T$ has precisely one fixed point.
+  Consider a metric space $X=\left( X,d \right)$, where $X \neq \emptyset $. Suppose that $X$ is complete and let $T: X \mapsto X$ be a contraction on $X$. Then $T$ has precisely one fixed point.
 \end{theorem}
 
 \begin{proof}
@@ -688,6 +711,12 @@ A set is  \textbf{closed} if the set contains all of its boundary points ( the c
   \end{enumerate}
 
 \end{definition}
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+
 
 \bibliographystyle{plain}
 \bibliography{references}
