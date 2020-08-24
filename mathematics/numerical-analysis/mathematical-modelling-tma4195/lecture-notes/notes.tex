@@ -13,6 +13,7 @@
 \usepackage{mathtools}
 \usepackage{enumerate}
 \usepackage{todonotes}
+\usepackage{float}
 
 
 \usepackage{hyperref} 
@@ -226,15 +227,20 @@ Assume we have a dimensionally valid relation $f\left( R_{1}, \ldots, R_{m} \rig
 \left[ R_{j} \right] = F_{1} ^{a_{j1}} F_{2} ^{a_{j2}} \ldots F_{n}^{a_{jn} } \quad  j = 1,2, \ldots, m 
 \] 
 This then defines the dimension matrix $A$ given by 
- % \begin{table}[]
- % \begin{tabular}{lllll}
- %  &  $F_{1}$ & $F_{2}$ & $\ldots$  & $F_{n}$  \\
- % $R_1$ &$a_{11}$  &$a_{11}$  &     & $a_{1n}$ &  \\
- % $R_2$ &$a_{21}$  &$a_{21}$  &     &  $a_{2n}$ &  \\
- % $\vdots$  &  & $\ddots$  &  &  \\
- % $R_n$ &  $a_{m1}$ & $\ldots$   &  &  $a_{mn}$&
- % \end{tabular}
- % \end{table}
+
+\begin{table}[htpb]
+  \centering
+  \caption{caption}
+  \label{tab:label}
+  \begin{tabular}{c | c c c c c}
+  &  $F_{1}$ & $F_{2}$ & $\ldots$  & $F_{n}$ & \\ \hline
+  $R_1$ &$a_{11}$  &$a_{11}$  &     & $a_{1n}$ &  \\
+  $R_2$ &$a_{21}$  &$a_{21}$  &     &  $a_{2n}$ &  \\
+  $\vdots$  &  & $\ddots$   &  &  \\
+  $R_n$ &  $a_{m1}$ & $\ldots$   &  &  $a_{mn}$&
+  \end{tabular}
+\end{table}
+
 \todo[inline]{ Fix better table environment. }
 
 Let $rank\left( A \right) = dim \left( row\left( A \right) \right) = k$. This translates to that we have $k$ dimensionally  independent variables. Choosing $k$ linearly independent row vectors, corresponds to choosing core variables. Let this basis be $\mathbf{a}_{i1}, \mathbf{a}_{i2}, \ldots , \mathbf{a}_{ik}$. Let the rest of the row vectors be \[
