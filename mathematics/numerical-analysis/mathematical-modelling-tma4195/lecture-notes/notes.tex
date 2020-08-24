@@ -184,6 +184,79 @@ Then the relation is \[
     \text{measure} \quad & \frac{\rho D \mu}{ \mu} \quad ,\quad    k= \frac{\Delta p D }{u^2\rho}
   \end{split}
 \]
+\newpage
+\section{Lecture 2}%
+\label{sec:lecture_2}
+\subsection{Practical Information}%
+\label{sub:practical_information}
+
+Ask for zoom meeting. ola.mahlen@ntnu.no, wednesday 13-14.
+
+\subsection{Recall}%
+\label{sub:repetition}
+
+Last time did we consider steady-state single phase in a flow  in a pipe.
+\begin{itemize}
+  \item Assuming $f\left( L, \Delta p, u, \mu , D ,E , \rho \right) = 0$ we arrive with this formula \[
+  \frac{\Delta p D}{u^{2} \rho L}  = k \left( \overbrace{\frac{\rho u D}{\mu }}^\text{Reynhold number}  , \underbrace{\frac{E}{D}}_\text{Relative wall roughness}  \right)
+  \] 
+\item Dimensionless numbers are often called \textbf{dimensionless groups}. Such numbers are independent of choice of fundamental units. They have real physical meaning. \textbf{Reynholds number}  $R_{e} $ essentially define what type of flow. Usually $R_{e} < 2000$ is it laminar flow and $R_{e} > 4000$ turbulent flow.
+\end{itemize}
+
+\subsection{Scaling}%
+\label{sub:scaling}
+
+Let a pipe have diameter $D$ and flow rate $u$ such that $ t_{v} = \frac{D}{ u} $. Then can we describe \[
+t_{\alpha } =  \frac{D^{2}}{ \frac{ \mu }{e} } 
+\] 
+where $\mu $ is the kinematic viscosity. Then is $R_{e} $ defined such that \[
+R_{e} = \frac{t_{\alpha }}{ t_{v}} 
+\]
+\par
+Assume we have the relation \[
+R_{1} = f\left( R_{2}, \ldots, R_{m} \right)
+\] 
+Such that it exist an \[
+\Pi _{1} = g\left( \Pi _{2}, \Pi _{2} , \ldots, \Pi _{m-k}  \right).
+\] 
+\subsection{Buckinghams Pi-Theorem}%
+\label{sub:buckinghams_pi_theorem}
+
+Assume we have a dimensionally valid relation $f\left( R_{1}, \ldots, R_{m} \right) = 0$ and a set of fundemental units $F_{1}, F_{2}, \ldots, F_{n}$ such that \[
+\left[ R_{j} \right] = F_{1} ^{a_{j1}} F_{2} ^{a_{j2}} \ldots F_{n}^{a_{jn} } \quad  j = 1,2, \ldots, m 
+\] 
+This then defines the dimension matrix $A$ given by 
+\begin{table}[]
+\begin{tabular}{lllll}
+ &  $F_{1}$ & $F_{2}$ & $\ldots$  & $F_{n}$  \\
+$R_1$ &$a_{11}$  &$a_{11}$  &     & $a_{1n}$ &  \\
+$R_2$ &$a_{21}$  &$a_{21}$  &     &  $a_{2n}$ &  \\
+$\vdots$  &  & $\ddots$  &  &  \\
+$R_n$ &  $a_{m1}$ & $\ldots$   &  &  $a_{mn}$&
+\end{tabular}
+\end{table}
+
+Let $rank\left( A \right) = dim \left( row\left( A \right) \right) = k$. This translates to that we have $k$ dimensionally  independent variables. Choosing $k$ linearly independent row vectors, corresponds to choosing core variables. Let this basis be $\mathbf{a}_{i1}, \mathbf{a}_{i2}, \ldots , \mathbf{a}_{ik}$. Let the rest of the row vectors be \[
+\mathbf{a}_{j_{1}} , \mathbf{a}_{j_{2}}, \ldots, \mathbf{a}_{j_{m-k}}
+\] 
+Then is $\mathbf{a}_{j_{r}} =  \sum_{s=1}^{k} C _{j_{r}, s} \mathbf{a_{i_{s}}}  $ where $r=  1, \ldots, m-k$. We end up with the equation \[
+  \Pi _{r} = \frac{R_{j_{r}}}{ R_{i_{1}} ^{ r_{j_{r}, 1}} R_{j_{2}}^{a_{j_{r}, 2}} \ldots R^{j_{k}} ^{ a_{j_{r}, k}} } 
+\] 
+Are dimensionally numbers. \par Our relation becomes \[
+g\left( \Pi _{1} , \ldots, \Pi _{m-k} \right) = 0, \quad \begin{cases}
+  i_{1}, i_{2} , \ldots, i_{k}  &  \\
+  j_{1} , \ldots, j_{m-k}
+\end{cases} 
+\] 
+
+
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+
   
 \bibliographystyle{plain}
 \bibliography{references}
