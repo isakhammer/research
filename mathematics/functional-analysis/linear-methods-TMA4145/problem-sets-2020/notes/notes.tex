@@ -57,21 +57,64 @@
 \subsection{Problem 1}%
 \label{sub:problem_1}
 
+  \todo[inline]{ Dodo: check solutions.   }
 Let $X,Y$ and $Z$ be sets
 \begin{itemize}
   \item Show that $X\cap \left( Y\cup Z \right) = \left( X\cap Y \right) \cup  \left( X\cap Z \right)$ 
     \begin{tcolorbox}
       \textbf{Answer.}  
-      \[
-        \begin{split}
-          X \cap  \left( Y \cup  Z \right) &=   \\
-        \end{split} 
-      \] 
+      Recall the definitions
+      \begin{definition}
+        For two sets $X$ and $Y$ is \[
+        X \cap  Y = \left\{ x \in  X \quad   \text{and } \quad  x \in  Y  \right\}
+        \] 
+        
+         \[
+        X \cup Y = \left\{ x \in X \quad \text{or} \quad   x \in  Y \right\}
+        \] 
+      \end{definition}
+
+      Let $ x \in  X$ and  $x \in  \left( Y \cup  Z \right)$. Then is $x \in  X \cap Y$ and $x \in  X \cap  Z$ which ratifies $x \in  \left( X \cap Y \right) \cup  \left( X \cap Z \right)$.
+
     \end{tcolorbox}
 
-  \item Show that $X\setminus \left( Y\cup Z \right) = \left( X \setminusY \right) \cap  \left( X \setminus Z \right)$
+  \item Show that $X\setminus \left( Y\cup Z \right) = \left( X \setminus Y \right) \cap  \left( X \setminus Z \right)$
+    \begin{tcolorbox}
+      \textbf{Answer.} 
+      Recall the definition 
+      \begin{definition}
+        For two sets $X$ and $Y$, then is \[
+        X \setminus Y  = \left\{ x \in X \quad \text{ and } \quad x \not\in Y   \right\}
+        \]  
+      \end{definition}
+      We can then use the same argumentation as in the previous proof. Let  $x \in  X$ and not in $x \in \left( Y \cup   Z  \right)$. Then is $x \in  X \setminus  Y$  and $ x \in X \setminus  Z$
+    \end{tcolorbox}
 \end{itemize}
 
+\subsection{Problem 2}%
+\label{sub:problem_2} 
+
+Let $f:  X \to  Y$ be a function, let $B$ be a subset of $Y$, and let $\left\{ B_{i} \right\}_{i \in  I}$ be a family of subsets of $Y$.
+
+\begin{itemize}
+  \item Prove that \[
+      f^{-1} \left( \bigcap_{i \in  I}^{} B_{i} \right)  =   \bigcap_{i \in  I}^{}  f^{-1} \left( B_{i} \right)
+  \] 
+  \begin{tcolorbox}
+    \textbf{Answer.} 
+    
+    Since $f^{-1} $ is mapped $Y \to  X$ and $B_{i}$ is a subset of $Y$. Obviously is \[
+      \bigcap_{i \in  I}^{} B_{i} \to  B
+    \] 
+
+    And since 
+  \end{tcolorbox}
+\item Prove that $f\left( f^{-1}\left( B \right) \right) \subseteq  B$ and if $f$ is surjective then equality holds. Show by example that equality need not to hold if $f$ is surjective. 
+  \begin{tcolorbox}
+    \textbf{Answer.} 
+    $f$ is surjective  if $f: X \to  Y$ and there exist one $x \in  X$ does it exists at least one $y \in Y$. Since  by the definition of an inverse function is $f^{-1}  \left( f\left( x \right) \right)= x$ for every $x \in  X$, 
+  \end{tcolorbox}
+\end{itemize}
 
 
 
