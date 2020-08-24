@@ -187,8 +187,8 @@ Then the relation is \[
 \newpage
 \section{Lecture 2}%
 \label{sec:lecture_2}
-\subsection{Practical Information}%
-\label{sub:practical_information}
+\subsection{Practical Information }%
+\label{sub:practical_information_2}
 
 Ask for zoom meeting. ola.mahlen@ntnu.no, wednesday 13-14.
 
@@ -204,7 +204,7 @@ Last time did we consider steady-state single phase in a flow  in a pipe.
 \end{itemize}
 
 \subsection{Scaling}%
-\label{sub:scaling}
+\label{sub:scaling_2}
 
 Let a pipe have diameter $D$ and flow rate $u$ such that $ t_{v} = \frac{D}{ u} $. Then can we describe \[
 t_{\alpha } =  \frac{D^{2}}{ \frac{ \mu }{e} } 
@@ -226,21 +226,22 @@ Assume we have a dimensionally valid relation $f\left( R_{1}, \ldots, R_{m} \rig
 \left[ R_{j} \right] = F_{1} ^{a_{j1}} F_{2} ^{a_{j2}} \ldots F_{n}^{a_{jn} } \quad  j = 1,2, \ldots, m 
 \] 
 This then defines the dimension matrix $A$ given by 
-\begin{table}[]
-\begin{tabular}{lllll}
- &  $F_{1}$ & $F_{2}$ & $\ldots$  & $F_{n}$  \\
-$R_1$ &$a_{11}$  &$a_{11}$  &     & $a_{1n}$ &  \\
-$R_2$ &$a_{21}$  &$a_{21}$  &     &  $a_{2n}$ &  \\
-$\vdots$  &  & $\ddots$  &  &  \\
-$R_n$ &  $a_{m1}$ & $\ldots$   &  &  $a_{mn}$&
-\end{tabular}
-\end{table}
+ % \begin{table}[]
+ % \begin{tabular}{lllll}
+ %  &  $F_{1}$ & $F_{2}$ & $\ldots$  & $F_{n}$  \\
+ % $R_1$ &$a_{11}$  &$a_{11}$  &     & $a_{1n}$ &  \\
+ % $R_2$ &$a_{21}$  &$a_{21}$  &     &  $a_{2n}$ &  \\
+ % $\vdots$  &  & $\ddots$  &  &  \\
+ % $R_n$ &  $a_{m1}$ & $\ldots$   &  &  $a_{mn}$&
+ % \end{tabular}
+ % \end{table}
+\todo[inline]{ Fix better table environment. }
 
 Let $rank\left( A \right) = dim \left( row\left( A \right) \right) = k$. This translates to that we have $k$ dimensionally  independent variables. Choosing $k$ linearly independent row vectors, corresponds to choosing core variables. Let this basis be $\mathbf{a}_{i1}, \mathbf{a}_{i2}, \ldots , \mathbf{a}_{ik}$. Let the rest of the row vectors be \[
 \mathbf{a}_{j_{1}} , \mathbf{a}_{j_{2}}, \ldots, \mathbf{a}_{j_{m-k}}
 \] 
 Then is $\mathbf{a}_{j_{r}} =  \sum_{s=1}^{k} C _{j_{r}, s} \mathbf{a_{i_{s}}}  $ where $r=  1, \ldots, m-k$. We end up with the equation \[
-  \Pi _{r} = \frac{R_{j_{r}}}{ R_{i_{1}} ^{ r_{j_{r}, 1}} R_{j_{2}}^{a_{j_{r}, 2}} \ldots R^{j_{k}} ^{ a_{j_{r}, k}} } 
+  \Pi _{r} = \frac{R_{j_{r}}}{ R_{i_{1}} ^{ r_{j_{r}, 1}} R_{j_{2}}^{a_{j_{r}, 2}} \ldots R_{j_{k}} ^{ a_{j_{r}, k}} } 
 \] 
 Are dimensionally numbers. \par Our relation becomes \[
 g\left( \Pi _{1} , \ldots, \Pi _{m-k} \right) = 0, \quad \begin{cases}
@@ -249,6 +250,61 @@ g\left( \Pi _{1} , \ldots, \Pi _{m-k} \right) = 0, \quad \begin{cases}
 \end{cases} 
 \] 
 
+\begin{tcolorbox}
+  \textbf{Example.} Swinging pendulum 
+
+Assume there is a relation \[
+f\left( w, \alpha _{0} , L, M , g,  \right) = 0
+\] 
+where $w$ is the frequenxy, $g$ gravitational acceleration, $M$ mass, $\alpha _{0}$ the swinging angle.
+We can set $L, M, g$ as core variables such that \[
+  \begin{split}
+    \left[ \frac{L}{g} \right] &= s^2 \quad  \to  \quad  \left[ \frac{L}{g} w^2 \right]  = 1 \\
+    f\left( w, \alpha _{0} , L, M, g \right) &=  0 \implies  \quad g\left( \alpha _{0} , \frac{L w^2}{g}  \right)   = 0
+  \end{split} 
+\] 
+\end{tcolorbox}
+
+\subsection{Scaling}%
+\label{sub:scaling}
+We have a problem at hand, usually differential equations. Then we tru to find representative scales for the various variables, and then write the equation on so-called fimensionless form. This has several advantages 
+\begin{itemize}
+  \item Our dimensionless variables are of order $1$ .
+  \item  We get rid of a lot of physical constants.
+  \item It makes us able to see what terms are "small" in the equation.
+    The idea is to introduce dimensionless variables by introducing appropiate scales.  If we have a stick of lenght $L$, we choose $L$ as length scale i.e \[
+    x^{*} = Lx \quad  \text{Where} \quad   x \quad   \text{is dimenionless} 
+    \] 
+\end{itemize}
+
+\begin{tcolorbox}
+  \textbf{Example.} Heat flow in a rod with length $L$. Let $u^{*} \left( x^{*}, t^{*} \right)$ be the temperatur with the boundary conditions \[
+  u^{*}\left( 0, t^{*} \right) = 0 \quad  u^{*}\left( L, t^{*} \right) = 0 
+  \] 
+
+  If we let the model be \[
+    \begin{split}
+    \frac{\partial u^{*}}{\partial t^{*}}   & = D \cdot  \frac{\partial ^2 u^{*}}{\partial {x^{*} }^2},  \quad   u^{*}\left( 0, t^{*} \right) = 0 \quad  u^{*}\left( L, t^{*} \right) = 0 \\
+ u^{*}\left( x^{*}, 0 \right)   & = u_{0} \sin \left( \pi  \frac{x^{*}}{ L}  \right) 
+    \end{split} 
+  \] 
+  We fund the tune scale $T$ by scales \textbf{balancing the equation} . 
+  \par Let $x^{*} = Lx$ , and $t^{*} = Tt$, where $T$ is to be determined $u^{*} = u_{0} u$. If we find $u\left( x,t \right) $,  then the physical temperature is given by \[
+    u^{*}\left( x^{*} , t^{*} \right) = u_{0} u\left( \frac{x^{*}}{L} , \frac{t^{*}}{T}  \right)
+  \]  
+  We have $u\left( 0,t \right) = u\left( 1,t \right) = 0$ \[
+    \begin{split}
+  \frac{\partial u^{*}}{\partial t^{*}}   & = D \frac{\partial ^2 u^{*}}{\partial {x^{*}}^2}  \quad  \implies  \quad  \frac{u_{0}}{T}  \frac{\partial u}{\partial t}  = \frac{u_{0}}{L^2} D \frac{\partial ^2}{\partial x^2}    \\
+    & \leftrightarrow  \frac{\partial u}{\partial  t}   = \left( \frac{T D}{L^2}  \right) \frac{\partial ^2 u}{\partial x ^2}  \quad  \text{Balancing the equation}   \\
+      \frac{TD}{ L^2}    & = 1 \quad \implies  T = \frac{L^2}{D}   \\
+     u^{*}\left( x^{*}, 0 \right) &=  u_{0} \sin \left( \pi \frac{x^{*}}{L}  \right)  \\
+     u\left( x, 0 \right) &=  \sin \left( \pi x \right) 
+    \end{split} 
+  \] 
+  which fulfills the condition \[
+  \frac{\partial u}{\partial t}  = \frac{\partial ^2 u}{\partial  x^2}  \quad  , u\left( 0,t \right) = u\left( 1,t \right) = 0 
+  \] 
+\end{tcolorbox}
 
 
 
