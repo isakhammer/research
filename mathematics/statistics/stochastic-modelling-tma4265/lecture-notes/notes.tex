@@ -478,7 +478,8 @@ Thus we have
      Pr \left \{ X=x \right \} &=    \sum_{n=0}^{\infty}  Pr \left \{ X =x, N =n \right \}  \\
      &= \sum_{n=x}^{\infty}  Pr \left \{ N =n \right \} Pr \left \{ X=x  \mid  N =n \right \}     \\
      &=  \sum_{n = x}^{ \infty}  \frac{\lambda ^{n} e^{-\lambda }}{ n! }  \frac{p^{x} \left( 1-p \right) ^{n-x} n !}{ x! \left( n -x \right)!}  \\
-     &=   \lambda ^{x}\frac{e^{- \lambda } p^{x} }{x!}   \sum_{n=x}^{\infty}  \frac{\left( 1-p \right)^{n-x}}{\left( n-x \right)!} \lambda ^{n-x}, \quad \text{hint } \quad \sum_{k=0}^{\infty} \frac{a^{k}}{k!}  = e^{a} \\
+     &=   \lambda ^{x}\frac{e^{- \lambda } p^{x} }{x!}   \sum_{n=x}^{\infty}  \frac{\left( 1-p \right)^{n-x}}{\left( n-x \right)!} \lambda ^{n-x}, \\
+       & \quad \text{hint } \quad \sum_{k=0}^{\infty} \frac{a^{k}}{k!}  = e^{a} \\
         &=  \left( \lambda p \right)^{x} e^{-\lambda } \frac{1}{x!}  \sum_{n=x}^{\infty}  \frac{\left[ \lambda \left( 1-p \right) \right]^{n-x}}{\left( n-x \right)!}   \\
         &= \left( \lambda p \right)^{x} e^{-\lambda p} \frac{1}{x!}  , \quad x = 0,1,2,3 \ldots  \\
         &\implies  \sim Possion\left( \lambda p \right)  
@@ -666,8 +667,140 @@ Section 2.2, 2.3, 2.4
   for $n = 0,1,2,3, \ldots$ and for all states $i$ and $j$
 \end{definition}
 
+\begin{definition}[One-step transition probabilities]
+  We can define it  as 
+  \begin{itemize}
+    \item For a discrete Markov chain $\left\{ X_{n}: n= 0,1,2, \ldots \right\}$ we call $P_{ij}^{n, n+1} = Pr \left \{ X_{n+1} = j , X_{n} =i \right \} $ the \textbf{one step trainsition probabilities} . 
+    \item We will assume \textbf{stationary transition probabilities} , i.e that \[
+    P_{ij}^{n, n+1} = P_{ij}
+    \]   for $n = 0,1,2, \ldots$ and all states $i $ and $j$ . 
+  \end{itemize}
+\end{definition}
 
+Some of the properties 
+\begin{enumerate}
+  \item "You will always go somewhere" \[
+  \sum_{j}^{}  P_{ij} = 1 \quad  \forall i 
+  \] 
+\item The markov chain can be described as follows. \[
+    \begin{split}
+  & Pr \left \{ X_{0} = i_{0} , X_{1} = i_{1}, \ldots, X_{n} = i_{n} \right \}   \\
+ &=  Pr \left \{ X_{0} = i_{0}  \right \}   Pr \left \{ X_{1} = i_{1}  \mid  X_{0} = i_{0} \right \}   \ldots \\
+     & \quad \quad    Pr \left \{ X_{n} = x_{n}  \mid  X_{n-1} = i_{n-1} \ldots X_{0} = i_{0} \right \}  \\
+  &  \quad \vdots \quad     \text{Markov step} \\
+ &=  Pr \left \{ X_{0} = i_{0}  \right \}  \cdot  Pr \left \{ X_{1} = i_{1}  \mid X_{0} = i_{0} \right \} \ldots \\
+  & \quad \quad    Pr \left \{ X_{n} = x_{n}  \mid  X_{n-1} = i_{n-1} \right \}   \\
+ &=  Pr \left \{ X_{0} = i_{0}  \right \} P_{i_{0}, i_{1}} \cdot  P_{i_{1}, i_{2}} \ldots P_{i_{n-1}, i_{n}}
+    \end{split} 
+\] 
+Which is a major simplification.
+\end{enumerate}
 
+\begin{definition}[Transition Probability Matrix] \quad
+  For a discrete time markov-chain with state space $\left \{ 0,1, \ldots, N \right \}$ we call
+  \[
+  \mathbf{P} = \begin{bmatrix} 
+    P_{00} & \ldots & P_{0N} \\
+    P_{10}  & \ldots \\
+    \vdots  &   &  \ddots \\
+    P_{N0} & \ldots & P_{NN} 
+  \end{bmatrix} 
+  \] 
+  Is the transition matrix.
+  For statespace $\left\{ 0,1,2, \ldots \right\}$ we envision an infinitely sized matrix.
+\end{definition}
+
+ \begin{tcolorbox}
+   \textbf{Example.} 
+   \begin{itemize}
+     \item Markoc chain : $\left\{ X_{n} : n = 0,1,2,\ldots \right\}$
+     \item State space  $= \left\{ 0,1 \right\}$
+     \item Transition Matrix \[
+     \mathbf{P} = \begin{bmatrix} 
+     0.9  &  0.1 \\
+     0.6  &  0.4
+     \end{bmatrix} 
+     \] 
+   \end{itemize}
+   We can compute \[
+     \begin{split}
+        Pr \left \{ X_{3} = 1  \mid  X_{2} = 0 \right \} &=  p_{01} \\
+        &= 0.1   \\
+        Pr \left \{ X_{10} = 0  \mid  X_{9} = 1 \right \} &=  P_{10} \\
+        &= 0.6  \\
+     \end{split} 
+   \] 
+ \end{tcolorbox}
+
+\begin{definition}[Transition Diagram]
+  Let $\left\{ X_{n}: n = 0,1, \ldots \right\}$ be a discrete time Markov chain.  A \textbf{state trasnistion diagram} visualizes the transition probabilities as a weighted directed graph where the nodes are the states and the edges are the possible transitions marked with the transistion probabilities.
+\end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.} State space $= \left\{ 0,1,2 \right\}$ and \[
+  P = \begin{bmatrix} 
+  0.95  & 0.05 & 9 \\
+  0  & 0.9  &  0.1 \\
+  0.01  &  0  &  0.99
+  \end{bmatrix} 
+  \] 
+  Transisition diagram 
+  \begin{tcolorbox}
+    Nice figure of the diagram
+  \end{tcolorbox}
+\end{tcolorbox}
+
+ \subsection{Doing n transitions.}%
+ \label{sub:doing_n_transitions_}
+
+ \begin{theorem}
+   For a Markoc chain $\left\{ X_{n}: n= 0,1, \ldots \right\}$ and any $m\ge 0$ we have \[
+     Pr \left \{ X_{m-n} = j  \mid X_{m} = i  \right \}  = P _{ij}^{(n)} =  \sum_{k=0}^{\infty}  P _{ik} P_{kj}^{(n-1)} ,  \quad  n>0 
+   \] 
+   where we define \[
+   P_{ij}^{(0)} = \begin{cases}
+     1 , \quad  i= j \\
+     0, i \neq j 
+   \end{cases}
+   \] 
+ \end{theorem}
+
+ \begin{proof}
+   Set $m = 0$ then is \[
+   \begin{split}
+     P_{ij }^{(n+1)}   & = Pr \left \{ X_{n+1} = j  \mid  X_{0} = i \right \}   \\
+     &= \sum_{k}^{}  Pr \left \{ X_{n+1} = j, X_{1} = k  \mid  X_{0} = i \right \}   \\
+     &=  \sum_{k}^{} Pr \left \{ X_{n+1} = j  \mid  X_{1} = k, X_{0} = i \right \} \cdot Pr \left \{ X_{1} = k  \mid  X_{0} = i \right \}   \\
+     &= \sum_{k}^{} P_{kj}^{(h)} \cdot P_{ik}  = \sum_{k}^{}  P_{ik} P_{kj}^{(h)}
+   \end{split} 
+   \] 
+ \end{proof}
+ 
+ \begin{tcolorbox}
+   \textbf{Example.} $\left\{ X_{n} : n= 0,1,2, \ldots \right\}$ is a markoc chain and \[
+   P = \begin{bmatrix} 
+   0.1  &  0.9 \\
+   0.6  &  0.4 
+   \end{bmatrix} 
+   \] 
+   Find $P_{01}^{(4)}$ .
+   \textbf{Solution}. \[
+   P^2 = \begin{bmatrix} 
+   0.55  &  0.45 \\
+   0.30  &  0.70
+   \end{bmatrix} 
+   \] 
+   So by doing matrix multiplication and we end up with \[
+   P^{4} = P^{2} \cdot  P^{2} = \begin{bmatrix} 
+   0.4375  &  0.5625 \\
+   0.3750  &  0.6250
+   \end{bmatrix} 
+   \] 
+   Which therefore ends up with the answer \[
+   P_{01}^{(4)} = 0.5625
+   \] 
+ \end{tcolorbox}
+ 
 
 
 
