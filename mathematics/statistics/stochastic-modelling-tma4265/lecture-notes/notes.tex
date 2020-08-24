@@ -567,6 +567,111 @@ Thus we have
 
 \newpage
 
+\newpage
+\section{Lecture 3}%
+\label{sec:lecture_3}
+
+\subsection{Randoms sum}%
+\label{sub:randoms_sum}
+
+Building on the hunter example from last week. we can more generally consider random sums \[
+  X = \begin{cases}
+    0,  &  \quad  N = 0 \\
+    \zeta_{1} + \zeta _{2} + \ldots + \zeta_N , \quad  N >0  
+  \end{cases}
+\] 
+where 
+\begin{itemize}
+  \item $N$ is a discrete random variable with values $0,1, \ldots$ 
+  \item $\zeta _{1}, \zeta _{2}, \ldots $ are independent random variables
+  \item $N$ is independent of $\zeta _{1}, \zeta _{2} + \ldots + \zeta _{N}$ 
+  \item \textbf{Notation}  $X = \sum_{i=1}^{N} \zeta _{i} = \zeta _{1} + \zeta _{2} + \ldots + \zeta _{N}$ 
+\end{itemize}
+
+\begin{tcolorbox}
+  \textbf{Example.} 
+  \begin{enumerate}
+    \item Insurance company \[
+    N: \text{ Number of claims.} 
+    \] 
+  \[
+    \zeta _{1} , \zeta _{2} , \ldots \quad  : \quad \text{Sizes of the claims} 
+  \] 
+
+  Total liabilility: \[
+  X = \zeta _{1}+ \zeta _{2} + \ldots + \zeta _{N}
+  \] 
+\item  Be careful! \[
+    \begin{split}
+      \overbrace{E\left[ \sum_{i=1}^{N} \zeta _{i} \right]}^{\neq \sum_{i=1}^{N} E\left[ \zeta _{i} \right]}   & = E\left[ E\left[ \sum_{i=1}^{N} \zeta _{i}  \mid N \right] \right]\\
+&= E\left[ \sum_{i=1}^{N} E\left[ \zeta _{i}  \mid  N \right] \right] 
+    \end{split} 
+\] 
+  \end{enumerate}
+\end{tcolorbox}
+
+\subsection{Self Study}%
+\label{sub:self_study}
+
+Section 2.2, 2.3, 2.4
+
+\subsection{Stochastic process in descrete time}%
+\label{sub:stochastic_process_in_descrete_time}
+\begin{definition}
+  A \textbf{discrete-time stochastic process}  is a family of random variables $\left[ X_{t} : t \in  T \right]$ where $T$ is discrete.
+  \begin{itemize}
+    \item We use $T = \left\{ 0,1,2,.. \right\}$ and write $X_{n}$ instead of $X_{t}$
+    \item  we call $X_{n}$ the \textbf{state}  at time $n =  0,1,2,3, \ldots$
+    \item We call the set of all possible states the \textbf{state space} 
+  \end{itemize}
+\end{definition}
+
+\begin{table}[htpb]
+  \centering
+  \caption{Table for example}
+  \label{tab:label}
+  \begin{tabular}{l|cccc}
+    Day & $n =0$ & $n=1$ & $n=2$ & \ldots \\ 
+    Random Variable  & $X_{0} $ & $X_{1}$ & $X_{2}$ & \ldots \\
+    Realization  1& $x_{0} = 0$ & $x_{1} =1$ &  $x_{2} = 1 $ & \ldots \\
+    Realization 2 & $x_{0} = 1$ & $x_{1} =1$ &  $x_{2} = 1 $ & \ldots \\
+  \end{tabular}
+\end{table}
+\begin{tcolorbox}
+  \textbf{Example.}  \[
+  X_{n} = \begin{cases}
+    1 ,  &  \quad \text{if it rains on day } n \\
+    0,   &  \quad     \text{no rain on day } n
+  \end{cases}
+  \] 
+  State space $= \left\{ 0,1 \right\}$
+  \par
+  \textbf{We have a problem.} Need \[
+  Pr \left \{ X_{n} = x_{n}  \mid  X_{n-1} = x_{n} , X_{n-2} = x_{n-2}, \ldots, X_{0} = x_{0} \right \}.
+  \]    for all $n = 0,1,2,\ldots$
+
+\end{tcolorbox}
+
+\subsection{Markov chain}%
+\label{sub:markov_chain}
+
+
+\begin{definition}[Discrete time Markov Chain]
+  A \textbf{ Discrete time markoc chain}  is a discrete time stochastic process $\left\{ X_{n} : n = 0,1,\ldots \right\}$ that statisfied the \textbf{markov property}  such that \[
+  \begin{split}
+       & Pr \left \{ X_{n-1} = j  \mid  X_{n} = i ,    X_{n-1} = i_{n-1} , \ldots, X_{0} = i_{0} \right \}  \\
+    &=  Pr \left \{ X_{n+1} = j  \mid  X_{n} = i \right \}  
+  \end{split} 
+  \] 
+  for $n = 0,1,2,3, \ldots$ and for all states $i$ and $j$
+\end{definition}
+
+
+
+
+
+
+
 \section{References}%
 \label{sec:references}
 
