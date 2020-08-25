@@ -131,7 +131,7 @@ Let assume that we have $v_{1}, \ldots, v_{k}$ be vectors in $\mathbb{R}^{n}$ an
 \] 
 Then $v_1, v_2, \ldots, v_{k}$ is linear independent. 
 
-\subsubsection{Inverse of an $n\times n $ matrix}%
+\subsubsection{Inverse of an matrix}%
 \label{ssub:inverse_of_an_ntimes_n_matrix}
 
 If there is a matrix $B \in \mathbb{R}^{n\times n }$ such that \[
@@ -160,7 +160,7 @@ P = \begin{bmatrix}
   e_1 & e_2 & e_2 
 \end{bmatrix} 
 \] 
-The permutation metrix. 
+The permutation matrix. 
 
 \todo[inline]{ Implement example snippet }
 
@@ -176,6 +176,77 @@ The inverse of a permutation matrix in $P^{-1} = P^{T}$ and $\left( P^{-1} \righ
 \end{itemize}
 
 
+\newpage
+\section{Lecture 3 -  August 25 - 2020}%
+\label{sec:lecture_3}
+
+\subsection{Continuation of previous lecture}%
+\label{sub:contiouation_of_previous_lecture}
+
+
+ Lets find a practical computation of $p^{(0)}, p^{(1)}, \ldots$. Always start with $p^{(0)} = r^{(0)} = b -Ax^{(0)}$. Suppose that $p^{(0)}, \ldots , p^{(k)}$ have been found. Set $p^{(k+1)} = r^{(k+1)} - b_{k} p ^{(k)}$. Require that \[
+   \begin{split}
+ 0 &=   \left<p^{(k)} , p^{(k+1)} \right> _{A} = \left< p^{(k)}, r^{(k+1)}   \right> - B_{k} \left<p^{(k)} , p^{(k)} \right> \\
+   &  \text{so } \quad  B_{k} =  \frac{\left<p^{(k)} , r^{(k+1)} \right> _{A}}{ \left<p^{(k)} , p^{(k)} \right>_{A}}     
+   \end{split} 
+ \] 
+
+ Note that $x^{(k+1)} = x^{(k)} + \alpha _{k} p^{(k)} $  and \[
+   \begin{split}
+ b -Ax^{(k+1)} &=   b - Ax^{(k)} - \alpha _{k} Ap^{(k)} \\
+  &  \underbrace{r^{(k+1)} =   r^{(k)} - \alpha  _{k} Ap^{(k)}}_\text{essential} 
+   \end{split} 
+ \] 
+ Let $V_{k} = span \left\{ p^{(0)} , \ldots, p^{(k)} \right\}$ and since $r^{(0)} = p^{(s)}, \quad r^{(k+1)} = p ^{(k+1)} - \alpha _{k} A p^{(k)}   $ , it happens that $Ap^{(k)} \in  V_{k+1}$, we have \[
+   V_{k} = span \left\{ r^{(0)} , \ldots, r^{(k)} \right\}
+ \] 
+ We want to prove that $\left<p^{(k+1)} , p^{(j)} \right> = 0 $ for $j = 0, \ldots, k-1$ \[
+   \left<r^{(k+1)}- B_{k} p^{(k)} , p^{(j)} \right> _{A} = \left<r^{(k+1)}, p^{(j)} \right> - B_{k}\left< p^{(k)} , p^{(j)} \right>_{A}
+ \] 
+ We know that \[
+   \begin{split}
+ Ap^{(j)} \in  V_{j+1} , &  \quad  A p^{(j)} = \sum_{e=0}^{j +1}  c_{e} p^{(e)}  \\
+ \left<r^{(k+1)} , p^{(j)}  \right> _{A} &=  \sum_{e = 0}^{ j=1 }  \left<r^{(k+1)}, c_{e}p^{(e)} \right> 
+   \end{split} 
+ \] 
+
+ Chosing the search directions like this is corresponding to the Conjugate gradient method. 
+
+ \subsection{Conjugate Gradient Method Algorithm}%
+ \label{sub:conjuaget_gradient_method_algorithm}
+
+ \begin{align*}
+   x^{(0)} \quad  & \text{is given}  \\
+   r^{(0)} &=   b - A\cdot x^{(0)}  \\
+   p^{(s)} &=   r^{(s)}  \\
+   \text{For } k&=   0,1,2, \ldots \\
+    &   \begin{cases}
+    \alpha &=   \frac{p^{(k)T} r^{(k)}}{{p^{(k)}}^{T} A p^{(k)}}  \\
+     x ^{(k+1)} &=  x ^{(k)} + \alpha  p^{(k)}  \\
+     r^{(k+1)} &=  r^{(k)} - \alpha _{k} A p^{(k)}  \\
+     B_{k} &=  \frac{\left( A p^{(k)} \right)^{T} r^{(k+1)}}{ \left( Ap^{(k)} \right)^{T} p^{(k)}}   \\
+     p^{(k+1)} &=  r^{(k+1)} - B_{k} p^{(k)} 
+   \end{cases} 
+ .\end{align*}
+ 
+ \subsection{Simplfication }%
+ \label{sub:simplfication_}
+ We want to simplify the expression for $\alpha _{k}  $ and $B _{k}$
+  \begin{align*}
+    p^{(k+1)} &=  r^{(k+1)} - B _{k} p^{(k)} \\
+    p^{(k)} &=  r^{(k)} - B_{k-1} p^{(k-1)}  \\
+  r^{(k)T} p^{(k)} &= \|r^{(k)}\|_{2}^{2} - B_{k-1} r^{(k)T} p^{(k-1)} \\
+  \text{So} \quad  \alpha _{k} &=  \frac{\|r^{(k)}\|_{2} ^{2} }{ r^{(k)} A p^{(k)}}    
+\end{align*}
+ 
+ 
+ 
+
+
+
+\newpage
+\section{References}%
+\label{sec:references}
 
 
 
