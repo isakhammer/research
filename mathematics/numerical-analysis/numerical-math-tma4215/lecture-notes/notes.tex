@@ -33,6 +33,7 @@
 \def\svgwidth{#1\columnwidth}
 \import{./figures/}{#2.pdf_tex} }
 \pdfsuppresswarningpagegroup=1
+%\DeclareMathOperator{\span}{span}
 
 % Box environment
 \usepackage{tcolorbox}
@@ -186,8 +187,8 @@ The inverse of a permutation matrix in $P^{-1} = P^{T}$ and $\left( P^{-1} \righ
 
  Lets find a practical computation of $p^{(0)}, p^{(1)}, \ldots$. Always start with $p^{(0)} = r^{(0)} = b -Ax^{(0)}$. Suppose that $p^{(0)}, \ldots , p^{(k)}$ have been found. Set $p^{(k+1)} = r^{(k+1)} - b_{k} p ^{(k)}$. Require that \[
    \begin{split}
- 0 &=   \left<p^{(k)} , p^{(k+1)} \right> _{A} = \left< p^{(k)}, r^{(k+1)}   \right> - B_{k} \left<p^{(k)} , p^{(k)} \right> \\
-   &  \text{so } \quad  B_{k} =  \frac{\left<p^{(k)} , r^{(k+1)} \right> _{A}}{ \left<p^{(k)} , p^{(k)} \right>_{A}}     
+ 0 &=   \left<p^{(k)} , p^{(k+1)} \right> _{A} = \left< p^{(k)}, r^{(k+1)}   \right> - \beta _{k} \left<p^{(k)} , p^{(k)} \right> \\
+   &  \text{so } \quad  \beta _{k} =  \frac{\left<p^{(k)} , r^{(k+1)} \right> _{A}}{ \left<p^{(k)} , p^{(k)} \right>_{A}}     
    \end{split} 
  \] 
 
@@ -201,7 +202,7 @@ The inverse of a permutation matrix in $P^{-1} = P^{T}$ and $\left( P^{-1} \righ
    V_{k} = span \left\{ r^{(0)} , \ldots, r^{(k)} \right\}
  \] 
  We want to prove that $\left<p^{(k+1)} , p^{(j)} \right> = 0 $ for $j = 0, \ldots, k-1$ \[
-   \left<r^{(k+1)}- B_{k} p^{(k)} , p^{(j)} \right> _{A} = \left<r^{(k+1)}, p^{(j)} \right> - B_{k}\left< p^{(k)} , p^{(j)} \right>_{A}
+   \left<r^{(k+1)}- \beta _{k} p^{(k)} , p^{(j)} \right> _{A} = \left<r^{(k+1)}, p^{(j)} \right> - \beta _{k}\left< p^{(k)} , p^{(j)} \right>_{A}
  \] 
  We know that \[
    \begin{split}
@@ -224,23 +225,84 @@ The inverse of a permutation matrix in $P^{-1} = P^{T}$ and $\left( P^{-1} \righ
     \alpha &=   \frac{p^{(k)T} r^{(k)}}{{p^{(k)}}^{T} A p^{(k)}}  \\
      x ^{(k+1)} &=  x ^{(k)} + \alpha  p^{(k)}  \\
      r^{(k+1)} &=  r^{(k)} - \alpha _{k} A p^{(k)}  \\
-     B_{k} &=  \frac{\left( A p^{(k)} \right)^{T} r^{(k+1)}}{ \left( Ap^{(k)} \right)^{T} p^{(k)}}   \\
-     p^{(k+1)} &=  r^{(k+1)} - B_{k} p^{(k)} 
+     \beta _{k} &=  \frac{\left( A p^{(k)} \right)^{T} r^{(k+1)}}{ \left( Ap^{(k)} \right)^{T} p^{(k)}}   \\
+     p^{(k+1)} &=  r^{(k+1)} - \beta _{k} p^{(k)} 
    \end{cases} 
  .\end{align*}
  
- \subsection{Simplfication }%
+ \subsection{Simplification }%
  \label{sub:simplfication_}
- We want to simplify the expression for $\alpha _{k}  $ and $B _{k}$
+ We want to simplify the expression for $\alpha _{k}  $ and $\beta  _{k}$
   \begin{align*}
-    p^{(k+1)} &=  r^{(k+1)} - B _{k} p^{(k)} \\
-    p^{(k)} &=  r^{(k)} - B_{k-1} p^{(k-1)}  \\
-  r^{(k)T} p^{(k)} &= \|r^{(k)}\|_{2}^{2} - B_{k-1} r^{(k)T} p^{(k-1)} \\
-  \text{So} \quad  \alpha _{k} &=  \frac{\|r^{(k)}\|_{2} ^{2} }{ r^{(k)} A p^{(k)}}    
+    p^{(k+1)} &=  r^{(k+1)} - \beta  _{k} p^{(k)} \\
+    p^{(k)} &=  r^{(k)} - \beta _{k-1} p^{(k-1)} \quad \implies \text{multiply} \quad  r^{(k)T}    \\
+  r^{(k)T} p^{(k)} &= \|r^{(k)}\|_{2}^{2} - \beta _{k-1} r^{(k)T} p^{(k-1)} \\
+  \text{So} \quad  &\alpha _{k} =  \frac{\|r^{(k)}\|_{2} ^{2} }{ p^{(k)} A p^{(k)}}     \\
+  r^{(k+1)T} p^{(k+1) } &=   \|r^{(k+1)}\|^2 - \beta _{k} r^{(k+1)T} p^{(k)}  \\
+  r^{(k)T} p^{(k+1)} &=  - \beta _{k} r^{(k)T} p^{(k)} = - \beta _{k} \|r^{(k)}\|^2 = \|r^{(k+1)}\|^2 
 \end{align*}
+In the end is the results \[
+\beta _{k} = - \frac{\|r^{(k)}\|^2}{\|r^{(k+1)}\|^2} \quad \text{and} \quad    \alpha _{k} =  \frac{\|r^{(k)}\|_{2} ^{2} }{ p^{(k)} A p^{(k)}}    
+\] 
+
+\subsection{Modified algorithm}%
+\label{sub:modified_algorithm}
+\[
+  \begin{split}
+p^{(0)} &=   r^{(0)}  \\
+r_{l} &=   \| r^{(0)}\|^2 \\
+\text{For} \quad    &  k = 0,1,2,\ldots \\
+ & 
+\begin{cases}
+v&= Ap^{(k)}  \\
+t &=  p^{(k)T }  v \quad \quad  \quad \quad      \to  \text{saxpy}  \\
+\alpha _{k} &=  \frac{r_{l}}{t} \quad \quad \quad \quad \quad \quad       \to  \text{saxpy}    \\
+x^{(k+1)} &=  x^{(k)} + \alpha _{k} p^{(k)} \quad \quad \to  \text{inner product}   \\
+r_c &=  \| r^{(k+1)}\| ^2  \quad \quad \quad    \to   \text{saxpy} \\
+p^{(k+1)} &=  r^{(k+1)} + \frac{rc}{r_{l}}    p^{(k)} \quad \quad    \to  \text{saxpy}  \\
+r_{l}   &  \leftarrow r_{c}
+\end{cases}
+  \end{split} 
+\] 
+Operations done in the numerical method \[
+A \times  \text{vector} \quad  \left[ B\left( h^2 \right) \quad \text{for full matrices }  \right]  
+\] 
+
+\subsection{Convergence of the Conjugate Gradient Algorithm}%
+\label{sub:convergence_of_the_conjugate_gradient_algorithm}
+
+Since all search directions are mutually $A$- orthogonal. theu are linearly indepedent. After $n$ iterations, they span all of $\mathbb{R} ^{n}$.. Since the residuals $r^{(n)} $ is orthogonal to all of $r^{(0)} , \ldots, r^{(n-1)}$ must be $0$ and therefore \[
+0 = r^{(0)n} = b - Ax^{(n)} \to  Ax^{(n)} = b 
+\] 
+But then the algorithm is only competitive when it terminates in $k \ll n$ iterations with a sufficient accurate solution.
+
+\begin{theorem}
+  Let $A$ be SPD. The error after $k$ iterations is bounded as \[
+  \|e^{(j)}\|_{A } \le \frac{2c^{k}}{1+ c^{2k}} , \quad c = \frac{\sqrt{K_{2}\left( A \right)} - 1}{ \sqrt{K_{2}\left( A \right)}  +1}  
+  \] 
+\end{theorem}
+\begin{remark}
+  $\|v\|_{A} = \sqrt{ v^{T} A v} $
+\end{remark}
+
+
  
- 
- 
+\subsection{Next Lecture Hint}%
+\label{sub:next_lecture_hint}
+
+Next lecture will be about precondition. We solve $Ax =b$ . An equivalent formulation is to pick an invertible $P$ and solve \[
+  \begin{split}
+P^{-1} Ax &=   x P^{-1} \\
+\hat{A} x = \hat{b}
+  \end{split} 
+\]  
+\textbf{Criteria } 
+\begin{enumerate}
+  \item Let $P$ approximate $A$ 
+  \item Should be cheap to solve systems \[
+  P^{-1} y = c
+  \] 
+\end{enumerate}
 
 
 
