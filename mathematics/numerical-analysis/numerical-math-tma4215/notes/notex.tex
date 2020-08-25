@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Notes Numerical Maths}
+\author{isakhammer }
+\date{2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+\usepackage{float}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+  
+\newpage
+\section{Singular Value Decomposition}%
+\label{sec:singular_value_decomposition}
+
+\begin{definition}
+  Let $A \in  \mathbb{C} ^{m \times n }$, there exist two unitary matrices $U \in  C ^{m \times m }$ and $V \in \mathbb{C} ^{n \times n }$ such that \[
+    U^{H} A V = \Sigma  = diag\left( \sigma _{1},\sigma _{2}, \ldots , \sigma _{p} \right) \in \mathbb{R} m \times n  \quad \text{with} \quad p = min\left( m,n \right)  
+  \] 
+  and $\sigma _{1}\ge \ldots \ge \sigma _{p} \ge 0$. The formula called SVD of $A$ and the numbers $\sigma _{i}$ or $\sigma_{i} \left( A \right)$ are called the singular values of $A$.
+\end{definition}
+
+\begin{definition}
+  Suppose that $A \in  \mathbb{C} ^{m \times n } $ has rank equal to $r$ and that it admits a SVD of the type $U^{H} A V = \Sigma $.  The matrix $A^{\dagger} = V \Sigma ^{\dagger} H ^{H}$ is the \textbf{Moore-penrose pseudo inverse matrix }  being \[
+  \Sigma ^{\dagger} = diag\left( \frac{1}{\sigma _{1}} ,\ldots, \frac{1}{\sigma _{r}}, 0, \ldots, 0 \right)
+  \] 
+  The matrix $A^{\dagger}$ is also called the \textbf{generalized inverse}  of $A$. Indeed, if $rank\left( A \right) = n < m$ , then $A^{\dagger} = \left( A^{T} A \right)^{-1} A^{T} $, while if $n =m = rank\left( A \right)$ , $A^{\dagger} = A^{-1}$. 
+\end{definition}
+
+\begin{definition}
+  A matrix $A \in \mathbb{C} ^{n \times n }$ is called \textbf{hermition} of \textbf{self-adjoint}  if $A^{T} = \overline{A}$, that is if $A^{H} = A$, while it is called \textbf{unitary}  if $A^{H}A = A A^{H} = I$. Finally, if $A A^{H} = A^{H}A$, $A$ is called normal. 
+\end{definition}
+A unitary matrix is one such that $A^{-1}= A^{H}$ and is normal.
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
