@@ -682,7 +682,97 @@ P_{ij} = \begin{cases}
      \item  What is the expected time until absortion ?
      \item What is the probability to be absorbed in state $0$ ?
    \end{enumerate}
+
+   \textbf{Realization} . \[
+   \overbrace{1,1,1,1,1,2}^{4 \text{ steps to absorption}} ,2,2 \ldots
+   \] 
+   \textbf{Mathematically} 
+   
+   \newpara
+   Let $T = \min_{} \left\{ n \ge 0 : X_{n} = 0 \quad \text{or} \quad  X_{n} = 2   \right\}$. Then is \[
+   \begin{split}
+     Q1:  &  \quad E\left[ T  \mid X_{0} = 1 \right]  \\
+     Q2:  &  \quad  Pr \left \{ X_{T} = 0  \mid  X_{0} = 1 \right \}  
+   \end{split} 
+   \] 
+   The idea of first step analysis is to define 
+   \begin{itemize}
+     \item $T^{(n) } = \min_{}  \left\{ n \ge :: X_{m\times n } = 0 \quad \text{or} \quad X _{m+b} =2   \right\}$
+     \item $T = T^{(0)}$
+     \item $v^{(m)}_{i} = E\left[ T^{(m) }  \mid  X_{m}  = i \right]$
+     \item $v_{i} = v^{(0)} _{i}$
+   \end{itemize}
+
+
  \end{tcolorbox}
+   \begin{table}[htpb]
+     \centering
+     \caption{Let $m$ be timesteps}
+     \label{tab:label}
+     \begin{tabular}{l|ccccc}
+     $m$   & $0$  & $2$   &3  &4  & 5  \\
+     $v^{(m)}_{0}$   &  $0$ & $0$   & $0$  & $0$  & $0$  \\
+     $v^{(m)}_{1}$   & $v_{1}$  &  $v_{1}$& $v_{1}$ & $v_{1}$ &$v_{1}$  \\
+     $v^{(m)}_{2}$   & $0$ & $0$  &  $0$& $0$  & $0$  \\
+     \end{tabular}
+   \end{table}
+
+   \textbf{First step analysis for Q1} 
+   \[
+     \begin{split}
+   v_{i}  & = \sum_{k=0}^{2}  Pr \left \{ X_{1} = k  \mid  X_{0} = i \right \}  \left( 1 + v_{k} \right) \\
+&= \sum_{k=0}^{2}  P_{ik} \left( 1+ v_{k} \right) = \sum_{k=0}^{2} P_{ik} v_{k} +1 \quad  \text{which is true for } \quad i = 0,1,2   \\
+     \end{split} 
+   \] 
+   Which is reduced to linear algebra. Solving it by \[
+   \begin{split}
+     v_{0} &=  v_{2} = 0 \\
+     \implies  v_{1} &= \alpha  v_{0} + \beta v_{1} + \gamma v_{2} + 1 \\
+     \implies  v_{1} &=  \frac{1}{ 1- \beta } \quad  \text{[Q1]}  \\
+   \end{split} 
+   \] 
+   \begin{tcolorbox}
+     $P_{ij} \implies  i = \text{row} , \quad j = \text{column} $
+   \end{tcolorbox}
+   First step analyis and let \[
+     \begin{split}
+   u_{i}  & = Pr \left \{ X_{T} = 0  \mid  X_{0} = i \right \}  \\
+     &  \downarrow \\
+   u_{i} &= \sum_{k=0}^{2}  P_{ik} u_{k}, \quad i = 0,1,2   \\
+     \end{split} 
+   \] 
+     \begin{itemize}
+       \item Easy: $u_{0} = 1, u_{2} =0$
+       \item Harder: $u_{1} = \alpha  u_{0} + \beta u_{1} + \gamma u_{2}$ such that \[
+           u_{1} = \alpha \frac{1}{1- \beta }  = \frac{\alpha }{\alpha  - \beta }  \quad \text{[Q2]} 
+       \] 
+     \end{itemize}
+   
+     \begin{tcolorbox}
+       \textbf{Example.} let $\left[ X_{n} \right]$ be a markov chain with transition matrix \[
+       \mathbf{P} = \begin{pmatrix}
+       1  &  0 &  0  &  0 \\
+       0.4  &  0.3  &  0.2  &  0.1 \\
+       0.1  &  0.3  &  0.3 &  0.3 \\
+       0  &  0 &  0 &  0 
+       \end{pmatrix} 
+       \] 
+       The starting state is $x_{0} = 1$. Calculate the probability to be absorbed in the state $D$.
+       \begin{enumerate}
+         \item Define $u_{i} = Pr \left \{ \text{absorbed in state 0}  \mid  X _{0} = i \right \} $ for $i = 0,1,2,3$ 
+         \item Get the easy ones out of the way. In this case $u_{0} = 1$ and $u_{3} = 0$
+         \item 
+           \[
+           \begin{split}
+            u_{1}  &  = P_{10} u_{0} + P_{11} u_{1} + P_{12} u_{2} + P_{13}u_{3}  \\
+            &= 0.4 + 0.3 u_{1} + 0.2 u_{2}  \\
+            u_{2} &= P_{20} u_{0} + P_{21} u_{1} + P_{22} u_{2} + P_{23} u_{3} \\
+            &= 0.1 + 0.3 u_{1} + 0.3 u _{2} \\
+           \end{split} 
+           \] 
+         \item Solve for $u_{1}$ and $u_{2}$
+       \end{enumerate}
+     \end{tcolorbox}
  
 \section{References}%
 \label{sec:references}
