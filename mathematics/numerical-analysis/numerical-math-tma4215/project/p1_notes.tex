@@ -5,6 +5,9 @@
 \author{isakhammer }
 \date{2020}
 
+%%%% DEPENDENCIES v1.0 %%%%%%
+
+
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -41,6 +44,8 @@
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
+%\DeclareMathOperator{\span}{span}
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 %\newtheorem{example}{Example}
@@ -49,6 +54,8 @@
   {
   \vskip 0.4cm
   }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
@@ -68,7 +75,8 @@ Where $\Lambda $ is a diagonal complex $n\times n $ matrix and $U$ a unitary (co
 Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, where $\rho \left( A \right) $ is the spectral radius of $A$ .
 
 
-\begin{tcolorbox}
+
+\newpara
   \textbf{Answer.} 
   \newpara Ideas
   \begin{itemize}
@@ -80,21 +88,30 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
     \] 
     of the eigenvalues $\lambda _{i}$ in the eigenvalue spectrum $\sigma \left( A \right)$.
   
-  \item As we remember one can denote the norm such that \[
-      \begin{split}
-      \|A\|_{2}  & = \sup_{x \neq 0}  \sqrt{\frac{\|Ax\|_{2}^{2}}{\|x\|^{2}_2}    } = \sup _{x \neq0}  \sqrt{\frac{ \left<Ax, Ax \right> }{\|x\|_{2}^{2}}}    \\
-       & = \sup _{x \neq0}  \sqrt{\frac{ \left<A^{H}Ax, x \right> }{\|x\|_{2}^{2}}} \\
-       & = \sup _{x \neq0}  \sqrt{\frac{ \left<U^{H}\Lambda ^{H} U U^{H} \Lambda U^{H}x, x \right> }{\|x\|_{2}^{2}}}\\
-       & = \sup _{x \neq0}  \sqrt{\frac{\left<U^{H} \Lambda ^2 U^{H}x, x \right>}{\|x\|_{2}^{2}}}\\
-      \end{split} 
-  \] 
+  % \item As we remember one can denote the norm such that \[
+  %     \begin{split}
+  %     \|A\|_{2}  & = \sup_{x \neq 0}  \sqrt{\frac{\|Ax\|_{2}^{2}}{\|x\|^{2}_2}    } = \sup _{x \neq0}  \sqrt{\frac{ \left<Ax, Ax \right> }{\|x\|_{2}^{2}}}    \\
+  %      & = \sup _{x \neq0}  \sqrt{\frac{ \left<A^{H}Ax, x \right> }{\|x\|_{2}^{2}}} \\
+  %      & = \sup _{x \neq0}  \sqrt{\frac{ \left<U^{H}\Lambda ^{H} U U^{H} \Lambda U^{H}x, x \right> }{\|x\|_{2}^{2}}}\\
+  %      & = \sup _{x \neq0}  \sqrt{\frac{\left<U^{H} \Lambda ^2 U^{H}x, x \right>}{\|x\|_{2}^{2}}}\\
+  %     \end{split} 
+  % \] 
 \item $UAU^{H}  = \Lambda = diag\left( \sigma _{1} , \ldots , \sigma _{n} \right) $ 
-\item  $A  =  $
- 
-  
+\item  Let \[
+\|A\|_{2}^{2} = \sup _{x\neq 0} \sqrt{\frac{\|A \|_{2}^{2}}{\|x\|_{2}^{2}}}  = \sup _{x \neq 0} \sqrt{\frac{\left< Ax , Ax \right>}{\|x\|_{2}^{2}}}   = \sup _{x \neq 0} \sqrt{\frac{\left<A^{H} Ax ,x \right>}{\|x\|_{2}^{2}} }  
+\]  
+If we use the fact that $A = U^{H} \Lambda  U$, can we substitue $y = U^{H} x$ , such that  \[
+  \begin{split}
+\|A\|_{2}^{2}  & = \sup _{x \neq 0} \sqrt{\frac{\|Ax \|_{2}^{2}}{  \|x\|_{2}^{2}}}  = \sup _{y \neq 0} \sqrt{\frac{\left< AU y, AU y\right>}{ \|y\|_{2}^{2}}}  \\
+ \implies  \|y\|_{2}^{2}  & = \left<U^{H} x, U^{H} x \right> =  \left< U U^{H} x,x \right>  = \|x\|_{2}^{2} \\
+\implies  \left<AUy, AUy \right> &=  \left<\left( AU \right)^{H} AU y , y \right> = \left<U^{H} A^{H} AU y, y \right> \\
+  \end{split} 
+\] 
+Since $A^{H} A$ is unitary can we write $U^{H} A^{H} A U = diag (\mu _{1} , \mu _{2} , \ldots, \mu _{n} )$.   Which then ends up with the relationship \[
+\|A\|_{2}^{2} = \sup_{y \neq 0 }  \frac{\sum_{i=1}^{n} \mu _{i} \cdot \left| y_{i} \right|^{2} }{ \sum_{i=1}^{}  \left\lvert y_{i} \right\rvert^{2} } =  \max_{i} \left( \mu _{i} \right) 
+\] 
   
   \end{itemize}
-\end{tcolorbox}
 
 
 
