@@ -315,6 +315,228 @@ We have a problem at hand, usually differential equations. Then we tru to find r
 
 
 \newpage
+\section{Lecture Something}%
+\label{sec:lecture_something}
+
+\subsection{Recall}%
+\label{sub:recall_2}
+
+\[
+  \begin{split}
+\frac{\partial u^{*}}{\partial t^{*}}   & = D \frac{\partial ^2 u^{*}}{\partial x^{*2} } \\
+0 &  \le x^{*} \le L \\
+x^{*}  &  = Lx \\
+t^{*} &=   Tt \\
+u^{*} &=   u_{0}
+  \end{split} 
+\] 
+We can also recall \[
+  \begin{split}
+u^{*}\left( x^{*} , t^{*}  \right) &=  u_{0} u\left( \frac{x^{*}}{ L} , \frac{t^{*} }{T}  \right) \\
+\frac{u_{0}}{T}  \frac{\partial u}{\partial t}  &=  D \frac{u_{0}}{L^2} \implies \frac{\partial u}{\partial t}  = \frac{TD}{L^2}  \frac{\partial ^2 u}{\partial x^2}    \\
+\text{Require} \quad  \frac{TD}{L^2}  = 1 \implies  T = \frac{L^2}{D}  
+  \end{split} 
+\] 
+This can be generelized to \[
+\frac{\partial u}{\partial t}  = \frac{\partial ^2 u}{\partial x^2}  , \quad  0\le x \le 1 
+\] 
+
+
+
+\subsection{Sinking Ball}%
+\label{sub:sinking_ball}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{sinkingball}
+    \caption{sinkingball}
+    \label{fig:sinkingball}
+\end{figure}
+
+Let 
+\begin{itemize}
+  \item $\rho _{b}$ e mass density of ball
+  \item $ \rho _{f}$mass density of fluid
+  \item $V$ Volume of ball
+\end{itemize}
+
+Then is the equation \[
+  \begin{split}
+\rho _{b} V g - \rho _{f} V g &=  V g \rho _{b} \left( 1- \frac{\rho _{f}}{ \rho _{b}}  \right) \\
+&=  m \hat{g} \implies  \hat{g} = g \left( 1 - \frac{\rho _{f}}{ \rho _{b}}  \right)  \\
+  \end{split} 
+\] 
+
+  And we then end up with the newtions law \[
+  m \frac{d x^{*2}}{d t^{*2}}  = m \hat{g} - k \frac{d x^{*}}{d t}  , \quad  \text{Friction coefficient}\quad k  
+  \] 
+  where \[
+ x^{*}\left( 0 \right) = 0 , \quad  \frac{d x^{*}}{d t^{*}}  \left( 0 \right) = V  
+  \] 
+
+  The cases can be described as follows
+
+\begin{figure}[ht]
+    \centering
+    \incfig{highv}
+    \caption{highV}
+    \label{fig:highv}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{frefall}
+    \caption{frefall}
+    \label{fig:frefall}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{sinking}
+    \caption{sinking}
+    \label{fig:sinking}
+\end{figure}
+
+  \begin{enumerate}
+    \item High friction, not so high $V$. Ball will sink at constant speed most of the time.
+    \item Friction is low, andC not "too high". ( "Free fall with V=0")
+\item High V, and high friction  
+$m \frac{d ^2 x^{*}}{d t^{*2} } = m \hat{g} - k  \frac{d x^{*}}{d t^*} $
+  \end{enumerate}
+
+  For this problem there is $3$ characteristic speeds 
+  \begin{enumerate}
+    \item $V$ : initial velocity
+    \item $v_{0} $ : equilibrium  speed in case A $v_{0} = \frac{m \hat{g}}{k} $
+    \item $v_{f} $ :  free fall $v_{f} = \sqrt{2 \hat{ g} L} $
+  \end{enumerate}
+   Let us put \[
+   \begin{split}
+     \frac{d ^2 x ^{*}}{d t^{*2}} = 0  &  \implies  k \frac{d x^{*}}{d t}  = \hat{g}m \\
+      & \implies  \frac{d x^{*}}{d t^{*}}  = \hat{g} \frac{m}{k}  = v_{0} 
+   \end{split} 
+   \] 
+   and put \[
+   \begin{split}
+     x^{*} \left( 0 \right) = &  \frac{d x^{*}}{d t^{*}}  \left( 0 \right) = 0 \\
+     k = 0  &  \quad   
+   \end{split} 
+   \] 
+   \subsubsection{Scaling}%
+   \label{ssub:scaling}
+   
+   \begin{enumerate}
+     \item Case A:  The ball sinks at constant speed "most" of the time.
+       \begin{enumerate}
+         \item Length scale $L$ : $x^{*} = L x$. Since the ball falls with speed most of the time, a timescale would be $T = \frac{L}{v_{0}} $. $v$ is not much larger than $v_{0}$ $\implies $ it is not so that $v \gg  v_{0}$
+            \[
+              \begin{split}
+            m \frac{L}{T^2}  x^{''} &=   m \hat{g} - k \frac{L}{T}  x^{'} \quad  \text{Divide by } L \\
+           \implies m \frac{1}{kT}  x^{''} &=   \frac{Tm \hat{g}}{KL}  - x^{'}\\
+           \frac{m}{k \frac{L}{v_{0}} }  x^{''} &=   \frac{ \frac{k}{v_{0}} m \hat{g}}{kL}  - x^{'} \\
+           \implies  \frac{m v_{0}}{Lk}  x^{''} &=   \frac{L m  \hat{g}}{ K L v_{0}}  - x^{ '} \\
+              \end{split} 
+            \] 
+            We can then derive \[
+            \begin{split}
+              \frac{m \frac{m \hat{g}}{k} }{Lk}  x^{''} &=   1 - x^{'} \\
+              \implies  \frac{m^2 \hat{g}}{Lk^2}  x^{''} &=   1- x^{'} \\
+              \implies  \frac{m^2 \hat{g}^2}{\hat{g}L k^2 }  x^{''} &=    1 - x^{'}  \\
+              \epsilon x ^{''} &=    1- x^{'}  \quad  \text{Where} \quad \epsilon = 2\left( \frac{v_{0}}{v_{f}}  \right)^2  
+            \end{split} 
+            \] 
+            The condition are $x\left( 0 \right) = 0$, $\frac{L}{T}  x^{'} \left( 0 \right) = V$ which can be rewritten to \[
+              x^{'} \left( 0 \right) = \frac{T V}{L}  ) \frac{ \frac{L}{ v_{0} V} }{L}  = \frac{V}{v_{0}}  = \mu 
+            \] 
+       \end{enumerate}
+   \end{enumerate}
+
+   \subsection{Let Analyze The equation}%
+   \label{sub:let_analyze_the_equation}
+   In case A is the  \[
+   \epsilon \ddot{x} = 1 - \dot{x} 
+   \] 
+   An approximation  we can do is to put $\epsilon  = 0$ such that \[
+   0 = 1- \dot{x} \quad x\left( 0 \right) = 0,\quad   \dot{x} \left( 0 \right) = \mu  \quad \dot{x} = 0 
+   \] 
+   unless $\mu = 1$, we cant find a solution.
+   
+   \subsubsection{Case B}%
+   \label{ssub:case_b}
+   Small friction,  $V$ is not too high. Let the lengthscale be $L$. \[
+     \begin{split}
+   \frac{d ^2}{d t^{*2}} x^{*2} &=   \hat{g} , \quad  x^{*} \left( 0 \right) = \frac{d x^{*}}{d t^{*}}  \left( 0 \right) = 0 \\
+   x^{*} \left( t^{*} \right) &=  \frac{1}{2} \hat{g} \left( t^{*} \right)^2 
+     \end{split} 
+   \] 
+   Hit the bottom with speed $V_{f}$ . We can choose time scale $T$ such that \[
+   \begin{split}
+     T &=  \frac{L}{v_{f}}   
+   \end{split} 
+   \] 
+   So gain \[
+   \begin{split}
+     \frac{mL}{T^2}  \ddot{x} = m \hat{g} - \frac{kL}{T}  \dot{x}
+   \end{split} 
+   \] 
+   What you can observe is that gravity dominates so we modify the equation to be \[
+     \begin{split}
+   \frac{L}{\hat{g} T^2} \ddot{x} &=   1 - \frac{kL}{gmT} \dot{x} \\
+   \implies  2 \ddot{x} &=   1 - \left( \frac{v_{F}}{ v_{0}}  \right) , \quad  \frac{K}{T}  \dot{x}\left( 0 \right) = 0 \\
+   2\ddot{x} &=   1- \epsilon \dot{x} \quad \dot{x}\left( 0 \right) = \frac{V}{v_{f}}  = \mu  
+     \end{split} 
+   \] 
+   
+\subsubsection{Case C:  High V and high friction}%
+\label{ssub:j}
+
+Let us consider \[
+  m \frac{d^2 x^{*}}{d t^{*2}}  = -kV \quad \frac{d x^{*}}{d t^{*}}  = V - \frac{kV}{m} t^{*} = 0
+\] 
+Where we choose the scales $t^{*} = \frac{m}{k}  = T$, $L = \frac{V m}{k} $, where  $TV = L$. \[
+\implies \ddot{x} = \epsilon  - \dot{x}, \quad x\left( 0 \right) = 1, \quad \dot{x}   = 1, \quad    \epsilon  = \frac{v_{0}}{V} 
+\] 
+ \begin{tcolorbox}
+   \textbf{Example.}  Let \[
+   \begin{split}
+     a \frac{d ^2 x^{*}}{d t^{*2}} + b \frac{d x^{*}}{d t^{*} }  + c x^{*} &=  0\\
+     x^{*} \left( 0 \right) = x_{0} , \quad  \frac{d x^{*}}{d t^{*}} \left( 0 \right) = 0 
+   \end{split} 
+   \] 
+   Three waus to scale by balancing the equation. Last term "small" \[
+   x^{*} = x_{0} x, \quad  t^{*} = Tt 
+   \] 
+   Where $T$ is to be determined. \[
+   a \frac{x_{0}}{T^2}  \ddot{x} + b \frac{x_{0}}{T}  \dot{x} + c x_{0}  = 0
+   \] 
+   \[
+   \ddot{x} + \frac{bT}{a}  \dot{x} + \frac{cT^2}{a}  = 0
+   \] 
+   If we are smart can we choose the timescale $T = \frac{a}{b}$  then we get \[
+     \begin{split}
+   \ddot{x} + \dot{x} + \frac{c a^2}{b^2 a}  &=   0.  \\
+   \implies  \ddot{x} + \dot{x} + \left( \frac{ca}{b^2}  \right)x &=   0
+     \end{split} 
+   \] 
+ \end{tcolorbox}
+
+\subsection{Turbulence}%
+\label{sub:turbulence}
+
+Reynold number \[
+  R_{e} = \frac{u \rho L}{\mu }  = \frac{uL}{\frac{mu}{\rho } }  =  \frac{uL}{\mathcal{V}   }  
+\] 
+Then we have \[
+\frac{\partial v}{\partial t}  = \mathcal{V}  \frac{\partial ^2 v}{\partial x^2} 
+\] 
+
+
+   
+   
+   
+
+\newpage
+
 \section{References}%
 \label{sec:references}
 
