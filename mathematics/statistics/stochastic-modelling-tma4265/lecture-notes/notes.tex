@@ -1,12 +1,11 @@
 \documentclass{article}
-
-
-
 \usepackage[utf8]{inputenc}
 
 \title{Stochastic Modelling}
 \author{isakhammer }
 \date{2020}
+
+%%%% DEPENDENCIES v1.1 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -16,6 +15,7 @@
 \usepackage{mathtools}
 \usepackage{enumerate}
 \usepackage{todonotes}
+\usepackage{float}
 
 
 \usepackage{hyperref} 
@@ -43,9 +43,19 @@
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
+% \DeclareMathOperator{\span}{span}
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 %\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{document}
@@ -320,255 +330,6 @@ Thus we have
 
 
 \newpage
-\section{Lecture 2}%
-\label{sec:lecture_2}
-
-\begin{definition}
-  Let $A$ and $B$ be events.  The conditionally pprobability of $A$ fiven $B$ is defined by \[
-  Pr \left\{ A  \mid  B \right\} = \begin{cases}
-    \frac{Pr \left\{ A \cap B \right\}}{ Pr\left\{ B \right\} } ,  &  \quad  Pr\left\{ B \right\} > 0,   \\
-    \text{Not defined} \quad  Pr\left\{ B \right\} = 0 
-  \end{cases}
-  \] 
-\end{definition}
-
-\todo{ Check if Lecture two is in google cal }
-
-\begin{tcolorbox}
-  \textbf{Example.} Throw one die and let $X$ denote the number of eyes. Find $Pr \left \{ X \ge 5  \mid X \ge 3 \right \} $.  \[
-    \begin{split}
-      Pr \left \{ X \ge 5     \mid  \ge 3 \right \} &= \frac{Pr \left \{ X \ge 5 \right \} }{ Pr \left \{   X \ge 3\right \} }  \\
-  &=  \frac{\frac{2}{6}}{ \frac{4}{6}}  = \frac{1}{2} 
-    \end{split} 
-  \]  
-\end{tcolorbox}
-
-\begin{definition}
-  \textbf{Conditional EMF} (Conditionally probability mass function PMF).  Assume $X$ and $Y$ are jointly distributed random variables.  The Conditional PMF.  $p_{x \mid y} $ of $X$ given $Y$ given by \[
-  p_{X \mid  Y} \left( x  \mid y \right) = \frac{Pr \left \{ X = x , Y = y \right \} }{Pr \left \{ Y = y \right \} }  = \frac{p_{X,Y}\left( x,y \right)}{p_{Y}} ,  \quad p_{y} \left( y \right) > 0  
-  \] 
-\end{definition}
-
-\begin{remark}
-  $\left\{ X = x, Y =x \right\}$ is shorthand for $\left\{ \left( X = x \right) \cap \left( Y = y \right) \right\}$
-\end{remark}
-\begin{remark}
-  \par
-  \begin{itemize}
-    \item $ p _{X \mid  Y} \left( x  \mid y \right) $ is a pmf for \[
-    x  \implies  \sum_{x}^{} p_{X \mid Y} \left( x  \mid  y \right) = 1 \quad \forall  y   
-    \] 
-  \item $P_{X \mid  Y} \left( x|y \right) $ is not a pmf for \[
-  y \implies  \sum_{X \mid Y}^{} \neq 1 \quad \text{In General}  
-  \] 
-  \end{itemize}
-\end{remark}
-
-\begin{tcolorbox}
-  \textbf{Example.} Throw die and let \[
-  \begin{split}
-    X &=  \text{Number of eyes} \\
-    Y &= \begin{cases}
-      0,  &  \quad  \text{if} \quad  X \ge 2 \\
-      1,   &  \text{if}   \quad X \ge 3
-    \end{cases}  
-  \end{split} 
-  \] 
-  Find the conditionally \textbf{PMF}  $p _{X  \mid  Y}$
-
-  \par
-  \textbf{Solution}. For $y = 0$ \[
-  p_{x \mid y} \left( x  \mid y \right) = \begin{cases}
-    \frac{1}{2} ,  &  x = 1,2 \\
-    0, & x = 3,4,5,6  
-  \end{cases} 
-  \] 
-  For $y = 1$ \[
-  p_{x  \mid  y} \left( x  \mid  y \right) = \begin{cases}
-    0,  &  x= 1,2 \\
-    \frac{1}{4} ,  &  x=3,4,5,6
-  \end{cases}
-  \] 
-
-\end{tcolorbox}
-  \todo[inline]{ Didnt quite understand this example }
-
-  \begin{tcolorbox}
-    \begin{itemize}
-      \item $\sum_{x}^{}  p_{X \mid Y} \left( X  \mid 0 \right) = 1$
-      \item \textbf{Noob mistake}  \[
-          p_{X \mid Y} = \left( 1  \mid 0 \right) + p_{X \mid Y } \left( 1 \mid 1 \right) = \frac{1}{2} + 0 \neq 1
-      \] 
-    \end{itemize}
-  \end{tcolorbox}
-
-
-  \subsection{Joint Distrobution}%
-  \label{sub:joint_distrobution}
-  
-  THe conditional \textbf{PMF}  is essential to us because we can siplify the joint \textbf{PMF}  as \[
-    \begin{split}
-  p_{X \mid Y}  \left( x,y \right)   & = Pr \left \{ X =x , Y = y \right \}  \\
-    &  = Pr \left \{ U = y   \right \}  Pr \left \{ X = x  \mid  Y =y \right \}   \\
-    &= p_{Y} \left( y \right) p_{X \mid Y} \left( x  \mid  y \right)
-    \end{split} 
-  \] 
-  \begin{remark}
-    if $X $ and $Y$ are independent then is \[
-    \begin{split}
-      p_{X \mid Y}  \left( x  \mid y \right) &= p_{X} \left( x \right) \quad \text{if} \quad  p_{Y} \left( y \right) > 0 \\
-       &  \implies  p_{X \mid Y}  \left( x  \mid y \right) = p_{X}  \left( x \right) \cdot  p_{Y} \left( Y \right) 
-    \end{split} 
-    \] 
-  \end{remark}
-
-  \subsection{Simplified Notation}%
-  \label{sub:simplified_notation}
-  
-  Unless it will cause confusion, we typically write 
-  \begin{itemize}
-    \item $p\left( x \right) $ instead of $p_{X} \left( x \right)$ 
-    \item $p \left( y \right) $ instead of $p_{Y} \left( y \right)$ 
-    \item $p\left( x,y \right) $ instead of $p_{X  ,Y} \left( x,y \right) $
-    \item $p\left( x  \mid  Y =y \right)$ instead of $ p_{X \mid Y} \left( X  \mid  y \right)$
-  \end{itemize}
-
-  \subsection{Marginalization}%
-  \label{sub:marginalization}
-  
-  THe law of total probability gives \[
-  \begin{split}
-    Pr \left \{ X = x \right \}  &=  \sum_{y}^{}  Pr \left \{ X =x, Y =y \right \} \\
-    &=  \sum_{y}^{}  Pr \left \{ Y=y  \right \} Pr \left \{ X =x  \mid  Y =y \right \}   
-  \end{split} 
-  \] 
-   \begin{tcolorbox}
-     \textbf{Example.} A hunter ecounter $N$ birds. For each burd, he gets one shot and either or misses. Assume the probability of hitting is $p$ for each bird and that the shots are independent. Additionally, assume that the number of birds ancountered in Poission distrubuted with mean $\lambda$ I.e $N \sim \text{Passion}\left( \lambda  \right)$. Find the \textbf{EMF}  of the number of birds hit.
-     \par \textbf{Solution}. 
-     \begin{itemize}
-       \item[i] Notation. \[
-       \begin{split}
-         \text{Let} \quad    &  I_{i} = \begin{cases}
-           0,  &  \quad  \text{Miss bird}\quad   i \\
-          1 ,   & \quad     \text{Hit bird} \quad   i 
-         \end{cases} \quad \text{for} \quad i = 1,2,3,4, \ldots  
-       \end{split} 
-       \] 
-       Let $X = \text{Number of birds hit}$
-       Target is $p\left( x \right), x = 0,1,2, \ldots$
-       \item[i] Condition on $N$ \[
-       \left( X | N=n \right) = \begin{cases}
-         0,  &  \quad  n =0 \\
-         \sum_{i=1}^{n}  I_{i} ,  &  \quad  n >0  
-       \end{cases}
-       \] .  
-       We know \[
-         \begin{split}
-       \left( X  \mid  N =n \right)   & \sim Binomial\left( n, p \right)  \\
-       \implies  &  Pr \left \{ X =x  \mid  N =n \right \}  \\
-       &= \begin{pmatrix}
-       n \\
-       x
-       \end{pmatrix} 
-       p ^{x} \left( 1-p \right)^{n-x} \quad  x = 0,1, \ldots, n   
-         \end{split} 
-       \]   . 
-     \item[iii)]  \[
-         \begin{split}
-     Pr \left \{ X=x \right \} &=    \sum_{n=0}^{\infty}  Pr \left \{ X =x, N =n \right \}  \\
-     &= \sum_{n=x}^{\infty}  Pr \left \{ N =n \right \} Pr \left \{ X=x  \mid  N =n \right \}     \\
-     &=  \sum_{n = x}^{ \infty}  \frac{\lambda ^{n} e^{-\lambda }}{ n! }  \frac{p^{x} \left( 1-p \right) ^{n-x} n !}{ x! \left( n -x \right)!}  \\
-     &=   \lambda ^{x}\frac{e^{- \lambda } p^{x} }{x!}   \sum_{n=x}^{\infty}  \frac{\left( 1-p \right)^{n-x}}{\left( n-x \right)!} \lambda ^{n-x}, \\
-       & \quad \text{hint } \quad \sum_{k=0}^{\infty} \frac{a^{k}}{k!}  = e^{a} \\
-        &=  \left( \lambda p \right)^{x} e^{-\lambda } \frac{1}{x!}  \sum_{n=x}^{\infty}  \frac{\left[ \lambda \left( 1-p \right) \right]^{n-x}}{\left( n-x \right)!}   \\
-        &= \left( \lambda p \right)^{x} e^{-\lambda p} \frac{1}{x!}  , \quad x = 0,1,2,3 \ldots  \\
-        &\implies  \sim Possion\left( \lambda p \right)  
-         \end{split} 
-     \]  
-     \end{itemize}
-
-   \end{tcolorbox}
-
-   \subsection{Conditional Expectation}%
-   \label{sub:conditional_expectation}
-
-   Let $X$ and $Y$ be random variables and $g$ a real function. The \textbf{Conditional expected value}  of $g\left( X \right) $ given $Y =y$ is \[
-   E \left[ g\left( X \right)  \mid  Y =y \right] = \sum_{x}^{}  g\left( x \right) Pr \left \{ X =x  \mid  Y =y \right \} , \quad \text{ if} \quad  Pr \left \{ Y =y \right \} > 0  
-   \] 
-   \begin{remark}
-     \begin{itemize}
-       \item
-     Note that $E\left[ g\left( X \right)  \mid  Y \right]$ is a stochastic variable variable! 
-   \item $E\left[ g\left( X \right)  \mid  Y =y \right]$ has probability $Pr \left \{ Y =y \right \} $
-     \end{itemize}
-   \end{remark}
-
-   \begin{theorem}[Law of iterated expectations]
-     Let $X$ and $Y$ be random variables such that $E\left[ \left| g\left( X \right) \right| \right] < \infty$, and let $g$ be a real function. then \[
-     E\left[ g\left( X \right)  \right] = E\left[ E\left[ g\left( x \right)  \mid  Y \right] \right] .
-     \] 
-   \end{theorem}
-   \begin{proof}
-     \[
-       \begin{split}
-     E\left[ E\left[ g\left( X \right)  \mid  Y \right] \right]   &=  \sum_{y}^{} E\left[ g\left( X \right)  \mid  Y =y \right] \\
-     &=   \sum_{y}^{ }  \left\{ \sum_{x}^{} g\left( x \right) \cdot Pr \left \{ X = x  \mid  Y = y \right \} \right\} x Pr \left \{ Y =y \right \}  \\
-     &=  \sum_{y}^{}  \sum_{x}^{}  g\left( x \right) \cdot  Pr \left \{ X =x , Y= y \right \}   \\
-     &= \sum_{x}^{} g\left( x \right) \sum_{y}^{}  Pr \left \{ X =x, Y =y \right \}   \\
-&= \sum_{x}^{}  g\left( x \right) Pr \left \{ X =x \right \}  \\
-&= E\left[ g\left( X \right) \right]  \\
-       \end{split} 
-     \] 
-   \end{proof}
-
-   \begin{theorem}[Law of total variance]
-     Let $X$ and $Y$ be random variables such that $E\left[ X^2 \right] < \infty$, then \[
-     Var\left[ X \right] = E\left[ Var\left[ X  \mid  Y \right] \right] + Var \left[ E\left[ X  \mid Y \right] \right]
-     \] 
-   \end{theorem}
-   
-   \begin{tcolorbox}
-     \textbf{Revisited Example.} A hunter ecounter $N$ birds. For each burd, he gets one shot and either or misses. Assume the probability of hitting is $p$ for each bird and that the shots are independent. Additionally, assume that the number of birds ancountered in Poission distrubuted with mean $\lambda$ I.e $N \sim \text{Passion}\left( \lambda  \right)$. Find the expected value and the variance of the number of birds hit. \[
-    \begin{split}
-      E\left[ X \right] &=  E \left[ E\left[ X  \mid  Y \right] \right] \\
-      Var \left[ X \right]   & =  E\left[ var\left[ X  \mid Y \right] \right] + Var \left[ E\left[ E  \mid Y \right] \right]  \\
-    \end{split}  
-     \] 
-     \textbf{Solution} .
-   \[
-       \begin{split}
-       E\left[ X  \mid N =n  \right] &=  np \\
-   Var\left[ X  \mid  N =n \right]   &  =  np\left( 1-p \right) \\
-   &\implies  Var\left[ X  \mid  N \right] = N p\left( 1-p \right) \\
-       \end{split} 
-   \] 
-   We get 
-   \begin{itemize}
-     \item \[
-         \begin{split}
-     E\left[ X \right] &=  E\left[ E\left[ X  \mid  N \right] \right] \\
-     &=  E\left[ Np \right] = p E\left[ N \right] \\
-     &=  p \lambda    
-         \end{split} 
-     \] 
-   \item \[
-       \begin{split}
-   Var\left[ X \right]  & = E\left[ Var\left[ X  \mid N \right] \right] +  Var \left[ E\left[ X  \mid N \right] \right] \\
-   &=  E \left[ Np\left( 1-p \right) \right] +  Var\left[ Np \right] \\
-   &=  p\left( 1-p \right) \lambda + p^2 Var\left[ N \right] \\
-   &=  p\left( 1-p \right) \lambda + p^2 \lambda   \\
-   &=  \lambda p    
-       \end{split} 
-   \] 
-     \end{itemize}
-
-   \end{tcolorbox}
-   
-
-
-\newpage
-
-\newpage
 \section{Lecture 3}%
 \label{sec:lecture_3}
 
@@ -805,6 +566,124 @@ Which is a major simplification.
 
 
 
+ \newpage
+ \section{Lecture 4}%
+ \label{sec:lecture_4}
+
+ \subsection{Introduction to first step analysis}%
+ \label{sub:introduction_to_first_step_analysis}
+
+ \textbf{Input} 
+ \begin{itemize}
+   \item $i_{0}$ : starting state
+    \item $P$ : transition probability matrix
+    \item T: number of time steps
+ \end{itemize}
+ \textbf{Algorithm} 
+ \begin{enumerate}
+   \item Set $x_{0} = i_{0}$
+   \item for $n=1 \ldots T$
+   \item $\quad   $ Simulate $x_{n}$ from $X_{n}  \mid  X_{n-1} = x_{n-1}$
+   \item end
+ \end{enumerate}
+ 
+ \textbf{output} : One realization $x_{0}, x_{1} , \ldots, x_{T}$ 
+ 
+ \begin{tcolorbox}
+   \textbf{Example.} 
+   \[
+   P = \begin{pmatrix}
+   0.95  &  0.05  &  0 \\
+   0  &  0.90  &  0.10 \\
+   0.01  &  0  &  0.99
+   \end{pmatrix} 
+   \] 
+   Let $x_{0} = 0$
+   \begin{enumerate}
+     \item $x_{0} = 0$  
+     \item 
+       \begin{align*}
+       Pr \left \{ X_{1} = 0 | X_{0} = 0 \right \} = &  P_{00} = 0.95  \\
+       Pr \left \{ X_{1}  \mid  X_{0}  \right \}  &=  P_{01} = 0.05 \\
+       Pr \left \{ X_{1}  \mid  X_{0} = 0 \right \}  &=  P_{02} = 0 \\
+       .\end{align*}
+       Assume we get $x_{1} = 1$
+     \item States 
+       \begin{itemize}
+         \item \[
+             \begin{split}
+         0: P_{10}  &=  0 \\
+         1: P_{11 } &=  0.90 \\
+         2: P_{12} &=  0.10 \\
+         \vdots  \\
+             \end{split} 
+         \] 
+       \end{itemize}
+   \end{enumerate}
+ \end{tcolorbox}
+
+ \begin{tcolorbox}
+   General notes on simulation 
+   \begin{itemize}
+     \item
+
+   $Pr \left \{ A  \right \} \approx \frac{\text{# times A occure}}{ \text{# Simulations}}  $
+ \item $E\left[ X \right] \approx \frac{1}{N}  \sum_{i=1}^{B}  x_{i}$
+   \end{itemize}
+ \end{tcolorbox}
+
+   \textbf{Example.} We have $N=100$ divided into two containers labelled $A$ and $ b$. At each time $n$, one ball is selected at random and moved to the container. Let $Y_{n}$ denote the number of balls in container $A$ at time $n$, and define $X_{n} = Y_{n} -50$. Find the transition probabilities and simulate and plot one realization of \[
+   \left\{ X_{n}: n  = 0,1, \ldots, 500 \right\}
+   \] 
+
+   \textbf{Answer} 
+ 
+\begin{figure}[ht]
+    \centering
+    \incfig{balls}
+    \caption{balls}
+    \label{fig:balls}
+\end{figure}
+
+\begin{itemize}
+  \item Only move One ball
+  \item Can move only from $i$ to $ j = i-1$ or  $j i +1$
+\end{itemize}
+\[
+P_{ij} = \begin{cases}
+  \frac{50 -i}{ 100 }   & , \quad  j = i+1 \\
+   \frac{50+i}{100}   & , j = i-1 \\
+   0  & , \text{otherwise}.
+\end{cases}
+\] 
+
+% Visualization
+% \begin{figure}[ht]
+%     \centering
+%     \incfig{vizzz}
+%     \caption{vizzz}
+%     \label{fig:vizzz}
+% \end{figure}
+
+\textbf{Motivation}  
+\begin{definition}
+  For a markov chain, a state $i$ sich that $P_{ij} = 0 \forall j\neq i$  is called \textbf{absorbing.} 
+\end{definition}
+ \begin{tcolorbox}
+   \textbf{Example.} Let $\left\{ X_{n} \right\}$ be a Markov chain woth transition probability matrix \[
+   \mathbf{P} = \begin{pmatrix}
+   1  &  0  &  0 \\
+   \alpha   &  \beta  &  \gamma  \\
+   0  & 0  & 1
+   \end{pmatrix} 
+   \] 
+   where $\alpha , \beta , \gamma > 0$ and $\beta = 1- \alpha -\gamma $. Assume $x_{0} = 1$
+   \begin{enumerate}
+     \item  What is the expected time until absortion ?
+     \item What is the probability to be absorbed in state $0$ ?
+   \end{enumerate}
+ \end{tcolorbox}
+ 
 \section{References}%
 \label{sec:references}
 
