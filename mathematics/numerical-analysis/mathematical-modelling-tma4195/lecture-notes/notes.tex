@@ -5,6 +5,8 @@
 \author{isakhammer }
 \date{2020}
 
+%%%% DEPENDENCIES %%%%%%
+
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -41,9 +43,18 @@
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
+\DeclareMathOperator{\span}{span}
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-\newtheorem{example}{Example}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
@@ -315,7 +326,7 @@ We have a problem at hand, usually differential equations. Then we tru to find r
 
 
 \newpage
-\section{Lecture Something}%
+\section{Lecture 3}%
 \label{sec:lecture_something}
 
 \subsection{Recall}%
