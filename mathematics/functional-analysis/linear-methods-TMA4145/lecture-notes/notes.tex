@@ -568,9 +568,180 @@ cA = \left\{  b \in  \mathbb{R} : \quad  b = ca , \quad  a \in A   \right\}
      \end{itemize}
 \item  Concerning 1.9 $\to $ read it!
  \end{itemize}
+
+ \newpage
+ \section{Lecture 27. Aug}%
+ \label{sec:lecture_27_aug}
+
+ \subsection{VEctor spaces}%
+ \label{sub:vector_spaces}
+
+ Let $ V$ be a set such that the scalar field $F$: this (always) means  $F = \mathbb{R} $ or $F =\mathbb{C} $. 
+ \begin{definition}
+   A vecotr space over a scalar field $F$, is a set $V$ that satisfies the following conditions. 
+   \begin{enumerate}
+     \item Vector addition: Given any two $x,y \in V$, there is a unique element $x+y \in V$ , the \textbf{sum} of $x$ and $ya$.
+       \todo{ Write sum in math mode }
+     \item Scalar multiplication: Given $x \in V$ and a scalar $x \in F$, there is a unique element $cx \in V$, the \textbf{product}  of $x$ and $ x$ .
+     \item Cummative property: $x+y = y +x \quad  \forall x,y \in  V $, 
+     \item $\left( x+y \right) + z = x + \left( y+z \right) \quad  \forall \quad x,y,z \in  V  $
+     \item Additive identity: $\exists$ an element $ 0 \in  V$ s.t. \[
+     0 + x = x \quad  \forall x \in  V  \quad   
+     \] 
+   \item Additive inverse. $\forall x \in  V \exists$ an element $\left( -x \right) \in  V$ s.t. \[
+   x+ \left( -x \right) = 0
+   \] 
+ \item  $\left( ab \right)x = a\left( bx \right)  \quad  \forall a,b \in F \quad  , x \in  V   $ associativity.
+ \item Multidentity: Scalar multiplied by $1$ leaves element unchanged.
+   \todo[inline]{ Does it exist cases where this is not satisfied? }
+ \item $ c\left( x+y \right) = cx + xy \quad  \forall c \in  F , \quad    x,y \in  V $
+ \item $\left( a + b \right)x = ax + bx \quad  \forall a,b  \in  F , \quad   x \in  V $
+
+   \end{enumerate}
+ \end{definition}
  
+ \begin{remark}
+   \textbf{Few notes aboth the definitions.} 
+   \begin{itemize}
+     \item if $F = \mathbb{R} $ : real vector space
+     \item $ =  \mathbb{C} $: complex vectorspace.
+     \item $F$ : the scalar field of the vector space. Elements of $F$ are scalars.
+     \item Elements of $V$ are \textbf{vectors}.
+     \item Vector space $=$ linear space. \[
+     \begin{rcases}
+       v_1, \ldots , v_{n}   &  \in     V \\
+       c_1, \ldots  c_{n}  &  \in     F \\
+       c_{1} v_{1} + \ldots + c_{n} v_{n}  &  \in    V
+     \end{rcases}
+     \] 
+   \end{itemize}
+ \end{remark}
  
+ \begin{tcolorbox}
+   \textbf{Example.}  
+   \begin{enumerate}
+     \item  $\left( \mathbb{R} , + , \cdot  \right)$
+     \item $\mathbb{R} ^{n} = \left\{ \left( x_{1},  \ldots, x_{n} \right) : x_i \in  \mathbb{R}  \quad \forall i  \right\}$ with componentwise addition and scalar multiplication. \[
+         \begin{split}
+     \left( x_{1}, \ldots, x_{n} \right) + \left(  y_{1} , \ldots , y_{n}\right) &= \left( x_{1} + y_{1}, \ldots , x_{n} + y_{n} \right) \\
+     c\left( x_{1}, \ldots, x_{n}\right) &=  \left( cx_{n} , \ldots, cx_{n}  \right) \\
+         \end{split} 
+     \] 
+   \item Spaces of sequences \[
+   S = \left\{ \left( x_{n} \right)_{n \in \mathbb{N} } : x_{i} \in  \mathbb{R}  \forall i \right\}
+   \] 
+   with componentwise addition and sclar multiplication. 
+ \item Spaces of functions: Let 
+   \[
+   \mathcal{F} \left( \left[ 0,1 \right] \right) = \left\{ f: \left[ 0,1 \right] \to  \mathbb{F} : \quad f \text{ is a function on } \left[ 0,1 \right]  \right\}
+   \] 
+   and let \[
+     \begin{split}
+   \left( f+g \right)\left( t \right) &=  f\left( t \right) + g\left( t \right) , t \in  \left[ 0,1 \right] \\
+   \left( xf \right)\left( t \right) &=  c f\left( t \right) \\
+     \end{split} 
+   \] 
+   The zero vector $0$ is the zero function.
    
+   \end{enumerate}
+ \end{tcolorbox}
+
+ \begin{definition}
+   A subset $Y$ of $V$ is called a \textbf{subspace} of $V$ if is a vectorspace with the inherited addition and scalar multiplication. MOre precisely, iff (if and only if)
+   \begin{enumerate}
+     \item $y_{1} + y_{2} \in  Y$  for all $y _{1} , y_{2} \in  Y$
+     \item $cy \in  Y$ for all $y \in  Y, \quad   c \in  \mathbb{F} $
+   \end{enumerate}
+ \end{definition}
+   
+   \textbf{Example.} Let $V = \mathbb{R} ^2$  
+\begin{figure}[ht]
+    \centering
+    \incfig{rsquare}
+    \caption{Rsquare}
+    \label{fig:rsquare}
+\end{figure}
+Any line $L_{1}$ through the origin is a subspace. 
+
+\newpara
+Any line $L_{2}$ is not a subspace.
+
+
+\newpara
+\textbf{Example} 
+Let  \[
+C\left[ 0,1 \right] = \left\{ f: \left[ 0,1 \right] \to  \mathbb{F}  : \quad  f \text{ is continious on } \left[ 0,1 \right]  \right\}
+\] 
+This is a nonempty, proper subspace of $\mathcal{F}  \left( \left[ 0,1 \right] \right)$ \[
+C\left[ 0,1 \right]\not \subseteq  \mathcal{F\left( \left[ 0,1 \right] \right)} 
+\] 
+
+\newpara
+\textbf{Example} . Let $ I = \left( -1,1 \right)$ and \[
+C^{1} \left( I \right) = \left\{ f: I \to  \mathbb{R}  : \quad f \quad \text{and} \quad f^{'} \quad \text{are continious functions on } I     \right\}
+\] 
+Then $C^{1} \left( I \right) \not \subseteq  C\left( I \right)$ .
+
+\newpara
+Proper: E.g. $F\left( t \right) = \left\lvert t \right\rvert  \in  C\left( I \right)$ but $f \not\in C^{1} \left( I \right)$. Likewise , \[
+  \begin{split}
+C^{2} \left( I \right)  & = \left\{ f: I \to  \mathbb{R}  : f , f^{'} \quad \text{and} \quad f^{''} \quad \text{are contionious on} \quad  I \quad , C^{2} \not \subseteq  C^{1} \left( I \right)      \right\} \\
+  & \vdots \\
+  C^{\infty}  & = \left( I \right) =  \left\{ f: I \to  \mathbb{R}  : f \quad  \text{is infinitely many times contionous differentiable}  \right\} , \quad \text{ex. } \quad  f\left( t \right) = e^{t}  
+  \end{split} 
+\] 
+\[
+  F\left( I \right)  \supset C\left( I \right) \supset C^{2} \left( I \right) \supset C^{\infty}\left( I \right) \supset  \mathcal{P}  \ldots 
+\] 
+Where \[
+\mathcal{P}  = \left\{ \sum_{k=0}^{\infty}  c_{k} t^{k} : \quad  c_{k} \in  \mathbb{R}  , \quad  N \ge 0   \right\}
+\] 
+\subsection{Span and independence}%
+\label{sub:span_and_independence}
+
+  \textbf{Linear combination } is a vector space V \[
+  v = \sum_{i=1}^{\infty}  c_{i} v_{i} = v_{1} c_{1} + \ldots +  c_{n} v_{n}
+  \]  
+  where $c_{1}, \ldots , c_{n} \in  \mathbb{F} $ and $v_{1}, \ldots, v_{n} \in  V$ 
+\begin{definition}
+  Let $A \subseteq  V$ be a nonemptu subset. the \textbf{finite linear span}  of $A$ is defined as \[
+  span\left( A \right)  = \left\{ \sum_{i=1}^{N} c_{i} x_{i} \quad  N>0 , \quad  c_{i } \in  \mathbb{F}  , \quad x_{i } \in  A    \right\}
+  \] 
+  If $A = \emptyset $ then we declare $span\left( \emptyset  \right) = \left\{ 0 \right\}$  
+  
+  \newpara
+  If $ A = \left\{ x_{1, \ldots, x_{n}}  \right\} $ is finite then \[
+  span A = \left\{ c_{1}, + \ldots + c_{n} x_{n} : \quad  c_{1} \in  \mathbb{F}  \forall i  \right\}
+  \] 
+\end{definition}
+
+\textbf{Example} . Consider the space $\mathcal{P} $ Let \[
+\mathcal{M}  = \left\{ 1, t, t^{2} , \ldots  \right\} = \left\{ t^{n} \right\}_{n=0}^{\infty}
+\] 
+Then $span\left( \mathcal{M}  \right) = \mathcal{P} $ any $f \in  \mathcal{P}  $ is of the form $f = \sum_{n=0}^{N} c_{n} t^{n}$ for some $N>0$ and $c_{n} \in  \mathbb{F} $ .
+\begin{definition}
+  A nonempty subset $A$ of a vectorspace $V$ is \textbf{finetely linearly independent}  if  given any $N >0$ and any distinct elemnts $x_{1},  \ldots, x_{N} \in A$ and $c_{1} , \ldots, c_{n} \in  \mathbb{F} $, then \[
+  c_{1} x_{1} + \ldots + c_{N} x_{N} \quad \leftrightarrow \quad c_{1} = \ldots = c_{N} = 0  
+  \] 
+  We declare $\emptyset $ to be linearly independent
+\end{definition}
+
+\begin{definition}
+  Let $V$ be a nontrivial vectorspace (not containing only zero). Then a set of vectors $\mathcal{B}  \subset V$ is a \textbf{hamel basis} for $V$ if
+  \begin{enumerate}
+    \item $\mathcal{B} $ is linearly independent.
+    \item $span\left( \mathcal{B}  \right) = V$
+  \end{enumerate}
+\end{definition}
+ \begin{remark}
+   Two hamel bases for the same space $V$ must have the same cardinality.
+ \end{remark}
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
 
 \bibliographystyle{plain}
 \bibliography{references}
