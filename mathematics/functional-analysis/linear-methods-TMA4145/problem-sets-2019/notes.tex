@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Sets 19}
+\author{isakhammer }
+\date{2020}
+
+% 
+%%%% DEPENDENCIES v1.1 %%%%%%
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+\usepackage{float}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+% \DeclareMathOperator{\span}{span}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Exercise 1}%
+\label{sec:exercise_1}
+
+\subsection{Problem 2}%
+\label{sub:problem_2}
+
+Define functions $\mathbb{R} $ with values in $\mathbb{R} $ .
+\begin{enumerate}
+  \item A function that is not left invertible.
+  \item A function that is not right invertible.
+\end{enumerate}
+
+
+Show that the given functions have their respective properties.
+
+\newpara
+\begin{tcolorbox}
+  
+ function is left inverrtible if there exists a function $f^{-1}_{l}$ such that \[
+x = f\left( f_{l}^{-1}\left( x \right) \right) 
+\] 
+or formally \[
+id_{x} = f \circ f_{l}^{-1}
+\] 
+Same for right invertible function which can be written as \[
+id_{x} = f_{r}^{-1} \circ  f 
+\] 
+\end{tcolorbox}
+
+\newpara
+A function $h=x^2$ is a function that does not support both right and left invertible. 
+
+
+\subsection{Problem 3}%
+\label{sub:problem_3}
+
+Given the linear mapping $T: \mathbb{R} ^2 \to  \mathbb{R} ^3$ given by $Tx = Ax$ with \[
+A = \begin{pmatrix}
+3  &  -4 \\
+1  &  6 \\
+1  &  1
+\end{pmatrix} 
+\]  
+\begin{enumerate}
+  \item Show that the matrix \[
+  A_{l}^{-1} = \frac{1}{9}  \begin{pmatrix}
+  -11  &  -10  &  16 \\
+  7  &  8  &  -11
+  \end{pmatrix} 
+  \] 
+  Is inducing a left invere $T^{-1} _{ l}  $ of $T$ . 
+  This left inverse is not unique. show that \[
+  \frac{1}{ 2}  \begin{pmatrix}
+  0  &  -1  &  6\\
+  0  &  1  &  -4
+  \end{pmatrix} 
+  \] 
+  gives another left inverse.
+  \begin{enumerate}
+    \item We can show it by  computing $T \circ  T^{-1} _{ l}$ such that \[
+    A \cdot  A^{-1} _{ l} = I
+    \] 
+  \item THe right inverse can be computed be analysing the transpose of $A$. \[
+      A A^{-1}_{l} = I \quad  \leftrightarrow  \quad I=I^{T} = \left( A A^{-1}_{l} \right)^{T}   = A^{-1}_{lT} A^{T}
+  \] 
+  At least this is the solution given. Not sure since finding an right inverse to $A^{T}$ answer the question.
+  \end{enumerate}
+\end{enumerate}
+\subsection{Problem 4}%
+\label{sub:problem_4}
+Show that cartesion product of two (infinite) countable sets is countable.
+
+\newpara
+\textbf{Solution}. A set is countable if it exist a integer which can be allocated for every $\mathbb{N}^{+} $ . Let $A = \left\{ a_{1} , a^{2} ,a^{3}, \ldots \right\}$  and $B = \left\{ b_{1}, b_{2}, \ldots \right\}$ be two infinite countable sets. Let us define the product $C = B \times A $ such that \[
+C = \left\{ a_{1} b_{1}, a_{2} b_{2}, \ldots \right\}
+\] 
+If we compare it with $N^{+}$ can we observe that \[
+\begin{split}
+C  & = \left\{ a_{1} b_{1}, a_{2} b_{2}, \ldots \right\} \\
+N^{+} &=  \left\{ 1,2, \ldots \right\} \\
+\end{split} 
+\] 
+Which means that there exists one element in $\mathbb{N} $  for every element in $C$, which shows that $C$ has to be countable.
+
+\subsection{Problem 5}%
+\label{sub:problem_5}
+Show that the sets $\mathbb{Z} $ of integeres and $\mathbb{Q} $ of rational numbers are countable.
+
+\begin{tcolorbox}
+  Important to define \textbf{surjective}, \textbf{injective} and \textbf{bijective} . Let $f: X \to  Y$  be a function,
+  \begin{enumerate}
+    \item  \textbf{Injective} if it exists at least one $Y$ for every $Y$ 
+    \item \textbf{surjective} (or onto)  if there exists $ran \left( f \right) = Y$, or it exists an $Y$ for every $X$ in 
+    \item \textbf{Bijection} is when both injective and surjective is conserved. We also call bijection as \textbf{one-to-one}.
+  \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solutions}.
+\begin{itemize}
+  \item To show that $\mathbb{Z} $ is countable can we describe the set such that \[
+  \mathbb{Z}  = \left\{ \ldots, -2, -1, 0, 1, 2 \ldots \right\}
+  \] 
+  By comparing every element in $N^{+}$ such that \[
+    \begin{split}
+      N^{+} &=  \left\{ 1,2, \ldots \right\}  \\
+  \mathbb{Z}   & = \left\{ \ldots, -2, -1, 0, 1, 2 \ldots \right\}
+    \end{split} 
+  \] 
+  Lets every odd element in $N^{+}$  be $N_{\text{ODD}} $ and every even element be $N_{\text{EVEN}}$, then can we make  \[
+      N^{ODD} &=  \left\{ 1,3, \ldots \right\}  \\
+  \mathbb{Z}^{-}   & = \left\{ \ldots, -2, -1, 0 \right\}
+  \] 
+  and
+  \[ 
+      N^{EVEN} &=  \left\{ 2,4,6, \ldots \right\}  \\
+  \mathbb{Z}^{+}   & = \left\{ 1,2,3 , \ldots\ldots \right\}
+  \] 
+  We have then showed it exists a element in $\mathbb{N} ^{+}$ for every element in $\mathbb{Z} $, which makes it countable.
+\item For the rational numbers $\mathbb{Q} $ such that $\frac{a_{1}}{a_{2}}  \in  \mathbb{Q} $ where $a_{1}, a_{2} \in  \mathbb{Z}   $ and $a_{2} \neq 0$. We can then use the fact that $\mathbb{Z} $ is countable such that both the nominator and demonitor is countable. In practice can we write the rational numbers as a set such that \[
+    \begin{split}
+\mathbb{Q} &= \left\{ \frac{-1}{}  \right\} \\.
+    \end{split} 
+\] 
+
+    
+\end{itemize}
+
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
