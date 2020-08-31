@@ -5,7 +5,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES %%%%%%
+%%%% DEPENDENCIES v1.1 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -43,7 +43,7 @@
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
-\DeclareMathOperator{\span}{span}
+% \DeclareMathOperator{\span}{span}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
@@ -53,6 +53,7 @@
   {
   \vskip 0.4cm
   }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -111,23 +112,22 @@ Given units $F_{1}, F_{2}, \ldots , F_{m}$ for fundamental if \[
   F_{1}^{\alpha_1}, F_{2}^{\alpha_2}, \ldots , F_{m}^{\alpha m} = 0 \quad  \to \quad  \alpha_1 = \alpha_{2} = \ldots = 0   
 \] 
 This units are then independent.
-\begin{example}
-  The units $kg, m, s$ are independent.  
-\end{example}
-\begin{example}
-  In a right angle triangle with angle $\alpha $ and hypothenus $c$. We know the area $A$ is uniquely determined by $\alpha $ and $c$ \[
-  A = f\left( c,\alpha  \right)
-  \] 
-  $\alpha $ is dimensialless since  $\alpha  = \frac{s}{r}$. Since $A$ scales as the square of the length, then is \[
-  f\left( ac, \alpha  \right) = a^2f\left( c,\alpha  \right)
-  \]   
-  \[
-    c = 1 \to f\left( a, \alpha  \right) = a^2f\left( 1,\alpha  \right) = a^2h\left( \alpha  \right)
-  \] 
-  Which then ends up with the relation \[
-  A = a^2h\left( \alpha  \right)
-  \] 
-\end{example} 
+\textbf{Example.} 
+   The units $kg, m, s$ are independent.  
+
+   \textbf{Example.} 
+   In a right angle triangle with angle $\alpha $ and hypothenus $c$. We know the area $A$ is uniquely determined by $\alpha $ and $c$ \[
+   A = f\left( c,\alpha  \right)
+   \] 
+   $\alpha $ is dimensialless since  $\alpha  = \frac{s}{r}$. Since $A$ scales as the square of the length, then is \[
+   f\left( ac, \alpha  \right) = a^2f\left( c,\alpha  \right)
+   \]   
+   \[
+     c = 1 \to f\left( a, \alpha  \right) = a^2f\left( 1,\alpha  \right) = a^2h\left( \alpha  \right)
+   \] 
+   Which then ends up with the relation \[
+   A = a^2h\left( \alpha  \right)
+   \] 
 
 \todo[inline]{ Make corollary environmet }
 
