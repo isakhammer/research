@@ -566,9 +566,10 @@ Which is a major simplification.
 
 
 
- \newpage
- \section{Lecture 4}%
- \label{sec:lecture_4}
+\newpage
+
+\section{Lecture 4}%
+\label{sec:lecture_4}
 
  \subsection{Introduction to first step analysis}%
  \label{sub:introduction_to_first_step_analysis}
@@ -774,7 +775,152 @@ P_{ij} = \begin{cases}
        \end{enumerate}
      \end{tcolorbox}
  
-\section{References}%
+\newpage
+\section{Lecture 5}%
+\label{sec:lecture_5}
+
+\textbf{Example.} Let $P$ be the matrix \[
+P = \begin{bmatrix} 
+1  & 0  &  0 &  0 \\
+0.4  &  0.3  &  0.2  &  0.1 \\
+0.1   &  0.3  &  0.3  &  0.3 \\
+0  &  0  &  0 &  0
+\end{bmatrix} 
+\] 
+With starting state $x_{0} = 1$
+
+\begin{enumerate}
+  \item Define $T  = \min_{ n\ge 0 : X_{n} = 0 \quad X_{n} = 3 } $ and $v_{i} = E \left[ T  \mid  X_{0} = i \right] $ for $i  = 0,1,2,3 $
+  \item Set $v_{0} = v_{3} = 0$
+  \item \[
+  v_{1} = P_{10} v_{0} + P_{11} v_{1} + P_{12} v_{2} + P_{13} v_{3}  = 0.3 v_{1} + 0.2_{v2} +1
+  \] 
+  and \[
+  v_{2} = P_{20 } v_{0}  + P_{21} v_{1} + P_{22}v_{2} + P_{23 } v_{3} + 1 = 0.3 v_{1} + 0.3 v_{2} + 1
+  \] 
+\item Solve the equations and end up with \[
+v_{1} = \frac{90}{43} \quad \text{and} \quad v_{2} \frac{100}{43}  
+\] 
+
+\end{enumerate}
+
+
+\begin{theorem}
+  Let $\left\{ X_{n} \right\}$ be a discrete time Markov chain with state space $S = \left\{ 0, 1, \ldots , N \right\} $ and transition probability matrx $\mathbf{P}$. Let $A \subset S$ be the set of absorbing state. Then
+  \begin{enumerate}
+    \item If $v_{i}$ is the expected time to absorption conditional on $X_{0} = i$ then \[
+    \begin{split}
+      v_{i}  & = 0, \quad  i \in  A   \\
+      v_{i} &=  1+ \sum_{ i \in  \mathbb{R} }^{} P_{ik} v_{k} \quad i \in  A^{c}  \\
+    \end{split} 
+    \] 
+  \end{enumerate}
+\end{theorem}
+
+
+\textbf{Example.} 
+A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increases $ 1 \$$.  The probability of winning each round is  $ 0  < p < 1$ and the probability of losing each round is $q = 1 - p$. The gambler will continue gambling until his fortine is \$ $N$ or $0 \$$ where  $N > 10$. What is the probability the gambler will be ruined. 
+
+\begin{enumerate}
+  \item Extract the essential stuff. \[
+      \begin{split}
+        X_{n} &=  \text{Fortune at time} \quad  n, \quad n = 0,1,2,\ldots   \\
+        \text{State space } &=  \left\{ 0,1, \ldots, N \right\} \\
+        \text{Target: } u_{k}   & = Pr \left \{ \text{Absorption in state 0}  \mid X_{0} = k \right \}, \quad  k = 0,1, \ldots, N \\
+      \end{split} 
+  \] 
+\item  Visualize the transitions.  Insert figure of tranistions.
+   \item Make the eprobability matrix. The rows are "to" and the columns are "1"
+     \[
+     P = \begin{bmatrix} 
+     1   &  0 & 0 & 0  & \ldots  &  0 \\
+     q  & 0  &   p  & 0  &   \ldots  &  0 \\
+     0  &  q  &   0  &  p  &  \ldots   \\
+     
+     \vdots   &  &   \ddots    \\
+      &  &  & q  & 0  &  p \\
+     0  &  0  &  \ldots  &   &  & 1
+     \end{bmatrix} 
+     \] 
+   \item Set up the iteration \[
+   \begin{split}
+     u _{0}  & = 1 , \quad  u_{N} = 0 , \quad  \text{Easy}   \\
+     u_{i} &=  P_{i, i.1} u_{i-1} + P _{i,i+1} u_{i+1}  \\
+     &= q u_{i-1} + p u_{i+1} , \quad i=1,2, \ldots, N-1  \\
+   \end{split} 
+   \] 
+ \item 
+   \begin{enumerate}
+     \item  \[
+         \begin{split}
+           \overbrace{(p + q)}^{ = 1} u_{i}   & = q u_{i -1} + p u_{i+1} \\
+    q\left[ u _{ i} - u_{i-1} \right] &=  p \left[ u_{i+1} - u_{i} \right] \\
+      &  \downarrow \quad \text{Trick}    \quad \chi _{i} = u_{i} - u_{i-1}   \\
+    q \chi _{1} &=  p \chi _{i+1} , \quad  \implies  \chi _{i+1} = \frac{q}{p}  \chi _{i}  \quad  i = 1,2 , \ldots , N  \\
+         \end{split} 
+     \] 
+   \item \[
+   \begin{split}
+     \chi _{1} + \chi _{2} + \ldots + \chi _{k} &= \left[ u - u_{0} \right] + \left[ u_{2} - u_{1} \right] + \ldots + \left[ u_{k} - u_{k-1} \right] \\
+       &  \downarrow  \quad \text{Telescoping sum}  \\
+        \chi _{1}\left[ 1 + \frac{q}{p} + \left( \frac{q}{p} \right)^2 + \ldots + \left( \frac{q}{p} \right)^{k-1}  \right]&=  u_{k} -1, \quad k = 1,2,3,\ldots,N  \\
+   \end{split} 
+   \] 
+   For $k = N$ : \[
+   \begin{split}
+     \chi _{1} &=    \frac{u_{N} -1}{\sum_{k=0}^{N-1} \left( \frac{q}{p} \right)^{k}}  = \frac{-1}{ \sum_{k = 0}^{N-1}  \left( \frac{q}{p} \right)^{k}}   \\
+     &= \begin{cases}
+       -\frac{1}{N}\quad   & , q = p = \frac{1}{2} \\
+       \frac{- \left( 1- \frac{q}{p} \right)}{\left( 1- \left( \frac{q}{p} \right) \right)} \quad   &  q\neq p \\
+     \end{cases} \\
+   \end{split} 
+   \] 
+ \item 
+   From  the telescoping sum 
+   \begin{align*}
+     u_{k} &=  1+ \chi _{1} \sum_{i=0}^{k-1} \left( \frac{q}{p} \right)^{i} \\
+     &=  \begin{cases}
+       1-\frac{1}{N} \cdot k =  \frac{N-k}{N}  ,  &  \quad  p = q = \frac{1}{2}  \\
+       1- \frac{1- \left( \frac{q}{p}  \right)^{k}}{ 1- \left( \frac{q}{p} \right)^{N}} = \frac{\left( \frac{q}{p} \right)^{k} - \left( \frac{q}{p} \right) ^{ N}}{1- \left( \frac{q}{p} \right) ^{N}}  ,   & \quad  p\neq q 
+     \end{cases}, \quad \text{where} \quad    k = 1,2, \ldots.  \\
+   .\end{align*}
+   \end{enumerate}
+ \item The final step \[
+ u_{10} = \begin{cases}
+   \frac{N- 10}{ N}  ,  &  \quad  p = q = \frac{1}{2} \\
+   \frac{\left( \frac{q}{p} \right)^{10} - \left( \frac{q}{p} \right) ^{N}}{ 1 - \left( \frac{q}{p} \right)^{N}}  , &\quad     q \neq p 
+ \end{cases}
+ \] 
+\end{enumerate}
+
+\begin{remark}
+  \begin{itemize}
+    \item When $N \to  \infty$ \[
+        \begin{split}
+    q \ge p \quad   & \implies  \quad  \text{Almost certain you will loose.}   \\
+    q < p  & \implies  P\left( \text{ruined} \right) = \left( \frac{q}{p} \right)^{10} \\
+        \end{split} 
+    
+    \] 
+  \end{itemize}
+\end{remark}
+
+\subsection{Markov Chain in infinitive time}%
+\label{sub:markov_chain_in_infinitive_time}
+
+\begin{definition}
+  \textbf{Regular Markov Chain} . Consider a Markov chain $\left\{ X_{n}: \quad  n = 0,1,\ldots  \right\}$ with finite state space $ \left\{ 0,1,2, \ldots \right\}$ and transition matrix $\mathbf{P}$. IF there exists an integer $k >0$ so that all regular elements $\mathbf{P}^{k}$ are strictly positive, we call $\mathbf{P}$ and $\left\{ X_{n} \right\}$ regular. 
+\end{definition}
+
+\begin{remark}
+   \begin{enumerate}
+     \item $P$ is regular means that it exists an $k > 0$ so that $P^{(k)} _{ ij} > 0 \quad  \forall i,j $
+     \item  If $P^{(k)} _{ij} \quad  \forall i,j $, then is $P^{(k)} _{ij} > 0 \quad  \forall i,j $ and $K \ge k$ 
+   \end{enumerate}
+\end{remark}
+
+
+\section{References}
 \label{sec:references}
 
 
