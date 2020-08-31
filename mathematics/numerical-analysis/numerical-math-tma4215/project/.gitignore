@@ -5,3 +5,5 @@
 *.log
 *.toc
 *.gz
+.ipynb_checkpoints/
+
