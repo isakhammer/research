@@ -86,11 +86,28 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
    \|A\|_{2}^{2} = \sup_{ y \neq 0}  \frac{\sum_{i=1}^{n}  \mu _{i} \left| y_{i} \right|^2}{ \sum_{i=1}^{n}  \left| y_{i} \right|^2}  = \max _{i} \left( \mu _{i} \right) = \rho \left( A \right)^2.
    \] 
    Here is $\mu _{i}$ positive eigenvalues of $A^{H} A$
- 
 \end{proof}
+\newpage
+\section{Problem 2}%
+\label{sec:problem_2}
 
+Consider the $n \times n $ matrix $A$ whise nonzero elements are located on its unit subdiagonal , i.e. $A_{ij+1, i} = 1$ for $i = 1, \ldots, n-1$\[
+A = \begin{bmatrix} 
+  0  &  \ldots  &  \ldots  & 0 \\
+  1  &  0  &    & \vdots  \\
+  \vdots   & \ddots   & \ddots   &  \vdots   \\
+  0  &  \ldots     & 1  & 0 
+\end{bmatrix} 
+\] 
 
-
+\begin{enumerate}
+  \item [a)] What are the eigen values of $A$ ? What would the Gershgorin theorem tell us abou the location of the eigenvalues of $A$.
+  \item [b)] Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
+      \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
+  \] 
+  And fins an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
+\item[c)] Derive an exact expression for the condition number $K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} = \|\hat{A}^{-1}\|_{2}^{}$.
+\end{enumerate}
 
 
 
