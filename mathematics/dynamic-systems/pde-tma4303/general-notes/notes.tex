@@ -1,0 +1,94 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Notes}
+\author{isakhammer }
+\date{2020}
+
+% 
+%%%% DEPENDENCIES v1.1 %%%%%%
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{todonotes}
+\usepackage{float}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+% \DeclareMathOperator{\span}{span}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Helmholtz Equation}%
+\label{sec:helmholtz_equation}
+
+\[
+P_{t} u - \nabla u = 0
+\] 
+Where $P_{t}$ is a first or second order differential operator including variables.  
+
+\begin{lemma}
+  Let $u$ be a classical solution s.t. \[
+    u\left( t,\mathbf{x} \right) ) v\left( t \right) \phi \left( \mathbf{x} \right).
+  \] 
+  For $t \in \mathbb{R}  $ and $\mathbf{x} \in  \Omega \subseteq  \mathbb{R} ^{n} $   then in any region where $u$ is nonzero there is a constant $\kappa     $ such that the components solve the equations \[
+  P_{t} v = \kappa v \quad  \delta \phi = \kappa \phi  
+  \]  
+\end{lemma}
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
