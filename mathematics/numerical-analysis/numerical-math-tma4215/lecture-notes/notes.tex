@@ -304,6 +304,162 @@ P^{-1} Ax &=   x P^{-1} \\
   \] 
 \end{enumerate}
 
+\newpage
+\section{Lecture 01/09/20}%
+\label{sec:lecture_01_09_20}
+
+Well posedness of the inital value problem. \[
+\dot{y} = f\left( t,y \right), \quad y\left( 0 \right) = y_{0} 
+\] 
+Is stable on $\left[ 0,T \right] $ if for any sufficiently small $\varepsilon > 0$ m there are $\left( \delta _{0}, \delta \left( t \right) \right)$ s.t.\[
+\|\delta _{0}\|_{}^{} < \varepsilon  , \quad  \|\delta \left( t \right)\|_{}^{} < \varepsilon  , \quad  t \in  \left[ 0,T \right] 
+\] 
+Such that $\|y\left( t \right) - z\left( t \right)\|_{}^{} < C\cdot \varepsilon \quad  \forall t \in \left[ 0,T \right]  $  for some constant $C$. $z\left( t \right)$ solves the IVP \[
+\dot{z} \left( t \right) = f\left( t, z\left( t \right) \right) + \delta \left( t \right) , \quad  z_{0} = y_{0} + \delta _{0} 
+\] 
+One can prove that if $f$ is Lipschitz (constant L), then the solution is stable $C= (1+T) e^{tL}$ . 
+
+\subsection{Flow of a vector field}%
+\label{sub:flow_of_a_vector_field}
+
+For us a vector field is a continuous map \[
+f: \mathbb{R} ^{m} \to  \mathbb{R} ^{m}
+\] 
+For a fixed value of $t$ consider the map $\phi _{t,f}\left( y_{0} \right)  = y\left( t \right)$ is called the $t$-flow of the vector field $f$. Its domain of definition may depend on $t$ and $f$.
+\begin{tcolorbox}
+  Suppose that \[
+    \phi _{t_{1}, f} \left( \phi _{t_{2} , f} \left( y_{0} \right) \right) = \phi _{t_{1}, t_{2}, f} \left( y_{0} \right)
+  \] 
+  and \[
+  \phi _{-t_{1}, f} \left( \phi _{t_{1}, f}\left( y_{0} \right) \right) = \phi_{0, f} \left( y_{0} \right) = y_{0} \quad  \implies  \quad  \left( \phi _{t, f} \right)^{-1} = \phi _{-t, f}  
+  \] 
+  Typical notation: \[
+   \phi _{t,f}\left( y_{0} \right) = e^{tf} y_{0}
+  \]   
+\end{tcolorbox}
+
+\subsection{Numerical Integration of ODE}%
+\label{sub:numerical_integration}
+Always assume a finite time interval $\left[ 0,T \right]$.
+
+Vector field $\left( f \right)$ does not contain parameters.  Split the finite interval into subintervals \[
+t_{0} < t_{1} < \ldots < t^{N} = T
+\] 
+Often we assume $t_{n} = t_{0} + nh$ , where $h$ is the stepsize. Also we may have $h = \frac{T - t_{0}}{ N} $ . For $t = t_{j}$, let $u_{j} \approx y\left( t_{j} \right) = y_{j}$ and $f_{j} f\left( t_{j}, y_{j} \right)$
+
+
+\newpara
+Two classes of methods 
+\begin{enumerate}
+  \item One-step method , $u_{n+1} = \chi _{n+1} \left( u_{n} \right)$
+  \item Multistep methods, $u_{n+1}$ depends on $u_{n}, u_{n-1}, \ldots , u_{n  k+1}$  and also $f_{n+1}, f_{n}, \ldots, f_{n-k+1}$
+\end{enumerate}
+
+\subsubsection{The Simplest Schemes}%
+\label{ssub:the_simplest_schemes}
+
+\begin{enumerate}
+  \item \textbf{Euler} , $u_{n+1} = u_{n} + h f\left( t_{n} , u_{n} \right)$ 
+  \item \textbf{Backward Euler (Implicit Euler)}  \[
+  u_{n+1} = u_{n} + h f\left( t_{n+1}, u_{n+1} \right)
+  \] 
+\item \textbf{Trapezoid rule} . \[
+    u_{ n+1}  = u_{n} + \frac{h}{2}  \left( f\left(  \right) \right)
+\] 
+\item Midpoint rule  \[
+u_{n+1} = u_{n} 0 h f\left( t_{n} + \frac{h}{2},  \frac{y_{n} + y_{n+1}}{2}  \right)
+\] 
+
+\end{enumerate}
+
+\subsubsection{The most important classes of one-step schemes}%
+\label{ssub:the_most_important_classes_of_one_step_schemes}
+
+Taylor Series methods. \[
+\dot{y} = f\left( t, y \right) , \quad  y\left( 0 \right) = y_{0} , \quad  y\left( t \right) \in  \mathbb{R} ^{m}  \\
+\]  
+If $y\left( t \right)  $ is sufficiently smooth then we can compute the taylor expansion such that \[
+y \left( t+ h \right) = y\left( t \right) h \dot{y} \left( t \right) + \frac{1}{2} h^2 \ddot{y}\left( t \right) + \ldots + \frac{1}{q!} h^{q} y^{(q)} + R_{q+1}  .
+\] 
+where \[
+R_{q+1} = \frac{y^{(q+1) }\left( \zeta  \right)}{ \left( q +1 \right) !}  , \quad  \zeta  \in  \left( t, t+h \right) 
+\] 
+Compute $y ^{(k)} \left( t \right)$ , $k>1$ from diff eq. \[
+  \begin{split}
+\ddot{y} \left( t \right)  & = \frac{d }{dt } f\left( t, y\left( t \right) \right) = \frac{\partial }{\partial t} f \left( t, y\left( t \right) \right) + \frac{\partial f}{\partial y}  \left( t, y\left( t \right)   \right) \dot{y}\left( t \right)  \\
+ & = \frac{\partial f}{\partial t}  \left( t, y\left( t \right) \right) +\frac{\partial f}{\partial y} \left( t, y\left( t \right) \right) \cdot f\left( t, y\left( t \right) \right)
+  \end{split} 
+\] 
+Similary we can compute \[
+y^{(3)}\left( t \right) , y^{(4) }\left( t \right) , \ldots
+\]  
+and plug this into the taylor expansion and ignore the remainder term. 
+
+\newpara
+\textbf{Example.} 
+Let $\dot{y} = y^2$ and $y\left( 0 \right) = y_{0}$ such that \[
+\ddot{y} = 2y \dot{y} = 2y^3, \quad y^{(3) } = 6 y^2\dot{y} = 6y^{4} , \quad y^{(k)} = k! y^{(k+1)}  
+\] 
+
+This can be plugged into the taylor expansion such that \[
+y\left( t + h \right) = y\left( t \right) + h y\left( t \right)^2 + \frac{1}{2} h^2 2 y\left( t \right)^2 + \ldots = y\left( t \right) + hy\left( t \right)^2 + \ldots
+\]  
+which ends up with the method \[
+y_{n+1} = \sum_{k=1}^{ q}  h^{k-1} y ^{k}_{n}
+\] 
+
+\subsubsection{Runga kutta methods}%
+\label{ssub:runga_kutta_methods}
+
+Generalization class of methods. COntains Euler, Backwards Euler, Trapozoidal Rule, Midpoint and more. The format is described like this \[
+  \begin{split}
+K_{i}  & = f\left( t _{n} + c_{i}h, u_{n} + \sum_{j=1}^{s} a_{ij} K_{j}  \right) \quad  i =  1, \ldots, s  \\
+u_{n+1}  & = u_{n} + h \sum_{i=1}^{s}  b_{i} K_{i}
+  \end{split} 
+\] 
+
+\begin{itemize}
+  \item \textbf{Explicit RK Methods} . $a_{ij} = 0, \quad j \ge i $
+  \item \textbf{Butcher Tablaeuz} 
+\begin{table}[htpb]
+  \centering
+  \caption{Butcher Tablaeuz}
+  \label{tab:label}
+  \begin{tabular}{l|ccc}
+    $c_{1}$  & $a_{11} $ & $\ldots$ & $a_{1s}$ \\
+    $\vdots $ \\
+    $c_{s}$ & $ a _{s1}$ & $\ldots$ & $a_{ss}$ 
+     & \hline \\
+            & $b_{1}$ & $\ldots$ & $b_{s}$
+  \end{tabular}
+\end{table}
+
+\end{itemize}
+
+\subsection{Analysis of one-step methods}%
+\label{sub:analysis_of_one_step_methods}
+
+The exact solution does not obey the numerical formula. We write the formula as \[
+  \begin{split}
+u_{n+1}   &  = u_{n} + h \phi _{h,f} \left( t_{n} , u_{n} \right) \\
+y_{n+1} &= y_{n} + h \phi _{h,f} \left( t_{n}, y_{n} \right) + \varepsilon _{n+1} \\
+  \end{split} 
+\] 
+We set $\varepsilon _{n+1} = h \tau _{n+1} \left( h \right)$ where $\tau _{n+1} \left( h \right)$ is the local trunction error. 
+
+\newpara
+Define also \[
+\tau \left( h \right) = \max_{n} \|\tau _{n+1} \left( h \right)\|_{}^{}
+\] 
+A method is called \textbf{consistent}  if $\lim_{h\to 0} \tau \left( h \right) = 0$. If $\tau \left( h \right) = O\left( h ^{p} \right)$ as $h \to  0$ then ot has order (of consistency) $p$.
+
+
+
+
+
+
+
+
 
 
 \newpage
