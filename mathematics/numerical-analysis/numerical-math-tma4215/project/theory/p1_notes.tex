@@ -143,10 +143,18 @@ A = \begin{bmatrix}
 
 \begin{enumerate}[label=(\alph*)]
   \item  What are the eigenvalues of $A$ ? What would the Gershgorin theorem tell us abou the location of the eigenvalues of $A$.
-    \begin{tcolorbox}
+  \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
+      \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
+  \] 
+  And fins an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
+\item Derive an exact expression for the condition number $K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} = \|\hat{A}^{-1}\|_{2}^{}$.
+
+  \end{enumerate}
+
+  \subsection{Answer a}%
+  \label{sub:answer_a}
+  
       \textbf{Answer.} 
-      We can determine the eigenvalues by computing $det\left( A - \lambda I  \right)$.
-Which means all the eigen values are zero. You can use the Gershgorin theorem to determine the radius of each eigenvalue.
 
 \newpara
 The eigenvalues can be computed such that \[
@@ -169,14 +177,12 @@ The eigenvalues can be computed such that \[
    &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \quad   \implies  \quad \quad \lambda  = 0
   \end{split} 
 \] 
-Which concludes that we did only find a trivial solution, which is not interesting.
+Which concludes that we did only find a trivial solution.
 
-    \end{tcolorbox}
-  \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
-      \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
-  \] 
-  And fins an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
-  \begin{tcolorbox}
+    \subsection{Answer b}%
+\label{sub:answer_b_}
+
+
     \textbf{Answer.} 
     We can observe that \[
     \hat{A} = A + \varepsilon e_{1}e_{n}^{T} = \begin{pmatrix}
@@ -187,7 +193,7 @@ Which concludes that we did only find a trivial solution, which is not interesti
      0  &  \ldots  &   &  1  & 0
     \end{pmatrix} 
     \] 
-    Finding the eigenvalues analytically such that \[
+    We can then find the eigenvalues by computing\[
       \begin{split}
     det \left(  \hat{A} - \lambda \right)  & = \begin{vmatrix}
     -\lambda     &   &  \ldots           &    &  \varepsilon  \\
@@ -204,17 +210,20 @@ Which concludes that we did only find a trivial solution, which is not interesti
      0  &  \ldots  &   &  1  & -\lambda 
     \end{vmatrix}  \\
      \\
-     &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 \quad       \implies  \lambda    = \varepsilon ^{\frac{1}{n}} 
+     &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 \quad        \\
       \end{split} 
     \] 
-    This also shows that \[
-    \rho \left( \hat{A} \right) = \varepsilon ^{\frac{1}{n}}
+    Solvin this equation do we obtain \[
+     \implies  \lambda     & = \varepsilon^{\frac{1}{n}} = \begin{cases}
+       , \quad   &  n = 0 \\
+       , \quad   &  n= 1 \\
+     \end{cases}
     \] 
-
-  \end{tcolorbox}
-\item Derive an exact expression for the condition number $K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} = \|\hat{A}^{-1}\|_{2}^{}$.
-
-  \end{enumerate}
+    As we can see can $\lambda $ have several complex solutions depending on the value $n$. However, we can conclude that $\left\lvert \lambda  \right\rvert = \varepsilon ^{\frac{1}{n}}$ thus
+     \[
+    \rho \left( \hat{A} \right) = \varepsilon ^{\frac{1}{n}}.
+    \] 
+    Which completes the task.
 
 
 \newpage
