@@ -6,7 +6,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES v1.1 %%%%%%
+%%%% DEPENDENCIES v1.2 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -14,7 +14,8 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-\usepackage{enumerate}
+%\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{todonotes}
 \usepackage{float}
 
@@ -58,369 +59,368 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
 
 \newpage
-% \section{Lecture 1}%
-% \label{sec:lecture_1}
-%  \subsection{Praktiske Ting}%
-%  \label{sub:book}
- 
-%  \begin{itemize}
-%    \item
-%  Borthwick, Introduction to Partial Differential Equations - Springer Link
-%  \item Ingen obligatoriske øvinger.
+ \section{Lecture 1}%
+ \label{sec:lecture_1}
+  \subsection{Praktiske Ting}%
+  \label{sub:book}
 
-%  \end{itemize}
+  \begin{itemize}
+    \item
+  Borthwick, Introduction to Partial Differential Equations - Springer Link
+  \item Ingen obligatoriske øvinger.
 
-%  \subsection{Bevaring av Konserveringslov}%
-%  \label{sub:bevaring_av_konserveringslov}
- 
-%  \begin{itemize}
-%    \item
-% \textbf{Konserveringslov}  \[
-%   \begin{split}
-%     \frac{\partial u}{\partial t} + \frac{\partial }{\partial x} f\left( u \right) &= 0\\
-%     u\left( t,x \right)  &  \quad \text{ukjent}  \\
-%     f \quad  & \text{er oppgit} 
-%   \end{split}
-% \] 
-% \item
-% \textbf{Hamilton Jacobi} \[
-% \frac{\partial u}{\partial t}  +  f \left( \frac{\partial u}{\partial x} \right)  = 0
-% \] 
-% \item \textbf{Bølgelingingen}  \[
-% \frac{\partial ^{2} u }{\partial t^{2}} - c^2 \frac{\partial ^2u}{\partial x^2}  = 0
-% \] 
-% \item \textbf{Varmeligningen} \[
-% \frac{\partial u}{\partial t} - \mathbb{H} \frac{\partial ^2}{\partial x^2}  = f\left( t,x \right) 
-% \] 
-% \item  \textbf{Possion lingingen} \[
-%     \begin{split}
-% - \frac{\partial ^2}{\partial x^2}  - \frac{\partial ^2}{\partial y^2}   & = f\left( x,y \right) \\
-% -\left( \frac{\partial ^2}{\partial x^2}  + \frac{\partial ^2}{\partial y^2}  \right)u &= f 
-%     \end{split}
-% \] 
-% \item \textbf{Korteweg - de vries} \[
-% \frac{\partial u}{\partial t}  + \frac{\partial ^{3}}{\partial x^{3}}  - 6u \frac{\partial u}{\partial x} = 0
-% \]  
-% \item \textbf{Navier Stokes} \[
-% \rho \left( \frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \nabla \mathbf{u} \right) = - \nabla p + \mu \Delta \mathbf{u} + \rho \mathbf{g} 
-% \] 
+  \end{itemize}
 
-%  \end{itemize}
+  \subsection{Bevaring av Konserveringslov}%
+  \label{sub:bevaring_av_konserveringslov}
 
-%  \subsection{Notation}%
-%  \label{sub:notation}
+  \begin{itemize}
+    \item
+ \textbf{Konserveringslov}  \[
+   \begin{split}
+     \frac{\partial u}{\partial t} + \frac{\partial }{\partial x} f\left( u \right) &= 0\\
+     u\left( t,x \right)  &  \quad \text{ukjent}  \\
+     f \quad  & \text{er oppgit} 
+   \end{split}
+ \] 
+ \item
+ \textbf{Hamilton Jacobi} \[
+ \frac{\partial u}{\partial t}  +  f \left( \frac{\partial u}{\partial x} \right)  = 0
+ \] 
+ \item \textbf{Bølgelingingen}  \[
+ \frac{\partial ^{2} u }{\partial t^{2}} - c^2 \frac{\partial ^2u}{\partial x^2}  = 0
+ \] 
+ \item \textbf{Varmeligningen} \[
+ \frac{\partial u}{\partial t} - \mathbb{H} \frac{\partial ^2}{\partial x^2}  = f\left( t,x \right) 
+ \] 
+ \item  \textbf{Possion lingingen} \[
+     \begin{split}
+ - \frac{\partial ^2}{\partial x^2}  - \frac{\partial ^2}{\partial y^2}   & = f\left( x,y \right) \\
+ -\left( \frac{\partial ^2}{\partial x^2}  + \frac{\partial ^2}{\partial y^2}  \right)u &= f 
+     \end{split}
+ \] 
+ \item \textbf{Korteweg - de vries} \[
+ \frac{\partial u}{\partial t}  + \frac{\partial ^{3}}{\partial x^{3}}  - 6u \frac{\partial u}{\partial x} = 0
+ \]  
+ \item \textbf{Navier Stokes} \[
+ \rho \left( \frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \nabla \mathbf{u} \right) = - \nabla p + \mu \Delta \mathbf{u} + \rho \mathbf{g} 
+ \] 
 
-%  En generell pde kan beskrives som \[
-%  F\left( t, x, y, \ldots, u_{t}, u_{t} , \ldots , u_{y} , u_{xy}, \ldots  \right) = 0
-%  \] 
+  \end{itemize}
 
-%  og blir beskrevet som en partiell diffligning. \[
-%  u_{t} + f'\left( u \right) u_{x} = 0
-%  \] 
+  \subsection{Notation}%
+  \label{sub:notation}
 
-%  En \textbf{klassisk løsning }  til en PDE av order $m$ er en $C^{m}$- funksjon som i ligningen. 
+  En generell pde kan beskrives som \[
+  F\left( t, x, y, \ldots, u_{t}, u_{t} , \ldots , u_{y} , u_{xy}, \ldots  \right) = 0
+  \] 
 
-%  \begin{example}
-%    Bølgeligningen $u_{tt} - c^2 u_{x x} = 0$ har en klassisk løsning $u\left( t,u \right) = f\left( x \pm ct \right)$ med $f \in C^2 $  der $\left[ f, f', f''  \right]$ er kontinuerlig. 
-%    \begin{align*}
-%      u_{t} &=  \pm c f'\left( x \pm ct \right) \\
-%      u_{t t} &=  f''\left( x \pm ct \right) \\
-%      u_{x x} &=  c^2 f''\left( x \pm ct \right) \\
-%      u_{t t} &=  f'' \left( x \pm ct \right) \\
-%      u_{tt} &=  c^2 u_{x x}     
-%    .\end{align*}
-%    Der av løsningen \[
-%    u\left( t,x \right) = f_{1}\left( x + ct \right) + f_{2}\left( x -ct \right)
-%    \] 
-%  \end{example}
+  og blir beskrevet som en partiell diffligning. \[
+  u_{t} + f'\left( u \right) u_{x} = 0
+  \] 
+
+  En \textbf{klassisk løsning }  til en PDE av order $m$ er en $C^{m}$- funksjon som i ligningen. 
+
+  \textbf{Example.} 
+    Bølgeligningen $u_{tt} - c^2 u_{x x} = 0$ har en klassisk løsning $u\left( t,u \right) = f\left( x \pm ct \right)$ med $f \in C^2 $  der $\left[ f, f', f''  \right]$ er kontinuerlig. 
+    \begin{align*}
+      u_{t} &=  \pm c f'\left( x \pm ct \right) \\
+      u_{t t} &=  f''\left( x \pm ct \right) \\
+      u_{x x} &=  c^2 f''\left( x \pm ct \right) \\
+      u_{t t} &=  f'' \left( x \pm ct \right) \\
+      u_{tt} &=  c^2 u_{x x}     
+    .\end{align*}
+    Der av løsningen \[
+    u\left( t,x \right) = f_{1}\left( x + ct \right) + f_{2}\left( x -ct \right)
+    \] 
 
 
-%  \subsection{PDE-Teori}%
-%  \label{sub:pde_teori}
- 
-%  \begin{itemize}
-%    \item  Fine løsninger
-%    \item Analyse  
-%      \begin{itemize}
-%        \item Velstilt.
-%          \begin{itemize}
-%            \item Løsninger eksisteres
-%            \item De er entydige.
-%            \item De avhenger kontiuerlig av data. 
-%          \end{itemize}
-%        \item General opp oppførsel
-%          \[
-%            \begin{split}
-%          u_{t} - u_{x x}  &  \quad  t > 0 \\
-%          u\left( 0,x \right) &= u_{0} \left( x \right)
-%            \end{split}
-%          \] 
-%        \item Tilnærmede løsninger (numerikk)
-%      \end{itemize}
+  \subsection{PDE-Teori}%
+  \label{sub:pde_teori}
 
-%  \end{itemize}
- 
+  \begin{itemize}
+    \item  Fine løsninger
+    \item Analyse  
+      \begin{itemize}
+        \item Velstilt.
+          \begin{itemize}
+            \item Løsninger eksisteres
+            \item De er entydige.
+            \item De avhenger kontiuerlig av data. 
+          \end{itemize}
+        \item General opp oppførsel
+          \[
+            \begin{split}
+          u_{t} - u_{x x}  &  \quad  t > 0 \\
+          u\left( 0,x \right) &= u_{0} \left( x \right)
+            \end{split}
+          \] 
+        \item Tilnærmede løsninger (numerikk)
+      \end{itemize}
 
-%  \subsection{Kap 3, Transportligningen}%
-%  \label{sub:kap_3_transportligningen}
+  \end{itemize}
 
-%  \[
-%  u_{t} + v u_{x} =0 \quad  \text{der } \quad  v\left( t,x \right) = 0 \quad  , u\left( 0,x \right) = u_{0} \left( x \right)   
-%  \] 
-%  Som kan omskrives til \[
-%    \begin{split}
-%  \frac{d u\left( t,x\left( t \right) \right)}{d t} &= u_{t} + \dot{x} u_{x} = 0  \\
-%  \text{dersom} \quad  & \dot{x} = v\left( t,x \right) \quad \text{har entydig løsning gitt}\quad x\left( 0 \right) = x_{0} \\
-%  \text{forutsatt} \quad   &  v \in C^{1} 
-%    \end{split}
-%  \] 
-%  derfor er $u\left( t, x\left( t \right) \right) = u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)$. La oss definere $X\left( t, x_{0} \right) = x\left( t \right)$ \[
-%  \text{dersom} \quad  x \quad \text{løser} \quad \begin{cases}
-%    \dot{x} &= v\left( t,x \right) \\
-%    x\left( 0 \right) &= x_{0}  
-%  \end{cases}  
-%  \] 
 
-%  La $u\left( t, X\left( t,x_{0} \right) \right) = u_{0} \left( x_{0} \right)$ . For a finne $u\left( t,x \right)$, løs $\left( X\left( t,x_{0} \right) \right)$ med hennold 
-%  pa $x_{0} $ og sett inn  
- 
-%  \begin{example}
-%    \[
-%    u_{t} + \left( at +b \right)u_{x} = 0  \quad  a,b \quad \text{er kont}  
-%    \]
-%    Da er ligningen $\dot{x} + at = b$ slik at \[
-%    \begin{split}
-%      x &=  \frac{1}{2} at^2  + bt  +c\\
-%      x_{0} &=  x - \frac{1}{2  } at^2 - bt \\
-%      u\left( t,x \right) &= u_{0} \left( x-\frac{1}{2} at^2 -bt \right)\\
-%      u_{t} &= -\left( at +b \right)
-%    \end{split}
-%    \] 
-%  \end{example}
+  \subsection{Kap 3, Transportligningen}%
+  \label{sub:kap_3_transportligningen}
+
+  \[
+  u_{t} + v u_{x} =0 \quad  \text{der } \quad  v\left( t,x \right) = 0 \quad  , u\left( 0,x \right) = u_{0} \left( x \right)   
+  \] 
+  Som kan omskrives til \[
+    \begin{split}
+  \frac{d u\left( t,x\left( t \right) \right)}{d t} &= u_{t} + \dot{x} u_{x} = 0  \\
+  \text{dersom} \quad  & \dot{x} = v\left( t,x \right) \quad \text{har entydig løsning gitt}\quad x\left( 0 \right) = x_{0} \\
+  \text{forutsatt} \quad   &  v \in C^{1} 
+    \end{split}
+  \] 
+  derfor er $u\left( t, x\left( t \right) \right) = u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)$. La oss definere $X\left( t, x_{0} \right) = x\left( t \right)$ \[
+  \text{dersom} \quad  x \quad \text{løser} \quad \begin{cases}
+    \dot{x} &= v\left( t,x \right) \\
+    x\left( 0 \right) &= x_{0}  
+  \end{cases}  
+  \] 
+
+  La $u\left( t, X\left( t,x_{0} \right) \right) = u_{0} \left( x_{0} \right)$ . For a finne $u\left( t,x \right)$, løs $\left( X\left( t,x_{0} \right) \right)$ med hennold 
+  pa $x_{0} $ og sett inn  
+
+  \textbf{Example.} 
+    \[
+    u_{t} + \left( at +b \right)u_{x} = 0  \quad  a,b \quad \text{er kont}  
+    \]
+    Da er ligningen $\dot{x} + at = b$ slik at \[
+    \begin{split}
+      x &=  \frac{1}{2} at^2  + bt  +c\\
+      x_{0} &=  x - \frac{1}{2  } at^2 - bt \\
+      u\left( t,x \right) &= u_{0} \left( x-\frac{1}{2} at^2 -bt \right)\\
+      u_{t} &= -\left( at +b \right)
+    \end{split}
+    \] 
 
 
 
-% \newpage
-% \section{Lecture 2}%
-% \label{sec:lecture_2}
+ \newpage
+ % \section{Lecture 2}%
+ % \label{sec:lecture_2}
 
-% \subsection{Høy Dimensional Kalkulus}%
-% \label{sub:introduction}
+ % \subsection{Høy Dimensional Kalkulus}%
+ % \label{sub:introduction}
 
-% Definition av funksjon
-% \[
-% \begin{split}
-%   f: & \mathbb{R} ^{2} \implies \mathbb{R} \\
-%   f \in & C^{1}\left( \mathbb{R} ^{n}; \mathbb{R} \mathbb{R}  \right) \quad  \text{betyr kontinuerlig}    \\ 
-% \end{split} 
-% \]  
+ % Definition av funksjon
+ % \[
+ % \begin{split}
+ %   f: & \mathbb{R} ^{2} \implies \mathbb{R} \\
+ %   f \in & C^{1}\left( \mathbb{R} ^{n}; \mathbb{R} \mathbb{R}  \right) \quad  \text{betyr kontinuerlig}    \\ 
+ % \end{split} 
+ % \]  
 
-% For gradienter \[
-% \begin{split}
-% \nabla f &=  \partial _{x_{1}} f_{1}, \ldots, \partial _{x_{n}} f & 
-% &= \begin{pmatrix}
-%   \partial _{x_{1}} f \\
-%   \vdots \\
-%   \partial _{x_{n}} f
-% \end{pmatrix} 
-% \end{split} 
-% \] 
+ % For gradienter \[
+ % \begin{split}
+ % \nabla f &=  \partial _{x_{1}} f_{1}, \ldots, \partial _{x_{n}} f  
+ % &= \begin{pmatrix}
+ %   \partial _{x_{1}} f \\
+ %   \vdots \\
+ %   \partial _{x_{n}} f
+ % \end{pmatrix} 
+ % \end{split} 
+ % \] 
 
-% For vectorfelt \[
-%   \begin{split}
-%     \mathbf{F}:  & \mathbb{R} ^{n} \to \mathbb{R} ^{n} \\
-%     \mathbf{F} \in  &  C_{1} \left( \mathbb{R} ^{n} , \mathbb{R} ^{n} \right) \\
-%     \nabla \mathbf{F} &= \partial F_{1} + \ldots + \partial  F_{n}
-%   \end{split} 
-% \] 
+ % For vectorfelt \[
+ %   \begin{split}
+ %     \mathbf{F}:  & \mathbb{R} ^{n} \to \mathbb{R} ^{n} \\
+ %     \mathbf{F} \in  &  C_{1} \left( \mathbb{R} ^{n} , \mathbb{R} ^{n} \right) \\
+ %     \nabla \mathbf{F} &= \partial F_{1} + \ldots + \partial  F_{n}
+ %   \end{split} 
+ % \] 
 
-% \begin{definition}
-%   Divergensteoremet \[
-%   \int_{\omega }^{}   \nabla  \mathbf{F} d^{n} x = \int_{\partial \omega }^{}  \mathbf{F} \cdot \mathbf{v} dS 
-%   \] 
-% \end{definition}
+ % \begin{definition}
+ %   Divergensteoremet \[
+ %   \int_{\omega }^{}   \nabla  \mathbf{F} d^{n} x = \int_{\partial \omega }^{}  \mathbf{F} \cdot \mathbf{v} dS 
+ %   \] 
+ % \end{definition}
+
+ % % \begin{figure}[ht]
+ % %     \centering
+ % %     \incfig{divfigure}
+ % %     \caption{divfigure}
+ % %     \label{fig:divfigure}
+ % % \end{figure}
+
+
+ % \begin{proof}
+ %   \[
+ %   \int_{\mathbf{\sigma}}^{}  f dS = \int_{w}^{} f\left( \mathbf{\sigma}\left( \mathbf{y} \right) \right) det \left[ \frac{\partial \mathbf{v}}{\partial y_{1}}   \ldots , \frac{\partial \mathbf{\sigma}}{\partial y_{n-1}} , \mathbf{v} \right] dy_{1} \ldots dy_{n-1}
+ %   \] 
+ % \end{proof}, 
+
+ % \begin{definition}
+ %   Området er definert som åpen delmengde av $\mathbb{R} ^{n} $ sammenhengende. La $x_{0}$ være sentrum av sirkelen med radius $R$, da er \[
+ %     \begin{split}
+ %   B\left( \mathbf{x_{0}}; R \right)  & =  B_{R} \left( \mathbf{x_{0}} \right)\\
+ %   &= \left\{ \mathbf{x_{0}} \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{x_{0}}\| < R \right\} \\
+ %   \\
+ %     & \begin{cases}
+ %        & \text{En omegn om } \mathbf{x_{0}} \text{er en mengde som inneholder  } B\left( \mathbf{x_{0}}; R \right) \text{ for en }  R > 0\\
+%        &\text{En åpent mengde som er en omegn }  \text{om alle sine punkter.}
+ %   \end{cases}
+ %     \end{split} 
+ %   \] 
+ % \end{definition}
+
+
+ % \subsection{Konserveringslov}%
+ % \label{sub:konserveringslov}
+
+ % $u\left( t , \mathbf{x}\right)$ er en tetthet, det vil si \[
+ % \int_{\omega }^{} u\left( t, \mathbf{x} \right) d^{n} \mathbf{x} .
+ % \] 
+ % Menger av $u$ inneholdt i $\omega $ vet tid $t^{n}$. \[
+ % \frac{d }{d t} \int_{\omega }^{} u\left( t, \mathbf{x} \right) d ^{n} \mathbf{x} = \int_{\omega }^{} \partial _{t} u\left( t, \mathbf{x} \right) d^{n}x     
+ % \] 
+
+ % Derivasjon under integraltegniet. Ok dersom
+ % \begin{itemize}
+ %   \item $\omega $ er begrenset.
+ %   \item $\partial _{t} u  \in  C \left( \overline{\omega } \right) $ der $\overline{\omega } = \omega \cup \partial \omega $
+ % \end{itemize}
+
+ % \[
+ %   \begin{split}
+ %     &  \frac{\int_{\Omega }^{} u\left( t + \Delta  t, \mathbf{x} \right) d^{n} \mathbf{x}}{\Delta t}  - \int_{\Omega }^{} u_{t} \left( t, \mathbf{y} \right) d^{n}    \mathbf{x}  \\
+ %     &=  \int_{\Omega }^{} \left( \frac{u\left( t + \Delta t , \mathbf{x}\right) - u_{t}\left(t, \mathbf{x}  \right) }{\Delta t}   \right) d^{n} \mathbf{x}  \\
+ %      &=   \int_{\Omega }^{} u_{t} \left( \theta \left( \mathbf{x}, \Delta t \right), \mathbf{x} \right) - u_{t}\left( t, \mathbf{x} \right) d^{n} \mathbf{x}  \\
+ %       &  \theta \text{ mellom } t \text{ og } t + \Delta t \\
+ %        &  \le \int_{-\infty}^{\infty}  
+ %   \end{split} 
+ % \] 
+
+ % \todo[inline]{ Bruker alt for lang tid på å skrive dette. Må øve på ø-operator, fjerne default values på dint og begynne å skrive tegninger for å ta bilde av på mobil(?)}
+
+ % \subsection{Flukstetthet}%
+ % \label{sub:flukstetthet}
+
+ % Fluks gjennom $S$ pr tidsenhet \[
+ % \int_{S}^{} \mathbf{q} \left( t, \mathbf{x} \right) \mathbf{v} dS  
+ % \] 
+
+ % Der $\mathbf{v}$ er en enhetsnormal.
+ % \par
+ % \textbf{Bevaringslov.} \[
+ %   \begin{split}
+ % \frac{d }{d t} \int_{\Omega }^{}  u d ^{n} \mathbf{x} + \int_{\partial \Omega }^{} \mathbf{q} \cdot  \mathbf{v} dS  & = 0   .\\
+ % \int_{\Omega }^{} u_{t} d^{n} \mathbf{x} + \int_{\Omega }^{} d ^{n} x  &= 0  \\
+ % \int_{\Omega }^{} \left( u_{t} + \nabla \mathbf{q} \right) d^{n} \mathbf{x} = 0  
+ %   \end{split} 
+ % \]  
+ % For et området $\Omega $ (begrenset ,  $C_{1} $ rand.)
+
+ % \begin{definition}
+ %   Generell bevaringslov på differensiell form \[
+ %   u_{t} + \nabla \mathbf{q} = 0
+ %   \] 
+ % \end{definition}
+
+% % \subsubsection{Spesialtilfelle}%
+% % \label{ssub:spesialtilfelle}
+
+% % \[
+% % \begin{split}
+% % \mathbf{q}  & = u \mathbf{v}\left( t, \mathbf{x} \right) \\
+% % \nabla \cdot \mathbf{q}  &  = \nabla u \cdot \mathbf{v} + v \nabla \mathbf{v}\\
+% % q_{1}  & = u v_{j} \\
+% % \frac{\partial q_{j}}{\partial x_{j}}  &= u_{x_{j}} v_{j} + u \cdot v_{x_{j}} \\
+% % u_{t} + \mathbf{v} \nabla u &=  -u \nabla \mathbf{v} \\
+% % \nabla \mathbf{v}  & = 0 \text{ som gir } \\
+% % u_{t} + \mathbf{v} \nabla u = 0 \\
+% % \end{split} 
+% % \]  
+
+% % \begin{definition}
+% %   Transportlingingen. \[
+% %   u_{t} + v\cdot \nabla u = 0
+% %   \] 
+% %   For $n = 1$ er \[
+% %   u_{t} + v u_{x} = 0
+% %   \] 
+% % \end{definition}
+
+% % Karakteristisk kunne $\mathbf{x}\left( t \right)$ løse \[
+% % \dot{\mathbf{x}} = \mathbf{v} \left( t, \mathbf{x} \right)
+% % \] 
+
+% % eller
+% % \[
+% %   \begin{split}
+% % \dot{\mathbf{u}} \frac{Du}{Dt}   & = \frac{d}{dt}  u\left( t, \mathbf{x}\left( t \right) \right) = u_{t} + \dot{\mathbf{x}} u\\
+% % &= u_{t} + \mathbf{v}\nabla u 
+% %   \end{split} 
+% % \] 
+
+% % Mer generell variant kan skrives som \[
+% % u_{t} + \mathbf{v} \nabla u = w\left( t, \mathbf{x}, u \right)
+% % \]  
+
+% % Nå blir \[
+% % \frac{Du}{Dt}  = w\left( t,x\left( t \right), u \right)
+% % \] 
+% % Anta initialverdi \[
+% % u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)
+% % \] 
+% % \begin{figure}[ht]
+% %     \centering
+% %     \incfig{figg}
+% %     \label{fig:figg}
+% % \end{figure}
+
+% % Her er $x_{t} \left( t \right) = \mathbf{v}\left( t, \mathbf{x} \right)$ og $x\left( 0 \right) = x_{0}$. \par Løs \[
+% % \begin{split}
+% %   \dot{\hat{u}}   & = w\left( t, x\left( t \right), n \right) \\
+% %   \hat{u} \left( 0 \right)  & = u_{0} \left( \mathbf{x}_{0} \right) \\
+% %   \text{ og finne} \quad   & u\left( t, \mathbf{x}\left( t \right) \right) = \hat{u} \left( t \right) \\
+% %   \mathbf{x}    \to \mathbf{X} &\left( t, \mathbf{x}_{0} \right) \quad \text{er kontinuerlig og one-to-one} 
+% % \end{split} 
+% % \] 
+
+% % \subsection{Kvasilineære ligninger}%
+% % \label{sub:kvasilineaere_ligninger}
+
+% % \[
+% % u_{t} + a\left( u \right) u_{x} = 0
+% % \] 
+% % Eksempel \[
+% %   \begin{split}
+% % u_{t} + f\left( u \right)_{x}   & = 0  \quad \implies  \quad  u_{t}  + f'\left( u  \right)  u_{x} = 0
+% %   \end{split} 
+% % \] 
 
 % % \begin{figure}[ht]
 % %     \centering
-% %     \incfig{divfigure}
-% %     \caption{divfigure}
-% %     \label{fig:divfigure}
+% %     \incfig{bil}
+% %     \caption{Bil}
+% %     \label{fig:bil}
 % % \end{figure}
 
-
-% \begin{proof}
-%   \[
-%   \int_{\mathbf{\sigma}}^{}  f dS = \int_{w}^{} f\left( \mathbf{\sigma}\left( \mathbf{y} \right) \right) det \left[ \frac{\partial \mathbf{v}}{\partial y_{1}}   \ldots , \frac{\partial \mathbf{\sigma}}{\partial y_{n-1}} , \mathbf{v} \right] dy_{1} \ldots dy_{n-1}
-%   \] 
-% \end{proof}, 
-
-% \begin{definition}
-%   Området er definert som åpen delmengde av $\mathbb{R} ^{n} $ sammenhengende. La $x_{0}$ være sentrum av sirkelen med radius $R$, da er \[
-%     \begin{split}
-%   B\left( \mathbf{x_{0}}; R \right)  & =  B_{R} \left( \mathbf{x_{0}} \right)\\
-%   &= \left\{ \mathbf{x_{0}} \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{x_{0}}\| < R \right\} \\
-%   \\
-%     & \begin{cases}
-%        & \text{En omegn om } \mathbf{x_{0}} \text{er en mengde som inneholder  } B\left( \mathbf{x_{0}}; R \right) \text{ for en }  R > 0\\
-%        &\text{En åpent mengde som er en omegn }  \text{om alle sine punkter.}
-%   \end{cases}
-%     \end{split} 
-%   \] 
-% \end{definition}
+% % Kan. Ligning $\dot{x} = a\left( u\left( t,x \right) \right)$ \[
+% % \frac{Du}{Dt}  = u_{t}  +  a\left( u \right) u_{x} = 0 \quad  \implies  \quad  \text{u er kontakt langt kovakttastikk.}
+% % \] 
+% % \[
+% %   \frac{\partial x}{\partial x_{0}}  = 1 + t\left( a \circ u_{0} \right)' \left( x_{0} \right) \ge 1+ t\cdot  min\left( a_{0 } u_{0}  \right)'
+% %   \begin{cases}
+% % x\left( t \right)  & = x_{0} + t a\left( u \right) \\
+% % &= x_{0} + t a\left( u_{0} \left( x_{0} \right) \right) 
+% %   \end{cases}
+% % \] 
 
 
-% \subsection{Konserveringslov}%
-% \label{sub:konserveringslov}
-
-% $u\left( t , \mathbf{x}\right)$ er en tetthet, det vil si \[
-% \int_{\omega }^{} u\left( t, \mathbf{x} \right) d^{n} \mathbf{x} .
-% \] 
-% Menger av $u$ inneholdt i $\omega $ vet tid $t^{n}$. \[
-% \frac{d }{d t} \int_{\omega }^{} u\left( t, \mathbf{x} \right) d ^{n} \mathbf{x} = \int_{\omega }^{} \partial _{t} u\left( t, \mathbf{x} \right) d^{n}x     
-% \] 
-
-% Derivasjon under integraltegniet. Ok dersom
-% \begin{itemize}
-%   \item $\omega $ er begrenset.
-%   \item $\partial _{t} u  \in  C \left( \overline{\omega } \right) $ der $\overline{\omega } = \omega \cup \partial \omega $
-% \end{itemize}
-
-% \[
-%   \begin{split}
-%     &  \frac{\int_{\Omega }^{} u\left( t + \Delta  t, \mathbf{x} \right) d^{n} \mathbf{x}}{\Delta t}  - \int_{\Omega }^{} u_{t} \left( t, \mathbf{y} \right) d^{n}    \mathbf{x}  \\
-%     &=  \int_{\Omega }^{} \left( \frac{u\left( t + \Delta t , \mathbf{x}\right) - u_{t}\left(t, \mathbf{x}  \right) }{\Delta t}   \right) d^{n} \mathbf{x}  \\
-%      &=   \int_{\Omega }^{} u_{t} \left( \theta \left( \mathbf{x}, \Delta t \right), \mathbf{x} \right) - u_{t}\left( t, \mathbf{x} \right) d^{n} \mathbf{x}  \\
-%       &  \theta \text{ mellom } t \text{ og } t + \Delta t \\
-%        &  \le \int_{-\infty}^{\infty}  
-%   \end{split} 
-% \] 
-
-% \todo[inline]{ Bruker alt for lang tid på å skrive dette. Må øve på ø-operator, fjerne default values på dint og begynne å skrive tegninger for å ta bilde av på mobil(?)}
-
-% \subsection{Flukstetthet}%
-% \label{sub:flukstetthet}
-
-% Fluks gjennom $S$ pr tidsenhet \[
-% \int_{S}^{} \mathbf{q} \left( t, \mathbf{x} \right) \mathbf{v} dS  
-% \] 
-
-% Der $\mathbf{v}$ er en enhetsnormal.
-% \par
-% \textbf{Bevaringslov.} \[
-%   \begin{split}
-% \frac{d }{d t} \int_{\Omega }^{}  u d ^{n} \mathbf{x} + \int_{\partial \Omega }^{} \mathbf{q} \cdot  \mathbf{v} dS  & = 0   .\\
-% \int_{\Omega }^{} u_{t} d^{n} \mathbf{x} + \int_{\Omega }^{} d ^{n} x  &= 0  \\
-% \int_{\Omega }^{} \left( u_{t} + \nabla \mathbf{q} \right) d^{n} \mathbf{x} = 0  
-%   \end{split} 
-% \]  
-% For et området $\Omega $ (begrenset ,  $C_{1} $ rand.)
-
-% \begin{definition}
-%   Generell bevaringslov på differensiell form \[
-%   u_{t} + \nabla \mathbf{q} = 0
-%   \] 
-% \end{definition}
-
-% \subsubsection{Spesialtilfelle}%
-% \label{ssub:spesialtilfelle}
-
-% \[
-% \begin{split}
-% \mathbf{q}  & = u \mathbf{v}\left( t, \mathbf{x} \right) \\
-% \nabla \cdot \mathbf{q}  &  = \nabla u \cdot \mathbf{v} + v \nabla \mathbf{v}\\
-% q_{1}  & = u v_{j} \\
-% \frac{\partial q_{j}}{\partial x_{j}}  &= u_{x_{j}} v_{j} + u \cdot v_{x_{j}} \\
-% u_{t} + \mathbf{v} \nabla u &=  -u \nabla \mathbf{v} \\
-% \nabla \mathbf{v}  & = 0 \text{ som gir } \\
-% u_{t} + \mathbf{v} \nabla u = 0 \\
-% \end{split} 
-% \]  
-
-% \begin{definition}
-%   Transportlingingen. \[
-%   u_{t} + v\cdot \nabla u = 0
-%   \] 
-%   For $n = 1$ er \[
-%   u_{t} + v u_{x} = 0
-%   \] 
-% \end{definition}
-
-% Karakteristisk kunne $\mathbf{x}\left( t \right)$ løse \[
-% \dot{\mathbf{x}} = \mathbf{v} \left( t, \mathbf{x} \right)
-% \] 
-
-% eller
-% \[
-%   \begin{split}
-% \dot{\mathbf{u}} \frac{Du}{Dt}   & = \frac{d}{dt}  u\left( t, \mathbf{x}\left( t \right) \right) = u_{t} + \dot{\mathbf{x}} u\\
-% &= u_{t} + \mathbf{v}\nabla u 
-%   \end{split} 
-% \] 
-
-% Mer generell variant kan skrives som \[
-% u_{t} + \mathbf{v} \nabla u = w\left( t, \mathbf{x}, u \right)
-% \]  
-
-% Nå blir \[
-% \frac{Du}{Dt}  = w\left( t,x\left( t \right), u \right)
-% \] 
-% Anta initialverdi \[
-% u\left( 0, x\left( 0 \right) \right) = u_{0} \left( x_{0} \right)
-% \] 
-% \begin{figure}[ht]
-%     \centering
-%     \incfig{figg}
-%     \label{fig:figg}
-% \end{figure}
-
-% Her er $x_{t} \left( t \right) = \mathbf{v}\left( t, \mathbf{x} \right)$ og $x\left( 0 \right) = x_{0}$. \par Løs \[
-% \begin{split}
-%   \dot{\hat{u}}   & = w\left( t, x\left( t \right), n \right) \\
-%   \hat{u} \left( 0 \right)  & = u_{0} \left( \mathbf{x}_{0} \right) \\
-%   \text{ og finne} \quad   & u\left( t, \mathbf{x}\left( t \right) \right) = \hat{u} \left( t \right) \\
-%   \mathbf{x}    \to \mathbf{X} &\left( t, \mathbf{x}_{0} \right) \quad \text{er kontinuerlig og one-to-one} 
-% \end{split} 
-% \] 
-
-% \subsection{Kvasilineære ligninger}%
-% \label{sub:kvasilineaere_ligninger}
-
-% \[
-% u_{t} + a\left( u \right) u_{x} = 0
-% \] 
-% Eksempel \[
-%   \begin{split}
-% u_{t} + f\left( u \right)_{x}   & = 0  \quad \implies  \quad  u_{t}  + f'\left( u  \right)  u_{x} = 0
-%   \end{split} 
-% \] 
-
-% \begin{figure}[ht]
-%     \centering
-%     \incfig{bil}
-%     \caption{Bil}
-%     \label{fig:bil}
-% \end{figure}
-
-% Kan. Ligning $\dot{x} = a\left( u\left( t,x \right) \right)$ \[
-% \frac{Du}{Dt}  = u_{t}  +  a\left( u \right) u_{x} = 0 \quad  \implies  \quad  \text{u er kontakt langt kovakttastikk.}
-% \] 
-% \[
-%   \frac{\partial x}{\partial x_{0}}  = 1 + t\left( a \circ u_{0} \right)' \left( x_{0} \right) \ge 1+ t\cdot  min\left( a_{0 } u_{0}  \right)'
-%   \begin{cases}
-% x\left( t \right)  & = x_{0} + t a\left( u \right) \\
-% &= x_{0} + t a\left( u_{0} \left( x_{0} \right) \right) 
-%   \end{cases}
-% \] 
-
-
-\newpage
-\section{Lecture n}%
+% \newpage
+\section{Lecture 26/08}%
 \label{sec:lecture_n}
 
 \subsection{ODE teori}%
@@ -699,6 +699,217 @@ $a,b,c$ er alle funksjoner av  $x,y, u\left( x,y \right)$
 
  \newpage
 
+ \newpage
+ \section{Lecture 02/09}%
+ \label{sec:lecture_02_09}
+
+ \subsection{Duhamds Prinsipp}%
+ \label{sub:duhamds_prinsipp}
+
+ \[
+ \begin{split}
+   u_{t} + c ^2 u_{xx} &=  f\left( t, x \right) \\
+   u\left( 0,x \right) &=  0 \\
+   u_{t} \left( 0,x \right) &=  0 \\
+ \end{split} 
+ \] 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{dkdkkd}
+    \caption{dkdkkd}
+    \label{fig:dkdkkd}
+\end{figure}
+
+La $\eta _{s} \left( t,x \right)$ løse \[
+\begin{split}
+  \eta _{s,tt} + c^2 \eta _{s,xx} &=  0 \\
+  \eta _{s} \left( s, x \right) &=  0 \\
+  \eta _{s,j} \left( s,x \right) &=  f\left( s,x \right) \\
+\end{split} 
+\] 
+D. Alembtert \[
+\eta _{s} \left( t,x \right) = \frac{1}{2c} \int_{x- x\left( t-s \right)}^{}  f\left( s, \chi  \right) d\chi  
+\] 
+
+Duhamed \[
+u\left( t,x \right) = \int_{0}^{t}  \eta _{s}\left( t,x \right) ds 
+\] 
+
+\begin{theorem}
+  Hvis $f \in  C_{1}$ så vil dette løse probleme.
+\end{theorem}
+
+\begin{proof}
+  la $u\left( 0,x \right) = 0$. \[
+   \begin{split}
+  u_{t} &= \overbrace{\eta _{t}\left( t,x \right)}^{= 0  }  + \int_{0}^{t} \eta _{s,t} \left( t,x \right) ds   \\
+  u_{t}\left( 0,x \right) &=  0 \\
+  u_{tt} &=  \eta _{t,t} \left( t,x \right) + \int_{0}^{t}  \eta _{s,tt} \left( t,x \right) ds  \\
+  &= f\left( t,x \right) - c ^2 \int_{0}^{t}  \eta _{s,xx} \left( t,x \right) ds  \\
+   &  = f\left( t,x \right) -c ^2 \partial _{xx} \int_{0}^{t}  \eta _{s}\left( t,x \right) ds \\
+   &= f\left( t,x \right) - c ^2  + u_{xx} \left( t,x \right)\\ 
+   \end{split}  
+  \] 
+  We trenger $\eta \in  C^2$, $\eta _{s,tt} $ og $\eta _{s,xx}$ kontinuerlig mhp. $s,t,x$ . 
+  \[
+  \eta _{s,x} &= \frac{1}{2c} \left( f\left( x + c \left( t-s \right) - f\left( x - c\left( t-s \right) \right) \right) \right) \\
+  \] 
+  $\eta _{s,xx}, \eta _{s,tt}$ er kontinuerlig .  Merk at \[
+  u\left( t,x \right) = \int_{0}^{t}  \overbrace{\int_{x - c\left( t -s \right)}^{x + c\left( t-s \right)} f\left( s, \chi  \right) d\chi   }^{ \eta _{s} \left( t,x \right)}  ds
+  \] 
+\end{proof}
+
+\textbf{Eksempel.} 
+
+\newpara
+La $f\left( t,x \right) = \psi \left( t \right) \cdot  h\left( x \right) $ og \[
+  \begin{split}
+\eta _{s} \left( t,x \right)  & = \frac{1}{2c} \int_{x - x\left( t-s \right)}^{ x + c \left( t-s \right)}  \psi \left( s \right) h\left( \chi  \right) d\chi   \\
+ &=   \\frac{\psi \left( s \right)}{ 2c}  \left(  H\left( x + c\left( t-s \right) \right) - H\left( x - c\left( t -s \right) \right) \right) \\
+  \end{split} 
+\] 
+Der $\dot{H} \left( x \right) = h\left( x \right)$. 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{bølgeomraade}
+    \caption{bølgeomraade}
+    \label{fig:bølgeomraade}
+\end{figure}
+
+\[
+  \begin{split}
+\eta _{s}\left( t,x \right) &=  0 \quad \text{hvis} \quad  s > t-x   \\
+\eta _{s}\left( t,s \right) &=  \frac{\psi \left( s \right)}{2c}  \left( x+t-s \right) \quad  0 < s <  t-x  \\
+u\left( t,x \right) &=  \int_{0}^{t-x}  \frac{\cos s}{ 2}  \left( x+t -s \right) ds  \\
+&= \frac{1}{2} \left[ -s \sin s - \cos s + \left( t-x \right) \sin s \right] _{s= 0} ^{s= t-x}\\
+&=  \frac{1}{2} \left( 1- \cos \left( t- x \right) \right) \\
+  \end{split} 
+\] 
+Her ble det brukt at \[
+\int_{}^{} s \cos ^2 s ds = s \sin  s + \cos s 
+% \] 
+% \begin{figure}[ht]
+%     \centering
+%     \incfig{cossciz}
+%     \caption{cossciz}
+%     \label{fig:cossciz}
+% \end{figure}
+
+\subsection{Randverdier}%
+\label{sub:randverdier}
+
+Vi kan ta bølgeligningen \[
+  \begin{rcases}
+u_{tt} - c^2 u_{xx}  & = 0 \\
+u\left( 0,x \right) &= g\left( x \right) \\
+u_{t} \left( 0,x \right) &=  h\left( x \right) \\
+u\left( t,0 \right) &=  0 \\
+  \end{rcases}
+  x > 0
+\] 
+En forutsetning for en klassisk løsning er $g\left( 0 \right) = 0$ or $h\left( 0 \right) = 0$. Hvis ikke er ikke initalialbetingelsene konsistente.
+
+\begin{tcolorbox}
+  \textbf{D`Alembert} 
+  \[
+  u\left( t,c \right) = \frac{g\left( x + ct \right) - g\left( x - ct \right)}{ 2}  = \frac{1}{2c} \int_{x - ct}^{ x+ ct}  h\left( \zeta  \right) d\zeta  
+  \] 
+\end{tcolorbox}
+
+\textbf{Løsning.}  Utvid $g,h$ antisymmetrisk om $0$ \[
+  \begin{split}
+g\left( -x \right) &=  - g\left( x \right) \\
+h\left( -x \right)  & = -h\left( x \right)
+  \end{split} 
+\] 
+Konsenvensen av antisymmentrien er at \[
+u\left( t, -x \right) = - u\left( t,x \right)
+\] 
+Alternativt til randbetingelsen, også kjent som\textbf{Neumann betingelse}  $u\left( t, 0 \right) = 0$ er \[
+u_{x}\left( t,0 \right) = 0
+\] 
+Analogien er at man har en trå festet på en ring i et stivt rør som ikke har friksjon. Da må tråen være horisontal. 
+
+Hvis vi ser på \[
+  \begin{split}
+  &  \left\{ \frac{d }{dx }    \left( g\left( x + ct \right) - g \left( x- ct \right)  \right)  \right\}_{x= 0}    \\
+&= \dot{g} \left(  ct \right) + \dot{g}\left( -ct \right) \\
+& \vdots  \\
+\dot{g}\left( ct \right)  & = - \dot{g} \left( -ct \right) \\
+g\left( x \right) &=  g\left( -x \right) \\
+g,h  &  \quad \text{ symmetriske} 
+  \end{split} 
+\] 
+\[
+\begin{split}
+  \frac{d }{d x}  h\left( \zeta  \right) d\zeta \quad  \text{for } \quad  x= 0   
+\end{split} 
+\] 
+
+
+Utvid $g$ (og $h$ ) antisymmetrisk om $0, L$  \[
+\begin{split}
+  g\left( -x \right) &=  -g\left( x \right) \\
+  g\left( L- x \right) &=  -g \left( L + x \right) \\
+  g\left( L + x \right) &=  g\left( L -x \right) = g\left( x-L \right) \\
+  g\left( x + L \right) &=  g\left( x-L \right) \quad  x \to  x+L  \\
+  g\left( x + 2L \right) &=  g\left( x \right) \\
+\end{split} 
+\] 
+\begin{tcolorbox}
+  \textbf{Notater om kuler} 
+  \[
+    \begin{split}
+  B_{r}\left( \mathbf{a} \right)  & = \left\{ x \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{a}\|_{}^{} < r \right\} \\
+  \overline{B} _{r} \left( \mathbf{a} \right)  & =  \left\{ x \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{a}\|_{}^{}  \le r \right\} \\
+  \partial B _{r} \left( \mathbf{a} \right)  & =  \left\{ x \in  \mathbb{R} ^{n}  \mid  \|\mathbf{x} - \mathbf{a}\|_{}^{}  = r \right\} \\
+    \end{split} 
+  \] 
+
+  For integratler \[
+  \int_{B_{r} \left( \mathbf{a} \right)}^{}  f\left( \mathbf{x} \right) d^{n}\mathbf{x} = \int_{0}^{r}  \int_{\partial B_{\rho  }\left( \mathbf{a} \right)}^{}  f\left( \mathbf{x} \right) dS dr  
+  \] 
+  Vi kan skrive $\mathbf{x = \mathbf{a} + \rho \mathbf{y} }$ der $\|\mathbf{y}\|_{}^{} = 1$ og $\mathbf{y} \in  S ^{n-1}$
+  For $f = 1$  \[
+    \begin{split}
+  \int_{B_{r} \left( \mathbf{a} \right)}^{} d^{n}\mathbf{x}  & = \int_{0}^{r}  \underbrace{\int_{\partial B_{\rho }\left( s \right)}^{}  dS dr }_{ A_{n} \rho ^{r-n}}     \\
+  &= A_{n} \int_{0}^{r}  \rho ^{n-1} d\rho = \frac{A_{n}}{n} r^{n}  \\
+    \end{split} 
+  \] 
+  Der $ A_{n} $ er volumet av $S^{n-1} = \partial  B _{1} \left( \mathbf{o} \right) \subseteq  \mathbb{R} ^{n}$ \[
+    A_{2} = 2 \pi  , \quad  A_{3} = 4 \pi , \ldots 
+  \] 
+  \[
+  \begin{split}
+    \int_{B_{r}\left( \mathbf{a} \right)}^{}  f\left( \mathbf{x} \right) d^{n}\mathbf{x} = \int_{0}^{r}  , \int_{S^{n-1}}^{}  f\left( \mathbf{a} + \rho \mathbf{y} \right) dS \rho ^{n-1} d\rho    
+  \end{split} 
+  \] 
+  Integrasjon i generaliserte polarkoordinater.
+  \[
+    \frac{d }{d r}  \int_{B_{r}\left( \mathbf{a} \right)}^{}  f\left( \mathbf{x} \right) d^{n} \mathbf{x} = r^{n-1} \int_{S^{n-1}}^{}    f\left( \mathbf{a} + r \mathbf{y} \right) dS
+  \] 
+\end{tcolorbox}
+
+\subsection{Darboux Formel}%
+\label{sub:darboux_formel}
+
+La oss ha en kule med sentrum $\mathbf{x}$ og radius $\rho $. Definer $\overline{f} \left( \mathbf{x}; \rho  \right) $ der \[
+  \begin{split}
+ \overline{f\left( \mathbf{x}; \rho  \right)}  & = \int_{\partial B_{\rho }\left( \mathbf{x} \right)}^{}  f\left( \mathbf{y} \right) dS\left( \mathbf{y} \right) := \frac{1}{A_{n} \rho ^{n-1}} \int_{\partial B_{\rho }\left( \mathbf{x} \right)}^{}  f\left( \mathbf{y} \right) dS  . \\
+&=  \int_{ S^{n-1}}^{} f\left( \mathbf{x} + \rho  \mathbf{z} \right) dS\left( \mathbf{z} \right) := \frac{1}{A_{n}} \int_{S^{n-1}}^{} \ldots     \\
+ \Delta \overline{f} \left( \mathbf{x}; \rho  \right)  & = \overline{\Delta f}  \left( \mathbf{x}; \rho  \right)
+  \end{split} 
+\] 
+\textbf{Derbours Formel} 
+\[
+\left(\rho ^{n-1} \overline{f} _{\rho }  \right) _{\rho } = \rho ^{n-1} \Delta \overline{f} 
+\] 
+
+
+
+ 
 \section{References}%
 \label{sec:references}
 
