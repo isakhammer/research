@@ -686,13 +686,14 @@ and $v_{0}\ll  v_{e}$ , when $x^{* } \ll  R$  (a consequence of $v _{0} \ll  v_{
 X^{* } = v_{0} t^{* } - \frac{1}{ 2}  t^{* } g \quad x^{* } \left( T \right) = \frac{v_{0}^2}{g}  - \frac{1}{2}  \frac{v_{0} ^2 }{g}  = \frac{1}{2} \frac{v_{0}^2}{g}   
 \] 
 Let $L = \frac{v_{0}^2}{g} $ and scale the equation $\left( \frac{L}{T}  \right) = v_{0}$ and $x^{*} = Lx$ . \[
-
   \begin{split}
   \frac{L}{T^2}  \ddot{x} = \frac{-g R ^2}{\left( R + Lx \right) ^2} \leftrightarrow  \frac{L}{T^2}   \ddot{x}  & =  -\frac{g R^2}{ R^2 \left( 1  + \frac{L}{R} x \right)^2}  \\
   \to  \ddot{x} = \frac{-T^2 \frac{g}{L} }{\left( 1 + \frac{L}{R} x^2 \right)} \to  \ddot{x} &=  \frac{-1}{ \left( 1+ \varepsilon  x \right)^2}  \\
   \end{split} 
 \] 
-Where $\varepsilon  = \frac{L}{R} = \frac{v_{0} ^2}{Rg} = 2 \frac{2 v_{0}^2}{v_{e}^2}  $  
+Where \[
+\varepsilon  = \frac{L}{R} = \frac{v_{0} ^2}{Rg} = 2 \frac{2 v_{0}^2}{v_{e}^2}   
+\]  
 
 \newpara
 Following problem \[
@@ -709,7 +710,6 @@ Following problem \[
 \end{tcolorbox}
 
 Then to second order \[
-
   \ddot{x} = - \left( 1 - 2 \varepsilon  x + 3 \varepsilon  x ^2 \right) , \quad  x\left( 0 \right) = 0 , \quad  \dot{x}\left( 0 \right) =q  
 \] 
 Next et \[
@@ -723,7 +723,7 @@ x_{j} \left( 0 \right)    & = 0 \quad  \text{for} \quad  j = 0,1,2 \\
 \to  \left( \ddot{x_{0}} + 1 \right) + \varepsilon \left( \ddot{x_{1}} - 2 x_{0} \right)  + \varepsilon ^2 \left( \ddot{x_{2}} + 2 x_{1}  + 3 x_{0} ^{2} \right) &=  0 \\
 \ddot{x_{0}} = -1 \quad  x_{0} \left( 0 \right) = 0 , \quad  \dot{x_{0}} = 1  &  \\
 \ddot{x_{1}} = 2x_{0} , \quad  \dot{x1 } \left( 0 \right) = \dot{x_{i}}\left( 0 \right) = 0  &  \\
-\ddot{x_{2}} &=  2 x_{1} - 3 x_{0}^2  , \quad  x_{2} \left( 0 \right) = \dot{x_{2}} \left( 0 \right) = 0 \\  
+\ddot{x_{2}} =  2 x_{1} - 3 x_{0}^2   & , \quad  x_{2} \left( 0 \right) = \dot{x_{2}} \left( 0 \right) = 0 \\  
   \end{split} 
 \] 
 \[
@@ -753,10 +753,12 @@ Into the 5. degree edition and to regular perturabation \[
 \to  t =  1 + \frac{2}{3} \varepsilon  + 2 /5 \varepsilon ^2 + O\left( \varepsilon  \right)
 \]  
 such that \[
+  \begin{split}
 \ddot{x}  &=  \frac{-1}{ \left(  1+ \varepsilon  x \right)^2 }  \to  \ddot{x} \dot{x} = \frac{\dot{x}}{\left( 1+ \varepsilon  x \right)^2}  \\
 \to  \frac{d }{d t}  \left( \frac{1}{2} \dot{x}^2 \right) &=  \frac{d }{d t} \left( \frac{-1}{\varepsilon }  \frac{1}{ 1+ \varepsilon  x}  \right)  \\
 \frac{1}{2}  \dot{x}^2 &=  \frac{-1}{\varepsilon }  \frac{1}{ 1+ \varepsilon x}  + C  \\
 \frac{1}{2} &=  \frac{-1}{\varepsilon }   \\
+  \end{split} 
 \] 
 \[
 C = \frac{1}{2} + \frac{1}{\varepsilon }
@@ -768,6 +770,209 @@ At maximum height $\dot{x} = 0$
 \[
  0 = -\frac{1}{\varepsilon } .
 \] 
+
+
+\newpage
+\section{Lecture 02/09}%
+\label{sec:lecture_02_09}
+
+Let Newtons Law be \[
+  \begin{split}
+   \frac{d ^2 s ^{*}}{d t^{*2}}   & = g \sin \left( \alpha ^{*} \right) \implies   \frac{d ^2 \alpha ^{*}}{d t^{*2}}  = -\frac{g}{L} \sin\left( \alpha ^{*} \right) \\
+  \end{split} 
+\] 
+scaling: 
+\[
+  \begin{split}
+   \alpha ^{*}  & = \varepsilon \alpha , \quad  t^{* }   = Tt   \\
+   \frac{\varepsilon }{T^2} \ddot{\alpha }  & = \frac{-g}{L}  \sin \left( \varepsilon \alpha  \right) \implies  \ddot{\alpha } = - \left( T^2 g \frac{1}{ L}  \right) \frac{\sin \left( \varepsilon \alpha  \right)}{ \varepsilon } \\
+   T &= \sqrt{\frac{L}{g} }  \implies  \ddot{\alpha }   = - \frac{\sin \left( \varepsilon \alpha  \right)}{\varepsilon }  \\ 
+   \alpha \left( 0 \right) = 1  &  \quad  \dot{\alpha } \left( 0 \right) = 0 
+  \end{split} 
+\] 
+
+Let put $\alpha  = \alpha _{0} \left( t \right) + \varepsilon ^2 \alpha _{2} \left( t \right) + O\left( \varepsilon ^{4} \right)$. where $\alpha \left( t \right)$ is an even function of $\varepsilon $ due to symmetry. \[
+  \begin{split}
+\alpha _{0} \left( 0 \right) &=  1, \quad  \dot{\alpha }_{0} \left( 0 \right) = 0, \quad  \alpha _{2} \left( 0 \right) = \dot{\alpha _{2} } \left( 0 \right) = 0  
+  \end{split} 
+\] 
+Inserted into the equation \[
+  \begin{split}
+    \ddot{\alpha _{0}} + \varepsilon ^2 \ddot{\alpha _{2}}  & = - \frac{\sin \left( \varepsilon \left( \alpha _{0} + \varepsilon ^2 \alpha _{2} \right) \right)}{\varepsilon }  \implies \quad \ddot{\alpha _{0}} + \varepsilon ^2 \ddot{\alpha _{2}} \\
+     & = \frac{-1}{3}  \left( \varepsilon \underbrace{\left( \alpha _{0} + \varepsilon ^2 \alpha _{2} \right)} _{u} \frac{\varepsilon ^2}{6}  \left( \alpha _{0}  + \alpha \varepsilon ^2 \right) \right)
+  \end{split} 
+\] 
+
+
+Let \[
+  \begin{split}
+\alpha _{0} \left( t \right)  & = A\cos t + B \sin t \\
+\alpha _{0} \left( 0 \right)  &  = 1 , \quad  \dot{\alpha } \left( 0 \right) = 0 \quad  \implies  \alpha _{0} \left( t \right) = \cos t   \\
+\alpha _{2} \left( t \right) &=  A \cos t + B \sin  t + \alpha _{2, f} \left( t \right)  \\
+\cos ^3 t  & = \left( \frac{1}{2} \left( e^{it} - e^{it} \right) \right)^3 = \frac{1}{8} \left( e^{i3t} + 3e^{it} 0 3 e^{-i3t} \right) \\
+&= \frac{1}{4} \left( \cos 3t + 3\cos t \right) \\
+  \alpha _{20} \left( t \right) &=  A \cos3t + B \sin 3t + Ct \cos t + Dt \sin t \\
+  \alpha _{2}\left( t \right) &=  \frac{1}{192} \left( \cos t + \cos 3t \right) +\frac{1}{16} t \sin t \\
+  \alpha \left( t \right)  & = \alpha _{0} \left( t \right) + \varepsilon ^2 _{2} \left( t \right) \quad  \text{ is not periodic}  
+  \end{split} 
+\] 
+
+\begin{tcolorbox}
+  \textbf{Poincare-Lin Stel Method} .
+Instead let \[
+\alpha \left( t \right) = \alpha _{0} \left( \omega \left( \varepsilon  \right)t \right) + \alpha _{2} \left( \omega \left( \varepsilon  \right)t \right)\varepsilon ^2 + O\left( \varepsilon ^{4} \right)
+\] 
+Where $\omega \left( \varepsilon  \right)  = 1 + \omega _{2} \varepsilon ^2 \ O\left( \varepsilon ^{4} \right)$ . See exercise.
+\end{tcolorbox}
+
+\subsection{Modelling how the kidney disposes salt and water.}%
+\label{sub:modelling_how_the_kidney_disposes_salt_and_water_}
+
+
+
+\begin{figure}[ht]
+    \centering
+    \incfig{watermodell}
+    \caption{watermodell}
+    \label{fig:watermodell}
+\end{figure}
+
+
+\textbf{Assumptions}  
+\begin{enumerate}
+  \item Secondary channel is fed water by osmosis from the sorrouinding tissue.
+  \item Ions are transported down the channel by connection and diffusion.
+  \item Ions are fed into the channel be a chemical ppump-
+\end{enumerate}
+We want the steady-state profiles of ion concenstration $C^{*} \left( x^{*} \right) $ and the velocity $v^{*} \left( x^{*} \right) $ of the ion water solution.
+
+
+\newpara
+The ion concentration is written as \[
+\left[ C^{*} \right] = \frac{ions}{m^3} = \frac{osmol}{m^3} 
+\] 
+
+One mole salt give two moles ions
+
+\begin{figure}[ht]
+    \centering
+    \incfig{molefig}
+    \caption{molefig}
+    \label{fig:molefig}
+\end{figure}
+
+
+\textbf{Osomosis} : \[
+J^{* } = P\left( c^{* } - c_{0} \right)
+\] 
+Is flux density of water entering the secondary channel. $J^{*}$ is volume water in per area per time. $c_{0}$ ion concentration is tissue and main channel. $P$ is called membrance permeability. \[
+\left[ P \right] = \frac{\left[ J^{*} \right]}{ \left[ c^{*} \right]}  = \frac{m s^{-1}}{ osmol \cdot m ^{-3}}  = \frac{m^{4}}{ s\cdot  osmol} 
+\] 
+Ion flux density \[
+N^{*} = \begin{cases}
+  N_{0},  &  \quad  0 \le x^{*} \le \delta  \\
+  0,  &  \delta \le x^{* } \le L 
+\end{cases}
+\] 
+Where $\left[ N_{0} \right] = \frac{osmol}{m^2 \cdot  s} $. The toal rate of salt entering the channel \[
+N_{0} \cdot c\cdot \delta 
+\] 
+Where $c$ is the area of pump. 
+
+\newpara
+\begin{itemize}
+  \item
+ The flux density of ions in the secondary channel \[
+ F^{*} = F_{c}^{* } + F_{\alpha } ^{*}
+ \] 
+ \[
+ \left[ F^{*} \right] = \frac{osmol}{m^2 \cdot s} 
+ \] 
+ \item
+Convective flow \[
+F^{*} _{c} = c^{*} v^{*}
+\] 
+\item 
+Diffusion: \textbf{Ficus law}  \[
+F_{1}^{*} = - D \frac{d c^{*}}{d x^{*}}  .
+\] 
+where $D$ is the diffusion of salt in water.
+\end{itemize}
+
+Conservation of water 
+\begin{figure}[ht]
+    \centering
+    \incfig{conssswater}
+    \caption{conssswater}
+    \label{fig:conssswater}
+\end{figure}
+
+\[
+Q^{*} _{\text{out}} = Q^{* } _{\text{in}} + Q^{*}_{\text{os}}
+\] 
+\[
+\begin{split}
+  v^{*} \left( x^{*} + \Delta x^{*} \right) &= v^{*}A + P\left( c^{*}\left( \hat{x} \right) - c_{0} \right) c \Delta x^{*} \quad  \text{where} \quad \hat{x^{*}} \in \left<x^{*}, x^{*} + \Delta x^{*}  \right>   \\
+  \implies  \frac{v^{*} \left( x^{*} + \Delta x^{*}   \right) - v^{*} \left( x^{*} \right)}{\Delta x^{*}}  &= \frac{c}{A}  P\left( c^{*}\left( \hat{x^{*}}   \right) - c_{0} \right) \\
+  \Delta  x^{*} \to  0  \quad   &  \implies  \frac{d v^{*}}{d x^{*}}  = \left( \frac{cP}{A}   \right) \left( c^{*} - c_{0} \right)
+\end{split} 
+\] 
+COnservation of salt \[
+F^{*} \left( x^{*} + \Delta x^{*} \right) A = F^{*}\left( x^{*} \right)A + N^{*}\left( \hat{x^{*}} \right) c \Delta x^{*}
+\] 
+This ends up with \[
+\begin{split}
+  \implies  \frac{d F^{*}}{d x^{*}}  &= \frac{c}{A} N^{*}\left( x^{*} \right) \\
+  \text{or} \quad \frac{d F^{*}}{d x^{*}}   &= \frac{c}{A} \cdot \begin{cases}
+    N_{0},  &  \quad  0 < x^{*} < \delta \\
+    0,   & \quad \delta < x^{*} < L   
+  \end{cases} \\
+  F^{*}\left( 0 \right) = 0 \quad  &  \implies  F\left( x^{*} \right) = \begin{cases}
+    \frac{N_{0} c}{A}  x^{*} , \quad  &  0 <  x ^{* } < \delta \\
+    \frac{N_{0} \delta  c}{A} , \quad   &  \delta < x^{* } < L    
+  \end{cases}  \\
+  \implies  v^{*} c^{*} - D \frac{d c^{*}}{d x^{*}}  &=  F^{*}\left( x^{*} \right) \\
+  \frac{d v^{*}}{d t^{*}}  &= \frac{cP}{A} \left( c^{*} - c_{0} \right) \\
+  v^{*}\left( 0 \right) &=  0 \\
+  c^{*}\left( L \right)  & = c_{0} \\
+\end{split} 
+\] 
+Also same that $v^{*}$ and $c^{*}$ are continious at $x^{*} = \delta $ .
+
+\subsubsection{Scaling the model}%
+\label{ssub:scaling_the_model}
+Two length scales $\delta $ and $L$. Choose $\delta $ as length svale. Natural to use $c_{0}$ as scale for $c^{*}$. The rate salt supplied is \[
+N_{0} \delta  c = c_{0} UA
+\] 
+Ions supplied is convectiv flux with $c^{*}$ such that $U = \frac{N_{0} \delta c}{c_{0} A} $. 
+\[
+  \begin{split}
+  x^{*}  & = \delta , &  c^{*}  = c_{0} c \\
+v^{*} &=  U v \\
+  \end{split} 
+\] 
+
+\begin{enumerate}
+  \item $\left( Uc_{0} \right) cv - \frac{D c_{0}}{ \delta }  \dot{c} = F^{*}$ such that \[
+  \implies  vc - \frac{Dc}{ \delta U c_{0}} \dot{c}  =  \frac{1}{Uc}  \cdot \begin{cases}
+    \frac{N_{0} c \delta  x}{ AUc_{0} }  ,  &  \quad  0 < x \delta  < \delta \\
+    \frac{N_{0} c \delta  }{Auc_{0}}  ,  &  \delta  < x\delta  < L 
+  \end{cases}
+  \] 
+  \[
+  vc - \varepsilon  \dot{c} = \begin{cases}
+    x \quad   &  0 < x < 1 \\
+    1 \quad   &  1 < x < \lambda   
+  \end{cases}
+  \] 
+  where $\varepsilon  = \frac{D}{ \delta u} $ , and $\lambda  = \frac{L }{ \delta } $ \[
+  \implies  U = \frac{N_{0} \delta  c}{ c_{0} A} 
+  \] 
+\item $\frac{U}{\delta } \dot{v}  = \frac{cP }{A}  c_{0}\left( c-1 \right)$ \[
+\] 
+
+
+\end{enumerate}
 
 
 
