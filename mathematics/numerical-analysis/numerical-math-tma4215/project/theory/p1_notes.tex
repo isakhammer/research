@@ -5,7 +5,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES v1.3 %%%%%%
+%%%% DEPENDENCIES v1.2 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -16,7 +16,6 @@
 %\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{todonotes}
-\usepackage{esint}
 \usepackage{float}
 
 
@@ -60,7 +59,6 @@
 
 
 
-
 \begin{document}
 \maketitle
 \tableofcontents
@@ -80,21 +78,51 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
 \begin{tcolorbox}
   \textbf{Answer.} 
 \begin{proof}
-  By the definition of a norm is \[
+  Starting with the definition of a subordinate matrix norm \cite{sul} can we let \[
   \|A\|_{2}^{2} = \sup_{x \neq 0} \frac{\left<Ax, Ax \right>}{ \left<x,x \right>} .
   \] 
-  By taking advantage of the fact that $U^{H} U = I$, can we substitute $Uy =  x$ such that \[
-    \sup_{x \neq 0} \frac{\left<Ax, Ax \right>}{\left<x,x \right>}  = \sup_{y\neq 0}  \frac{\left<AU y, A U y \right>}{ \left<U y, Uy \right>} = \sup_{y \neq 0} \frac{\left<U^{H} A^{H} A U y,y \right>}{\left<y,y \right>} 
+  \textbf{Note sure if this is the correct notation for 2-norm.} 
+   Indeed, by using the assumption that $U^{H} U = I$ and substituting $Uy =  x$ can we show that \[
+    \|A\|_{}^{2} = \sup_{x \neq 0} \frac{\left<Ax, Ax \right>}{\left<x,x \right>}  = \sup_{y\neq 0}  \frac{\left<AU y, A U y \right>}{ \left<U y, Uy \right>} = \sup_{y \neq 0} \frac{\left<U^{H} A^{H} A U y,y \right>}{\left<y,y \right>} 
   \] 
-  
-    \textbf{Kinda sketchy argument, given in Quartentoni page 41/664. In fact, I do not believe it is true to assume A is hermetian/unitary.}  
+    % \textbf{Kinda sketchy argument, given in Quartentoni page 41/664. In fact, I do not believe it is true to assume A is hermetian/unitary.}  
   \newpara
-   Since $A^{H} A $ is unitary can we write $U^{H} A^{H} A U = diag\left( \mu _{1} , \mu _{2}, \ldots, \mu _{n} \right)$ which results in \[
-   \|A\|_{2}^{2} = \sup_{ y \neq 0}  \frac{\sum_{i=1}^{n}  \mu _{i} \left| y_{i} \right|^2}{ \sum_{i=1}^{n}  \left| y_{i} \right|^2}  = \max _{i} \left( \mu _{i} \right) = \rho \left( A \right)^2.
-   \] 
-   Here is $\mu _{i}$ positive eigenvalues of $A^{H} A$
+  Recall the property $A = U \Lambda  U^{H}$ and thus
+  \[
+    \begin{split}
+  A^{H} A   & = U \Lambda ^{H} U^{H} U \Lambda U^{H}  \\
+   & = U \Lambda ^{H} \Lambda U^{H}.   \\
+    \end{split} 
+  \] 
+  As a consequence do we end up with \[
+    \begin{split}
+  \sup_{y \neq 0} \frac{\left<U^{H} A^{H} A U y, y  \right>}{\left<y,y \right>}   & = \sup_{y\neq 0}  \frac{\left<U^{H} U \Lambda ^{H} \Lambda  U^{H} U  y, y\right>}{ \left<y,y \right>}  \\
+  &=  \sup_{y \neq 0} \frac{\left<\Lambda ^{H} \Lambda  y, y \right>}{\left<y,y \right>}  \\  
+  &=   \sup_{ y \neq 0}  \frac{\sum_{i=1}^{n}  \left\lvert \lambda _{i} \right\rvert ^2  \left| y_{i} \right|^2}{ \sum_{i=1}^{n}  \left| y_{i} \right|^2}  = \max _{i} \left( \left\lvert \lambda_{i}  \right\rvert ^{2}  \right)  \\
+    \end{split} .
+  \] 
+  Given the definition of a spectral radius \cite{quart} characterized by \[
+  \rho \left( A \right) = \max_{i} \left\lvert \lambda_{i}  \right\rvert    .
+  \] 
+  Which completes the proof of $ \|A\|_{2} = \rho \left( A \right)$
+   
 \end{proof}
 \end{tcolorbox}
+
+Let say $A = U\Lambda U^{H}$. Then is it not possible to get any useful answers. 
+    \begin{enumerate}[label=(\roman*)]
+      \item Lets compute $AA$ \[
+      A A = U \Lambda U^{H} U \Lambda  U^{H} = U \Lambda  \Lambda  U ^{H}
+      \] 
+    \item Lets compute $A^{H} A$ 
+      \[
+      A^{H} A = U \Lambda ^{H} U^{H} U \Lambda U^{H} = U \Lambda ^{H} \Lambda U^{H}
+      \] 
+    \item Lets compute  $A A^{H}$ \[
+    A A^{H} = U \Lambda U^{H}  U \Lambda ^{H} U^{H}  = U \Lambda  \Lambda ^{H} U^{H}.
+    \] 
+    \end{enumerate}
+
 \newpage
 
 \section{Problem 2}%
@@ -134,16 +162,7 @@ The eigenvalues can be computed such that \[
   0  &  \ldots & 1    & -\lambda      \\
   \end{vmatrix} 
     \\
-    \\
-   &=\left( - \lambda  \right) \left( -\lambda  \right)  \begin{vmatrix} 
-   -\lambda   &  \ldots  &      & 0 \\
-  1  & - \lambda  &      \\
-  \vdots  & &    \ddots  \\
-  0  &  \ldots & 1    & -\lambda      \\
-  \end{vmatrix} 
-    \\
-   &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \\
-    & \implies  \quad \quad \lambda  = 0
+   &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \quad   \implies  \quad \quad \lambda  = 0
   \end{split} 
 \] 
 Which concludes that we did only find a trivial solution, which is not interesting.
@@ -155,8 +174,43 @@ Which concludes that we did only find a trivial solution, which is not interesti
   And fins an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
   \begin{tcolorbox}
     \textbf{Answer.} 
+    We can observe that \[
+    \hat{A} = A + \varepsilon e_{1}e_{n}^{T} = \begin{pmatrix}
+    0    &   &  \ldots           &    &  \varepsilon  \\
+    1  & 0  &  \ldots \\
+    0  &  1  & \ddots  \\
+    \vdots   &   &  \ddots   &  \ddots   & \\
+     0  &  \ldots  &   &  1  & 0
+    \end{pmatrix} 
+    \] 
+    Finding the eigenvalues analytically such that \[
+      \begin{split}
+    det \left(  \hat{A} - \lambda \right)  & = \begin{vmatrix}
+    -\lambda     &   &  \ldots           &    &  \varepsilon  \\
+    1  & -\lambda   &  \ldots \\
+    0  &  1  & \ddots  \\
+    \vdots   &   &  \ddots   &  \ddots   & \\
+     0  &  \ldots  &   &  1  & -\lambda 
+    \end{vmatrix}  \\
+    &=  \left( -1 \right)^{n} \lambda ^{n}  + \left( -1 \right)^{n+1}\varepsilon 
+     \begin{vmatrix}
+    1  & -\lambda   &  \ldots \\
+    0  &  1  & \ddots  \\
+    \vdots   &   &  \ddots   &  \ddots   & \\
+     0  &  \ldots  &   &  1  & -\lambda 
+    \end{vmatrix}  \\
+     \\
+     &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 \quad       \implies  \lambda    = \varepsilon ^{\frac{1}{n}} 
+      \end{split} 
+    \] 
+    This also shows that \[
+    \rho \left( \hat{A} \right) = \varepsilon ^{\frac{1}{n}}
+    \] 
+
   \end{tcolorbox}
 \item Derive an exact expression for the condition number $K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} = \|\hat{A}^{-1}\|_{2}^{}$.
+
+  \end{enumerate}
 
 
 \newpage
@@ -165,5 +219,7 @@ Which concludes that we did only find a trivial solution, which is not interesti
 
 \bibliographystyle{plain}
 \bibliography{references}
+
+
 \end{document}
 
