@@ -96,7 +96,7 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
 \section{Problem 2}%
 \label{sec:problem_2}
 
-Consider the $n \times n $ matrix $A$ whise nonzero elements are located on its unit subdiagonal , i.e. $A_{ij+1, i} = 1$ for $i = 1, \ldots, n-1$\[
+Consider the $n \times n $ matrix $A$ whise nonzero elements are located on its unit subdiagonal , i.e. $A_{i+1, i} = 1$ for $i = 1, \ldots, n-1$\[
 A = \begin{bmatrix} 
   0  &  \ldots  &  \ldots  & 0 \\
   1  &  0  &    & \vdots  \\
@@ -109,7 +109,40 @@ A = \begin{bmatrix}
   \item  What are the eigenvalues of $A$ ? What would the Gershgorin theorem tell us abou the location of the eigenvalues of $A$.
     \begin{tcolorbox}
       \textbf{Answer.} 
-I get the eigen values equal to $ (- \lambda )^n =0 $. Which means all the eigen values are zero. You can use the Gershgorin theorem to determine the radius of each eigenvalue.
+      We can determine the eigenvalues by computing $det\left( A - \lambda I  \right)$.
+Which means all the eigen values are zero. You can use the Gershgorin theorem to determine the radius of each eigenvalue.
+
+\newpara
+The eigenvalues can be computed such that \[
+  \begin{split}
+  det \left( A - \lambda   \right) &= \begin{vmatrix} 
+  -\lambda &   &   &      \ldots  & 0 & 0 \\
+  1  &  -\lambda  & \ldots  &   &   & 0 \\
+  0  & 1  & - \lambda   &  \ldots  &   & 0 \\
+  \vdots  &   &  &   \ddots  \\
+  0  &  \ldots  &  &    & 1    & - \lambda      \\
+  \end{vmatrix} 
+    \\
+   &= -\lambda  \begin{vmatrix} 
+    -\lambda    & \ldots  &   &   &   & 0 \\
+   1  & -\lambda   &  \ldots  &   &   & 0 \\
+  \vdots  & & &     \ddots  \\
+  0  &  \ldots  &  &    & 1    & -\lambda      \\
+  \end{vmatrix} 
+    \\
+    \\
+   &=\left( - \lambda  \right) \left( -\lambda  \right)  \begin{vmatrix} 
+   -\lambda   &  \ldots  &   &   & 0 \\
+  \vdots  & &    \ddots  \\
+  0  &  \ldots  &  &    & 1    & -\lambda      \\
+  \end{vmatrix} 
+    \\
+   &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \\
+    & \implies  \quad \quad \lambda  = 0
+  \end{split} 
+\] 
+Which concludes that we did only find a trivial solution, which is not interesting.
+
     \end{tcolorbox}
   \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
       \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
