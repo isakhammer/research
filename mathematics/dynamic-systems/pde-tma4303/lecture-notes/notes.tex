@@ -6,7 +6,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES v1.2 %%%%%%
+%%%% DEPENDENCIES v1.3 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -17,6 +17,7 @@
 %\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{todonotes}
+\usepackage{esint}
 \usepackage{float}
 
 
@@ -57,6 +58,7 @@
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 
@@ -906,6 +908,167 @@ La oss ha en kule med sentrum $\mathbf{x}$ og radius $\rho $. Definer $\overline
 \[
 \left(\rho ^{n-1} \overline{f} _{\rho }  \right) _{\rho } = \rho ^{n-1} \Delta \overline{f} 
 \] 
+
+
+\newpage
+\section{Lecture 04/09/29}%
+\label{sec:lecture_04_09_29}
+
+
+\begin{tcolorbox}
+  \textbf{Bølgeligningen }  \[
+  u_{tt} - \nabla u = 0
+  \] 
+  \[
+  u\left( 0, \mathbf{x} \right) = g\left( \mathbf{x} \right), \quad u_{t}\left( 0, \mathbf{x} \right) = h\left( \mathbf{x} \right) 
+  \] 
+\end{tcolorbox}
+
+ Darboux Formel. Anta $f: \mathbb{R}  ^{n} \to  \mathbb{R}  $ \[
+   \begin{split}
+   \overline{f} \left( \mathbf{x}, \rho  \right) &= \int_{\partial B_{\rho } \left( \mathbf{x} \right)}^{} f\left( \mathbf{y} \right) dS\left( \mathbf{y} \right)  \\
+   &=  \int_{f\left( \mathbf{x} + \rho \mathbf{z} \right)}^{} dS\left( \mathbf{z} \right)  \\
+   \end{split} 
+ \]
+   \[
+   \begin{split}
+     \int_{B_{\rho }\left( \mathbf{x} \right)}^{}  \Delta f\left( \mathbf{y} \right) d^{n} \mathbf{y} &=  \int_{\partial B_{\rho }\left( \mathbf{x} \right)}^{}  \mathcal{V}  \nabla f\left( \mathbf{y} \right)   \\ 
+                                                                                                          &= A_{n} \rho ^{n-1} \int_{S^{n-1}}^{}  \mathcal{V} \nabla f\left( \mathbf{x} + \rho \mathbf{z} \right) dS\left( \xi  \right)  \\
+                                                                                                          &=A_{n} \rho ^{n-1} \frac{\partial }{\partial \rho  } f\left( \mathbf{x} - \rho \mathbf{z} \right) dS\left( \mathbf{z} \right)  \\
+                                                                                                          &= A_{n} \rho ^{n-1} \overline{f} _{\rho } \\
+   \end{split} 
+   \] 
+
+   \begin{theorem}
+     Darboux \[
+     r^{n-1} \Delta \overline{f}  = \left( r^{n-1} \overline{f} _{\rho }  \right)_{\rho }.
+     \] 
+   \end{theorem}
+
+   \textbf{Ide!}  Sett \[
+   \overline{u} \left( t, \mathbf{x}, \rho  \right) = \fint_{\partial B_{\rho } \left( \mathbf{x} \right)}^{}  u\left( t,\mathbf{y} \right) dS\left( \mathbf{y} \right) = \fint_{S^{n-1}}^{}  u\left( t, \mathbf{x} + \rho \mathbf{z} \right) 
+   \] 
+   Merk at \[
+   \begin{rcases}
+     \overline{u} _{tt} - \Delta \overline{u}  &= 0 \\
+     \Delta \overline{u}  &=  \frac{1}{\rho ^{n-1} } \left( \rho ^{n-1} u_{\rho }  \right)_{\rho}  \\
+   \end{rcases}
+   \underbrace{\overline{u} _{tt} - \frac{1}{\rho ^{n-1}} \left( \rho ^{n-1} \overline{u} _{\rho } \right)_{\rho } }_{\overline{u} _{\rho \rho } + \frac{n-1}{\rho }  \overline{u} _{\rho }} = 0
+   \] 
+   \[
+     \begin{split}
+   \left( \rho ^{k}\overline{u}  \right)_{\rho \rho }&= \left( \rho ^{k}\overline{u} _{\rho } + k \rho ^{k-1} \overline{u}  \right)_{\rho } \\
+   &= \rho ^{k} \overline{u} _{\rho \rho } + 2 k \rho ^{k-1} \overline{u}  _{\rho } + k\left( k-1 \right) \rho ^{k-2} \overline{u}  \\
+     \end{split} 
+   \] 
+   Da ender vi opp med \[
+   \left( \rho \overline{u}  \right)_{\rho \rho } =  \rho  \overline{u} _{\rho \rho } + 2k \overline{u}  _{\rho } \\
+   \] 
+   
+   La oss definere \[
+   \begin{split}
+     \hat{f}\left( \mathbf{x}, \rho  \right) &= \rho \overline{f} \left( \mathbf{x} \right) \\
+     \hat{u}\left( t, \mathbf{x}, \rho  \right) &=  \rho \overline{u} \left( t, \mathbf{x} \right) \\
+   \end{split} 
+   \] 
+   Som gjør vi ender opp i \[
+     \begin{split}
+   \hat{u}_{\rho \rho } &=  \rho \overline{u} _{\rho \rho } + 2 \overline{u} _{\rho } = \rho \left( \overline{u}  _{\rho \rho } + \left( n-1 \right) u_{p} \right) \\
+   \rho \overline{u} _{tt} = \hat{u}_{tt } \\
+   \rho \overline{u} _{tt} - \hat{u_{ \rho \rho }}  & = 0
+     \end{split} 
+   \] 
+
+   Andre interessante omskriving er \[
+     \begin{split}
+  \hat{u} \left( t, \mathbf{x}, \partial  \right) &= \rho  \overline{u} \left( t, \mathbf{x}, \rho  \right) = \rho \fint_{S^{n-1}}^{} u\left( t, \mathbf{x} + \rho \mathbf{z} \right) dS\left( \mathbf{z} \right)  \\ 
+  \text{NB!} \quad   & \overline{u} \left( t, \mathbf{x} , -\rho  \right) = \overline{u} \left( t, \mathbf{x} , \rho  \right) \quad  \implies  \quad  \hat{u}\left( t, \mathbf{x}, -\rho  \right) = - \hat{u}\left( t, \mathbf{x}, \rho  \right)   
+  \hat{u}_{tt} - \Delta \hat{u}= 0
+     \end{split} 
+   \] 
+
+   \begin{tcolorbox}
+     \[
+     \begin{split}
+       \hat{u}_{tt} - \hat{u}_{\rho \rho } &= 0 \\
+       \hat{u}\left( 0, \mathbf{x}, \rho  \right)  & = \hat{g}\left( \mathbf{x}, \rho  \right)\\
+       \hat{u}_{t} \left( 0, \mathbf{x}, \rho  \right) &=  \hat{h} \left( \mathbf{x}, \rho  \right) \\
+     \end{split} 
+     \] 
+   \end{tcolorbox}
+   dAlembert
+  \[
+    \begin{split}
+  \hat{u}\left( t, \mathbf{x}, \rho  \right) &= \frac{\hat{g}\left( \mathbf{x}, \rho  -t \right) + \hat{g} \left( \mathbf{x} , \rho +t \right)}{ 2}  \\
+  & + \frac{1}{2} \int_{\rho -t}^{ \rho -t}  \hat{h}\left( \mathbf{x}, \sigma  \right)  d \sigma \\
+    \end{split} 
+  \] 
+  Ved å ta gensene  \[
+    \begin{split}
+  u\left( t,x \right) &=  \lim_{\rho \to \infty}  \overline{u} \left( t, \mathbf{x}, \rho  \right) \\
+  &= \lim_{\rho  \to  \infty }  \frac{\hat{u}\left( t, \mathbf{x}, \rho  \right)}{ \rho }  \\
+  &= \lim_{\rho \to \infty}  \left( \frac{\hat{g}\left( \mathbf{x} , t+ \rho  \right) \hat{g}\left( \mathbf{x}, t - \rho  \right)}{2\rho } + \frac{1}{2\rho } \int_{t - \rho }^{t + \rho }  \hat{h}\left( \mathbf{x}, s \right) ds   \right) \\
+  &= \hat{g}_{\rho }\left( \mathbf{x}, t \right) + \hat{h} \left( \mathbf{x},t \right) \\
+  &= \partial _{t} \left( \hat{g}\left( \mathbf{x},t \right) \right) + \hat{h}\left( \mathbf{x},t \right) \\
+    \end{split} 
+  \] 
+  \begin{theorem}
+  Som er kjent som Kirchoffs Integralformel for $n=3$ \[
+  u\left( t,x \right) = \hat{g}\left( \mathbf{x}, t \right)_{t} + \hat{h} \left( \mathbf{x}, t \right)
+  \] 
+  \end{theorem}
+   .
+   Method of descent 
+   
+   \newpara
+   Fra $n=3$ til $n=2$. Problem  \[
+     \begin{split}
+   u_{tt} - \Delta u &= 0, \quad  t > 0 , x \in  \mathbb{R} ^2  \\
+   \begin{rcases}
+     u\left( 0, \mathbf{x} \right) &=  g\left( \mathbf{x} \right) \\
+     u_{t} \left( 0, \mathbf{x} \right) &=  h\left( \mathbf{x} \right) \\
+   \end{rcases}
+    &  x \in  \mathbb{R} ^2
+     \end{split} 
+   \]  
+
+   La \[
+   \begin{split}
+     u\left( t, \left( x_{1}, x_{2} , x_{3} \right) \right) &=  u\left( t, x_{1}, x_{2} \right) \\
+     g\left( x_{1}, x_{2}, x_{3} \right) &=  g\left( x_{1},x_{2} \right) \\
+     h\left( x_{1}, x_{2} ,x_{3} \right) &=  h\left( x_{1}, x_{2} \right) \\
+   \end{split} 
+   \] 
+   Resultat \[
+     u\left( t,x \right) &=  \overbrace{\hat{g}\left( x,t \right), \hat{h}\left( \mathbf{x},t \right)}^{ \text{Regulert i } \mathbb{R} ^{3}}  \\
+   \] 
+
+   \[
+     \begin{split}
+   \hat{g}\left( \mathbf{x},t \right) &=  t \fint_{S^{2}}^{} g\left( \mathbf{x} + \rho  \mathbf{z} \right) dS\left( \mathbf{z} \right)  \\
+   &= \frac{1}{4\pi }  2t \int_{S^2}^{}  g\left( \mathbf{x} 0 t \mathbf{z} \right) \left[ z_{3} > 0 \right] dS\left( \mathbf{z} \right)  \\
+   &=   \frac{1}{4\pi } \int_{D}^{} g\left( \mathbf{x + t \mathbf{z}} \right) \frac{dz_{1} dz_{2}}{ \sqrt{1- z_{1}^2 - z_{2}^2} }   \\
+     \end{split} 
+   \] 
+   Parametrisert med \[
+     \begin{split}
+   z &= \left( z_{1}, z_{2} \right) \in  D \\
+   dS &= \frac{dz_{1} dz_{2}}{ \sqrt{1 - z_{1} ^2 - z_{2} ^2} }  \\
+   dS &= \sqrt{1 + \left( \frac{\partial z_{3}}{\partial z_{1}}  \right) ^2 \left( \frac{\partial z_{3}}{\partial z_{2}}  \right) ^2}  dz_{1} dz_{2}  \\
+   \implies   &  z_{3} = \sqrt{ 1 - z_{1} ^2 + z_{2} ^2}  \\
+   \left( \frac{\partial z_{3}}{\partial z_{1}}  \right) ^2 &=  \left( \frac{-z_{1}}{\sqrt{ 1- z_{1}^2 + z_{2} ^2}  }   \right)^2 = \frac{z _{1} ^2}{ 1- z_{1} ^2 + z_{2} ^2}  \\
+   \implies   &  dS = \sqrt{1 + } 
+     \end{split} 
+   \] 
+  
+   \textbf{Poission Integralformel for n=2} 
+
+   \[
+   u\left( t,x \right) = \frac{\partial }{\partial t}  \left( \int_{D}^{} g\left( \mathbf{x} + t\mathbf{z} \right) \frac{1}{\sqrt{1 - \|z\|_{}^{2}} } dz_{1} dz_{2} \right)
+   + \frac{t}{2\pi }  \int_{D}^{}  \frac{h\left( \mathbf{x} + t\mathbf{z} \right)}{ \sqrt{1  - \|z\|_{}^{2}} }  dz_{1} dz_{2} 
+   \] 
+
+
 
 
 
