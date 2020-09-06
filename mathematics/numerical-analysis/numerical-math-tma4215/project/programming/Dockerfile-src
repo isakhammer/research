@@ -1,0 +1,6 @@
+FROM isakhammer/jupyter-notebook
+
+RUN mkdir -p /root/src/
+WORKDIR /root/src/
+COPY . .
+RUN pip3 install -r requirements.txt
