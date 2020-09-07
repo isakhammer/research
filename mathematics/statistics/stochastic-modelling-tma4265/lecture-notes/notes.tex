@@ -5,7 +5,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES v1.1 %%%%%%
+%%%% DEPENDENCIES v1.3 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -13,8 +13,10 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-\usepackage{enumerate}
+%\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{todonotes}
+\usepackage{esint}
 \usepackage{float}
 
 
@@ -627,8 +629,7 @@ Which is a major simplification.
    General notes on simulation 
    \begin{itemize}
      \item
-
-   $Pr \left \{ A  \right \} \approx \frac{\text{# times A occure}}{ \text{# Simulations}}  $
+   $Pr \left \{ A  \right \} \approx \frac{\text{# times A occure}}{ \text{ Simulations}}  $
  \item $E\left[ X \right] \approx \frac{1}{N}  \sum_{i=1}^{B}  x_{i}$
    \end{itemize}
  \end{tcolorbox}
@@ -709,7 +710,7 @@ P_{ij} = \begin{cases}
    \begin{table}[htpb]
      \centering
      \caption{Let $m$ be timesteps}
-     \label{tab:label}
+     \label{tab:label2}
      \begin{tabular}{l|ccccc}
      $m$   & $0$  & $2$   &3  &4  & 5  \\
      $v^{(m)}_{0}$   &  $0$ & $0$   & $0$  & $0$  & $0$  \\
@@ -900,7 +901,6 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
     q \ge p \quad   & \implies  \quad  \text{Almost certain you will loose.}   \\
     q < p  & \implies  P\left( \text{ruined} \right) = \left( \frac{q}{p} \right)^{10} \\
         \end{split} 
-    
     \] 
   \end{itemize}
 \end{remark}
@@ -919,6 +919,157 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
    \end{enumerate}
 \end{remark}
 
+
+\newpage
+\section{Lecture 08/09/20}%
+\label{sec:lecture_08_09_20}
+
+Equivalent classes and classifications of states in Markov chains.
+
+
+\newpara
+Things to check
+\begin{itemize}
+  \item Understand why regularity fails.
+  \item Extend regularity to infinite spaces.
+\end{itemize}
+
+\textbf{Example} 
+Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
+
+\begin{enumerate}[label=(\alph*)]
+  \item It can go from $0\to 0$ and $1\to $ with probabilities $p_{00} = p_{11} = 1$, two seperate markov chains. Realizations : \[
+  \begin{split}
+      &  0, 0,0,0,0,0,    \ldots\\
+      &  1,1,1,1,1,1,  \ldots  \\
+    P &= \begin{bmatrix} 
+    1  &  0 \\
+    0  &  1
+    \end{bmatrix}  \implies  P^{n} = \begin{bmatrix} 
+    1  &  0 \\
+    0  &  1
+    \end{bmatrix} 
+     \\
+  \end{split} 
+  \] 
+\end{enumerate}
+
+\begin{definition}
+  Let $\left\{ X_{n}: 0, 1 , \ldots \right\}$ be a Markov chain with state space $\left\{ 0, 1 , \ldots \right\}$ then is 
+  \begin{enumerate}[label=(\roman*)]
+    \item State $j$ is \textbf{ accessible}  from state $i $ if $\exists n \ge 0$  so that $P^{(n)} > 0$ 
+    \item If states $i$ and $j$ are accessable from each other they are said to \textbf{communcate }  we write $ i \sim j$. If states $i$ and $j$ do not communcate we write $i \not \sim  j$
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  If $ i \not \sim  j$ , then either (or both) 
+  \begin{enumerate}[label=(\alph*)]
+    \item
+    \begin{enumerate}[label=(\roman*)]
+    \item $P^{(n)}_{ij} = 0, \quad  \forall n\ge0 $
+    \item  $P_{ji} = 0, \quad  \forall n\ge0 $
+    \end{enumerate}
+  \item Only the graph matters, not the values of the edges.
+  \item $P^{(0)}_{ij} = \begin{cases}
+    1,  &  i = j \\
+    0,  &  i\neq j
+  \end{cases}$
+
+  \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+  Communication is an \textbf{equicalence relation} 
+  \begin{enumerate}[label=(\roman*)]
+    \item \textbf{reflexive} , $i ~ j$
+    \item  \textbf{symmentric }  $i \sim  j \implies  j \sim i$
+    \item \textbf{Transitive}  $i \sim j$ and $ j \sim k$ implies $i \sim k$
+  \end{enumerate}
+  A equivalence relation induces \textbf{equivalence classes} of sets of states that communicate.
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item $P ^{\left( 0 \right)} _{ii} = 1 \quad  \implies  i \sim i   $ 
+    \item By definition is this true.
+    \item 
+      \begin{enumerate}[label=(\alph*)]
+        \item $ i \sim j$ $\implies  \quad  \exists n\ge 0: P ^{(n)} _{ij} > 0 $ \[
+        j \sim  k \implies  \exists m\ge 0 : P^{(m)} _{jk} > 0
+        \] 
+      \item Chapman-kilogram \[
+      P^{(n+m)} _{ik} = \sum_{r=0}^{\infty} P^{(n)}_{ir} P^{(m)}_{rj} \ge P^{(n)}_{ij} P^{(m)}_{jk}
+      \] 
+      $\implies $ $k$ is accessible from $i$.
+    \item Show yourself 
+      
+      \newpara
+      \textbf{$i$ is accessible from $k$} 
+
+      \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+\begin{definition}
+  A Markov chain is \textbf{irreducible}  if $ \sim $ (communication) induces exactly one equivalent class.  If not, it is called reducible. 
+\end{definition}
+\begin{definition}
+  The \textbf{period}  of state $i$, written as $d\left( i \right)$ is \[
+  d\left( i \right) = \text{gcd}\left\{ n \ge 1: P ^{(n)} _{ii} > 0 \right\}
+  \] 
+  If $P^{(n)} _{ii} = 0$ for all $n\ge 1$, we define $d\left( i \right) = 0$. If $d\left( i \right) = 1$, we call the state $i$ is \textbf{aperiodic.} 
+\end{definition}
+\begin{theorem}
+  if $i \sim j$, then $d\left( i \right) = d\left( j \right)$
+\end{theorem}
+\begin{remark}
+   The period is a property of the equivalence class.
+\end{remark}
+
+\textbf{Notation} THe state space may be infinite: $\left\{ 0,1, \ldots \right\}$. We introduce  
+\begin{enumerate}[label=(\roman*)]
+  \item The probability the first return happend after exactly $n$ steps \[
+  f_{ii}^{(n)} = Pr \left \{ X_{n} = i, X_{\mu }\neq i, i  = 1,2, \ldots, n-1  \mid X_{0} = i  \right \}  \quad  n> 0 
+  \] 
+  We will define $f_{ii}^{(0)} = 0$
+\item The probability of returning at some time \[
+f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^{n} f^{(k)} _{ii} .
+\] 
+\end{enumerate}
+ \begin{remark}
+   $f_{ii} < i \leftrightarrow  \text{Positive probability of never returning to $i$}$
+ \end{remark}
+
+ \begin{definition}
+   State $i$ is \textbf{recurrent}  if the probabilitu of retunging to sate $i$ in a finite number of timesteps is one $f_{ii} = 1$. A state that is not recurrent $f_{ii} < 1$ is called \textbf{transient} .
+ \end{definition}
+
+ \begin{theorem}
+   A state $i$ is recurrent if and only if \[
+   \sum_{n=1}^{\infty} P_{ii}^{(n)} = \infty
+   \] 
+   Equivalently, state $i$ is transient if and only if \[
+   \sum_{n=1}^{\infty}  P^{(n)}_{ii} < \infty
+   \] 
+ \end{theorem}
+
+ \begin{proof}
+   \begin{enumerate}[label=(\roman*)]
+     \item  \[
+         \begin{split}
+\sum_{n =1}^{\infty}  P _{ii}^{(n)}  & = \sum_{n= 1}^{\infty}  E\left[ \mathbb{I} \left\{ X_{n} = j \right\}  \mid  X_{0} = j \right]  \\
+       & = E\left[ \sum_{n=1}^{ \infty}  \mathbb{I} \left\{ X_{n} = i  \mid  X_{0} = i \right\} \right] \\
+       &= E\left[ M  \mid  X_{0} = i \right] \\
+        & M \to  \text{Returns to state.}
+         \end{split} 
+     \] 
+   \item $E \left[ M  \mid  X_{0} = i \right] = \begin{cases}
+     f_{ii}\frac{1}{1- f_{ii}}  , &  \quad  f_{ii} < 1 \\
+     \infty ,  &  f_{ii} = 1 
+   \end{cases}$
+   \end{enumerate}
+ \end{proof}
 
 \section{References}
 \label{sec:references}
