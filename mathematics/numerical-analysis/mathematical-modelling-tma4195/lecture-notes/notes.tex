@@ -5,7 +5,7 @@
 \author{isakhammer }
 \date{2020}
 
-%%%% DEPENDENCIES v1.1 %%%%%%
+%%%% DEPENDENCIES v1.3 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -13,8 +13,10 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-\usepackage{enumerate}
+%\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{todonotes}
+\usepackage{esint}
 \usepackage{float}
 
 
@@ -54,8 +56,8 @@
   \vskip 0.4cm
   }
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{document}
@@ -978,8 +980,137 @@ v^{*} &=  U v \\
 
 
 
+\newpage
+\section{Lecture 07/09}%
+\label{sec:lecture_07_09}
+
+\subsection{Emergent Osmotic Concentration}%
+\label{sub:emergent_osmotic_concentration}
+
+\begin{enumerate}[label=(\roman*)]
+  \item Total rate of salgt pumped per second $\delta  c  N_{0}$
+  \item Water out per second  $v^{*} \left( L \right) A = U v\left( \lambda  \right) A $ , where $ \lambda  = \frac{L}{\delta } $
+\end{enumerate}
+
+\[
+  \begin{split}
+  \delta c N_{0}  & = C_{0} U \\
+    &  \approx \text{Flow out of salt per sec} \\
+    \implies  U &=  \frac{\delta c N_{0}}{ C_{0 } A}  \\
+  \end{split} 
+\] 
+Measure of the efficiency \[
+  \begin{split}
+\frac{\text{Salt out}}{ \text{Water out}}   & = O s ^{*}\\
+&= \frac{\delta  c N_{0}}{ U v\left( \lambda  \right) A}  = \frac{C_{0}}{ v\left( \lambda  \right)}  \\
+  \end{split} 
+\] 
+Thus $v\left( \lambda  \right) > \frac{1}{4}$
+
+
+\subsection{Boundary Value Problem}%
+\label{sub:boundary_value_problem}
+
+We know that \[
+  \begin{split}
+\sum_{}^{} v' \left( x \right)  & = C\left( x \right) - 1 \\
+v\left( x \right)C\left( x \right) - \mu  C' \left( x \right)  & = f\left( x \right) = \begin{cases}
+  x,  &  \quad  0 \le x \le \\
+  1,  &  \quad  1 \le \le \lambda   
+\end{cases}
+ &   \end{split} 
+\] 
+Where  $v\left( 0 \right) = 0, \quad    C\left( \lambda  \right)  =1 $.
+In addition $v$ and $C$ must be continuous. 
+
+\newpara
+Let assume $ 0 < \varepsilon  \ll  1$. Put $C = c_{0} + \varepsilon  C_{1} + O\left( \varepsilon ^2 \right)$ and $v = v_{0} + \varepsilon  v_{1} + Ø\left( \varepsilon ^2 \right)$ . Inserted into the equation \[
+  \begin{split}
+\varepsilon \left( v_{0}'   \right) &=  C_{0} + \varepsilon C_{1} - 1 + O\left( \varepsilon ^2 \right)  \\
+\left( v_{0} + \varepsilon  v_{1} \right) \left( 1 + C_{1} \varepsilon  \right) ^2 - \mu \left(  \varepsilon  C_{1}'    \right)  &  = f\left( x \right) + O\left( \varepsilon ^2 \right)   \\
+C_{0} - 1 &=  0 \leftrightarrow  \quad  C_{0} = 1  \\
+C_{1} - v_{0}'  =  0  \implies  C_{1} = v_{0}'    & \implies \quad C_{1} = f\left( x \right) , \quad C_{1}\text{ is discontinuity }    \\
+v_{0} - f\left( x \right) &=  0, \quad v_{0} = f\left( x \right)   \\
+v_{1} + v_{0} C_{1} - \mu \varepsilon C_{1}'  &=  0 \\
+  \end{split} 
+\] 
+
+Something is wrong. 
+\[
+\begin{split}
+  \varepsilon  v'  &=  C- 1 \\
+  \varepsilon  v C - \underbrace{\left( \varepsilon  \mu  \right)}_{ \text{not small} }  &=  \varepsilon f\left( x \right) \\
+\end{split} 
+\] 
+For notation convenience let \[
+\begin{split}
+  \left( \varepsilon  \mu  \right) &= \omega ^{-1}   \\
+  \varepsilon v'  &=  C - 1 \\
+  \varepsilon vC - \frac{1}{\omega ^{2}} C'  &=  \varepsilon  f\left( x \right) \\
+  \implies   &  \varepsilon \left( \omega ^2 v C \right) - C'  = \varepsilon  \omega ^2 f\left( x \right)
+\end{split} .
+\] 
+
+We then get \[
+\begin{split}
+  v &=  v_{0} + \varepsilon  v_{1}  \\
+  C &=  C_{0} + \varepsilon C_{1} \\
+  \varepsilon  v_{0}'  &=  C_{0} + \varepsilon  C_{1} \implies  C_{0} = 1 , \quad  v_{0}'  = 1  \\
+  \varepsilon \left( \omega ^2 \left( v_{0} C_{0} \right)  \right) - C_{0}'  - \varepsilon  C_{1}'   & = \omega ^2 \varepsilon  f\left( \varepsilon  \right) \\
+  \omega ^2 v_{0} - v_{0}''  &=  \omega ^2 f\left( x \right) \\
+  v_{0}''  - \omega ^2 v_{0}  & = - \omega ^2 f\left( x \right) \\
+  v\left( 0 \right) = 0  &  \implies  v_{0}\left( 0 \right) = 0 \\
+\end{split} 
+\] 
+Also 
+\[
+\begin{split}
+C\left( \lambda  \right) = 1 = 1 + \varepsilon C_{1} \left( \lambda   \right) + O\left( \varepsilon  \right)  \\
+\implies  C_{1} \left( \lambda  \right) = 0    \implies  v_{0} '  \left( \lambda  \right)  & = 0
+\end{split} 
+\] 
+$v$ and $C$ is continuous . $v_{0}$ and $v_{0}' $ continuous. 
+
+\newpara
+For $0 \le x \le 1$  we have \[
+v_{0}''  + \omega ^2  & = - \omega ^2 x 
+\] 
+A
+solution to $ v_{0}''  + \omega  = 0$ \[
+E e^{\omega x} + E e^{- \omega  x} = A \cosh \left( \omega  x \right) + B \sinh \left( \omega x \right)
+\] 
+
+\begin{tcolorbox}
+\textbf{Identities.}  \[
+  \begin{split}
+\cosh u &=  \frac{1}{2} \left( e^{u} + e^{-u} \right) \\
+\sinh u &=  \frac{1}{2} \left( e^{u} - e^{-u} \right) \\
+\cosh' u  & = \sinh u \\
+\sinh'  u  &  = \cosh u \\
+\cosh u - v &=  \cosh u \cosh u  - \sinh u \sinh v \\
+\cosh 0 &=  1 \\
+\sinh 0  & = 0
+  \end{split} 
+\] 
+\end{tcolorbox}
+
+The solution is for $0 \le x \le 1$\[
+v_{0} \left( x \right) = x + A \cosh \omega x 0 B \sinh \omega  x
+\] 
+In the same manner \[
+  \begin{split}
+v_{0} ^{+} \left( x \right) &= 1 + C \cosh \omega x + D\sinh \omega x \\
+v_{0}\left( 0 \right) = 0  &  \implies  v_{0} ^{ -} = 0 \\
+\implies  v_{0} ^{ -} \left( x \right) &=  x + B\sinh \omega x \\
+\frac{d v_{0}^{+}}{d x}  \left( \lambda  \right) &=  0 \\
+v_{0}\left( x \right) &=  E  \cosh \varepsilon \left( x- \lambda  \right) \\
+  \end{split} 
+\] 
+
+
 
 \newpage
+
 \section{References}%
 \label{sec:references}
 
