@@ -1073,10 +1073,9 @@ $v$ and $C$ is continuous . $v_{0}$ and $v_{0}' $ continuous.
 
 \newpara
 For $0 \le x \le 1$  we have \[
-v_{0}''  + \omega ^2  & = - \omega ^2 x 
+v_{0}''  + \omega ^2   = - \omega ^2 x 
 \] 
-A
-solution to $ v_{0}''  + \omega  = 0$ \[
+A solution to $ v_{0}''  + \omega  = 0$ \[
 E e^{\omega x} + E e^{- \omega  x} = A \cosh \left( \omega  x \right) + B \sinh \left( \omega x \right)
 \] 
 
@@ -1095,17 +1094,252 @@ E e^{\omega x} + E e^{- \omega  x} = A \cosh \left( \omega  x \right) + B \sinh 
 \end{tcolorbox}
 
 The solution is for $0 \le x \le 1$\[
-v_{0} \left( x \right) = x + A \cosh \omega x 0 B \sinh \omega  x
+v_{0} \left( x \right) = x + A \cosh \omega x + B \sinh \omega  x
 \] 
 In the same manner \[
   \begin{split}
-v_{0} ^{+} \left( x \right) &= 1 + C \cosh \omega x + D\sinh \omega x \\
+v_{0} ^{+} \left( x \right) &= \overbrace{1 + C \cosh \omega x + D\sinh \omega x }^{0\le x \le \lambda = \frac{L}{\delta}  } \\
 v_{0}\left( 0 \right) = 0  &  \implies  v_{0} ^{ -} = 0 \\
 \implies  v_{0} ^{ -} \left( x \right) &=  x + B\sinh \omega x \\
 \frac{d v_{0}^{+}}{d x}  \left( \lambda  \right) &=  0 \\
+C \omega  \sinh \omega \lambda  +  D\omega \cosh \omega \lambda  &=  0 \\
+  \end{split} 
+\] 
+The soution is \[
+  \begin{split}
 v_{0}\left( x \right) &=  E  \cosh \varepsilon \left( x- \lambda  \right) \\
   \end{split} 
 \] 
+Require continuity at $x = 1$  of  $ v_{0}\left( x \right)$ and $C_{1}\left( x \right) = \frac{d v_{0}}{d x}  \left( x \right)$\[
+  \begin{split}
+    v_{0}^{-} \left( 1 \right) &=  v_{0}^{+}\left( 1 \right) \\
+    \frac{d v_{0}^{-}}{d x}  &=  \frac{d v_{0}^{+}}{d x}  \\
+  \end{split} 
+\] 
+We get \[
+  \begin{split}
+v_{0}^{-} \left( x \right) &=  x - \frac{\cosh \left( \omega \left( \lambda  -1 \right) \right)}{ \omega  \cosh \left( \omega \lambda  \right)}  \sinh \omega \lambda  \quad  0\le x \le 1  \\
+v_{0} ^{+} &=  1- \frac{\sinh \left( h \omega  \right)}{ \omega  \cosh \left( \omega \lambda  \right)} \cosh\omega \left( x-\lambda  \right) \\
+  \end{split} 
+\] 
+\[
+  \begin{split}
+  Os ^{* }  &  = \frac{C_{0}}{v\left( \lambda  \right)}  \approx \frac{C_{0}}{v_{0}\left( \lambda  \right)}  \\
+  &=  \frac{C_{0}}{ \left( 1 - \frac{\sinh \omega  }{\omega }  \frac{1}{\cosh \omega  \lambda }  \right)}  \\
+  \end{split} 
+\] 
+$\varepsilon  \ll  1$, $Os ^{*}$ depends on $ \omega  $ and $ \lambda  \omega  = k$. 
+
+\newpara
+If $\omega $ is smak then is \[
+\frac{\sinh \omega }{\omega }  \approx 1 + \frac{1}{6} \omega ^2 + \ldots
+\] 
+Let \[
+  \begin{split}
+Os ^{* }  & \approx \frac{C_{0}}{ 1- \frac{1}{\cosh k}}  = C_{0}\left( \frac{\cosh k}{ \cosh k - 1}  \right) = C_{0}\left( \frac{1+ \frac{1}{2} k^2 + O\left( k^{4} \right)}{ \frac{1}{2} k^2 + O\left( k^{4} \right)}  \right) \\
+ & \approx \left( 1+ \frac{2}{k^2} \right) C^{*}
+  \end{split} 
+\] 
+
+Argue that \[
+\frac{2}{k ^{2}} \approx \frac{F^{*} _{\text{Diffusion}}}{ F^{*} _{\text{Convection}}} 
+\] 
+We can finally conclude that \[
+Os ^{* } \approx C_{0}\left( 1+ \frac{F^{*} _{ \text{diff}}}{ F ^{*} _{\text{conv}}}  \right)
+\] 
+
+\subsection{Singular Perturbation}%
+\label{sub:singular_perturbation}
+
+Still we have a problem where there is a small parameter ,  say $\varepsilon $. THe telltale sign of a singular perturbation problem is that the problem changes qualitively when  $\varepsilon  = 0 $ .
+
+\newpara
+\textbf{Example} . \[
+  \begin{split}
+\varepsilon  y''  + 2 y'  + y &= 0 \\
+y\left( 0 \right) =0  & \quad , y\left( 1 \right) = 1 
+  \end{split} 
+\] 
+$\varepsilon  = 0$ gives a problem where we cannot satisfy $y\left( 0 \right) = 0$ and $y\left( 1 \right) = 1$.
+
+
+
+\newpara
+\textbf{Example}  \[
+\varepsilon ^2 + 2m + 1 &=  0 \\
+\] 
+ If $\left\lvert m \right\rvert  \le M$, ie $m$ is bounded as $\varepsilon  \to  0$, then $\varepsilon  m^2$ is small when $ \varepsilon  \to  0$. Assuming this we have \[
+ \varepsilon m^2 + 2m + 1 \approx 2 m + 1a = 0 \quad  \implies  m = -\frac{1}{2} 
+ \] 
+ We can also get \[
+   \begin{split}
+ m  & = -\frac{1}{2} + \varepsilon m_{1} + O\left(  \varepsilon ^2\right) \\
+ \varepsilon \left( \frac{1}{4} - \varepsilon m_{1} \right) - 1 2m_{1} \varepsilon  + 1 &= 0 \\
+ \frac{1}{4} + 2m_{1} &= 0 \\
+ m_{1}  & = -\frac{1}{8} \\
+ m &= \frac{1}{2} - \varepsilon \frac{1}{8}  + O\left( \varepsilon ^2 \right) \\
+   \end{split} 
+ \] 
+
+ \begin{enumerate}[label=(\roman*)]
+   \item If $2m$ is much smaller than $\varepsilon m^2 $ and $1$, then \[
+       \begin{split}
+   \varepsilon m^2 + 2m + 1 \approx \varepsilon m^2 + 1 &= 0 \\
+     &  \implies m \approx \pm -i \frac{1}{\sqrt{\varepsilon } }
+       \end{split} 
+   \] 
+   Thus $2m$ is large (compared to $1$ ), contradiciton. 
+
+\newpara
+Lets try \[
+  \begin{split}
+\varepsilon m^2 + 2m &= 0 \\
+\implies  m\left( \varepsilon  m + 2 \right) &= 0 \\ 
+\implies  2\cdot  m &= 2\cdot -\frac{1}{3} \\
+\varepsilon m^2 &= \frac{4}{\varepsilon ^2} \varepsilon  = \frac{4}{3} \\
+  \end{split} 
+\]  
+$m \approx \frac{2}{3}$. If we put \[
+m = -\frac{2}{3}  \widetilde{m} 
+\] 
+
+ \end{enumerate}
+
+
+\newpage
+\section{Singular Perturbation}%
+\label{sec:singular_perturbation}
+
+
+\[
+\varepsilon m^2 +  2m + 1 = 0, \quad  0< \varepsilon  \ll  1 , \quad m = .\frac{1}{2}  
+\] 
+
+If $\varepsilon m^2$ and $1$ are important \[
+m \pm e \varepsilon ^{\frac{1}{2}} \quad  \implies  \varepsilon  m^2 + 2m \approx 0  
+\] 
+\[
+\begin{split}
+  \leftrightarrow  m\left( \varepsilon  m + 2  \right) &=  0 \\
+  m  & \approx -\frac{2}{\varepsilon } \\
+  \varepsilon  m^2 \approx -\frac{2}{\varepsilon } \\
+  2m  &  \approx \frac{4}{3} \\
+  \varepsilon m^2 + 2m + 1 &=  0 \\
+  m &=  -\frac{1}{2} + \varepsilon  m_{1} \\
+  m&=  -\frac{2}{3} \widetilde{m_{1}} \varepsilon  \\
+\end{split} 
+\] 
+
+\subsection{Singular perturbation applied to differential equations}%
+\label{sub:singular_perturbation_applied_to_differential_equations}
+
+\[
+\begin{split}
+  \varepsilon y'' + 2 y'  + y &= 0 \\
+  y\left( 0 \right) = 0,  &  \quad y\left( 1 \right) = 1   \\
+  0\le x  &  \le 1
+\end{split} 
+\] 
+
+Let $\varepsilon  = 0$ then is \[
+\begin{split}
+2 y'  + y &= 0 \implies  y = k  e ^{ -\frac{x}{2}} , k \in  \mathbb{R}  \\
+y\left( 0 \right) &= 0 \implies  y := 0 \\
+y\left( 1 \right) &= 1 \implies  y\left( x \right) = e^{\frac{1}{2}} e^{-\frac{x}{2}} \\
+\end{split} 
+\] 
+
+Ther characteristic equaiotn for \[
+\varepsilon y''  + y'  + y &=  0 \\
+\varepsilon r ^2 + 2 r + 1 &=  0, \quad  r_{1} \approx -\frac{1}{2} , r_{2} \approx-\frac{2}{3}  \\
+y\left( x \right)  &  \approxA e^{-\frac{x}{2}} B e^{ -\frac{2x}{\varepsilon }}
+\] 
+
+
+For $y\left( 0 \right) = 0$ \[
+y\left( x \right) =  A \left( e ^{ -\frac{x}{2}} - e^{-\frac{2x}{\varepsilon }} \right) \\
+\] 
+And for $y\left( 1 \right)=1$ \[
+y\left( x \right) \approx e^{-\frac{1}{2}} \left( e^{-\frac{x}{2}} - e ^{ -\frac{2x}{\varepsilon }} \right)
+\] 
+
+
+
+\subsection{Further look at Singular Perturbation}%
+\label{sub:further_look_at_singular_perturbation}
+
+Our main equation \[
+\varepsilon y''  + 2 y'   + y = 0, \quad  y\left( 0 \right) = 0,  \quad    y\left( 1 \right) = 1
+\] 
+\begin{enumerate}[label=(\roman*)]
+  \item Find outer solution $y_{o}$ by setting $\varepsilon  = 0$. Since the solution $\varepsilon y_{0}\left( x \right) \approx y\left( x \right)$ for \[
+      \begin{split}
+  x > \delta \left( \varepsilon  \right), &  \quad \text{where}\quad \delta \left( \varepsilon  \right) \to 0 \text{ when } \varepsilon \to 0   \\
+ y_{0}\left( x \right) = e ^{\frac{1}{2}} e^{-\frac{x}{2}} 
+      \end{split} 
+  \] 
+  Characteristic equation for \[
+    \begin{split}
+  Y\left( \frac{x}{\delta \left( \varepsilon  \right)} \right) &= y\left( x \right) \quad \text{ is}  \\
+  \zeta   & = \frac{x}{\delta \left( \varepsilon  \right)},    \quad  Y\left( \zeta  \right) = \frac{x}{y\left( \zeta \delta \left( \varepsilon  \right) \right)}
+    \end{split} 
+  \] 
+  \[
+  \varepsilon Y'' + 2 Y'  + Y = 0, \quad  \implies  \quad  \varepsilon \frac{1}{\delta ^2} Y''  + \frac{2}{\delta } Y' + Y =0  
+  \] 
+  Are of order of 1. \[
+  \begin{split}
+    \implies  \varepsilon \frac{1}{\delta ^2} , \frac{1}{\delta },  & 1 \quad \text{are} \\
+  \end{split} 
+  \] 
+  the "size" of the terms. 
+  
+  \newpara
+  CHossing $\delta =\varepsilon $ gives \[
+  \frac{1}{3} Y'' + \frac{2}{3} Y'  = 0 \implies \quad  Y'' + 2Y'  + \varepsilon Y = 0
+  \] 
+  Which is called the \textbf{inner equation.} 
+
+\newpara
+Let \[
+Y\left( \frac{x}{\delta \left( \varepsilon  \right)} \right) = y\left( x \right), \quad y\left( 0 \right) = 0 \implies  Y\left( 0 \right) =  
+\] 
+Putting $ \varepsilon  = 0$ $Y'' + 2 Y'  = 0$ where \[
+\implies  Y\left( \zeta  \right) = D + E e ^{2\zeta }
+\] 
+We see that \[
+\begin{split}
+Y\left( 0 \right)  & = 0 \implies  E = -D \\
+Y\left( \zeta  \right) &= E\left( 1- e^{-2\zeta } \right) \\
+\end{split} 
+\] 
+
+Let us match it with this equation \[
+y_{0}\left( x \right) = e^{\frac{1}{2}} e^{-\frac{x}{2}}
+\] 
+
+We can try to match the solution at $x = \theta \left( \varepsilon  \right)$. Then we need to require that \[
+  \begin{split}
+\lim_{\varepsilon  \to  0^{+}}  \theta \left( \varepsilon  \right)   & = 0 \\
+\lim_{\varepsilon \to 0^{+}} \frac{\theta \left( \varepsilon  \right)}{\delta \left( \varepsilon  \right)}  &= \infty \\
+  \end{split} 
+\] 
+\textbf{Example.} 
+\[
+\delta  =\varepsilon , \quad  \theta = \varepsilon ^{\frac{1}{2}} 
+\] 
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
 
 
 
