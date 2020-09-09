@@ -1298,13 +1298,13 @@ Our main equation \[
   CHossing $\delta =\varepsilon $ gives \[
   \frac{1}{3} Y'' + \frac{2}{3} Y'  = 0 \implies \quad  Y'' + 2Y'  + \varepsilon Y = 0
   \] 
-  Which is called the \textbf{inner equation.} 
 
 \newpara
 Let \[
 Y\left( \frac{x}{\delta \left( \varepsilon  \right)} \right) = y\left( x \right), \quad y\left( 0 \right) = 0 \implies  Y\left( 0 \right) =  
 \] 
-Putting $ \varepsilon  = 0$ $Y'' + 2 Y'  = 0$ where \[
+  Which is called the \textbf{inner equation.} 
+Putting $ \varepsilon  = 0$ and $Y'' + 2 Y'  = 0$ where \[
 \implies  Y\left( \zeta  \right) = D + E e ^{2\zeta }
 \] 
 We see that \[
@@ -1324,10 +1324,96 @@ We can try to match the solution at $x = \theta \left( \varepsilon  \right)$. Th
 \lim_{\varepsilon \to 0^{+}} \frac{\theta \left( \varepsilon  \right)}{\delta \left( \varepsilon  \right)}  &= \infty \\
   \end{split} 
 \] 
+\begin{tcolorbox}
 \textbf{Example.} 
 \[
 \delta  =\varepsilon , \quad  \theta = \varepsilon ^{\frac{1}{2}} 
 \] 
+\end{tcolorbox}
+
+
+
+\newpara
+We know that \[
+Y\left( \frac{x}{\delta \left( \varepsilon  \right)} \right) = y_{I} \left( x \right)
+\] 
+
+Then can we start matching such that \[
+y_{I}\left( \theta \left( \varepsilon  \right) \approx y_{0}\left( \theta \left( \varepsilon  \right) \right) \right) \implies  Y\left( \frac{\theta \left( \varepsilon  \right)}{\delta \left( \varepsilon  \right)}  \right) = y_{0}\left( \theta \left( \varepsilon  \right) \right)
+\] 
+
+
+Let $\varepsilon  \to  0$ and require equality since $\frac{\theta \left( \varepsilon  \right)}{\delta  \left( \varepsilon  \right) } \to \infty $ , $\theta \left( \varepsilon  \right) = 0$.  THen we obtain \[
+\lim_{\zeta \to \infty}  Y\left( \zeta  \right) = \lim_{x\to 0} y_{0}\left( x \right)
+\] 
+the matching condition \[
+\lim_{\zeta \to  \infty}  E\left( 1- e^{-2\zeta } \right) = \lim_{x \to  0}  e^{\frac{1}{2}} e^{-\frac{x}{2}} , \quad  \implies  E = e^{\frac{1}{2}} 
+\] 
+\[
+y_{0}\left( x \right) + Y\left( \frac{x}{\varepsilon } \right) - \lim_{x\to 0} y_{0}\left( x \right) = y_{u}\left( x \right)
+\] 
+The uniform solution  \[
+  \begin{split}
+ y_{u}\left( x \right)  & = e^{\frac{1}{2}} e^{-\frac{x}{2}} + e^{\frac{1}{2}} \left( 1- e^{-\frac{2x}{\varepsilon }} \right) - e^{\frac{1}{2}} \\
+ &= e^{\frac{1}{2}} \left( e^{-\frac{x}{2}} - e^{-\frac{2x}{\varepsilon }} \right) \\
+  \end{split} 
+\] 
+
+\subsection{Biochemical reaction kinetics}%
+\label{sub:biochemical_reaction_kinetics}
+
+Let the differential equation be \[
+\frac{d f^{*}\left( t^{*}  \right)}{d t^{*}}  = k a^{*} \left( t^{*} \right) b^{*} \left( t^{*} \right)
+\] 
+Where $s ^{*}, e ^{* } , c ^{*} , p ^{*}$ be molar concentrations of $S, E, C$ and P at time $t ^{*}$. 
+\begin{align}
+\frac{d s ^{*}}{d t ^{*}}  &= -k, \quad s ^{*}, e ^{*} + k_{-1}c ^{*}  \\
+\frac{d e ^{*}}{d t^{*}}  & =  - k_{1} s ^{*} e ^{*} 0 k_{2}  \\
+\frac{d c ^{*}}{d t ^{*}}  &= k_{1} s ^{*} e ^{*} - \left( k_{-1} + k_{2} \right) \\
+\frac{d p ^{*}}{d t ^{*}} &= k_{2} c ^{*} 
+.\end{align}
+
+Add 2) and 3) we get \[
+\begin{split}
+  \frac{d }{d t ^{*}}  \left( e^{*} + c ^{*} \right) &=  0 \\
+  e ^{*} \left( t ^{*} \right) +  c ^{* } \left( t ^{*} \right) &= k \\
+\end{split} 
+\] 
+Inital conditions \[
+  \begin{split}
+s ^{*}\left( 0 \right) = \overline{s}   & , \quad e ^{*}\left( 0 \right) = \overline{e}  \\
+c ^{*}\left( 0 \right)  & = p  ^{*}\left( 0 \right) =0 
+  \end{split} 
+\] 
+
+We have that \[
+e ^{*} \left( t \right) &= \overline{e}  - c ^{*}\left( t ^{*} \right) \\
+\] 
+ 1) gives out \[
+   \begin{split}
+ \frac{d s ^{*}}{d t ^{*}}  &=  - k_{1} s ^{*}\left( \overline{e}  -  c ^{*} \right) + k_{1} c ^{*} \\
+  \frac{d s ^{*}}{d t ^{*} }  &=  - \left( k_{1} \overline{e}  \right) s ^{*} + \left( k_{1}  \right) s ^{*} c ^{* } + k_{-1} c ^{*} \\
+ \implies  \frac{d s ^{*}}{d t ^{*}}  &= -\left( k_{1} \overline{e}  \right) s ^{*} + \left[ k_{1} s ^{*} + k_{-1} \right] c ^{*} \\
+ \\
+   \frac{d c^{*}}{d t ^{*} }  &=  k_{1} s ^{*} \left( \overline{e} - c ^{*}  \right) \left( k_{-1} + k_{2} \right) c ^{*}\\
+ \implies \frac{d c^{*}}{d t^{*}}  &= \left( k_{1} \overline{e}  \right) - \left[ k_{1} s ^{*} + k_{-1} + k2 \right] c ^{*} \\
+   \end{split} 
+ \] 
+
+ 
+ \newpara
+ 
+ Let the scalars be $s ^{*} = \overline{s}  s$ , $c ^{*} = \overline{e}  c$, $t ^{* } = Tt$. \[
+ \frac{\overline{s} }{T}  s'  = - \left( k_{1} \overline{e}  \right) \overline{s}  s + \left[ k_{1} \overline{s}  + k_{-1}  \right] \overline{e}  c
+ \] 
+ \[
+   s'  = - \left(T k_{1} \overline{e}  \right)  s + \left[ Tk_{1} \overline{e} s  + k_{-1} \frac{\overline{e}  T}{\overline{s} }   \right]   c
+ \] 
+ Let $ \displaystyle Tk_{1} e = 1  \implies  T = \frac{1}{\overline{e}  k_{1}} $ \[
+ s'  = -s + \left[ s + \left( \frac{k_{-1}}{k_{1}\overline{s} }  \right) \right] c
+ \] 
+ 
+ 
 
 
 
