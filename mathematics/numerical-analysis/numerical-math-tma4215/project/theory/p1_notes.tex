@@ -67,6 +67,8 @@
 \newpage
 \section{Problem 1}%
 \label{sec:problem_1}
+\subsection{Problem Describtion}%
+\label{sub:problem_describtion}
 
 Let normal matrices, those with diagonalization be on the form \[
 A = U \Lambda U^{H} 
@@ -75,15 +77,13 @@ Where $\Lambda $ is a diagonal complex $n\times n $ matrix and $U$ a unitary (co
 \newpara
 Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, where $\rho \left( A \right) $ is the spectral radius of $A$ .
 
-\subsection{Proof}%
+\subsection{Answer 1a}%
 \label{sub:proof}
 
-  \textbf{Answer.} 
 \begin{proof}
-  Starting with the definition of a subordinate matrix norm \cite{sul} can we let \[
+  Starting with the definition of a subordinate matrix norm given in Mayers \cite{sul} can we let \[
   \|A\|_{2}^{2} = \sup_{x \neq 0} \frac{\left<Ax, Ax \right>}{ \left<x,x \right>} .
   \] 
-  \textbf{Note sure if this is the correct notation for 2-norm.} 
    Indeed, by using the assumption that $U^{H} U = I$ and substituting $Uy =  x$ can we show that \[
     \|A\|_{}^{2} = \sup_{x \neq 0} \frac{\left<Ax, Ax \right>}{\left<x,x \right>}  = \sup_{y\neq 0}  \frac{\left<AU y, A U y \right>}{ \left<U y, Uy \right>} = \sup_{y \neq 0} \frac{\left<U^{H} A^{H} A U y,y \right>}{\left<y,y \right>} 
   \] 
@@ -103,7 +103,7 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
   &=   \sup_{ y \neq 0}  \frac{\sum_{i=1}^{n}  \left\lvert \lambda _{i} \right\rvert ^2  \left| y_{i} \right|^2}{ \sum_{i=1}^{n}  \left| y_{i} \right|^2}  = \max _{i} \left( \left\lvert \lambda_{i}  \right\rvert ^{2}  \right)  \\
     \end{split} .
   \] 
-  Given the definition of a spectral radius \cite{quart} characterized by \[
+  Given from Sacco\cite{qu}, the definition of a spectral radius is characterized by \[
   \rho \left( A \right) = \max_{i} \left\lvert \lambda_{i}  \right\rvert    .
   \] 
   Which completes the proof of $ \|A\|_{2} = \rho \left( A \right)$.
@@ -133,6 +133,11 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
 \section{Problem 2}%
 \label{sec:problem_2}
 
+\subsection{Problem Describtion}%
+\label{sub:problem_describtion}
+
+
+
 Consider the $n \times n $ matrix $A$ whise nonzero elements are located on its unit subdiagonal , i.e. $A_{i+1, i} = 1$ for $i = 1, \ldots, n-1$\[
 A = \begin{bmatrix} 
   0  &  \ldots  &  \ldots  & 0 \\
@@ -144,18 +149,19 @@ A = \begin{bmatrix}
 
 \begin{enumerate}[label=(\alph*)]
   \item  What are the eigenvalues of $A$ ? What would the Gershgorin theorem tell us about the location of the eigenvalues of $A$.
-  \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
+  \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $). Show that \[
       \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
   \] 
-  And fins an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
-\item Derive an exact expression for the condition number $K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} = \|\hat{A}^{-1}\|_{2}^{}$.
+  And find an expression for the eigenvalues and eigenvectors of $\hat{A}$. 
+\item Derive an exact expression for the condition number \[
+K_{2} \left( \hat{A} \right) =  \|\hat{A}\|_{2}^{} \cdot  \|\hat{A}^{-1}\|_{2}^{}.  
+\] 
 
   \end{enumerate}
 
-  \subsection{Answer a}%
+  \subsection{Answer 2a}%
   \label{sub:answer_a}
   
-      \textbf{Answer.} 
 
 \newpara
 The eigenvalues can be computed such that \[
@@ -178,14 +184,14 @@ The eigenvalues can be computed such that \[
    &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \quad   \implies  \quad \quad \lambda  = 0
   \end{split} 
 \] 
-Which concludes that we did only find a trivial solutions. By applying Gershgoring theorem \cite {sul} characterized by these definitions.
-\begin{definition}[Gerschgorin discs]
+Which concludes that all eigenvalues are zero. Recall the Gershgoring Theorem, given in Mayers \cite{sul}.
+\begin{definition}[Gerschgorin Discs]
   \label{G1}
-  $D_{i}, \quad i = 1,2,3 \ldots, n$ of the matrix $A$ are defined as the closed circular regions \[
-  D_{i} = \left\{ z \in  \mathbb{C}  \mid  \left\lvert z - a_{ii} \right\rvert \le R_{i} \right\}
+  Suppose that $n\ge2 $ and $A \in  \mathbb{C} ^{n \times n }$. The \textbf{Gerschgoring Discs} $D_{i},  i = 1,2,3 \ldots, n$ of the matrix $A$ are defined as the closed circular regions \[
+  D_{i} = \left\{ z \in  \mathbb{C}  : \quad    \left\lvert z - a_{ii} \right\rvert \le R_{i} \right\}
   \] 
-  In the complex plane where \[
-  R = \sum_{\substack{i = 1 \\ j \neq 1} }^{}  \left\lvert a_{ij} \right\rvert 
+  In the complex plane, where \[
+  R = \sum_{\substack{j = 1 \\ j \neq i} }^{n}  \left\lvert a_{ij} \right\rvert 
   \] 
   is the radius of $D_{i}$.
   
@@ -193,27 +199,32 @@ Which concludes that we did only find a trivial solutions. By applying Gershgori
 
 \begin{theorem}[Gerschgorin Theorem]
   \label{G2}
-  Let $n\ge2$ and $A \in  \mathbb{C} ^{n \times  n}$ . All eigenvaluesof the matrix $A$ lie in the region $D =  \bigcup_{i=1}^{n} D_{i}$ , where $D_{i}, \\\ i = 1,2,\ldots,n $, are Gerschgorin disc defined by in the definition \ref{G1}.
+  Let $n\ge2$ and $A \in  \mathbb{C} ^{n \times  n}$ . All eigenvalues of the matrix $A$ lie in the region $D =  \bigcup_{i=1}^{n} D_{i}$ , where $D_{i}, \\\ i = 1,2,\ldots,n $, are discs defined by in the definition \ref{G1}.
 \end{theorem}
-Using the theorem \ref{G2} and the matrix $A$ can we conlude it had to be some eigenvalues in within a disc of zero radius.
 
-    \subsection{Answer b}%
+Using the Gerschgorin Theorem \ref{G2} on the matrix $A$, can we establish that every eigenvalue must be inside a the union of gerschgorin discs. Note that in this example is all discs centered around the origin with a radius of $0$ or $1$. It is worth commenting that even though this is true, because all eigenvalues is zero, can it is worth mentioning that $r=1$ is a fairly inaccurate estimate even though the theorem has powerful statements.
+
+    \subsection{Answer 2b}%
 \label{sub:answer_b_}
 
 
-    \textbf{Answer.} 
-    Lets assume $\varepsilon \in \mathbb{C}  $ and and we can then observe that \[
+    All eigenvalues $\lambda $ of matrix $\hat{A}$ requires that \[
+    det\left( \hat{A} - \lambda I \right) = 0.
+    \]  
+    It is true that
+    \[
     \hat{A} = A + \varepsilon e_{1}e_{n}^{T} = \begin{pmatrix}
     0    &   &  \ldots           &    &  \varepsilon  \\
     1  & 0  &  \ldots \\
     0  &  1  & \ddots  \\
     \vdots   &   &  \ddots   &  \ddots   & \\
      0  &  \ldots  &   &  1  & 0
-    \end{pmatrix} 
+    \end{pmatrix}, 
     \] 
-    We can then find the eigenvalues by solving the condition, \[
+    and therefore can obtain
+     \[
       \begin{split}
-    det \left(  \hat{A} - \lambda \right)  & = \begin{vmatrix}
+    det \left(  \hat{A} - \lambda I \right)  & = \begin{vmatrix}
     -\lambda     &   &  \ldots           &    &  \varepsilon  \\
     1  & -\lambda   &  \ldots \\
     0  &  1  & \ddots  \\
@@ -231,20 +242,20 @@ Using the theorem \ref{G2} and the matrix $A$ can we conlude it had to be some e
      &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 .  \\
       \end{split} 
     \] 
-    We can see that the eigenvalues $\lambda $ have several complex solutions depending on the value $n$. However, we can conclude that any solution will satisfy $\left\lvert \lambda  \right\rvert = \varepsilon ^{\frac{1}{n}}$, thus
+    We can see that the eigenvalues $\lambda $ have several complex solutions depending on the value $n$. However, it is clear that all $\lambda $ will satisfy $\left\lvert \lambda  \right\rvert = \varepsilon ^{\frac{1}{n}}$, thus
      \[
     \rho \left( \hat{A} \right) = \varepsilon ^{\frac{1}{n}}.
     \] 
-    In general can the $n$ eigenvalues be expressed as  \[
-     \lambda_k = \varepsilon^{\frac{1}{n}} e^{i2\pi k /n}, \quad   \text{ where } k = 0,1,\ldots,n -1 .
+    The general expression of the eigenvalues is \[
+     \lambda_k = \varepsilon^{\frac{1}{n}} e^{i2\pi k /n}, \quad    k = \left\{ 0,1,\ldots,n -1 \right\} .
     \] 
     The procedure to compute the eigenvectors is then to find all solutions  which satisfies \[
-      \hat{A} v_{k}   & = \lambda _{k} v_{k}. \\
+      \hat{A} v_{k}    = \lambda _{k} v_{k}. \\
     \] 
-    Using a recursive strategy,
+    Using recursion do we end up with the equation,
         \[
       \begin{split}
-       \implies  \quad   \begin{bmatrix} 
+         \quad   \begin{bmatrix} 
         \varepsilon v_{k,n} \\
         v_{k,0}\\
         \vdots  \\
@@ -265,14 +276,14 @@ Using the theorem \ref{G2} and the matrix $A$ can we conlude it had to be some e
          v_{k,n } \lambda _{k} ^{2} \\
          v_{k,n } \lambda _{k} ^{1}
        \end{bmatrix} 
-      \end{split} ,
+      \end{split} .
     \] 
-    does we end up with the relationship, \[
+    Observe that for the $n$-th element is \[
       \begin{split}
-      v_{k,n}\varepsilon   & = v_{k,n}\lambda _{k} ^{n} = v_{k,n} \left( \varepsilon ^{\frac{1}{n}} e^{\frac{i 2\pi k}{ n} } \right)^{n} = v_{k,n} \varepsilon \cdot  e^{i2\pi  k }  \\
+      \varepsilon v_{k,n}   & = v_{k,n}\lambda _{k} ^{n} = v_{k,n} \left( \varepsilon ^{\frac{1}{n}} e^{\frac{i 2\pi k}{ n} } \right)^{n} = v_{k,n} \varepsilon \cdot  e^{i2\pi  k }  \\
       \end{split}. 
     \] 
-    If we choose the scale of the eigenvector to be such that the element $v_{k,n} = 1$ for all $k$,  can we determine $v_{i}$ for all $i = \left\{ 0,1, \ldots, n-1 \right\}$ such that the expression of the eigenvector $v_k$ ends up to be \[
+    Choosing the scale of all eigenvectors such that the element $v_{k,n} = 1$ , can we determine a general expression of the eigenvectors to be \[
     v_k=  \begin{bmatrix} 
       v_{k,0} \\
       v_{k,1} \\
@@ -288,26 +299,54 @@ Using the theorem \ref{G2} and the matrix $A$ can we conlude it had to be some e
         1
       \end{bmatrix} 
       = \begin{bmatrix} 
-      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \right)^{n} \\
-      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \right)^{n-1} \\
+      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{i 2 \pi k}{n} } \right)^{n} \\
+      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{i 2 \pi k}{n} } \right)^{n-1} \\
       \vdots \\
-\varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \\
+\varepsilon ^{\frac{1}{n}} e^{\frac{i 2 \pi k}{n} } \\
       1
       \end{bmatrix} 
+      ,\quad k = \left\{ 0, 1,2, \ldots, n-1 \right\} .
     \] 
 
-\subsection{Answer c}%
+\subsection{Answer 2c}%
 \label{sub:answer_c}
-
+ We recall the theorem given in Mayers \cite{sul}. 
+\begin{theorem}
+  Let $ A \in  \mathbb{R} ^{n \times n }$ and denote the eigenvalues of the matrix $B = A^{T} A$ by $\lambda _{k}, k = 0,1,\ldots,n-1$. Then, \[
+    \|A\|_{2}^{} = \max_{k }  \lambda _{k} ^{\frac{1}{2}}.
+  \] 
+\end{theorem}
+Note that $\hat{A}^{T} = \hat{A}^{-1}$, so by computing the matrix \[
+\hat{A}^{-1} \hat{A} = \begin{bmatrix} 
+1  & 0  &  \ldots  &  0 \\
+0   &  1  &  \ldots  \\
+\vdots   &   &  \ddots   &  \\
+0  &  \ldots  &   &   \varepsilon ^{2} 
+\end{bmatrix} ,
+\] 
+ can we determine the eigenvalues.\[
+   \begin{split}
+det \left(  \hat{A}^{-1} \hat{A} - \lambda I \right)  &= 
+\begin{vmatrix} 
+1- \lambda   & 0  &  \ldots  &  0 \\
+0   &  1 - \lambda   &  \ldots  \\
+\vdots   &   &  \ddots   &  \\
+0  &  \ldots  &   &   \varepsilon ^2  - \lambda  
+\end{vmatrix}  \\
+   &=  \left( \varepsilon ^2 - \lambda  \right) \left( 1- \lambda  \right)^{n-1} = 0 \\
+   \end{split}  
+ \] 
+ Which shows that $\left\lvert \lambda_{\text{max}}  \right\rvert^{\frac{1}{2}}   = 1  $ and $\left\lvert \lambda_{\text{min}}  \right\rvert^{\frac{1}{2}}   = \varepsilon   $, since $\varepsilon   < 1$. And therefore can conclude that $\|\hat{A}\|_{2}^{} = 1 $. Similary, for the inverse matrix $\hat{A}^{-1}$ is $\|\hat{A}^{-1}\|_{2}^{} = \varepsilon ^{-1} $. 
+ We therefore end up with \[
+ K_{2}\left( \hat{A} \right) = \frac{1}{\varepsilon } .
+ \] 
 
 
 \newpage
 \section{References}%
 \label{sec:references}
-
 \bibliographystyle{plain}
 \bibliography{references}
-
 
 \end{document}
 

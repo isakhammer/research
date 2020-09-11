@@ -3,11 +3,11 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: p1_notes.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--empty chapter and pages in quart
+Warning--empty chapter and pages in qu
 Warning--empty chapter and pages in sul
 You've used 2 entries,
             2118 wiz_defined-function locations,
-            508 strings with 4226 characters,
+            508 strings with 4223 characters,
 and the built_in function-call counts, 594 in all, are:
 = -- 47
 > -- 31
