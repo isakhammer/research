@@ -110,23 +110,23 @@ Show that for any such matrix, one has $\|A\|_{2} = \rho \left( A \right)$, wher
    
 \end{proof}
 
-\subsection{Note}%
-\label{sub:note}
+% \subsection{Note}%
+% \label{sub:note}
 
-Let say $A = U\Lambda U^{H}$. Then is it not possible to get any useful answers. 
-    \begin{enumerate}[label=(\roman*)]
-      \item Lets compute $AA$ \[
-      A A = U \Lambda U^{H} U \Lambda  U^{H} = U \Lambda  \Lambda  U ^{H}
-      \] 
-    \item Lets compute $A^{H} A$ 
-      \[
-      A^{H} A = U \Lambda ^{H} U^{H} U \Lambda U^{H} = U \Lambda ^{H} \Lambda U^{H}
-      \] 
-      sec         
-    \item Lets compute  $A A^{H}$ \[
-    A A^{H} = U \Lambda U^{H}  U \Lambda ^{H} U^{H}  = U \Lambda  \Lambda ^{H} U^{H}.
-    \] 
-    \end{enumerate}
+% Let say $A = U\Lambda U^{H}$. Then is it not possible to get any useful answers. 
+%     \begin{enumerate}[label=(\roman*)]
+%       \item Lets compute $AA$ \[
+%       A A = U \Lambda U^{H} U \Lambda  U^{H} = U \Lambda  \Lambda  U ^{H}
+%       \] 
+%     \item Lets compute $A^{H} A$ 
+%       \[
+%       A^{H} A = U \Lambda ^{H} U^{H} U \Lambda U^{H} = U \Lambda ^{H} \Lambda U^{H}
+%       \] 
+%       sec         
+%     \item Lets compute  $A A^{H}$ \[
+%     A A^{H} = U \Lambda U^{H}  U \Lambda ^{H} U^{H}  = U \Lambda  \Lambda ^{H} U^{H}.
+%     \] 
+%     \end{enumerate}
 
 \newpage
 
@@ -143,7 +143,7 @@ A = \begin{bmatrix}
 \] 
 
 \begin{enumerate}[label=(\alph*)]
-  \item  What are the eigenvalues of $A$ ? What would the Gershgorin theorem tell us abou the location of the eigenvalues of $A$.
+  \item  What are the eigenvalues of $A$ ? What would the Gershgorin theorem tell us about the location of the eigenvalues of $A$.
   \item  Now construct the matrix $\hat{A}$ by adding a small number $\epsilon $ in the $\left( 1, n \right)$- element of $A$ (so that $\hat{A} = A  +  \epsilon e_{1} e_{n}^{T} $. Show that \[
       \rho \left( \hat{A} \right) = \epsilon ^{\frac{1}{n} }
   \] 
@@ -178,14 +178,31 @@ The eigenvalues can be computed such that \[
    &=\left( -1 \right)^{n}   \lambda^{n}  = 0 \quad   \implies  \quad \quad \lambda  = 0
   \end{split} 
 \] 
-Which concludes that we did only find a trivial solution.
+Which concludes that we did only find a trivial solutions. By applying Gershgoring theorem \cite {sul} characterized by these definitions.
+\begin{definition}[Gerschgorin discs]
+  \label{G1}
+  $D_{i}, \quad i = 1,2,3 \ldots, n$ of the matrix $A$ are defined as the closed circular regions \[
+  D_{i} = \left\{ z \in  \mathbb{C}  \mid  \left\lvert z - a_{ii} \right\rvert \le R_{i} \right\}
+  \] 
+  In the complex plane where \[
+  R = \sum_{\substack{i = 1 \\ j \neq 1} }^{}  \left\lvert a_{ij} \right\rvert 
+  \] 
+  is the radius of $D_{i}$.
+  
+\end{definition}
+
+\begin{theorem}[Gerschgorin Theorem]
+  \label{G2}
+  Let $n\ge2$ and $A \in  \mathbb{C} ^{n \times  n}$ . All eigenvaluesof the matrix $A$ lie in the region $D =  \bigcup_{i=1}^{n} D_{i}$ , where $D_{i}, \\\ i = 1,2,\ldots,n $, are Gerschgorin disc defined by in the definition \ref{G1}.
+\end{theorem}
+Using the theorem \ref{G2} and the matrix $A$ can we conlude it had to be some eigenvalues in within a disc of zero radius.
 
     \subsection{Answer b}%
 \label{sub:answer_b_}
 
 
     \textbf{Answer.} 
-    We can observe that \[
+    Lets assume $\varepsilon \in \mathbb{C}  $ and and we can then observe that \[
     \hat{A} = A + \varepsilon e_{1}e_{n}^{T} = \begin{pmatrix}
     0    &   &  \ldots           &    &  \varepsilon  \\
     1  & 0  &  \ldots \\
@@ -194,7 +211,7 @@ Which concludes that we did only find a trivial solution.
      0  &  \ldots  &   &  1  & 0
     \end{pmatrix} 
     \] 
-    We can then find the eigenvalues by computing\[
+    We can then find the eigenvalues by solving the condition, \[
       \begin{split}
     det \left(  \hat{A} - \lambda \right)  & = \begin{vmatrix}
     -\lambda     &   &  \ldots           &    &  \varepsilon  \\
@@ -211,20 +228,77 @@ Which concludes that we did only find a trivial solution.
      0  &  \ldots  &   &  1  & -\lambda 
     \end{vmatrix}  \\
      \\
-     &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 \quad        \\
+     &=  \left( -1 \right)^{n} \lambda ^{n} + \left( -1 \right)^{n+1}\varepsilon  = 0 .  \\
       \end{split} 
     \] 
-    Solvin this equation do we obtain \[
-     \implies  \lambda     & = \varepsilon^{\frac{1}{n}} = \begin{cases}
-       , \quad   &  n = 0 \\
-       , \quad   &  n= 1 \\
-     \end{cases}
-    \] 
-    As we can see can $\lambda $ have several complex solutions depending on the value $n$. However, we can conclude that $\left\lvert \lambda  \right\rvert = \varepsilon ^{\frac{1}{n}}$ thus
+    We can see that the eigenvalues $\lambda $ have several complex solutions depending on the value $n$. However, we can conclude that any solution will satisfy $\left\lvert \lambda  \right\rvert = \varepsilon ^{\frac{1}{n}}$, thus
      \[
     \rho \left( \hat{A} \right) = \varepsilon ^{\frac{1}{n}}.
     \] 
-    Which completes the task.
+    In general can the $n$ eigenvalues be expressed as  \[
+     \lambda_k = \varepsilon^{\frac{1}{n}} e^{i2\pi k /n}, \quad   \text{ where } k = 0,1,\ldots,n -1 .
+    \] 
+    The procedure to compute the eigenvectors is then to find all solutions  which satisfies \[
+      \hat{A} v_{k}   & = \lambda _{k} v_{k}. \\
+    \] 
+    Using a recursive strategy,
+        \[
+      \begin{split}
+       \implies  \quad   \begin{bmatrix} 
+        \varepsilon v_{k,n} \\
+        v_{k,0}\\
+        \vdots  \\
+        v_{k,n-2} \\
+        v_{k,n-1}
+      \end{bmatrix} 
+       & = \begin{bmatrix} 
+       v_{k,0} \lambda _{k} \\
+       v_{k,1} \lambda _{k} \\
+       \vdots  \\
+       v_{k,n-1} \lambda _{k} \\
+       v_{k,n} \lambda _{k}
+       \end{bmatrix} 
+       = \begin{bmatrix} 
+         v_{k,n} \lambda _{k}^{n}\\
+         v_{k,n} \lambda _{k}^{n-1}\\
+         \vdots \\
+         v_{k,n } \lambda _{k} ^{2} \\
+         v_{k,n } \lambda _{k} ^{1}
+       \end{bmatrix} 
+      \end{split} ,
+    \] 
+    does we end up with the relationship, \[
+      \begin{split}
+      v_{k,n}\varepsilon   & = v_{k,n}\lambda _{k} ^{n} = v_{k,n} \left( \varepsilon ^{\frac{1}{n}} e^{\frac{i 2\pi k}{ n} } \right)^{n} = v_{k,n} \varepsilon \cdot  e^{i2\pi  k }  \\
+      \end{split}. 
+    \] 
+    If we choose the scale of the eigenvector to be such that the element $v_{k,n} = 1$ for all $k$,  can we determine $v_{i}$ for all $i = \left\{ 0,1, \ldots, n-1 \right\}$ such that the expression of the eigenvector $v_k$ ends up to be \[
+    v_k=  \begin{bmatrix} 
+      v_{k,0} \\
+      v_{k,1} \\
+      \vdots  \\
+      v_{k,n-1} \\
+      v_{k,n} 
+      \end{bmatrix} 
+      = \begin{bmatrix} 
+        \lambda_k ^{n} \\
+        \lambda_k ^{n-1} \\
+        \vdots  \\
+        \lambda _k \\
+        1
+      \end{bmatrix} 
+      = \begin{bmatrix} 
+      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \right)^{n} \\
+      \left( \varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \right)^{n-1} \\
+      \vdots \\
+\varepsilon ^{\frac{1}{n}} e^{\frac{2 \pi k}{n} } \\
+      1
+      \end{bmatrix} 
+    \] 
+
+\subsection{Answer c}%
+\label{sub:answer_c}
+
 
 
 \newpage
