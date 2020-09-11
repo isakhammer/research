@@ -1070,6 +1070,190 @@ La oss ha en kule med sentrum $\mathbf{x}$ og radius $\rho $. Definer $\overline
 
 
 
+   \newpage
+   \section{Lecture 11/09 }%
+   \label{sec:varmeligning}
+
+   \begin{definition}
+     \textbf{Varmeligning} . \[
+     \begin{split}
+       u_{t} - \Delta  u &=  0 , \quad  \textbf{x}  \in  \mathbb{R} ^{n}  \\
+       u_{t} - u_{xx} &=  0 \\
+     \end{split} 
+     \] 
+   \end{definition}
+   
+   Anta at $u$ løser $u_{t} - u_{xx} =0$ \[
+   u\left( t,x \right) = u\left( \lambda ^2 t , \lambda  x \right)
+   \] 
+   blir en løsning $\lambda  > 0$ . \[
+     \begin{split}
+   \int_{\mathbb{R} }^{}  v\left( t,x \right) dx   &=  \int_{\mathbb{R} }^{}  \left( \lambda  ^2 t, \lambda  x \right)  \\
+   &=  \frac{1}{\lambda }  \int_{\mathbb{R} }^{}  u\left( \lambda  ^2 t, y \right)  \\
+     \end{split} 
+   \] 
+   Gjør istedet \[
+   \begin{split}
+     v\left( t,x \right) &=  \frac{1}{\lambda } u\left( \lambda ^2t , \lambda x \right) \\
+     \text{Så blir} \quad  \int_{\mathbb{R} }^{}  v\left( t,x \right) dx &=  \int_{\mathbb{R} }^{ }  u\left( \lambda  ^2 t , x  \right) dx  \\   \\
+   \end{split} 
+   \] 
+   Løsning $u$ kalles  \textbf{selv simular}  dersom \[
+   \begin{split}
+     u\left( t,x \right) &=  \frac{1}{\lambda } u\left( \lambda ^2 t , \lambda  x \right) \quad  \text{ for alle } \quad  t > 0 , x \in  \mathbb{R}  , \lambda  > 0   \\
+   i\end{split} 
+   \] 
+
+   Hvis u er selsimulæør er \[
+   u\left( t,x \right) = \frac{1}{ \sqrt{t} } u\left( 1, \frac{x}{\sqrt{t} } \right) , \quad  \lambda  = \frac{1}{\sqrt{t} } 
+   \] 
+
+   Prøv å finne en løsning $u$ på formen \[
+     \begin{split}
+   u\left( t,x \right)  & =  - \frac{1}{ \sqrt{ t} } w\left( \frac{x^2}{t} \right) \\
+   u_{t}  & = \frac{1}{\sqrt{t} } w'  \left( \frac{x^2}{ t} \right) \frac{-1}{ t}  - \frac{1}{2} t^{-2} - \frac{1}{2} t^{-\frac{3}{2}} w\left( \frac{x^2}{ t}  \right) \\
+   &=  t^{\frac{-5}{2}} - \frac{1}{2} t^{-\frac{3}{2} } \\
+   u_{x} &=  x^2 t^{-\frac{3}{2}} \\
+   u_{xx} &=  4x ^2 t^{-\frac{5}{2}} w''  2 t^{-\frac{3}{2}} w'  \\
+   u_{t} - u_{xx} &=  -4x^2 t^{-\frac{5}{2}} w'' - \left( 2 t^{-\frac{3}{2}}  + x^2 t ^{-\frac{5}{2}}\right) w'  - \frac{1}{2} t^{-\frac{3}{2}} w  \mid _{\cdot -t ^{\frac{3}{2}}}   \\
+   &= 4 \frac{x^2}{t}  w''  - \left( 2 + \frac{x^2}{t}   \right) w'  - \frac{1}{2} w , \quad \xi = \frac{x^2}{t}   \\
+   &= 4 \xi  w'' \left( \zeta  \right) +2 w'  \left( \xi  \right) + \xi w' \left( \xi  \right) + \frac{1}{2} w\left( \xi  \right) \\
+     \end{split} 
+   \] 
+   Videre kan vi gjøre \[
+     \begin{split}
+   \xi \left( 4 w'' + w'   \right) + \frac{1}{2} \left( w'  + w \right) &=  0 \\
+     \end{split} 
+   \] 
+   Dersom $w = e ^{-\frac{\xi}{4} }$ , så er $4w' + w = 4 w''  + w = 0$.  
+
+   
+   Da blir $u\left( \frac{1}{\sqrt{t} }  \right) = e^{\frac{-x^2}{4t} }$ \[
+   \int_{-\infty}^{\infty}  u\left( t,x \right) dx &=  \frac{\sqrt{4t} }{\sqrt{t} }  \int_{-\infty}^{\infty}  e^{-y^2} dy = \sqrt{4y} , \quad  x = \sqrt{4t} , \quad dx=\sqrt{4t}  dy    \\
+   \] 
+   Heter \textbf{varmekjernen}(heat kernel), \textbf{varmelingningens fundamentalløsning}  og kan også skrives som \[
+   H_{t} = \frac{1}{\sqrt{4 \pi t} } e^{\frac{-x ^2}{4t} }
+   \] 
+
+   Varmekjernen i $\mathbb{R} ^{n}$ \[
+     \begin{split}
+   H_{t}\left( \mathbf{x} \right) &=  H_{t}\left( x_{1} \right) \cdot H\left( x_{2} \right) \ldots H_{t}\left( x_{n} \right) \\
+   &= \frac{1}{\left( 4\pi t \right)^{\frac{n}{2} }} e^{- \frac{\|\mathbf{x}\|_{}^{2}}{4t} } \\
+   \int_{\mathbb{R} ^{n}}^{}  H_{t}\left( \mathbf{x} \right) d^{n} x  & = 1, \quad  \left( \partial _{t} - \Delta  \right) H_{t} = 0  
+     \end{split} 
+   \] 
+  
+   \subsection{Cauchy Problemet}%
+   \label{sub:cauchy_problemet}
+   
+   \[
+   \begin{split}
+     u_{t}  - \Delta u &=  0   \quad   \text{for} \quad  t > 0 , \quad  x \in  \mathbb{R}    \\
+     u\left( 0, \mathbf{x} \right)  & = g\left( \mathbf{x} \right)
+   \end{split}  
+   \] 
+   \[
+   \begin{split}
+      u\left( t,x \right)  & = \int_{\mathbb{R} ^{n}}^{}  H_{t}\left( \mathbf{x} - \mathbf{\xi } \right) g\left( \xi  \right) d^{n} \xi  \\
+      &= H _{t} \circ  g\left( \mathbf{x} \right) = \int_{\mathbb{R} _{n}}^{}  H_{t}\left( \mathbf{x} - \mathbf{\xi } \right) \cdot g\left( \mathbf{\xi } \right)  \\
+   \end{split} 
+   \] 
+   Det kan omskrives slik at \[
+   \left( \partial _{t} - \Delta  \right) u &=  \int_{\mathbb{R} ^{n}}^{}  \left( \partial _{t} + \Delta  \right) H_{t} \left( \mathbf{x} - \Delta  \right) H_{t}\left( \mathbf{x} - \mathbf{\xi } \right) g\left( \mathbf{\xi } \right) d^{n} \xi  = 0  \\ 
+   \] 
+   Dette krever at $\partial _{t} H_{t} , \partial _{x_{i}} H_{t} , \partial _{x_{i}, x_{i}} H_{t}$ alle er integrerbare  mhp.  $x$.
+   
+   \newpara
+   Kan ikke brukes.
+   \[
+   u\left( 0,\mathbf{x} \right) = g\left( \mathbf{x} \right) \quad  
+   \] 
+   Må vise istedet at \[
+   \lim_{t\to 0}  u\left( t, \mathbf{x} \right) = g\left( \mathbf{x} \right)
+   \] 
+   Starter med å ta differansen \[
+     \begin{split}
+   u\left( t, \mathbf{x} \right) - g\left( \mathbf{x} \right) &=  \int_{\mathbb{R} ^{n}}^{}  H_{t} \left( \mathbf{x} - \mathbf{\xi } \right) \left( g\left( \mathbf{\xi } \right) - g\left( \mathbf{x} \right) \right) d^{n} \mathbf{\xi }  \\
+   \left\lvert u\left( t, \mathbf{x} \right) - g\left( \mathbf{x} \right) \right\rvert  &=  \left\lvert \int_{\mathbb{R} ^{n}}^{}  H_{t} \left( \mathbf{x} - \mathbf{\xi } \right) \left( g\left( \mathbf{\xi } \right) - g\left( \mathbf{x} \right) \right) d^{n} \mathbf{\xi }  \right\rvert \\
+    & \le \left( \int_{B_{\delta }\left( \mathbf{x} \right)}^{}  + \int_{\mathbb{R} ^{n} \ B_{\delta }\left( \mathbf{x} \right)}^{}       \right) H_{t}\left( \mathbf{x} - \mathbf{\xi } \right)
+   \left\lvert  g\left( \xi  \right) - g\left( \mathbf{x} \right) \right\rvert d^{n} \mathbf{x} \\
+     \end{split} 
+   \] 
+   Anta $g$ er kontiuerlig , la $\varepsilon  > 0$ velg $\delta > 0$ slik at $\|\mathbf{x} - \mathbf{\xi }\|_{}^{} > \delta  \implies  \quad  \|g\left( \mathbf{x} \right) - g\left( \mathbf{\xi } \right)\|_{}^{} $  , \[
+   I_{1} \le \int_{B_{\delta }\left( \mathbf{x} \right)}^{}  H_{t} \left( \mathbf{x} - \xi  \right) d^{n} \xi   < \int_{\mathbb{R} _{n}}^{}  H_{t}\left( \mathbf{x} - \mathbf{\xi } \right)\cdot \varepsilon  d^{n} \xi  = \varepsilon  
+   \] 
+
+   Anta $\|g\|_{}^{} \le M$ overalt \[
+     \begin{split}
+   I_{2}  & \le M \int_{\mathbb{R} ^{n} - B_{\delta }\left( \mathbf{x} \right)}^{}  H_{t}\left( \mathbf{x}- \mathbf{\xi } \right) d^{n } \xi  = M \int_{\mathbb{R} ^{n} - B_{\delta l}\left( \xi  \right)}^{} H_{t} \left( \xi  \right)  d^{n}\xi    \\
+   &= \frac{M}{\left( 4\pi t \right)^{\frac{n}{2}}} \int_{\mathbb{R} ^{n} - B_{\delta }\left( 0 \right)}^{} e^{\frac{\|\xi \|_{}^{2}}{4t}  } d\xi  , \quad    \mu = \mathbf{\xi } /\sqrt{4t} , \quad  d ^{n}\xi = \left( 4t \right)^{\frac{n}{2}} d^{n} \mu     \\
+     \end{split} 
+   \] 
+   Vi ender da opp med at \[
+   \begin{split}
+     I_{2} \le \frac{M}{\pi ^{\frac{n}{2}}} \int_{B_{\frac{\delta}{\sqrt{ut} }}}^{}  e^{- \|\mu \|_{}^{2}} d^{n} \mu  \to  0 \quad  \text{ når} \quad  t\to  0   
+   \end{split} 
+   \] 
+   Så $I_{2} \le \varepsilon $ når $t$ er liten nokk.
+  
+   \begin{tcolorbox}
+     \textbf{Konvolusjon.}  \[
+     f \circ g\left( \mathbf{x} \right) =  \int_{\mathbb{R} ^{n}}^{}  f\left( \mathbf{x} - \xi  \right) g\left( \mathbf{\xi } \right) d^{n} \mathbf{\xi }  \\
+     \] 
+     Er ok dersom $\quad f,g \in  L' \left( \mathbb{R} ^{n} \right) $ dvs \[
+     \int_{\mathbb{R} ^{n}}^{}  \|f\|_{}^{} d^{n} \mathbf{x} < \infty
+     \] 
+     $f\circ g \in  L' $ \[
+     \begin{split}
+       f \circ g &= g \circ  f \\
+       f\circ \left( g\circ h \right)  & = \left( f\circ g \right) \circ h
+     \end{split} 
+     \] 
+     Løsning av Cauchy Problemer \[
+     u\left( t, \mathbf{x} \right) = H_{t} \circ  g\left( \mathbf{x} \right)
+     \] 
+   \end{tcolorbox}
+
+   \[
+   H_{\tau _{2} + \tau _{1}} \circ g = H_{\tau _{2}} \circ H_{\tau _{1}} \circ g
+   \] 
+  \begin{theorem}
+    \[
+    H_{\tau _{2} + \tau _{1}} = H_{\tau _{2}} \circ H_{\tau _{1}}
+    \] 
+  \end{theorem}
+
+  Semigruppe egenskaper \[
+  e^{a + b} = e^{ a} + e^{b}
+  \] 
+  La $A$ være $n \times  n $ matrise \[
+    \begin{split}
+  e^{A}  & = \sum_{n= 0}^{ \infty}  \frac{A^{n}}{ n!}  \\
+  e^{A + B} = e^{A} e^{B} , \quad  \text{er ikke alltid sant}  \\
+  e^{\left( s+ t \right) A} &=  e^{sA} e^{tA} \\
+    \end{split} 
+  \] 
+
+  \textbf{Entydighet?}  \[
+    \begin{rcases}
+      u_{t} - \Delta u &=  0 \\
+      u\left( 0, \mathbf{x} \right) &=  g\left( \mathbf{x} \right) 
+    \end{rcases}
+    \text{ Har ikke entydig løsning!!}
+  \] 
+  Men dersom $g$ er bregrenset så finnes kun en begrenset løsning ! 
+  
+  \newpara
+  Hvis vi lar \[
+    \begin{split}
+  u_{t} - u _{xx} &=  0 \\
+  u\left( 0, \mathbf{x} \right)  &  = 0
+    \end{split} 
+  \] 
+  En typisk ikketriviell løsning: \[
+  u\left( t,x \right) e^{-Ax^2 } 
+  \] 
+  blir ubegrenset.
 
 
  
