@@ -71,156 +71,317 @@
 \section{Exercise Week 35}%
 \label{sec:exercise_1}
 
-\subsection{Problem B3.6}%
-\label{sub:problem_b3_}
+\subsection{B 3.6}%
+\label{sub:b_3_6}
+\begin{tcolorbox}
+Hva skjer når $a\to 0$
+\end{tcolorbox}
 
-Burger equation 
-\begin{equation}
-\label{eq:burger}
-\frac{\partial u}{\partial t}  + u \frac{\partial u}{\partial x} = 0
-.\end{equation}
 
-\begin{enumerate}[label=(\alph*)]
-  \item Use the method of characteristics as described in Sect 3.4 to find a formula for the solution $u\left( t,x \right)$ given the inital condition \[
-  u\left( 0, x \right) = \begin{cases}
-    0,  &  \quad x\le 0\\
-    \frac{x}{a} ,  &  \quad  0 < x < a \\
-    1, &  \quad    x\ge a
+ Burger equation 
+ \begin{equation}
+ \label{eq:burger}
+ \frac{\partial u}{\partial t}  + u \frac{\partial u}{\partial x} = 0
+ .\end{equation}
+
+ \begin{enumerate}[label=(\alph*)]
+   \item Use the method of characteristics as described in Sect 3.4 to find a formula for the solution $u\left( t,x \right)$ given the inital condition \[
+   u\left( 0, x \right) = \begin{cases}
+     0,  &  \quad x\le 0\\
+     \frac{x}{a} ,  &  \quad  0 < x < a \\
+     1, &  \quad    x\ge a
+   \end{cases}
+   \] 
+  \item Suppose that $a > b$ and \[
+  u\left( 0,x \right) = \begin{cases}
+    a,  &  \quad  x\le 0, \\
+    a\left( 1-x \right) + bx ,  &  \quad    0 < x < 1, \\
+    b,  &  \quad  x\ge 1 
   \end{cases}
   \] 
- \item Suppose that $a > b$ and \[
- u\left( 0,x \right) = \begin{cases}
-   a,  &  \quad  x\le 0, \\
-   a\left( 1-x \right) + bx ,  &  \quad    0 < x < 1, \\
-   b,  &  \quad  x\ge 1 
- \end{cases}
- \] 
- Show that all of th characteristics originating from $x_{0} \in  \left[ 0,1 \right]$ meet at the same point.
-\end{enumerate}
+  Show that all of th characteristics originating from $x_{0} \in  \left[ 0,1 \right]$ meet at the same point.
+ \end{enumerate}
 
+ \subsubsection{Answer a}%
+ \label{ssub:answer_a}
+ 
+ \subsubsection{Answer b}%
+ \label{ssub:answer_a}
+ 
+ 
 
-\subsection{Problem B3.7}%
-\label{sub:problem_1}
+\subsection{X1}%
+\label{sub:x1}
 
-\begin{theorem}
-  \label{th1}
-  Suppose that $u \in  C^{1} \left( \left[ 0,T \right] \times  \Omega   \right)$ is a solution of \[
-  \frac{\partial u}{\partial t}  + \mathbf{a}\left( u \right) \cdot  \nabla u = 0
-  \] 
-  For some region $\omega  \subset  \mathbb{R}  ^{n}$ with $\mathbf{a} \in  C^{1} \left( \mathbb{R} ; \mathbb{R} ^{n} \right)$.  Then for each $\mathbf{x}_{0} \in  \Omega $ , $u$ is a constant along the characteristic line defined by \[
-  \mathbf{x}\left( t \right) = \mathbf{x}_{0} + \mathbf{a} \left( u\left( 0, \mathbf{x}_{0} \right) \right)t
-  \] 
-\end{theorem}
-
-
-Let the Hamilton equation be 
-\begin{equation}
-\label{eq:1}
-\frac{\partial u}{\partial t}  + \frac{1}{2} \left( \frac{\partial u}{\partial x}  \right)^2 = 0
-.\end{equation}
-Assume that $u \in C^{1} \left( \left[ 0, \infty \right] \times  \mathbb{R} ^{n}  \right)$ is a solution.  By analogy with Theorem \ref{th1}, a characteristic of the equation is defined as a solution of 
-  \begin{equation}
-  \label{eq:2}
-\frac{d x}{d t} \left( t \right) = \frac{\partial u}{\partial x}  \left( t, x\left( t \right) \right), \quad  x\left( 0 \right) = x_{0} 
-  .\end{equation}
-  \begin{enumerate}[label=(\alph*)]
-    \item Assuming that $x\left( t \right)$ solves \eqref{eq:2}, use the chain rule to compute $\frac{d ^2 x}{d t^2} $.
-\begin{tcolorbox}
-  \textbf{Answer.} 
-\textbf{Haralds Solution}. If we let \[
-  u_{t} + \frac{1}{2} u_{x}^2 = 0
+Gitt en PDE med initaldata \[
+u_{t} + u^2 u_{x} = 0, \quad  u\left( 0,x \right) = \frac{1}{1+x^2} 
 \] 
-and \[
-\dot{x} = u_{x}
-\] 
-Then can we write \[
-\ddot{x} = u_{xt} + \dot{x}u_{xx} = u_{xt} + u_{x}u_{xx} = u_{xt} + \frac{1}{2 } \left( u_{x}^2 \right)_{x}
-\] 
- I did not get this derivation. 
-\end{tcolorbox}
-    \item Differentiate \eqref{eq:1}  with respect to $x$ and then restrict the results to $\left( t, x\left( t \right) \right)$ where $x\left( t \right)$ solves \eqref{eq:2}. Conclude from (a) that to \[
-    \frac{d ^2 x}{d t^2}  = 0
-    \] 
-    Hense, for some constant $v_{0}$ (which depends on the characteristic) ,\[
-    x\left( t \right) = x_{0} + v_{0} t
-    \] 
-\begin{tcolorbox}
-  \textbf{Answer.} 
-\textbf{Haralds Solution.}  Derivation of \eqref{eq:1} with $x$  gives \[
-u_{xt} + u_{xx} u_{x} = 0.
-\] 
-Since $u \in  C^{2}$ is $u_{t x} \approx u_{xt} \approx 0$. So (a) gives us $\ddot{x} = 0$, and that is why $x\left( t \right) = x_{0} + v_{0}t$ der ($x_{0}$, $v_{0}$
+Hva er største verdi at $T$ slik at problemet har en klassisk løsning for $x \in \mathbb{R} $ og $t \in [0,T)$
 
-\end{tcolorbox}
-  \item Show that the Lagrangian derivative of $u$ along $x\left( t \right)$ satisfies \[
-  \frac{Du}{Dt}  = \frac{1}{2} v_{0}^2
-  \] 
-  Implying that \[
-  \left( t, x_{0} + v_{0} t \right) = u\left( 0, x_{0}  \right) + \frac{1}{2} v_{0}^2 t
-  \] 
-\begin{tcolorbox}
-  \textbf{Answer.} 
-\textbf{Harald solution.}  \[
-  \begin{split}
-\frac{Du}{Dt}   & = \frac{d }{d t}  u\left( t,x\left( t \right) \right) = \frac{d }{d t}  u\left( t, x_{0} + v_{0} t \right) \\
-&= u_{t} + v_{0} u_{x} = -\frac{1}{2} u_{x}^2 + u_{x}^2  \\
-&= \frac{1}{2} u_{x}^2 = \frac{1}{2} v_{0}^2 \\
- &  \implies  u\left( t, x\left( t \right) \right) = u\left( 0, x_{0} \right) + \frac{1}{2} v_{0} ^2 t
-  \end{split} 
-\] 
-Nb! $v_{0} = u_{x}$ evaluated in $t=0$ given $v_{0} = u_{x} \left( 0,x_{0} \right)$
-\end{tcolorbox}
-\item Use this approach to find the solution $u\left( t,x \right)$ under the inital condition \[
-u\left( 0,x \right) = x^2
-\] 
-(For the characteristic starting at $\left( 0,x_{0} \right)$, note that you can compute $v_{0}$ by evaluation \eqref{eq:2} 
-\begin{tcolorbox}
-  \textbf{Answer.}  Derivation
+\subsubsection{Answer}%
+\label{ssub:answer}
 
-\end{tcolorbox}
-  \end{enumerate}
 
-  \[
-   x  &   \approx \lambda  \frac{}{}  \\
-   \text{let alt,so}
-  \] 
+
+
+
+
+
+% \subsection{ B 3.6}%
+% \label{sub:problem_b3_}
+
+% Burger equation 
+% \begin{equation}
+% \label{eq:burger}
+% \frac{\partial u}{\partial t}  + u \frac{\partial u}{\partial x} = 0
+% .\end{equation}
+
+% \begin{enumerate}[label=(\alph*)]
+%   \item Use the method of characteristics as described in Sect 3.4 to find a formula for the solution $u\left( t,x \right)$ given the inital condition \[
+%   u\left( 0, x \right) = \begin{cases}
+%     0,  &  \quad x\le 0\\
+%     \frac{x}{a} ,  &  \quad  0 < x < a \\
+%     1, &  \quad    x\ge a
+%   \end{cases}
+%   \] 
+%  \item Suppose that $a > b$ and \[
+%  u\left( 0,x \right) = \begin{cases}
+%    a,  &  \quad  x\le 0, \\
+%    a\left( 1-x \right) + bx ,  &  \quad    0 < x < 1, \\
+%    b,  &  \quad  x\ge 1 
+%  \end{cases}
+%  \] 
+%  Show that all of th characteristics originating from $x_{0} \in  \left[ 0,1 \right]$ meet at the same point.
+% \end{enumerate}
+
+
+% \subsection{ B 3.7}%
+% \label{sub:problem_1}
+
+% \begin{theorem}
+%   \label{th1}
+%   Suppose that $u \in  C^{1} \left( \left[ 0,T \right] \times  \Omega   \right)$ is a solution of \[
+%   \frac{\partial u}{\partial t}  + \mathbf{a}\left( u \right) \cdot  \nabla u = 0
+%   \] 
+%   For some region $\omega  \subset  \mathbb{R}  ^{n}$ with $\mathbf{a} \in  C^{1} \left( \mathbb{R} ; \mathbb{R} ^{n} \right)$.  Then for each $\mathbf{x}_{0} \in  \Omega $ , $u$ is a constant along the characteristic line defined by \[
+%   \mathbf{x}\left( t \right) = \mathbf{x}_{0} + \mathbf{a} \left( u\left( 0, \mathbf{x}_{0} \right) \right)t
+%   \] 
+% \end{theorem}
+
+
+% Let the Hamilton equation be 
+% \begin{equation}
+% \label{eq:1}
+% \frac{\partial u}{\partial t}  + \frac{1}{2} \left( \frac{\partial u}{\partial x}  \right)^2 = 0
+% .\end{equation}
+% Assume that $u \in C^{1} \left( \left[ 0, \infty \right] \times  \mathbb{R} ^{n}  \right)$ is a solution.  By analogy with Theorem \ref{th1}, a characteristic of the equation is defined as a solution of 
+%   \begin{equation}
+%   \label{eq:2}
+% \frac{d x}{d t} \left( t \right) = \frac{\partial u}{\partial x}  \left( t, x\left( t \right) \right), \quad  x\left( 0 \right) = x_{0} 
+%   .\end{equation}
+%   \begin{enumerate}[label=(\alph*)]
+%     \item Assuming that $x\left( t \right)$ solves \eqref{eq:2}, use the chain rule to compute $\frac{d ^2 x}{d t^2} $.
+% \begin{tcolorbox}
+%   \textbf{Answer.} 
+% \textbf{Haralds Solution}. If we let \[
+%   u_{t} + \frac{1}{2} u_{x}^2 = 0
+% \] 
+% and \[
+% \dot{x} = u_{x}
+% \] 
+% Then can we write \[
+% \ddot{x} = u_{xt} + \dot{x}u_{xx} = u_{xt} + u_{x}u_{xx} = u_{xt} + \frac{1}{2 } \left( u_{x}^2 \right)_{x}
+% \] 
+%  I did not get this derivation. 
+% \end{tcolorbox}
+%     \item Differentiate \eqref{eq:1}  with respect to $x$ and then restrict the results to $\left( t, x\left( t \right) \right)$ where $x\left( t \right)$ solves \eqref{eq:2}. Conclude from (a) that to \[
+%     \frac{d ^2 x}{d t^2}  = 0
+%     \] 
+%     Hense, for some constant $v_{0}$ (which depends on the characteristic) ,\[
+%     x\left( t \right) = x_{0} + v_{0} t
+%     \] 
+% \begin{tcolorbox}
+%   \textbf{Answer.} 
+% \textbf{Haralds Solution.}  Derivation of \eqref{eq:1} with $x$  gives \[
+% u_{xt} + u_{xx} u_{x} = 0.
+% \] 
+% Since $u \in  C^{2}$ is $u_{t x} \approx u_{xt} \approx 0$. So (a) gives us $\ddot{x} = 0$, and that is why $x\left( t \right) = x_{0} + v_{0}t$ der ($x_{0}$, $v_{0}$
+
+% \end{tcolorbox}
+%   \item Show that the Lagrangian derivative of $u$ along $x\left( t \right)$ satisfies \[
+%   \frac{Du}{Dt}  = \frac{1}{2} v_{0}^2
+%   \] 
+%   Implying that \[
+%   \left( t, x_{0} + v_{0} t \right) = u\left( 0, x_{0}  \right) + \frac{1}{2} v_{0}^2 t
+%   \] 
+% \begin{tcolorbox}
+%   \textbf{Answer.} 
+% \textbf{Harald solution.}  \[
+%   \begin{split}
+% \frac{Du}{Dt}   & = \frac{d }{d t}  u\left( t,x\left( t \right) \right) = \frac{d }{d t}  u\left( t, x_{0} + v_{0} t \right) \\
+% &= u_{t} + v_{0} u_{x} = -\frac{1}{2} u_{x}^2 + u_{x}^2  \\
+% &= \frac{1}{2} u_{x}^2 = \frac{1}{2} v_{0}^2 \\
+%  &  \implies  u\left( t, x\left( t \right) \right) = u\left( 0, x_{0} \right) + \frac{1}{2} v_{0} ^2 t
+%   \end{split} 
+% \] 
+% Nb! $v_{0} = u_{x}$ evaluated in $t=0$ given $v_{0} = u_{x} \left( 0,x_{0} \right)$
+% \end{tcolorbox}
+% \item Use this approach to find the solution $u\left( t,x \right)$ under the inital condition \[
+% u\left( 0,x \right) = x^2
+% \] 
+% (For the characteristic starting at $\left( 0,x_{0} \right)$, note that you can compute $v_{0}$ by evaluation \eqref{eq:2} 
+% \begin{tcolorbox}
+%   \textbf{Answer.}  Derivation
+
+% \end{tcolorbox}
+%   \end{enumerate}
+
+%   \[
+%    x     \approx \lambda  \frac{}{}  \\
+%    \text{let alt,so}
+%   \] 
   
   
-  \subsection{Problem B4.1}%
-  \label{sub:pb14}
-  \begin{theorem}
-    \textbf{Wave Equation }is on the form 
-    \begin{equation}
-    \label{eq:wf}
-    \frac{\partial ^2 u}{\partial t^2}  - c^2 \frac{\partial ^2 u}{\partial x^2}  = 0.
-    .\end{equation}
+%   \subsection{ B 4.1}%
+%   \label{sub:pb14}
+%   \begin{theorem}
+%     \textbf{Wave Equation }is on the form 
+%     \begin{equation}
+%     \label{eq:wf}
+%     \frac{\partial ^2 u}{\partial t^2}  - c^2 \frac{\partial ^2 u}{\partial x^2}  = 0.
+%     .\end{equation}
     
-  \end{theorem}
+%   \end{theorem}
 
-  Suppose $u\left( t,x \right)$ satisfies \eqref{eq:wf} for $x \in \mathbb{R} $. Let $\mathcal{P} $ be a parallellogram in the $\left( t,x \right)$ plane whose sides are characteristic lines. Show that the valie  of $u$ at each vertex $\mathcal{P} $ is determined y the values at the other three vertices.
+%   Suppose $u\left( t,x \right)$ satisfies \eqref{eq:wf} for $x \in \mathbb{R} $. Let $\mathcal{P} $ be a parallellogram in the $\left( t,x \right)$ plane whose sides are characteristic lines. Show that the valie  of $u$ at each vertex $\mathcal{P} $ is determined y the values at the other three vertices.
   
 
-\subsection{Problem 4.2}%
-\label{sub:problem_4_2}
+% \subsection{B 4.2}%
+% \label{sub:problem_4_2}
 
-\begin{equation}
-\label{eq:nmb}
-u\left( 0,x \right) = g\left( x \right) , \quad  \frac{\partial u}{\partial t}  \left( 0,x \right) = h\left( x \right) 
-.\end{equation}
+% \begin{equation}
+% \label{eq:nmb}
+% u\left( 0,x \right) = g\left( x \right) , \quad  \frac{\partial u}{\partial t}  \left( 0,x \right) = h\left( x \right) 
+% .\end{equation}
 
-\begin{equation}
-\label{eq:nm2}
- u\left( t,x \right) = \frac{1}{2} \left[ g\left( x + ct \right) 0 g\left( x- ct \right) \right] + \frac{1}{2c} \int_{x -ct}^{ x+ct}  h\left( \tau  \right) d\tau   
-.\end{equation}
+% \begin{equation}
+% \label{eq:nm2}
+%  u\left( t,x \right) = \frac{1}{2} \left[ g\left( x + ct \right) 0 g\left( x- ct \right) \right] + \frac{1}{2c} \int_{x -ct}^{ x+ct}  h\left( \tau  \right) d\tau   
+% .\end{equation}
 
 
-The weave equation \eqref{eq:wf} is an appropriate model for the longitudal vibrations of a spring. In this application $u\left( t,x \right)$ represents displacement parallel to the spring. Suppose that spring has length $l$ and is free at the ends. This corresponds to the Neumann boundary conditions \[
-\frac{\partial u}{\partial x} \left( t, 0 \right) = \frac{\partial u}{\partial x} \left( t, l \right) = 0 , \quad  \forall t \ge 0 
+% The weave equation \eqref{eq:wf} is an appropriate model for the longitudal vibrations of a spring. In this application $u\left( t,x \right)$ represents displacement parallel to the spring. Suppose that spring has length $l$ and is free at the ends. This corresponds to the Neumann boundary conditions \[
+% \frac{\partial u}{\partial x} \left( t, 0 \right) = \frac{\partial u}{\partial x} \left( t, l \right) = 0 , \quad  \forall t \ge 0 
+% \] 
+% Assume the inital conditions are $g$ and $h$ as in \eqref{eq:nmb}, which also satisfu Neumann boundary condition on $\left[ 0,l \right]$. Determine th appropriate  extension of $g$ and $h$ from $\left[ 0,l \right]$ to $\mathbb{R} $  so that the solution $u\left( t,x \right)$ given by \eqref{eq:nm2}  will satisfy Neumann boundary problem for all $t$.
+
+  
+  
+
+
+
+
+
+% \newpage
+\section{Exercise Week 36}%
+\label{sec:exercise_week_36}
+
+\subsection{B 3.7 }%
+\label{sub:problem_b_3_7_}
+
+\begin{tcolorbox}
+ (you may need to assume that $u \in  C^{2}$). Additionally, note that $w=u_x$ satisfies Burgers' equation!
+\end{tcolorbox}
+
+
+\subsection{ B 4.1}%
+\label{sub:problem_b_4_1}
+
+\subsection{ B 4.5}%
+\label{sub:problem_b_4_5}
+
+\subsection{ X2}%
+\label{sub:problem_x2}
+
+Løs initialproblemet \[
+u u_{x} + y^2 u_{y} = yu, \quad  u\left( x,1 \right) = x 
 \] 
-Assume the inital conditions are $g$ and $h$ as in \eqref{eq:nmb}, which also satisfu Neumann boundary condition on $\left[ 0,l \right]$. Determine th appropriate  extension of $g$ and $h$ from $\left[ 0,l \right]$ to $\mathbb{R} $  so that the solution $u\left( t,x \right)$ given by \eqref{eq:nm2}  will satisfy Neumann boundary problem for all $t$.
+Hva er det største området i planet som tillater en klassisk løsning?
 
-  
-  
+
+\newpage
+\section{Exercise Week 37}%
+\label{sec:exercise_week_37}
+
+\subsection{B 4.2}%
+\label{sub:b_4_2}
+
+\subsection{B 4.4}%
+\label{sub:b_4_4}
+
+\subsection{X3}%
+\label{sub:problem_x3}
+
+Benytt løsningen til B 4.1 til å vise at den homogene bølgeligningen på et område gitt ved $a_{0} < x + ct < a_{1}$, $b_{0} < x -ct < b_{1} $ har generell løsning $u\left( t,x \right) = f_{1}\left( x-ct \right) 0 f_{2} \left( x + ct\right)$ for funksjoner $f_{1}$ of $f_{2}$. Hvordan kan du utvide resultatet til $x \in  \mathbb{R} , t >0$ ?
+
+
+\subsection{X4}%
+\label{sub:problem_x4}
+
+En alternativ utledning av D'Alemberts løsning: Fyll ut de manglende detaljene nedenfor. 
+
+
+\newpara
+
+Start med ligningen $u_{tt} - c^2 u_{xx} = 0$. Anta at $u$ er en løsning, of definer de to funksjonene $u_{t} \pm cu_{x}$. Disse oppfyller enkle transportligninger, så ver av dem er en bølge med hastight $\pm x$. Med andre ord finned funksjoner $w_{\pm}$ slik at \[
+\begin{split}
+  u_{t} - cu_{x} &=  -2c w'_{+} \left( x - ct \right) , \quad \text{(høyrebølge)}  \\
+  u_{t} + cu_{x} &=  2cw' _{-} \left( x + ct \right), \quad \text{venstrebølge}  \\
+\end{split} 
+\] 
+(Faktorene $\pm2c$ of derivasjonen på høyre side er ikke vesentlige; de er bare for å forenkle regningen videre.) Adder de to ligningene og integrer mhp $t$, of subtraher dom of integrer mhp. $x$. Du trenger to integrasjonskosntanter, $C_{1}\left( x \right), \quad C_{2}\left( t \right) $. Konkluder at de integrasjonskonstantene må være like, og derfor en virkelig konstant $C$.  Konkludr at \[
+u\left( t,x \right) = w_{+} \left( x- ct \right) + w_{-} \left( x+ct \right) + C
+\] 
+(Men vi kan like godt inkorporere $C$ i en av de to funksjonene $w_{\pm}$.)
+
+
+\newpara
+Til slutt, sett inn i initaldataene \[
+u\left( 0,x \right) = g\left( x \right) , \quad  u_{t}\left( 0,x \right) = h\left( x \right) 
+\] 
+
+og utled D'Alemberts løsning.
+
+
+
+\newpage
+\section{Exercise Week 38}%
+\label{sec:exercise_week_38}
+
+\subsection{B 4.7}%
+\label{sub:b_4_7}
+
+\subsection{B 4.9}%
+\label{sub:b_4_9}
+
+\subsection{X5}%
+\label{sub:x5}
+
+
+Bjelkeligningen har formen $u_{tt}+ u_{xxxx} = f\left( t,x \right)$. FInn en tilhørende energitetthet og fliks, og bruk disse til å vise entydighet av øsninger for et inital-og randverdiproblem på intervallet $\left( 0,1 \right)$. Det er en del av oppgaven å finne egnede initalverdier of randbetingelser som sikrer entydighet.
+
+\newpage
+\section{Exercise Week 39}%
+\label{sec:exercise_week_39}
+
+\subsection{B 6.1}%
+\label{sub:b_6_1}
+
+\subsection{6.3}%
+\label{sub:6_3}
+
+\subsection{6.4}%
+\label{sub:6_4}
 
 
 
@@ -230,6 +391,20 @@ Assume the inital conditions are $g$ and $h$ as in \eqref{eq:nmb}, which also sa
 
 
 \newpage
+
+
+
+
+
+
+
+\newpage
+
+\section{Prewritten Exercises}%
+\label{sec:prewritten_exercises}
+
+
+
 \section{References}%
 \label{sec:references}
 

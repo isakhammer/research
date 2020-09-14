@@ -919,7 +919,179 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
    \end{enumerate}
 \end{remark}
 
+\newpage
+\section{Lecture 2020-09-14}%
+\label{sec:lecture_2020_09_14}
 
+Find Stationary distributions
+
+\begin{enumerate}[label=(\roman*)]
+  \item $\mathbf{P } = \begin{bmatrix} 
+  \frac{1}{2}  &  \frac{1}{2} \\
+  \frac{1}{2}  &  \frac{1}{2} 
+  \end{bmatrix} 
+  $
+  
+  \newpara
+  \begin{itemize}
+    \item 
+  Positive recurrent, aperiodic  and irreducible. 
+\item 
+  $\implies $ Limiting distribution: \[
+  \mathbf{\pi } = \left( \frac{1}{2}, \frac{1}{2} \right)
+  \] 
+  \end{itemize}
+\item $\mathbf{P} = \begin{bmatrix} 
+0  &  1 \\
+1  &  0
+\end{bmatrix} 
+$
+\begin{itemize}
+  \item Positive recurrent and irreducible.
+  \item unique stationary distrobution.
+  \item $\mathbf{\pi } = \left( \frac{1}{2} , \frac{1}{2} \right)$
+\end{itemize}
+
+\item $\mathbf{P} = \begin{bmatrix} 
+1  &  0 \\
+0  &  1
+\end{bmatrix} 
+$
+
+\begin{itemize}
+  \item Reducible!
+  \item Part 1: \[
+      \begin{split}
+  \pi _{0}  & = 1 \pi _{0} = 0 \pi _{1} = \pi _{0} \\
+  \pi _{1}  & = 0 \pi _{0} + 1 \pi _{1} = \pi _{1} \\
+  \implies  \pi _{}  & = 1 - \pi _{1} \\
+  \implies  \mathbf{\pi }  & = \left( \pi _{1} , 1 - \pi _{1} \right)
+      \end{split} 
+  \] 
+\item Part 2: 
+
+\newpara
+Must have \[
+\begin{split}
+  \pi _{0} \ge 0 \\
+  \pi _{1 } \ge 0 \\
+  \implies  \mathbf{\pi } =  \left( \pi _{0} , 1- \pi _{0}  \right)  & , \quad 0\le \pi _{0} \le 1 
+\end{split} 
+\] 
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Section 4.5}%
+\label{ssub:section_4_5}
+Read it yourself .
+
+
+\subsection{Why do we care so much about markov chains?}%
+\label{sub:why_do_we_care_so_much_about_markov_chains_}
+
+\begin{enumerate}[label=(\roman*)]
+  \item Importance goes far beyond statisical modelling of physical phenomena.
+  \item In the end of the 80s and start of 90s the computationally power was growing stronger.
+  \item We realized that we could sample from difficult distribution  by constructing Makov chains whose stationionary matched desired target distrobution.
+  \item The theory we have descussed of the theory developed to show that these methods worked.
+\end{enumerate}
+
+\subsection{Continuous Time Markov Chain}%
+\label{sub:continuous_time_markov_chain}
+
+
+\begin{definition}
+  The Sstochastic variable $X$  has a \textbf{Poission distribution}  with (mean) parameter $\mu > 0$ if \[
+  p\left( x \right) = \frac{\mu ^{x}}{x!}  e^{- \mu }
+  \] 
+  We write $X \sim Possion (\mu )$
+\end{definition}
+
+\begin{remark}
+  $X \sim Poission (10)$
+   \begin{enumerate}[label=(\roman*)]
+    \item $E\left[ X \right] = \mu $
+    \item $Var\left[ X \right] = \mu $
+    \item $SD\left[ X \right] \sqrt{\mu } $
+  \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+  If $X \sim Possion (\mu ), \quad  Y \sim \left( \chi  \right) $ and $Y $ are independent. 
+\end{theorem}
+
+\begin{theorem}
+  If $N \sim Possion(\mu )$  and $ M  \mid  N \sim Binomial(N,p)$ then \[
+    M \sim Poission(\mu P)
+  \]  
+\end{theorem}
+
+\begin{remark}
+  \begin{enumerate}[label=(\roman*)]
+    \item $M = \sum_{k= 1}^{ N}  I_{k}$ , where $ I_{1}, I_{2} , \ldots \sim Bernoulli (p)$ and $I_{1}, I_{2} , \ldots$ and $N$ are independent. 
+    \item This is called \textbf{thinning}.  
+  \end{enumerate}
+\end{remark}
+
+\subsubsection{Section 5.1.2}%
+\label{ssub:section_5_1_2}
+
+\begin{definition}
+  A \textbf{Possion process}  with rate  \textbf{inensity}  $ \lambda > 0$ is an integet-valued stochastic process $\left\{ X\left( t \right): t \ge 0 \right\}$ 0 for which.  
+  \begin{itemize}
+    \item For any $n>0$ and any time point $0< t_{0} < t_{1} < \ldots < t_{n}$ the increments \[
+    X\left( t_{1}  \right) - X\left( t_{0} \right) , X\left( t_{2} \right) - X\left( t_{1} \right) , \ldots , \ldots X\left( t_{n} \right) - X\left( t_{n-1} \right)
+    \] 
+    are independent 
+  \item For $s\ge 0$ and $t> 0$  \[
+      X\left( s+t \right)  - X\left( s \right) \sim Poission(\lambda t)
+  \] 
+\item $X\left( 0 \right) = 0$
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  \begin{itemize}
+    \item 1. is called independent increments 
+    \item In 2, we have \[
+        X\left( s+ \Delta t \right) - X\left( s \right) \sim Possion(\lambda  \Delta t)
+    \] 
+  \item Illustration 
+\begin{figure}[ht]
+    \centering
+    \incfig{iillustration}
+    \caption{iillustration}
+    \label{fig:iillustration}
+\end{figure}
+\item $X\left( t \right) = X\left( t \right) - X\left( 0 \right) \sim Possion(\lambda t)$
+  \end{itemize}
+\end{remark}
+\begin{tcolorbox}
+  \textbf{Example.} We assume the arrival of customers to a store follows a Poission process with rate $\lambda  = 4$ customers per hours. The stor opens a 09:00. What is the probability that exactly one customer has arrived by 09:30 and exactly five customers have arrived bu 11:30.
+  
+  \newpara
+  \textbf{Answer.} Let $X\left( t \right) = \text{#arrivals by time $t$}$ For $t\ge 0$ (measured in hours). Then is the question \[
+    \begin{split}
+  Pr \left \{ X\left( \frac{1}{2} \right) = 1,  &   X\left( \frac{5}{2}  \right) = 5 \right \}  \\
+  \downarrow   &  = \text{ Rephrase as incements } \\
+               &= Pr \left \{ X\left( \frac{1}{2} \right) - X\left( 0 \right) = 1 , X\left( \frac{5}{2}  \right) - X\left( \frac{1}{2} \right) = 4  \right \}  \\
+               \downarrow  &  \text{Independent increments} \\
+                           &= Pr  \underbrace{\left \{ X\left( \frac{1}{2} \right)- X\left( 0 \right) = 1 \right \}}_{ Poission(\frac{1}{2} \lambda )}  \cdot  Pr  \overbrace{\left \{X\left( \frac{5}{2} \right) - X\left( \frac{1}{2} \right\}}^{Possion(2 \lambda )}  = 4 \right \}  \\ 
+&= \frac{2^{1}}{1!} e^{-2}  \cdot \frac{8^{4}}{4!} e^{-8}   \\
+    &= 0.0155 \\
+    \end{split} 
+  \] 
+\end{tcolorbox}
+\begin{tcolorbox}
+  \textbf{Example.} Assume the arrical of customers to follows an inhomogenous Poission process with rate $\lambda \left( t \right)  =t$ , $t\ge 0 $. Assume the store opens at $09:00$. What is the probability that no-one has arrived at $10:00$.
+   
+  \newpara
+  \textbf{Answer.} \[
+    \begin{split}
+  X\left( 1 \right) - X\left( 0 \right)  & \sim Poission\overbrace{\left( \int_{0}^{ 1}  t dt  \right)}^{ = \frac{1}{2}}   \\
+    \end{split} 
+  \]  
+\end{tcolorbox}
 \newpage
 \section{Lecture 08/09/20}%
 \label{sec:lecture_08_09_20}
