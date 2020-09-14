@@ -1411,21 +1411,323 @@ e ^{*} \left( t \right) &= \overline{e}  - c ^{*}\left( t ^{*} \right) \\
    s'  = - \left(T k_{1} \overline{e}  \right)  s + \left[ Tk_{1} \overline{e} s  + k_{-1} \frac{\overline{e}  T}{\overline{s} }   \right]   c
  \] 
  Let $ \displaystyle Tk_{1} e = 1  \implies  T = \frac{1}{\overline{e}  k_{1}} $ \[
- s'  = -s + \left[ s + \left( \frac{k_{-1}}{k_{1}\overline{s} }  \right) \right] c
+ s'  = -s + \left[ s 0 \left( \frac{k_{-1}}{k_{1}\overline{s} }  \right) \right]
  \] 
  
  
 
 
+\newpage
+\section{Lecture 2020-09-14}%
+\label{sec:lecture_2020_09_14}
+
+\subsection{Biochemical example, kinetics}%
+\label{sub:biochemical_example_kinetics}
+
+We start with the inital conditions \[
+\begin{split}
+  s ^{*} \left(  0 \right)  & = \overline{s}  \\
+  e ^{* } \left( 0 \right) &=  \overline{e}  \\
+  c ^{*} \left( 0 \right) &=  0 \\
+  p^{*} \left( 0 \right) &=  0 \\
+\end{split} 
+\] 
+
+With the reaction equations 
+\begin{align}
+  \label{eq:li}
+  \frac{d s ^{*} }{d  t^{*}}  &=  -k_{1} e ^{*} s ^{*} + k_{-1} c ^{*} \\
+  \frac{d e^{*}}{d t^{*}}  &=  -k_{1} e^{*} s ^{*} + k_{-1} c ^{*} + k_{2} c^{*} \\
+  \frac{d c ^{*}}{d t^{*}}  &=  k_{1} e ^{*} s ^{* } - k_{1} c ^{*} - k_{2} c ^{*} \\
+  \frac{d p ^{*}}{d t^{*} }  &=  -k_{2} c ^{*} 
+\end{align}
+ 
+We can eliminate \[
+e ^{*} + c ^{*} &=  \overline{e}  \\
+e ^{*} = \overline{e}  - c ^{*}
+\] 
+
+Inserter into (1) . \[
+\begin{split}
+  \frac{d s ^{*}}{d t ^{*}}  &=  -k_{1} s ^{*} \left( \overline{e}  -  c ^{*} \right) + k_{-1} c ^{*} \\
+  \frac{d c ^{*}}{d t ^{*}}  &=  + k_{1} s ^{*}  \left( \overline{e}  -  c ^{*} \right)  -  \left( k_{-1} + k_{2} \right) c^{*} \\
+  & \\ 
+\end{split} 
+\] 
+Which can be transformed to 
+\begin{align}
+  \label{eq:labe}
+  \frac{d s ^{*}}{d t^{*}}  &=  - \left( k_{1} \overline{e}  \right) s ^{*} +  \left[ k_{1} s ^{*} + k_{-1} \right] c ^{*} \\
+  \label{eq:labe2}
+  \frac{d c ^{*}}{d t^{*}}   & = \left( k_{1} \overline{e}  \right) s ^{*} -  \left[ k_{1} s ^{*} - \left( k_{-1} + k_{1}   \right) \right] c ^{*} 
+.\end{align}
+
+We can then scale such that \[
+s ^{*} = \overline{s}  s, \quad  c ^{*} = \overline{e}  c , \quad  t ^{*} =  Tt    \\
+\] 
+Using \eqref{eq:labe}, \[
+  \begin{split}
+    \frac{\overline{s}  }{ T}  s'  &=  -T \left( k_{1} \overline{e}  \right) \overline{s}  s + \left[ Tk_{1} \overline{s} s + \frac{k_{-1} T}{ \overline{s} }  \right] \overline{e}  c \\
+s'   & = - \left( T \overline{e} k_{1} \right)s + \left[ \left( Tk_{1} \overline{e}  \right)s + \frac{k_{-} T \overline{e}  }{ \overline{s} }  \right]c
+  \end{split} 
+\]  
+
+Put $T = \frac{1}{\overline{e}  k_{1}}$ we find \[
+\implies  s'  = - s + \left[ s + \frac{k_{-1}}{ k_{1} \overline{s} }  \right] c
+\] 
+Now seeing \eqref{eq:labe2} we get \[
+\begin{split}
+  \overline{e} \frac{c' }{ \overline{s} }  &=  \left( T k_{1} \overline{e}  \right) \overline{s}  s - \left[ k_{1} \overline{s}  s T + \frac{\left( k_{-1} + k_{2} \right) T}{ \overline{s}}  \right] \overline{e}  c \\
+  \implies  \left( \frac{\overline{e} }{ \overline{s} }\right)  c' &= s - \left[ s + \frac{\left( k_{-1} + k_{2} \right)}{ \overline{s}  k_{1}}  \right] c \\     \\ 
+  \frac{\overline{e} }{\overline{s} }  = \varepsilon  , \quad   &  \frac{k_{-1} + k_{2}}{ \overline{s}  k_{1}}  = k , \quad  \frac{k_{2}}{ \overline{s}  k_{1}}  = \lambda \\
+\end{split} 
+\]  
+
+We then end up with \[
+  \begin{split}
+s'  &=  -s + \left[ s + k - \lambda  \right]c \\
+\varepsilon c'  &=  s - \left[ s + k  \right] c \\ , 
+s(0) &= 1 , c\left( 0 \right) = 0 \\
+  \end{split} 
+\] 
+ Assume that \[
+ \frac{\overline{e} }{\overline{s}  }  = \varepsilon  \ll  1
+ \] 
+\begin{figure}[ht]
+    \centering
+    \incfig{whenisgood}
+    \caption{whines good}
+    \label{fig:whenisgood}
+\end{figure}
 
 
+\textbf{Outer solution} : \[
+  \begin{split}
+ s  & = s_{0} + \varepsilon  s_{1} + \ldots \\
+ c &=  c_{0} + \varepsilon  c_{1} + \ldots \\
+  \end{split} 
+\] 
+Put $\varepsilon  = 0$ . This gives \[
+\begin{split}
+  0 &=  s - \left[ s+ k \right]c \\
+  c&= \frac{s}{s+ k} \\
+\end{split} 
+\] 
+
+C is then \[
+  \begin{split}
+s'  &=  -s + \left[ \left( s+ k \right) - \lambda  \right] \frac{s}{s+k}  \\
+\implies  s'  &=  - \frac{\lambda s}{s + k}  \\
+\implies  \left( \frac{s + k}{ s}  \right) ds &=  - \lambda  dt \\
+ & \downarrow    \text{Integration} \\
+\text{ Outer solution }  & 
+\begin{cases}
+s + k \ln s &=  -\lambda  t + K , \quad  K \text{ is constant.}  \\
+c &=  \frac{s}{s + k} \\
+\end{cases}
+  \end{split} 
+\] 
+
+Let us introduce \[
+  \begin{split}
+S \left( \frac{t}{\delta } \right) = s\left( t \right) , \quad  \tau   & = \frac{t}{\delta }    \\
+C\left( \frac{t}{\delta } \right) &=  c\left( t \right) \\ 
+  \end{split} 
+\] 
+For the inner solution (now capital) . \[
+\begin{split}
+  \frac{1}{\delta } S'  &=  -S + \left[ S + k - \lambda  \right]C \\
+  \frac{\varepsilon }{\delta }  C'  &=  S - \left[ S + k \right]C \\
+\end{split} 
+\] 
+To retain $\left( \frac{\varepsilon}{\delta } C'   \right)$ we choose $\delta = \varepsilon $ . This gives \[
+\begin{split}
+  S'  &=  \varepsilon  \left( -S + \left[ S + k - \lambda  \right] C \right) \\
+  C'  &= S - \left[ S + k \right]C \\
+\end{split} 
+\] 
+If we let $\varepsilon  = 0: \quad   S' = 0 $. So we have that $S\left( \tau  \right) = L$, but $s\left( 0 \right) = 1$ , means $S\left( 0 \right) =1$ \[
+S\left( \tau  \right) = 1
+\] 
+This gives $C' = 1 - \left[ 1 + k \right] C$, with the solution \[
+  \begin{split}
+    C\left( \tau  \right) &=  \frac{1}{1+ k} + M e ^{- \left( 1 + k \right) \tau } \\
+    C_{I}\left( 0 \right) &=  0, \quad  \implies  \quad  C\left( \tau  \right) = \frac{1}{1+ k} \left[ 1 - e ^{ -\left( k +1 \right) \tau } \right]   \\
+    S_{I} \left( \tau  \right) &=  1 \\
+    C_{0} \left( t \right) &=  \frac{S_{0} \left( t \right)}{ S_{0} \left( t \right) + k}  \\
+    S_{0} \left( t \right) + k \ln  S_{0} \left( t \right) &=  - \lambda t  K \\
+  \end{split} 
+\] 
 \end{enumerate}
 
 
+\textbf{Matching.} \[
+  \begin{split}
+\theta \left( \delta  \right) \to  0  & , \quad  \text{when} \quad  \delta \to  0   \\
+\frac{\theta \left( \delta  \right)}{ \delta }  \to  \infty , \quad  \text{when} \quad  \delta  \to  0  
+  \end{split} 
+\] 
+\[
+  \begin{split}
+\lim_{\delta \to 0}  \begin{bmatrix} 
+S^{I} \left( \theta \left( \delta  \right) \frac{1}{ \delta }  \right) \\
+C^{I} \left( \frac{\theta \left( \delta  \right)}{ \delta }  \right) 
+\end{bmatrix} &=   
+ \lim_{\delta  \to  0} \begin{bmatrix} 
+  \left[ S_{0} \\
+ C_{0} \left( \theta \left( \delta  \right) \right) \right]
+\end{bmatrix}  \\
+\implies   &  \lim_{\tau \to  0} \begin{bmatrix} 
+S_{I} \left( \tau  \right) \\
+C_{I}\left( \tau  \right)
+\end{bmatrix} 
+  \end{split} 
+\] 
+
+
+\[
+\begin{split}
+  \lim_{t\to  0}  \begin{bmatrix} 
+  S_{0}\left( t \right) \\
+  C_{0} \left( t \right) 
+  \end{bmatrix} 
+  &=  \lim_{ \tau  \to  \infty}  \begin{bmatrix} 
+  1 \\
+  \frac{1}{1+ k} \left( 1 - e ^{- \left( 1+ k  \right) \tau } \right)  
+  \end{bmatrix} 
+  =
+  \begin{bmatrix} 
+  1 \\
+  \frac{1}{1+k}
+  \end{bmatrix} 
+   \\
+\end{split} 
+\] 
+
+
+\textbf{ Uniform solution }   \[
+  \begin{split}
+\begin{bmatrix} 
+  S_{u} \\
+  C_{u} 
+\end{bmatrix} 
+ & = 
+\begin{bmatrix} 
+S_{0} \left( t \right) \\
+C_{0} \left( t \right) 
+\end{bmatrix} 
++ 
+\begin{bmatrix} 
+S_{I} \left( \frac{t}{\varepsilon } \right)  \\
+C_{I} \left( \frac{t}{\varepsilon }  \right)
+\end{bmatrix} 
+- \begin{bmatrix} 
+1 \\
+\frac{1}{1+ k}
+\end{bmatrix}  \\
+&=   \begin{bmatrix} 
+S_{0} \left( t \right)  \\
+C_{0} \left( t \right) - \frac{1}{1+k} e^{-\left( 1+ k \right) \frac{t}{\varepsilon }}
+\end{bmatrix} 
+  \\
+  &=  \begin{bmatrix} 
+  S_{0} \left( t \right) \\
+S_{0} \left( t \right) \frac{1}{ S_{0} \left( t \right) + k}  - \frac{1}{1+k} e^{\left( 1 + k \right) \frac{t}{\varepsilon }}
+  \end{bmatrix} 
+   \\
+   \\
+   S_{0}'  + k + k \frac{S_{0} ' }{ S_{0}} &=  - \lambda  \\ 
+   S_{0} \left( 0 \right) = 1 \implies  \quad  S_{0}' \left( 0 \right) = \frac{-\lambda }{1+k}  
+   S_{0} \left( t \right) &=  1 - \frac{\lambda  }{ 1+ k}  t + O\left( t^2 \right) \\
+  \end{split} 
+\] 
+For large $\lambda t : k \ln S_{0}\left( t \right) \approx - \lambda  t$  \[
+S_{0}\left( t \right) \approx e ^{ \frac{\lambda}{ k} t}
+\] 
 
 
 
+\subsection{Stability}%
+\label{sub:stability}
 
+
+\subsubsection{Dynamical Systems}%
+\label{ssub:dynamical_systems}
+
+Let \[
+  \begin{split}
+x'   & = f_1\left( x_{1} , x_{2} , \ldots , x_{n} \right) \\
+x_{2}'  &=  f_{2}\left( x_{1}, x_{2} , \ldots , x_{n} \right) \\
+ & \vdots  \\
+x_{n}'  &=  f_{n}\left( x_{1}, x_{2} , \ldots , x_{n} \right) \\
+  \end{split} 
+\] 
+Where $x_{j} \left( 0 \right) = x_{j}^{(0)}$ are given. Write this as \[
+\mathbf{x} '  &=  \mathbf{f}\left( \mathbf{x} \right), \quad  \mathbf{x}\left( 0 \right) = \mathbf{x}^{(0)}, \quad  \mathbf{x}\left( t  \right) \in \mathbb{R}    \\
+\] 
+
+\begin{tcolorbox}
+  \textbf{Example.} \[
+  \begin{split}
+    x_{1}'  &=  -x_{2} , \quad  x_{1}\left( 0 \right) = 1   \\
+    x_{2} ' &=  x_{1}, \quad  x_{2} \left( 0 \right) =  0   \\
+  \end{split} 
+  \] 
+  An equilibrium point for \[
+  \mathbf{x}'  = \mathbf{f}\left( \mathbf{x} \right) 
+  \] 
+  is a constant solution. I.e. $\mathbf{x}_{e}$ is an equilibrium point \[
+  \implies  \mathbf{f}\left( \mathbf{x}_{e} \right) = 0
+  \] 
+\end{tcolorbox}
+
+\begin{definition}
+  An equilibrium point  $\mathbf{x}_{e}$ is \textbf{stable}  if for any $\varepsilon > 0 $ , there exist a $\delta  > 0$ such that if \[
+  \|\mathbf{x}\left( 0 \right) - \mathbf{x_{e}}\|_{}^{ } < \delta  \implies  \|x\left( t \right) - \mathbf{x_{e}}\|_{}^{} < \varepsilon  , \quad  \text{ for } t > 0 
+  \] 
+\end{definition}
+
+
+\begin{definition}
+  If $\mathbf{x_{e}}$ is stable and, there exists a $\delta > 0 $ such that always \[
+  \|x\left( 0 \right) - \mathbf{x_{e}}\|_{}^{} < \delta 
+  \] 
+  Implies \[
+    \lim_{t\to \infty} \mathbf{x}\left( t_{1} \right) = \mathbf{x_{e}}
+  \] 
+  Then $\mathbf{x_{e}}$ is an asymptotically stable equilibrium point. 
+  
+  If $\mathbf{x_{e}}$ is not stable, it is  \textbf{unstable} .
+\end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.}  \[
+  x'  = -x , \quad  x_{e} = 0  \text{ is a equilibrium point.} 
+  \] 
+   Where the solution is \[
+   x = C e^{-t} \quad  \to  \quad  \text{for any } C  
+   \] 
+\end{tcolorbox}
+
+\subsubsection{Linearization}%
+\label{ssub:linearization}
+
+\[
+x_{j}'  =  f_{j} \left( x_{1}, x_{2} , \ldots , x_{n} \right) , \quad  j = 1,2, \ldots, n  \\
+\] 
+Assume $\mathbf{x_{e}}$ is an equilibrium point.  If $f_{j}$ is differentiable we can write \[
+.
+  \frac{f_{j} \left( \mathbf{x_{0} } + \delta  \mathbf{\delta x} \right) - f_{j}\left( \mathbf{x} \right) + \sum_{i=1}^{n}  \frac{\partial f_{j}}{\partial x_{i}}  \Delta x_{i}}{ \|\Delta x\|_{}^{}}  \overbrace{\to}^{ \|\Delta x \to  0\|_{}^{}}   0
+\] 
+
+From matrix notation \[
+\mathbf{f}\left( \mathbf{x_{1} } \Delta  \mathbf{x} \right) &=  \mathbf{f}\left( \mathbf{x_{2}} \right) + J \left( \mathbf{x_{0}} \right) \Delta \mathbf{x_{1}} \\
+\] 
+
+Where the $n\times n $ matrix $J\left( \mathbf{x_{0}} \right)$ is given by \[
+\left( J\left( \mathbf{x_{0}} \right) \right)_{ij} = \frac{\partial f_{j}}{\partial x_{i}}  \left( \mathbf{x_{0}} \right)
+\] 
+And is called the jacobian matrix of $\mathbf{f}\left( \mathbf{x} \right)$ at $\mathbf{x} = \mathbf{x_{0}}$
 
 
 
