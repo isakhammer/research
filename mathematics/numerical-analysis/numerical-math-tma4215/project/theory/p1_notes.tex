@@ -1,9 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Project 1 Notes}
-\author{isakhammer }
-\date{2020}
+\title{Project 1 - TMA4215}
+\date{11/09/2020}
 
 %%%% DEPENDENCIES v1.2 %%%%%%
 
@@ -342,8 +341,48 @@ det \left(  \hat{A}^{-1} \hat{A} - \lambda I \right)  &=
  \] 
 
  \newpage
- \section{Problem 3}%
- \label{sec:problem_3}
+ \section{Problem X}%
+ \label{sec:problem_x}
+ \subsection{Problem Description}%
+ \label{sub:problem_description}
+ 
+ Let $A$ be any invertible $n \times n $- matrix. Suppose that $\delta A$ is the smallest possible matrix, measured in a subordinate (natural) matrix norm $\|\cdot \|_{}^{}$ such that $A + \delta A$ is singular. Show that \[
+ \|\delta A\|_{}^{} = \|A^{-1}\|_{}^{} ^{-1}
+ \] 
+ 
+ \subsection{Answer}%
+ \label{sub:answer}
+ Assume that $A + \delta A $ is singular such that\[
+ det\left( A + \delta A \right) = 0.
+ \] 
+ Then can we find a vector $x$ which satisfies \[
+ Ax +  \delta A x = 0.  \] 
+ It is then possible to rewrite such that
+ \[
+   \begin{split}
+ Ax  & = - \delta A x .\\
+ x &= -  A^{-1} \delta A x \\
+ \|x\|_{}^{}  &  = \|A^{-1} \delta A x\|_{}^{}  \le  \|A^{-1}\|_{}^{}  \|\delta A\|_{}^{} \|x\|_{}^{}.
+   \end{split} 
+ \] 
+ Clearly, can it be observed that\[
+   \|A^{-1}\|_{}^{-1} \le \|\delta A\|_{}^{}.
+ \] 
+ Let us choose a candidate for $\delta  A$ such that $\delta A = - \|A^{-1}\|_{}^{-1} x y^{T}$ where \[
+   \|x\|_{}^{} = 1, \quad  \|y\|_{*}^{ }  := \max_{z \neq 0}  \frac{\left\lvert y^{T} z \right\rvert }{ \|z\|_{}^{}}  = 0 \quad  \text{and} \quad \|A^{-1}\|_{}^{} = y^{T} A^{-1} x  .
+ \] 
+ Firstly, we need to prove that $\|\delta A\|_{}^{} = \|A^{-1}\|_{}^{}$. \[
+   \begin{split}
+ \|\delta A\|_{}^{}  & = \| \|A^{-1}\|_{}^{-1} xy^{T} \|_{}^{}  = \| \frac{xy^{T}}{ y^{T} A^{-1}} \|_{}^{}\\
+ & \le \|A^{-1}\|_{}^{-1} \|x\|_{}^{} \|y^{T}\|_{}^{}  \\
+ &= \|A^{-1}\|_{}^{-1} \\
+   \end{split} 
+ \] 
+
+ \ldots Did not finish proof.
+
+ 
+ 
  
  
 
