@@ -5,14 +5,19 @@
 \author{isakhammer }
 \date{A20}
 
+%%%% DEPENDENCIES v1.3 %%%%%%
+
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-\usepackage{enumerate}
+%\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{todonotes}
+\usepackage{esint}
+\usepackage{float}
 
 
 \usepackage{hyperref} 
@@ -31,9 +36,7 @@
 \usepackage{xcolor}
 \newcommand{\incfig}[2][1]{%
 \def\svgwidth{#1\columnwidth}
-\import{./figures/}{#2.pdf_tex} }
-\pdfsuppresswarningpagegroup=1
-%\DeclareMathOperator{\span}{span}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
 
 % Box environment
 \usepackage{tcolorbox}
@@ -42,8 +45,19 @@
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
+% \DeclareMathOperator{\span}{span}
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \begin{document}
@@ -456,13 +470,205 @@ A method is called \textbf{consistent}  if $\lim_{h\to 0} \tau \left( h \right) 
 
 
 
+\newpage
+\section{Lecture 2020-09-15}%
+\label{sec:lecture_2020_09_15}
+
+\textbf{Local Error and order conditions} 
+
+Multistep methods - $k$-step.
+\begin{equation}
+\label{eq:mul1}
+  \begin{split}
+  \alpha _{k} u_{n+k} + \alpha _{k-1} u_{n+k} + \ldots + \alpha _{0} u_{n}  & = h\left( \beta _{k} f_{n+k} + \ldots + \beta _{0} f_{n} \right)   \\
+  \quad  &    \quad \alpha _{0} \text{ or } \beta _{0} \neq 0, \alpha _{k} \neq 0 \quad \text{often } \alpha _{k} = 1    
+  \end{split} 
+\end{equation}
+ 
+
+We have the local arror $y_{k} - u_{k}$ . where we assume $u_{j} = y_{j} , j = 0, \ldots, k-1$ (exact input values). For any multistep method define \[
+L\left( y, t, h \right) =  \sum_{i=0}^{k} \left( \alpha _{i} y\left( t+ ih \right) - h \beta _{i} y' \left( t + ih \right) \right) \\
+\] 
 
 
+From the formula \eqref{eq:mul1} we get \[
+  \begin{split}
+\sum_{i=0}^{k-1}  \left( \alpha _{i} y_{i} - h \beta _{i}f\left( t_{i} , y_{i} \right) + \alpha _{k} u_{k} - h \beta _{k} f\left( t_{k} , u_{k} \right) \right)  & = 0 \\
+L\left( y, t_{0}, h \right) =  \alpha _{k} \left( y_{k}- u_{k}   \right) - h \beta _{k}\left( f\left( t_{k} , y_{k} \right) f\left( t_{k}, u_{k} \right) \right)  &  \\
+  \end{split} 
+\]  
+By taylor expansion \[
+  \begin{split}
+L\left( y, t_{0},h \right) &=  \left( \alpha _{k} I - h \beta _{k} \frac{\partial f}{\partial y} \left( t_{k}, \mu  \right) \right) \left( y_{k} - u_{k} \right) \\
+y_{k} - u_{k} &=  \left( \alpha _{k} I - h \beta _{k} \frac{\partial f}{\partial y} \left( t_{k}, \mu  \right) \right) ^{-1} L\left( y, t_{0}, h \right)\\
+\mu &=  \theta u_{k} + \left( 1- \theta  \right) y_{k}, \quad  \theta  \in  \left( 0,1 \right)  \\
+  \end{split} 
+\] 
+For the local error : $y_{k} - u_{k} = \frac{1}{\alpha _{k}}  L \left( y_{}, t_{0}, h \right) \left( 1 + O\left( h \right) \right)$
 
+\newpara
+\subsection{Order of linear multistep methods.}%
+\label{sub:order_of_linear_multistep_methods_}
+
+Two equivalent definition of order 
+ \begin{itemize}
+   \item For any sufficuent smooth function $y\left( t \right)$, we have $L\left( y,t,h \right) = O\left( h^{p+1} \right)$
+   \item The local error is $y_{k}- u_{k} = U\left( h^{p+1} \right)$.
+ \end{itemize}
+
+ \begin{definition}
+   The two polynomials $\rho \left( z \right), \sigma \left( z \right)$ \[
+     \begin{split}
+   \rho \left( z \right)  & = \alpha _{k} z^{k} + \alpha _{k+1} z^{k+1} + \ldots + \alpha _{0}  \\
+   \sigma \left( z \right) &=  \beta _{k}z^{k} + \beta _{k-1} z^{z-1} + \ldots + \beta_{0}  \\
+     \end{split} 
+   \] 
+ \end{definition}
+
+ \begin{theorem}
+   The method has order $p$ if one of the following equivalent conditions is satisfied.
+   \begin{enumerate}[label=(\roman*)]
+     \item $\sum_{i=0}^{k}  \alpha _{i} = 0$ and $\sum_{i=0}^{k}  \alpha _{i} i^{q} = q \sum_{i=0}^{k} \beta _{i} i^{q-1} , \quad  q = 1, \ldots, p    $
+     \item $\rho \left( e^{h}  \right) - h \sigma \left( e^{h} \right) = O\left( h^{p+1} \right)$ as $h\to 0$
+     \item $\displaystyle \frac{\rho \left( z \right)}{ \ln z}  - \sigma \left( z \right) = O\left( \left( z-1 \right)^{p} \right)$ as $z\to 1$
+   \end{enumerate}
+ \end{theorem}
+
+ \begin{proof}
+   \begin{enumerate}[label=(\roman*)]
+     \item
+  \[
+    \begin{split}
+ L\left( y,t, h \right)  & =  \sum_{i=0}^{k}  \left( \alpha _{i} \sum_{q \ge 0}^{}  \frac{i^{q} h^{q}}{ q!} y^{(q)} \left( t \right) - h \beta _{i} \sum_{r\ge 0}^{} \frac{i^{r} h^{r}}{r!} y^{(r+1)} \left( t \right)   \right) \\
+ &= \sum_{i=0}^{k}  \alpha _{i}y\left( t \right) + \sum_{q\ge1}^{} \frac{h^{q}}{q!} y^{(q)} \left( t \right) \left( \sum_{i=0}^{k}  i^{q} - q \sum_{i=0}^{k}  \beta _{i} i^{q-1} \right)   \\
+ &= O\left( h^{p+1} \right) \quad \to  \sum_{i=0}^{k}  \alpha _{i} = 0\text{ and } \\
+  &\quad \quad \quad \quad \quad \quad \quad \quad \sum_{i=0}^{k}  \alpha  _{i} i^{q} - q   \sum_{i=0}^{k}  \beta _{i} i^{q-1}   = 0 , \quad  q = 1, \ldots, p       \\
+    \end{split} 
+ \] 
+   \end{enumerate}
+ \end{proof}
+
+\begin{tcolorbox}
+  \textbf{Example.}  2-step explicit Adams \[
+    \begin{split}
+    u_{n+2} - u_{n+1} &=  h\left( \frac{3}{2} f_{n+1} \frac{1}{2} f_{n} \right) \\
+    \alpha _{2} = 1, \quad  \alpha _{1} = -1, \alpha _{0} = 0,  &  , \beta _{2} = 0, \beta _{1} = \frac{3}{2} , \beta _{0} = -\frac{1}{2} 
+    \end{split} 
+  \] 
+  \begin{itemize}
+    \item $q=0$ \[
+    \sum_{i=0}^{2}  \alpha _{i} = 0 -1 + 1 = 0 
+    \] 
+  \item $q=1$ \[
+  \sum_{i=0}^{2}  i \alpha _{i} - 1 \sum_{i=0}^{2}  \beta _{i} i^{0} = \left( -1 +2 \right) - \left( \frac{3}{2} - \frac{1}{2} \right) = 0
+  \] 
+\item $q = 2$ \[
+\sum_{i=0}^{2} i^2 \alpha _{i} - 2 \sum_{i=0}^{2}  i \beta _{i} = \left[ -1 +  2^2 \cdot 1\right]  - 2 \left[ 0 \cdot \left( -\frac{1}{2} \right) + 1\cdot \frac{3}{2} \right] = 0
+\] 
+\item $q = 3$  \[
+\sum_{i=0}^{2}  i^3 \alpha _{i}  - 3  \sum_{i=0}^{2}  i^2 \beta _{i} = \left[ -1 + 2 ^3 \cdot 1 \right] - 3 \left[ 1 \cdot  \frac{3}{2} \right] = \frac{5}{2} \neq 0
+\] 
+  \end{itemize}
+  The method has order $p=2$
+\end{tcolorbox}
+
+\begin{definition}
+  
+\textbf{Error constant}. We found in the proof \[
+L\left( y,t,h \right) = \sum_{q \ge 0}^{}  C q h^{q} y^{(q)}\left( t \right) 
+\] 
+and $p \implies  C_{0} = C_{1} = \ldots = C_{p} = 0$, where $C_{p+1}$ is called \textbf{the error constant} .
+\end{definition}
+
+\begin{definition}
+  \textbf{Consistency.}  (11.6   ). A multistep method is consistent if $p \ge 1$. $C_{0} = C_{1} = 0$. Can be formulated as \[
+    P\left( 1 \right) = 0, \quad  P'  \left( 1 \right) = \sigma \left( 1 \right) 
+  \] 
+  Usual assumption: $P\left( z \right)$ and $\sigma \left( z \right)$ have no common factors \[
+  p\left( z \right) = \alpha _{k}\left( z-r \right) \ldots \left( z - r_{k} \right) , \quad  \sigma \left( z \right) = \beta  _{k} \left( z-s_{1} \right) \ldots \left( z - s_{k} \right)  
+  \] 
+  Then $r_{i} \neq s_{j}$ for all $i,j$.
+\end{definition}
+
+\subsection{Difference equations and (zero) stability}%
+\label{sub:difference_equations_and_zero_}
+
+Consider the multistep method \[
+u_{n+2} + 4 u_{n+1} - 5 u_{n} = h\left( 4 f_{n+1} + 2 f_{n} \right)
+\] 
+
+Check order \[
+  \begin{split}
+c_{0}  & = \sum_{}^{}  \alpha _{i} = 0 \\
+c_{1} &=  \left( 4 +2 \right) - \left( 4+2 \right) = 0 \\
+c_{2} &=  \left( 4 +4 \right) - 2 \left( 1\cdot 4  \right) = 0 \\
+c_{3} &=  \left( 4 + 8  \right) - 3\cdot \left( 1\cdot 4 \right) = 0 \\
+c_{4} &=  \left( 4 + 16 \right) - 4 \cdot \left( 1\cdot 4 \right) = 4 \\
+  \end{split} 
+\] 
+Apply method  to the problem $y'  = y$ with $y\left( 0 \right) = 1$ 
+\begin{equation}
+\label{eq:this2}
+  \begin{split}
+u_{n+2} + 4u_{n+1} - 5 u_{n}  & = h\left( 4 u_{n+1} + 2 u_{n} \right) \\
+u_{n+2} + 4\left( 1 -h \right) u_{n+1} - \left( 3 + 2h \right) u_{n} &= 0 \\
+  \end{split} 
+.\end{equation}
+
+Try to insert solution $y_{j} = z ^{j} $ in the equation into \eqref{eq:this2}  \[
+z^{n+2} + 4 \left( 1 - h \right) z^{n+1} - \left( 3 + 2h \right) z^{n} &= 0 \\.
+\] 
+Ignore $z= 0$  \[
+z ^2 + 4 \left( 1 -h \right) z - \left( 5 + 2h \right) =0
+\] 
+Two roots, $z_{1} $ and $z_{2}$. The general solution is \[
+u_{n} = A\cdot z_{1} \left( h \right)^{n} + B z_{2}\left( h \right)^{n}
+\] 
+The roots \[
+z_{1,2}  = -2 + 2h \pm \sqrt{4h^2 -  6h +9} 
+\] 
+Leads to $z_{1} = 1 + h + O\left( h^2 \right)$, $z_{2} = -5 + 3h + O\left( h^2 \right)$. 
+
+\newpara
+$z_{1}$ reflects the true solution, but $z_{2}$ is a spurious solution (falsk løsning).  
+\begin{remark}
+  $ \left\lvert z_{2}\left( h \right) \right\rvert ^{n} \to  \infty$, even for small $h$.
+\end{remark}
+This method cannot converge even though we have seen that $P = 3$. 
+ 
+\newpara
+Consider $y'  = f\left( t,y \right) := 0$.  In general for a multistep method applied to $y'  = 0$ will give you \[
+\sum_{j=0}^{k}  \alpha _{j} u_{n+j} = 0
+\] 
+Solve by setting $u_{i} = z^{i}$ \[
+\sum_{j=0}^{k} \alpha _{j} z^{j} = 0 \quad \text{or}\quad  P\left( z \right) = 0  
+\] 
+First consistency condition says $P\left( 1 \right) = 0$.  so $z_{1} = 1$ is a root. We also get \[
+z_{2} , \ldots , z_{k}  \text{ some may be multiple roots}
+\] 
+\[
+  \begin{split}
+  P\left( z \right)  & = \left( z- \xi _{1} \right)^{m_{1}} \left( z - \xi _{2} \right)^{m_{2}} \ldots \left( z - \xi _{\mu } \right) ^{ m_{\mu }} \\
+  \sum_{i=1}^{\mu }  m_{i} &=  k \\
+  \end{split} 
+\] 
+The general solution is \[
+u_{n} = p_{1} \left( n \right) \xi ^{n}_{1} + \ldots + P _{\mu }\left( n \right) \xi ^{n}_{\mu }
+\] 
+where $p_{i}$ is a polynomial of degree $m_{i} -1$.
+
+\begin{definition}
+  The method is zero-stable  if $ P\left( z \right) $  
+  \begin{enumerate}[label=(\roman*)]
+    \item The roots $\xi _{i}$ satisfied $\left\lvert \xi _{i} \right\rvert  \le 1$
+    \item for root $\xi _{i}$ such that $\left\lvert \xi _{i} \right\rvert  = 1$, then $m_{i} = 1$
+  \end{enumerate}
+\end{definition}
 
 
 
 \newpage
+
 \section{References}%
 \label{sec:references}
 
