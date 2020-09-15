@@ -471,7 +471,7 @@ A method is called \textbf{consistent}  if $\lim_{h\to 0} \tau \left( h \right) 
 
 
 \newpage
-\section{Lecture 2020-09-15}%
+\section{Lecture 2020-09-14}%
 \label{sec:lecture_2020_09_15}
 
 \textbf{Local Error and order conditions} 
@@ -616,7 +616,7 @@ u_{n+2} + 4\left( 1 -h \right) u_{n+1} - \left( 3 + 2h \right) u_{n} &= 0 \\
 .\end{equation}
 
 Try to insert solution $y_{j} = z ^{j} $ in the equation into \eqref{eq:this2}  \[
-z^{n+2} + 4 \left( 1 - h \right) z^{n+1} - \left( 3 + 2h \right) z^{n} &= 0 \\.
+z^{n+2} + 4 \left( 1 - h \right) z^{n+1} - \left( 3 + 2h \right) z^{n} = 0. 
 \] 
 Ignore $z= 0$  \[
 z ^2 + 4 \left( 1 -h \right) z - \left( 5 + 2h \right) =0
@@ -666,8 +666,195 @@ where $p_{i}$ is a polynomial of degree $m_{i} -1$.
 \end{definition}
 
 
+\newpage
+\section{Lecture 2020-09-15}%
+\label{sec:lecture_2020_09_15a}
+
+\begin{tcolorbox}
+  \textbf{Example.} The Adams Methods. We have \[
+  u_{n+k} - u_{n+k-1} = h \sum_{j= 0}^{k}  \beta _{k} f_{k}
+  \]  
+  Which means \[
+    \begin{split}
+  \rho \left( z \right)  & = z^{k} - z^{k-1} = z^{k-1} \left( z-1 \right) \\
+      \zeta _{1 }  & = 1, \quad   m_{1} = 1  ,    \quad  \zeta _{2} = 0  , \quad   m_{2} = k-1
+    \end{split} 
+  \] 
+  All Adams methods are zero-stable. 
+
+  \textbf{The first Dahlsquist barrier}. We have in principle $2k + 1$ parameters \[
+  \alpha _{0},  \ldots , \alpha _{k-1}, \beta _{0} , \ldots, \beta _{k}
+  \]  
+  For order $p$ \[
+  p+1 \text{ conditions } c_{0} = c_{1} = \ldots = c_{p} = 0 
+  \] 
+  Should be able to obtain order $2k$.
+  
+  \newpara
+  Curiously, this is not reconcilable with zero-stability.
+  \begin{theorem}
+    The order $p$ of a zero-stable $k$- step multistep-method satisfies \[
+      \begin{split}
+    p  & \le k +2 , \quad  k\text{ is even} \\
+    p  &  \le k+1 , \quad  k \text{ is odd}  \\
+    p  & \le k, \quad   \frac{\beta _{k}}{\alpha _{k}}  \le 0  \text{ (explicit methods included.)}
+      \end{split} 
+    \] 
+    The proof is rather involved and is not included in this course.  
+    
+  \end{theorem}
+
+\end{tcolorbox}
+
+\subsection{Convergence of multistep methods.}%
+\label{sub:convergence2}
+
+Assume $f$ is contionious and Lipschitz continuous. 
+\[
+y'  = f\left( t,y \right)
+\] 
+on some domain \[
+\mathcal{D}  = \left\{ \left( t,y \right): \quad  t \in  \left[ t_{0}, T \right], \quad  \|y\left( t \right) - y\|_{}^{} \le b   \right\}
+\] 
+here is $y\left( t \right)$ the exact solution. Applying a method to this problem, results in a sequence $\left\{u_{i}  \right\}, i \ge 0 $ of approximations. For a fixed $t \in  \left[ t_{0}, T \right]$ and $h$ such that $\frac{t - t_{0}}{ h}  = n$ , define \[
+u_{h} \left( t \right) = u_{n}
+\] 
+\begin{definition}
+  \textbf{Converges.}  
+  \begin{enumerate}[label=(\roman*)]
+    \item The multistep method converges if for all $f$ as defined \[
+    y\left( t \right) - u_{n} \left( t \right) \to  0, \quad  t \in  \left[ t_{0}, T \right] 
+    \] 
+   whenever the starting values satisfy \[
+   y\left( t_{0} + ih \right)  - u_{n} \left( t_{0} + ih \right) \to  0, \quad  i \in 0,\ldots, k-1 
+   \]  
+ \item The methods is convergent of order $p $, isf for any sufficenttly smooth $ f$, there is $h_{0}$ such that the behaviour \[
+     \|y\left( t \right) - u_{h}\left( t \right)\|_{}^{} \le ch^{p} , \quad  0< h \le h_{0} 
+ \] 
+ whenever \[
+ \|y\left( t_{0} + ih \right) - u_{n}\left( t_{0} + ih \right)\|_{}^{} \le c_{0} h^{p}, \quad i = 0, \ldots, k-1 
+ \] 
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+  A multistep method converges \[
+  \downarrow
+  \] 
+  \quad\quad\quad\quad\quad\quad      \quad It is zero stable and consistent.
+\end{theorem}
+
+
+\subsection{Backwards difference formulas (BDF)}%
+\label{sub:backwards_difference_formulas_bdf_}
+
+Idea. We use indices $u_{n-k +1} , \ldots , u_{n+1}$. Construct a polynomial $q\left( t \right)$ that interpolates the \[
+\left( t_{n-k +1} , u_{n-k+1} \right) , \ldots , \left( t_{n+1}, u_{n+1} \right). 
+\] 
+Then the set \[
+q'  \left( t_{n+1} \right) \approx f\left( t_{n+1} , u_{n+1} \right)
+\] 
+Keeping in mind that $y' \left( t_{n+1} \right) = f\left( t_{n+1}, y_{n+1} \right)$ . This defines the BDF-methods. We can write $q\left( t \right)$ as follows \[
+q\left( t \right) = q\left( t_{n} + sh \right) \approx \sum_{j=0}^{k} \left( -1 \right)^{j} \begin{pmatrix}
+-s +1 \\
+j
+\end{pmatrix} 
+\nabla ^{j} u_{n+j}
+\] 
+Here is \[
+  \begin{split}
+\nabla ^{0} u_{n+1} &=  u_{n+1}, \quad  \nabla u_{n+1} = u_{n+1} - u_{n}  \\
+\nabla ^{r} u_{n+1}  & = \nabla \left( \nabla ^{r-1} u_{n+1} \right) \\
+\nabla ^{2} u_{n+1} &=  \nabla \left( \nabla u_{n+1} \right) = \nabla \left( u_{n+1} - u_{n} \right) \\
+&= \nabla u_{n+1} - \nabla u_{n} = u_{n+1} - u_{n} = \left( u_{n} - u_{n-1} \right) \\
+&=  u_{n+1} - 2u_{n} + u_{n-1} \\
+  \end{split} 
+\] 
+\begin{tcolorbox}
+  Note:
+  \[
+  \left( -1 \right)^{j} \begin{pmatrix}
+  -s + 1 \\
+  j
+  \end{pmatrix} 
+  = \frac{1}{j!} \left( s+1 \right) s \left( s-1 \right) \ldots \left( s + j - 2 \right)
+  \] 
+\end{tcolorbox}
+
+Differentiate $q\left( t \right)$ and set $s=1$, then we get \[
+\sum_{j=1}^{k}  \frac{1}{j} \nabla ^{j} u_{n+1} = h f_{n+1} , \text{BDF formula} 
+\] 
+\begin{tcolorbox}
+  \textbf{Example.} 
+  Find BDF formula
+  \begin{enumerate}[label=(\roman*)]
+    \item  $k =1$: Backward Euler Method
+    \item $k=2$ :  \[
+        \begin{split}
+    \nabla u_{n+1}  & = \frac{1}{2} \nabla ^{2} u_{n+1} = hf_{n+1} \\
+    \implies u_{n+1} - u_{n} + \frac{1}{2} \left( u_{n+1} -2 u_{n} + u_{n} \right) &=  h f _{n+1}\\
+    \frac{3}{2} u_{n+1} -2 u_{n} + \frac{1}{2} u_{n} &=  hf_{n+1} \\
+        \end{split} 
+    \] 
+  \end{enumerate}
+\end{tcolorbox}
+BDF-methods are zero-stable only if $k \le 6$.
+ 
+\subsection{Absolute stability of multistep methods}%
+\label{sub:absolute_stability_of_multistep_methods_}
+
+\begin{itemize}
+  \item
+Zero-stability is necessary for convergence. Fundamentally property and considers $h\to 0$ . 
+\item Absolute stability. For which stepsizes do we get a stable method.
+
+\end{itemize}
+
+
+Again, consider model problem \[
+    y' = \lambda y_{} , \quad  \lambda  \in  \mathbb{C}  
+\] 
+We cen then solve it by
+\[
+  \begin{split}
+\sum_{j=0}^{k}  \lambda _{j} u_{n+j}  & = h \lambda  \sum_{j=0}^{k}  \beta _{j} u_{n+j} , \quad  z = h\lambda   \\
+\sum_{j= 0}^{k}  \left( \lambda _{j} - z \beta _{j} \right) u_{n+j} &=  0 \\
+  \end{split} 
+\] 
+if we let $u_{i} =   \zeta ^{ i}$, then is \[
+\sum_{j=0}^{k}  \lambda _{j} \zeta ^{j} = z \sum_{j=0}^{k}  \implies  \rho \left( \zeta  \right) = z \sigma \left( \zeta  \right)
+\] 
+
+We need to understand for wich $z$ the root condition holds for the roots $\zeta _{1}, \zeta  _{2}, \ldots , \zeta _{k} $ \[
+ \left\lvert \zeta _{i} \right\rvert  \le 1 \quad  \forall i, \quad  \text{and if} \quad      \left\lvert \zeta  \right\rvert = 1, \quad \text{then} \quad m_{j} = 1     
+\] 
+
+\begin{tcolorbox}
+  \textbf{Example.} BDF-2-step \[
+    \begin{split}
+  \frac{3}{2} u_{n+2} - 2u_{n+1} + \frac{1}{2} u_{n} &= h \lambda  u_{n+2} \\ 
+  \left( \frac{3}{2} + z \right) u_{n+2} - 2 u_{n+1} + \frac{1}{2} u_{n} &= 0 \\
+  u_{i}  & = \zeta ^{i} \\
+  \left( \frac{3}{2} -z \right) \zeta ^{2} - 2 \zeta  + \frac{1}{2} &=  0 \\
+    \end{split} 
+  \] 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+  \textbf{Digression.}  if $\rho \left( \zeta  \right) = a \zeta ^2 + b \zeta  + c$ one can prove that roots $\zeta _{1}$ and $\zeta _{2}$ satisfy $\left\lvert \zeta _{i} \right\rvert  < 1$, if and only if 
+  \begin{enumerate}[label=(\roman*)]
+    \item $\left\lvert a \right\rvert  < c$
+    \item $\left\lvert a+ c \right\rvert  < \left\lvert b \right\rvert $
+  \end{enumerate}
+\end{tcolorbox}
+
+
+
+ 
 
 \newpage
+
 
 \section{References}%
 \label{sec:references}
