@@ -1019,13 +1019,13 @@ v\left( x \right)C\left( x \right) - \mu  C' \left( x \right)  & = f\left( x \ri
   x,  &  \quad  0 \le x \le \\
   1,  &  \quad  1 \le \le \lambda   
 \end{cases}
- &   \end{split} 
+    \end{split} 
 \] 
 Where  $v\left( 0 \right) = 0, \quad    C\left( \lambda  \right)  =1 $.
 In addition $v$ and $C$ must be continuous. 
 
 \newpara
-Let assume $ 0 < \varepsilon  \ll  1$. Put $C = c_{0} + \varepsilon  C_{1} + O\left( \varepsilon ^2 \right)$ and $v = v_{0} + \varepsilon  v_{1} + Ø\left( \varepsilon ^2 \right)$ . Inserted into the equation \[
+Let assume $ 0 < \varepsilon  \ll  1$. Put $C = c_{0} + \varepsilon  C_{1} + O \left( \varepsilon ^2 \right)$ and $v = v_{0} + \varepsilon  v_{1} + Ø\left( \varepsilon ^2 \right)$ . Inserted into the equation \[
   \begin{split}
 \varepsilon \left( v_{0}'   \right) &=  C_{0} + \varepsilon C_{1} - 1 + O\left( \varepsilon ^2 \right)  \\
 \left( v_{0} + \varepsilon  v_{1} \right) \left( 1 + C_{1} \varepsilon  \right) ^2 - \mu \left(  \varepsilon  C_{1}'    \right)  &  = f\left( x \right) + O\left( \varepsilon ^2 \right)   \\
@@ -1167,7 +1167,7 @@ $\varepsilon  = 0$ gives a problem where we cannot satisfy $y\left( 0 \right) = 
 
 \newpara
 \textbf{Example}  \[
-\varepsilon ^2 + 2m + 1 &=  0 \\
+\varepsilon ^2 + 2m + 1 =  0 \\
 \] 
  If $\left\lvert m \right\rvert  \le M$, ie $m$ is bounded as $\varepsilon  \to  0$, then $\varepsilon  m^2$ is small when $ \varepsilon  \to  0$. Assuming this we have \[
  \varepsilon m^2 + 2m + 1 \approx 2 m + 1a = 0 \quad  \implies  m = -\frac{1}{2} 
@@ -1250,10 +1250,12 @@ y\left( 1 \right) &= 1 \implies  y\left( x \right) = e^{\frac{1}{2}} e^{-\frac{x
 \end{split} 
 \] 
 
-Ther characteristic equaiotn for \[
+Ther characteristic equation for \[
+  \begin{split}
 \varepsilon y''  + y'  + y &=  0 \\
 \varepsilon r ^2 + 2 r + 1 &=  0, \quad  r_{1} \approx -\frac{1}{2} , r_{2} \approx-\frac{2}{3}  \\
-y\left( x \right)  &  \approxA e^{-\frac{x}{2}} B e^{ -\frac{2x}{\varepsilon }}
+y\left( x \right)  &  \approx A e^{-\frac{x}{2}} B e^{ -\frac{2x}{\varepsilon }}
+  \end{split} 
 \] 
 
 
@@ -1388,7 +1390,7 @@ c ^{*}\left( 0 \right)  & = p  ^{*}\left( 0 \right) =0
 \] 
 
 We have that \[
-e ^{*} \left( t \right) &= \overline{e}  - c ^{*}\left( t ^{*} \right) \\
+e ^{*} \left( t \right) = \overline{e}  - c ^{*}\left( t ^{*} \right) \\
 \] 
  1) gives out \[
    \begin{split}
@@ -1443,8 +1445,10 @@ With the reaction equations
 \end{align}
  
 We can eliminate \[
+  \begin{split}
 e ^{*} + c ^{*} &=  \overline{e}  \\
-e ^{*} = \overline{e}  - c ^{*}
+e ^{*}  & = \overline{e}  - c ^{*}
+  \end{split} 
 \] 
 
 Inserter into (1) . \[
@@ -1574,8 +1578,8 @@ S^{I} \left( \theta \left( \delta  \right) \frac{1}{ \delta }  \right) \\
 C^{I} \left( \frac{\theta \left( \delta  \right)}{ \delta }  \right) 
 \end{bmatrix} &=   
  \lim_{\delta  \to  0} \begin{bmatrix} 
-  \left[ S_{0} \\
- C_{0} \left( \theta \left( \delta  \right) \right) \right]
+   S_{0} \\
+ C_{0} \left( \theta \left( \delta  \right) \right) 
 \end{bmatrix}  \\
 \implies   &  \lim_{\tau \to  0} \begin{bmatrix} 
 S_{I} \left( \tau  \right) \\
@@ -1648,7 +1652,7 @@ S_{0}\left( t \right) \approx e ^{ \frac{\lambda}{ k} t}
 
 
 \subsection{Stability}%
-\label{sub:stability}
+\label{sub:hehehe}
 
 
 \subsubsection{Dynamical Systems}%
@@ -1663,7 +1667,7 @@ x_{n}'  &=  f_{n}\left( x_{1}, x_{2} , \ldots , x_{n} \right) \\
   \end{split} 
 \] 
 Where $x_{j} \left( 0 \right) = x_{j}^{(0)}$ are given. Write this as \[
-\mathbf{x} '  &=  \mathbf{f}\left( \mathbf{x} \right), \quad  \mathbf{x}\left( 0 \right) = \mathbf{x}^{(0)}, \quad  \mathbf{x}\left( t  \right) \in \mathbb{R}    \\
+\mathbf{x} '  =  \mathbf{f}\left( \mathbf{x} \right), \quad  \mathbf{x}\left( 0 \right) = \mathbf{x}^{(0)}, \quad  \mathbf{x}\left( t  \right) \in \mathbb{R}    \\
 \] 
 
 \begin{tcolorbox}
@@ -1721,7 +1725,7 @@ Assume $\mathbf{x_{e}}$ is an equilibrium point.  If $f_{j}$ is differentiable w
 \] 
 
 From matrix notation \[
-\mathbf{f}\left( \mathbf{x_{1} } \Delta  \mathbf{x} \right) &=  \mathbf{f}\left( \mathbf{x_{2}} \right) + J \left( \mathbf{x_{0}} \right) \Delta \mathbf{x_{1}} \\
+\mathbf{f}\left( \mathbf{x_{1} } \Delta  \mathbf{x} \right) =  \mathbf{f}\left( \mathbf{x_{2}} \right) + J \left( \mathbf{x_{0}} \right) \Delta \mathbf{x_{1}} \\
 \] 
 
 Where the $n\times n $ matrix $J\left( \mathbf{x_{0}} \right)$ is given by \[
@@ -1730,7 +1734,144 @@ Where the $n\times n $ matrix $J\left( \mathbf{x_{0}} \right)$ is given by \[
 And is called the jacobian matrix of $\mathbf{f}\left( \mathbf{x} \right)$ at $\mathbf{x} = \mathbf{x_{0}}$
 
 
+\newpage
+\section{Lecture 2020-09-16}%
+\label{sec:lecture_2020_09_16}
 
+
+\subsection{Stability}%
+\label{sub:stability}
+Dynamic system \[
+\mathbf{x' } = f\left( \mathbf{x}\left( t \right) \right)
+\] 
+Where $\mathbf{x}\left( t \right) \in \mathbb{R} ^{n}$. The equilibrium point $\mathbf{x}_{e} \implies  f\left( \mathbf{x}_{e} \right) = 0$ . \[
+\mathbf{x}_{e} \text{ is either } \begin{cases}
+  \text{stable} \\
+  \text{asymptotically stable} \\
+  \text{unstable}
+  
+\end{cases}
+\] 
+
+We can determinde the linear approximation if \[
+\frac{\partial f_{i}}{\partial x_{i} \partial  x_{q}} .
+\] 
+is contiionus at  $\mathbf{x_{e}}$ . Then we have \[
+  \begin{split}
+f\left( \mathbf{x_{e}} + \delta  \mathbf{x} \right)  & = f\left( \mathbf{x}_{e} \right) + J \left( \mathbf{x_{e}} \right) \Delta x  + O\left( \|\Delta x\|_{}^{2} \right)  \\
+\implies  f\left( \mathbf{x_{e}} + \Delta \mathbf{x} \right)  & \approx J\left( \mathbf{x_{e}} \right) \Delta \mathbf{x}, \quad  \mathbf{x_{e}} + \Delta \mathbf{x}   = \mathbf{x}  \\
+ \Delta \mathbf{x}'   & = J\left( \mathbf{x_{e}} \right) \Delta \mathbf{x}, \quad \Delta \mathbf{x} \left( 0 \right) = 0 
+  \end{split} 
+\]
+
+If $J\left( \mathbf{x}_{e} \right)$ has $n$ linearly independent eigenvectors $v_{1}, v_{2}, \ldots , v_{n} $ with corresonding  eigen values $\lambda _{1}, \lambda _{2}, \ldots, \lambda _{n}$ . Then the solution to \[
+\Delta \mathbf{x}' = J\left( \mathbf{x_{0}} \right)  \mathbf{x}_{0} 
+\] 
+Is \[
+\Delta \mathbf{x}\left( t \right) = c_{1} \mathbf{x_{1}}e^{\lambda _{1}t} + c_{2} \mathbf{x_{2}} e^{\lambda _{2} t} + \ldots + c_{n} \mathbf{x_{n}} e^{\lambda _{n} t}
+\] 
+Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \right)$ . $\mathbf{x_{e}}$ is an asymptotically stable eq. Point  if $Re \lambda _{j} < 0 $ for $ j = 1,2 ,\ldots, n$ for the system $\mathbf{\mathbf{x}' } = f\left( \mathbf{x} \right) $. If $Re \lambda _{k} > 0$ for one $k$ , then $\mathbf{x_{e}}$ is unstable. 
+
+\begin{tcolorbox}
+  \textbf{Example.}  \[
+    \begin{split}
+      x_{1}  & = x_{2} \\
+      x_{2} '  &= -2x_{1} -2x_{2}   \\
+    \end{split} 
+  \] 
+  \[
+    \begin{split}
+  \mathbf{x}  & = \begin{bmatrix}  
+  0 \\
+  0
+  \end{bmatrix}, \quad   
+  \mathbf{x}'  
+    = \begin{bmatrix} 
+  0 &  1 \\
+  -2  &  -2
+  \end{bmatrix} 
+  \\
+  &= A\mathbf{x}, \quad  \|A - \lambda I\|_{}^{} = 0  \\
+    \implies   &  \begin{vmatrix} 
+    -\lambda   & 1 \\
+    -2  &  -2-\lambda 
+    \end{vmatrix} 
+    = 0 \\
+    \end{split} 
+  \] 
+
+
+\end{tcolorbox}
+
+  \begin{tcolorbox}
+    \textbf{Example.}  \[
+    \begin{split}
+      x_{1}'   & = x_{1} ^2 - x_{2}  '  \\
+      x_{2} '  &=  2x_{1} + x_{2} + 3 \\
+    \end{split} 
+    \] 
+    Solve  \[
+      \begin{split}
+    x_{1} ^2 + x_{2} ^2  &=  0 \\
+    2x_{1} + x_{2} + 3 &=  0 \\
+    \implies   x_{2} &=  \pm x_{1} \\
+      \end{split} 
+    \] 
+    when we get 
+    \begin{itemize}
+      \item $x_{2} = x_{1}$: \[
+      3_{} x_{1} + 3 = 0 \quad  \implies  x_{1} = -1 
+      \] 
+      Which means $\left( -1, -1 \right)$ is a eq. point. 
+    \item $x_{2} = -x_{1}$: $2x_{1} - x_{1} + 3 = 0$. Which means $x_{1} = -3$ and $\left( -3, 3 \right)$ is a equ. point.
+    \end{itemize}
+  \end{tcolorbox}
+
+  Let \[
+    \begin{split}
+  A  & = \begin{bmatrix} 
+    a  &  b \\
+    x  &  d
+  \end{bmatrix}  , \quad  \left\lvert A - \lambda I  \right\rvert   =  \left( a-\lambda  \right) \left( d - \lambda  \right) -bc \\
+  &=  \lambda ^2 - \left( trA  \right) \lambda  + det A = \left( \lambda  - \lambda _{1}  \right) l\left( \lambda  - \lambda _{2} \right) \\
+     trA &=   a +d , \quad  \lambda  = a + b  \\
+     det A  &  < 0, \quad  \text{unstable}  \\
+     det A  & >0 ,\quad   trA < 0  \implies  \text{asymptotic stable}
+    \end{split} 
+  \] 
+
+  Back to the example  \[
+    \begin{split}
+  J\left( \mathbf{x} \right)  & = \begin{bmatrix} 
+  2x_{1}  &  -2x_{2} \\
+  2 &  1
+  \end{bmatrix}  \\
+  J\left( -1, -1 \right) &=  \begin{bmatrix} 
+  -2  &  2 \\
+  2  &  2
+  \end{bmatrix} 
+  \implies  \left\lvert J \right\rvert  = -6 , \quad  \mathbf{x_{e}} \text{ is unstable} 
+   \\
+   J\left( -3, -3 \right) &=  \begin{bmatrix} 
+   -6  &  -6 \\
+   2  &  1
+   \end{bmatrix} 
+   , \left\lvert J \right\rvert  = 6, \quad  tr A = -5 
+    \\
+    \end{split} 
+  \] 
+  $Re \lambda _{1} < 0,\quad   Re \lambda _{2} < 0, \implies  \quad  \left( -3, -3 \right)  $  asymptotically stable .
+
+  \subsection{Amoebae and chemotaxis}%
+  \label{sub:amoebae_and_cheotaxis}
+  
+  Let $\phi \left( x,t \right)$ be the amoebae concentration at position $x$ at time $t$. Let $A$ be the cross-sectional area of the tube. Then \[
+    \begin{split}
+  \left( \int_{x_{1}}^{x_{2}}  \phi \left( x,t \right) dA \right) A  & = \text{ nr amoebae in } \left[ x_{1}, x_{2} \right] \\
+  \frac{d }{d t} \left( \int_{x_{1}}^{x_{2}}  \phi \left( x,t \right) dx \right)A  & = J\left( x_{1}, t \right) A - J \left( x_{2}, t \right) A 
+    \end{split} 
+  \]  
+  
 
 \newpage
 
