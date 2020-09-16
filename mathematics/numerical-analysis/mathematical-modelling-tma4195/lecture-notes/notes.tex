@@ -1149,65 +1149,6 @@ We can finally conclude that \[
 Os ^{* } \approx C_{0}\left( 1+ \frac{F^{*} _{ \text{diff}}}{ F ^{*} _{\text{conv}}}  \right)
 \] 
 
-\subsection{Singular Perturbation}%
-\label{sub:singular_perturbation}
-
-Still we have a problem where there is a small parameter ,  say $\varepsilon $. THe telltale sign of a singular perturbation problem is that the problem changes qualitively when  $\varepsilon  = 0 $ .
-
-\newpara
-\textbf{Example} . \[
-  \begin{split}
-\varepsilon  y''  + 2 y'  + y &= 0 \\
-y\left( 0 \right) =0  & \quad , y\left( 1 \right) = 1 
-  \end{split} 
-\] 
-$\varepsilon  = 0$ gives a problem where we cannot satisfy $y\left( 0 \right) = 0$ and $y\left( 1 \right) = 1$.
-
-
-
-\newpara
-\textbf{Example}  \[
-\varepsilon ^2 + 2m + 1 =  0 \\
-\] 
- If $\left\lvert m \right\rvert  \le M$, ie $m$ is bounded as $\varepsilon  \to  0$, then $\varepsilon  m^2$ is small when $ \varepsilon  \to  0$. Assuming this we have \[
- \varepsilon m^2 + 2m + 1 \approx 2 m + 1a = 0 \quad  \implies  m = -\frac{1}{2} 
- \] 
- We can also get \[
-   \begin{split}
- m  & = -\frac{1}{2} + \varepsilon m_{1} + O\left(  \varepsilon ^2\right) \\
- \varepsilon \left( \frac{1}{4} - \varepsilon m_{1} \right) - 1 2m_{1} \varepsilon  + 1 &= 0 \\
- \frac{1}{4} + 2m_{1} &= 0 \\
- m_{1}  & = -\frac{1}{8} \\
- m &= \frac{1}{2} - \varepsilon \frac{1}{8}  + O\left( \varepsilon ^2 \right) \\
-   \end{split} 
- \] 
-
- \begin{enumerate}[label=(\roman*)]
-   \item If $2m$ is much smaller than $\varepsilon m^2 $ and $1$, then \[
-       \begin{split}
-   \varepsilon m^2 + 2m + 1 \approx \varepsilon m^2 + 1 &= 0 \\
-     &  \implies m \approx \pm -i \frac{1}{\sqrt{\varepsilon } }
-       \end{split} 
-   \] 
-   Thus $2m$ is large (compared to $1$ ), contradiciton. 
-
-\newpara
-Lets try \[
-  \begin{split}
-\varepsilon m^2 + 2m &= 0 \\
-\implies  m\left( \varepsilon  m + 2 \right) &= 0 \\ 
-\implies  2\cdot  m &= 2\cdot -\frac{1}{3} \\
-\varepsilon m^2 &= \frac{4}{\varepsilon ^2} \varepsilon  = \frac{4}{3} \\
-  \end{split} 
-\]  
-$m \approx \frac{2}{3}$. If we put \[
-m = -\frac{2}{3}  \widetilde{m} 
-\] 
-
- \end{enumerate}
-
-
-\newpage
 \section{Singular Perturbation}%
 \label{sec:singular_perturbation}
 
@@ -1871,7 +1812,106 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
   \frac{d }{d t} \left( \int_{x_{1}}^{x_{2}}  \phi \left( x,t \right) dx \right)A  & = J\left( x_{1}, t \right) A - J \left( x_{2}, t \right) A 
     \end{split} 
   \]  
-  
+  \begin{itemize}
+    \item Flux density: $\displaystyle J = - M \frac{\partial \phi }{\partial x} + E \frac{\partial c}{\partial x}  $, where $M>0$ motility and $E >0$  strength of chemotaxis.
+    \item $c \left( x_{1}t \right)$ concentration of signaling substance. 
+  \end{itemize}
+ \[
+   \begin{split}
+ x_{2} - x_{1}  & = \Delta x, \quad \widetilde{x} \in  \left<x_{1}, x_{2} \right>  \\
+ \implies \frac{\partial }{\partial t}  \left( \phi \left( \widetilde{x}, t  \right) \right) \Delta x  + J \left( x_{2}, t \right) - J\left( x_{1},t \right) &= 0 \\
+ \Delta x \to  0  & \\
+ \frac{\partial \phi }{\partial t } + \frac{\partial J}{\partial x}   &= 0   \\
+   \end{split} 
+ \]  
+ We can rewrite such that \[
+   \begin{split}
+ \implies  \frac{\partial \phi }{\partial t}  + \frac{\partial }{\partial x}  \left( -M \frac{\partial \phi }{\partial x}  + E \phi \frac{\partial c}{\partial x}  \right)   &=  0 \\
+ \implies  \frac{\partial \phi }{\partial t}  &=  \frac{\partial }{\partial x} \left( M \frac{\partial \phi }{\partial x}  - A \phi  \frac{\partial c}{\partial x}  \right) \\
+   \end{split} 
+ \] 
+ Flux density for $c: \quad J_{c}= - D \frac{\partial c}{\partial x}  $  \[
+   \frac{\partial c}{\partial x} + \frac{\partial J_{c}}{\partial x}  &=  q_{1} \phi  - q_{2} c \\
+ \] 
+ \begin{itemize}
+   \item $q_{1}$ strength of secretion.
+   \item $q_{2}$ decay rate for $c_{1}$
+ \end{itemize}
+ \[
+   \begin{split}
+ \frac{\partial c}{\partial t}  + \left( -D \frac{\partial ^2 c}{\partial x ^2}  \right) &=  q_{1} \phi - q_{2} c \\
+ \frac{\partial \phi }{\partial t}  &=  M \frac{\partial ^2 \phi }{\partial x ^2}  - E \frac{\partial }{\partial x} \left( \phi \frac{\partial c}{\partial x}  \right) \\
+ \frac{\partial c}{\partial t} &=  D \frac{\partial ^2}{\partial x ^2} c + q_{1} \phi - q_{2} c \\
+   \end{split} 
+ \] 
+ \[
+ \begin{rcases}
+   \phi \left( x,t \right)  & = \phi _{0} \\
+   c\left( x,t \right) &= c_{0} \\
+ \end{rcases}
+ \text{a solution as long as: } q_{1} u_{0} - q_{2} c_{0} = 0
+ \] 
+
+ Let write \[
+   \begin{split}
+ \phi \left( x,t \right) &=  \phi _{0} +  \widetilde{\phi }\left( x,t \right) \\
+ c\left( x,t \right) &=  c_{0} + \widetilde{c}\left( x,t \right) \\
+ \implies  \frac{\partial \widetilde{\phi }}{\partial t}  &=  M \frac{\partial ^2 \widetilde{\phi }}{\partial  \widetilde{x}}   - E \left( \left( \phi _{0} + \widetilde{\phi } \right) \frac{\partial \widetilde{c}}{\partial x}   \right)_{x}  \\
+ \frac{\partial \widetilde{c}}{\partial t}  &=  -D \frac{\partial \widetilde{c}}{\partial x ^2} + q_{1} \widetilde{c} - q_{2} \widetilde{c}  \\
+ \implies  \frac{\partial \widetilde{\phi }}{\partial t}  &=  M \frac{\partial ^2 \widetilde{\phi }}{\partial  x ^2}   - E \phi _{0}  \frac{\partial ^2 \widetilde{c}}{\partial x ^2 } - E \left( \widetilde{\phi } \frac{\partial \widetilde{c}}{\partial x }  \right)_{x}  \\
+   \end{split} 
+ \] 
+
+ Linearization \[
+   \begin{split}
+ \frac{\partial \widetilde{\phi }}{\partial t}  &=  M \frac{\partial ^2 \widetilde{ \phi }}{\partial x ^2 } - E \phi _{0} \frac{\partial ^2 \widetilde{c}}{\partial  x ^2}   \\
+ \frac{\partial \widetilde{c}  }{\partial t}  &=  D \frac{\partial ^2 c \widetilde{c}}{\partial x ^2 } + q_{1} \widetilde{\phi } - q_{2} \widetilde{c}, \quad \widetilde{c} \left( x,0 \right) \text{ and } \widetilde{\phi } \left( x,0 \right) \text{ is geiven}\\
+   \end{split} 
+ \] 
+
+ Let \[
+ \begin{split}
+   \widetilde{\phi }\left( x,t \right) &=  \sum_{}^{} \alpha _{n} \left( t \right) e^{i\beta _{n} x}  \\
+   \widetilde{c}\left( x,t \right) &=  \sum_{}^{} \gamma _{n}\left( t \right) e^{\beta _{n} x n} \\
+ \end{split} 
+ \] 
+ \begin{enumerate}[label=(\roman*)]
+   \item \[
+       \begin{split}
+   \sum_{}^{}  \alpha _{n}'  \left( t \right) e^{i\beta _{n}x}  & = \sum_{}^{}  \left( -M \beta ^{2}_{n} \alpha _{n} \left( t \right) e^{i \beta _{n} x} + E \phi _{0} \gamma _{n} \left( t \right) e^{i \beta _{n} x} \right) \\
+   \alpha _{n}'  \left( t \right)  & = -M \beta _{n}^{2} \alpha _{n} \left( t \right) + E \phi _{0} \gamma _{n}\left( t \right) \beta ^{2}_{n} \\
+   \gamma _{n}' \left( t \right) &=  -D \beta _{n}^2 \gamma _{n} \left( t \right) + q _{1} \alpha _{n} \left( t \right) -  q_{2} \gamma _{n}\left( t \right) \\
+   \implies \begin{bmatrix} 
+   \alpha _{n} \\
+   \gamma _{n}
+   \end{bmatrix} 
+   _{t}
+   &= \begin{bmatrix} 
+   M \beta _{n}^2  &  E \phi _{0} \beta _{n} ^2 \\
+   q_{1}  &  -D \beta _{n}^2 - q_{1}
+   \end{bmatrix} 
+   \begin{bmatrix} 
+   \alpha _{n } \\
+   \beta _{n}
+   \end{bmatrix} 
+    \\
+    trA < 0 , \quad  det A &=  M\beta _{n}^2 \left( D \beta _{n}^2 + q_{2} \right) - q_{1} E \phi _{0}\beta _{n} \begin{cases}
+      <0 , \quad \text{stable}  \\
+      <0 ,  \quad  text{unstable}
+    \end{rcases} \\ 
+       \end{split} 
+   \] 
+   Unstable when \[
+     \begin{split}
+   det A  & < 0 \\
+   \implies  M\left( D \beta _{n} ^{2} \right) + q_{1} \phi _{0} E  & < 0  \\
+  q_{1}  & > \frac{M\left( D \beta _{n} ^2 + q_{2} \right)}{ \phi _{0} E}  \\
+  \widetilde{\phi } &=  \sum_{}^{} \alpha _{n}\left( 0 \right) e^{i \beta _{n}x}  , \quad  \beta _{n}^2 \text{ is increasing.}\\
+     \end{split} 
+   \] 
+
+ \end{enumerate}
+
 
 \newpage
 
