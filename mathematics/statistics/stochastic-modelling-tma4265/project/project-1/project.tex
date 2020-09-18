@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Project 1}
+\author{isakhammer }
+\date{2020}
+
+% 
+%%%% DEPENDENCIES v1.3 %%%%%%
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{esint}
+\usepackage{float}
+
+
+\usepackage{hyperref} 
+\hypersetup{
+  colorlinks=true, %set true if you want colored links
+  linktoc=all,     %set to all if you want both sections and subsections linked
+  linkcolor=blue,  %choose some color if you want links to stand out
+} 
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+% \DeclareMathOperator{\span}{span}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+  {
+  \vskip 0.4cm
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Problem 1: Modelling the outbreak of measles }%
+\label{sec:problem_1_modelling_the_outbreak_of_measles_}
+
+
+\subsection{Answer a}%
+\label{sub:answer_a}
+
+\begin{definition}
+  Let $\left\{ X_{i} \right\}_{i \in \Omega }$ be random variables where all the states $i$
+  
+\end{definition}
+Formally is a markov chain defined such that  \[
+Pr \left \{ X_{n+1} = j   \mid X_{n}, X_{n-1}, \ldots, X_{0}  \right \}  = Pr \left \{ X_{n+1}  \mid  X_{0} \right \} 
+\] 
+
+
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
