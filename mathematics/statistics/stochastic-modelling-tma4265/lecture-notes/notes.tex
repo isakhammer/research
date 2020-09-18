@@ -1001,7 +1001,7 @@ Read it yourself .
 
 
 \begin{definition}
-  The Sstochastic variable $X$  has a \textbf{Poission distribution}  with (mean) parameter $\mu > 0$ if \[
+  The stochastic variable $X$  has a \textbf{Poission distribution}  with (mean) parameter $\mu > 0$ if \[
   p\left( x \right) = \frac{\mu ^{x}}{x!}  e^{- \mu }
   \] 
   We write $X \sim Possion (\mu )$
@@ -1243,6 +1243,224 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
    \end{enumerate}
  \end{proof}
 
+ \newpage
+ \section{Lecture 2020-09-18}%
+ \label{sec:lecture_2020_09_18}
+ 
+ \begin{tcolorbox}
+   Read Section 5.1.4 by yourself.
+ \end{tcolorbox}
+
+\textbf{Section 5.2 Motivation}  
+ 
+\begin{enumerate}[label=(\alph*)]
+  \item $\left\{ X\left( t \right): t \ge 0 \right\} \text{ with rate } \lambda _{1} = 5, \quad  0 \le t \le 10 $
+    \[
+    E\left[ X\left( t \right) \right] = \lambda t = 5t, \quad 
+    \]  
+  \item $\left\{ Y\left( t \right): t \ge 0 \right\} \text{ with rate } \lambda _{2} = t, \quad  0\ge t \le 10 $\[
+      E \left[ Y\left( t \right) \right] = \frac{t^2}{2} 
+  \] 
+\end{enumerate}
+
+\begin{tcolorbox}
+  Do scatterplot on the project when working on poission distribution.
+\end{tcolorbox}
+
+\begin{theorem}
+  Let $p_{1}, p_{2}, \ldots \in  \left[ 0,1 \right]$ be a sequence such that $\lim_{n \to  \infty} n p_{n} = \lambda  < \infty $, then \[
+  \lim_{n\to \infty}  \begin{pmatrix}
+  n \\
+  k
+  \end{pmatrix} 
+  p^{k}_{n} \left( 1-p_{n} \right) ^{n-k} = \lambda ^{n} \frac{1}{k!}  e^{-\lambda } , \quad  k=0,1 , \ldots 
+  \] 
+\end{theorem}
+\begin{remark}
+  In TMA4295 Statistical Inference we will say that $Binomial\left( n, p_{n} \right)$ converges in $Possion\left( \lambda  \right)$ is $n\to \infty$.
+\end{remark}
+ 
+\begin{remark}
+  .
+  \begin{enumerate}[label=(\roman*)]
+    \item $p_{n } \to  0$, but $n\to \infty$. $np_{n} \to  \lambda $ when $n\to \lambda $
+    \item Many trials $\left( n\gg 1 \right) $ and success is rare $\left( p \ll  1 \right)$ $\implies$  Nr of Successes Poission distribution.
+  \end{enumerate}
+\end{remark}
+
+Typical examples 
+\begin{itemize}
+  \item Customers arrivals.
+  \item Car accident.
+  \item Telephone calls.
+\end{itemize}
+
+\subsubsection{Little Oh notation}%
+\label{ssub:little_oh_notation}
+
+\begin{enumerate}[label=(\roman*)]
+  \item
+You may be familar with the expessions such as \[
+n = o\left( n^2 \right), \quad \text{as } n\to \infty 
+\] 
+May be thought as  "$n$ is much smallet than $n^2$ as $n\to  \infty$"
+\item 
+We are going to mostly work with expressions of the form \[
+h^2 = o\left( h \right) , \quad  h \to  0^{+} 
+\] 
+May be thought as "$h^2$ is much smaller than $h$ as $h \to  0^{+}$"
+
+\end{enumerate}
+
+
+\begin{definition}
+  Let $f$ and $g$ be real functions. We use \textbf{little-oh-notation}  in the two following ways 
+  \begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle f\left( n \right) = o\left( g\left( n \right) \right) , \quad  n\to \infty \implies  \lim_{n\to \infty} \frac{f\left( n \right)}{g\left( n \right) }  = 0 $ 
+    \item $\displaystyle f\left( h \right) = o\left( g\left( h \right) \right) \quad h\to 0^{+} \implies  \lim_{ n\to \infty } \frac{f\left( h \right)}{ g\left( h \right)} = 0    $
+  \end{enumerate}
+\end{definition}
+
+\begin{tcolorbox}
+  \textbf{Example.} Are the following statements false or true? 
+  \begin{enumerate}[label=(\roman*)]
+    \item $h^2 = o\left( h \right) \quad  h\to  0  + $ \[
+    \lim_{n\to  0^{+}}  \frac{h^2}{h} = 0
+    \] 
+    True
+    \item $h^2 = o\left( h \right) \quad  h \to  \infty $ \[
+        \lim_{h \to  \infty}  \frac{h^2}{h} = \lim_{n \to \infty} h = \infty
+    \] 
+    False
+    \item $\sqrt{h}  = o\left( h \right) \quad  h\to  0^{+} $ \[
+    \lim_{h \to 0^{+}}  \frac{\sqrt{h} }{h}  = \infty
+    \] 
+    False
+    \item $h\to  o\left( 1 \right)\quad h\to 0^{+} $ \[
+    \lim_{h \to 0^{+}}  \frac{h}{1 }  = 0
+    \] 
+    True
+
+    \begin{remark}
+      \[
+      h^{p} = o\left( h \right) \quad h \to 0^{+}\quad \implies p >1  
+      \] 
+    \end{remark}
+  \end{enumerate}
+\end{tcolorbox}
+
+\begin{definition}
+  A \textbf{C\inftunting process}  is a stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ so that 
+  \begin{enumerate}[label=(\roman*)]
+    \item $N\left(  t \right)$ is a integer for $t\ge 0$
+    \item $N\left( t \right) \ge 0$, for $t\ge0$
+    \item If $s \ge t$, then $N\left( s \right) \le N\left( t \right)$
+  \end{enumerate}
+  We sometimes write \[
+    N\left( a,b \right) = N\left( b \right) - N\left( a \right) = \text{Number or events in } (a,b] , \quad   0\le a \le 
+  \] 
+  However, the notation will not be used in the lecture. 
+\end{definition}
+
+\begin{definition}
+  Let $\left\{ N\left( t \right) : t \ge 0 \right\}$ be a counting process. Then $\left\{ N\left( t \right): t \ge 0 \right\}$ is  a \textbf{Poission proccess}  with \textbf{rate (intensity)}  $\lambda > 0 $  if 
+  \begin{enumerate}[label=(\roman*)]
+    \item For every integer $m> 1$ for any timepoints \[
+        \begin{split}
+    0  & = t_{0} < t_{1} < \ldots < t_{m} \\
+    N\left( t_{1} \right) - N\left( t_{0} \right)  & , N\left( t_{2} \right) - N\left( t_{1} \right), \ldots N\left( t_{m} \right) - N\left( t_{m-1} \right)  \\
+        \end{split} 
+    \] 
+    "independent increments"
+  \item For $t\ge 0$ and $h > 0$ ,  the distrobution of $N\left( t + h \right) - N\left( t \right)$  only depends on $h$ and $t$.
+    "Stationary Increnements" 
+  \item  $Pr \left \{ N\left( t + h \right) - N\left( t \right) = 1 \right \}  = \lambda  h + o\left( h \right), \quad h \to 0^{+} \quad   \forall t\ge0 $
+  \item $Pr \left \{ N\left( t + h \right) - N\left( t \right) = 0 \right \}  = 1 - \lambda h  + o\left( h \right),  \quad h\to 0^{+} \quad  \forall t\ge 0  $
+  \item $N\left( 0 \right) = 0$
+
+  \end{enumerate}
+  For def iii and iv can be described as \[
+  \begin{split}
+    \implies  Pr \left \{ N\left( t + h \right) - N\left( t \right) \ge 2  \right \}  &=  1 - \overbrace{\left[ \lambda h + o\left( h \right) \right] }^{ 1 \text{ event}} - \overbrace{\left[ 1 - \lambda h + o\left( h \right) \right]}^{0 \text{ events}}  \\
+    &= o\left( h \right) \\
+    \implies  & \text{Events cannout occur at the same time} \\
+    \implies  &  \text{ Jumps are of size 1}
+  \end{split} 
+  \] 
+\end{definition}
+
+Recall
+
+\begin{definition}
+  (Simplified version.) A \textbf{Poission process}  with rate \textbf{rate}  $\lambda > 0$ is an integer valued  stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ for which 
+  \begin{enumerate}[label=(\roman*)]
+    \item Increments are independent,
+    \item For $s \ge 0$ and $t > 0$ \[
+    N\left( s+t \right) - N\left( s \right) \sim Possion\left( \lambda t \right)
+    \] 
+  \item $N\left( 0 \right) = 0$
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+  Definition of simplified and genreal of a Poission process are equivalent.
+\end{theorem}
+
+\begin{proof}
+  Lets call the simplified version P1 and the general version P2, then we need to prove 
+  \begin{itemize}
+    \item Prove that $P1 \implies  P2$: i),ii) and v) is proved by definition.
+      
+      \newpara
+      
+    $\displaystyle Pr \left \{  N\left( t + h \right) + N\left( t \right) = 1 \right \}  = \frac{\left( \lambda h \right)^{1}}{1}  e^{\lambda h}$ \[
+        \begin{split}
+     & = \lambda h \left( 1- \lambda  h o\left( h \right) \right) , \quad  \text{ as } h\to 0^{+}  \\ 
+     &=  \lambda  h - \lambda ^{2} h^2 + \lambda h o\left( h \right) \\
+     &=  \lambda h + o\left( h \right) \\
+        \end{split} 
+    \] 
+    This type of manipulations are importan on the exam.
+    
+      For iv):
+    \newpara
+  $\displaystyle Pr \left \{ N\left( t+ h \right) - N\left( t \right) = 0 \right \} = \frac{\left( \lambda h \right)^{0}}{0!}  e^{-\lambda h}$ \[
+  \begin{split}
+    &=  1\cdot \left( 1  \lambda  h + o\left( h \right) \right) \\
+    &= 1 - \lambda h + o\left( h \right), \quad \forall t\ge0  \\
+  \end{split} 
+  \] 
+\item Prove that $P2 \implies  P1$: i) and iii) are proved by definition.
+  
+  \newpara
+  For ii): Set $s = 0$ Ned to show that \[
+  N\left( h \right) - N\left( 0 \right) \sim Poission\left( \lambda h \right)
+  \] 
+  \begin{enumerate}[label=(\roman*)]
+    \item Divide $\left( 0, h \right ]$ into equal size sub-intervals.\[
+    \implies  t_{i} = \frac{i}{m} , \quad  i=0,1, \ldots, m. 
+    \] 
+  \item Let \[
+  \varepsilon = \begin{cases}
+    1, \quad  \text{at least one event  in } (t_{i-1}, t_{i}] \\
+    0, \quad \text{Otherwise} 
+  \end{cases}
+  , \quad  $i = 1, 2, \ldots, m $ 
+  \] 
+  Then we can let $\displaystyle S_{m} = \sum_{i=1}^{m} \varepsilon _{i} $ .
+\item $\displaystyle  \varepsilon _{1} , \varepsilon _{2}, \ldots , \varepsilon _{m} \sim Bernoulli\left( p_{m} \right) $ where $p_{m} = \frac{\lambda h}{m}  + o\left( \frac{h}{m} \right) $  as $ m\to  \infty$. 
+  
+  \newpara
+  Let $S = \lim_{m\to  \infty}  S_{m}a $ we get \[
+  \lim_{m\to \infty}  mo_{m} = \lim_{m\to \infty}  \left( \lambda h + o \left( 1 \right)  \right) = \lambda h
+  \] 
+  This is calles the "Law of rare events" $S \sim Possion\left( \lambda h \right)$. 
+\item \[
+Pr \left \{  N\left( h \right)- N\left( 0 \right)\neq S_{m} \right \}  \le \sum_{i=1}^{m} Pr \left \{ N\left( t_{i} \right) - N\left( t_{i-1} \right) \ge 2 \right \} 
+\] 
+  \end{enumerate}
+  \end{itemize}
+\end{proof}
 \section{References}
 \label{sec:references}
 
