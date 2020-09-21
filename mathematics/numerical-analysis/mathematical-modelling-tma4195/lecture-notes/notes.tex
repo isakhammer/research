@@ -1831,7 +1831,7 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
    \end{split} 
  \] 
  Flux density for $c: \quad J_{c}= - D \frac{\partial c}{\partial x}  $  \[
-   \frac{\partial c}{\partial x} + \frac{\partial J_{c}}{\partial x}  &=  q_{1} \phi  - q_{2} c \\
+   \frac{\partial c}{\partial x} + \frac{\partial J_{c}}{\partial x}  =  q_{1} \phi  - q_{2} c \\
  \] 
  \begin{itemize}
    \item $q_{1}$ strength of secretion.
@@ -1898,7 +1898,7 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
     trA < 0 , \quad  det A &=  M\beta _{n}^2 \left( D \beta _{n}^2 + q_{2} \right) - q_{1} E \phi _{0}\beta _{n} \begin{cases}
       <0 , \quad \text{stable}  \\
       <0 ,  \quad  text{unstable}
-    \end{rcases} \\ 
+    \end{ases} \\ 
        \end{split} 
    \] 
    Unstable when \[
@@ -1975,7 +1975,7 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
     &=  \frac{\partial f}{\partial u}  \left( \mu _{0}, u_{0} \right) \\
   \end{split} .
   \] 
-  Then $\left( \mu _{0}, u_{0} \right)$ is a singular point. Assume ass second derivatives are continuous, and not all zero. then \[
+  Then $\left( \mu _{0}, u_{0} \right)$ is a singular point. Assume ass second derivatives are continuous, and not all zero. Then \[
   f\left( \mu _{0} + \Delta \mu _{1}, u_{0} + \Delta  u \right) \approx \frac{1}{2} f_{\mu \mu } \left( \mu _{0}, u_{0} \right) \Delta \mu ^2 + f_{\mu u } \left( \mu _{0}, u_{0} \right) \Delta \mu  \Delta u + \frac{1}{2} f_{uu} \left( \mu _{0} ,u_{0} \right) \Delta u^2 = 0
   \] 
   Assume $f_{uu}\left( \mu _{0} , u_{0} \right) \neq 0$. \[
@@ -2004,7 +2004,7 @@ Where $\left( 0,0 \right)$ is singular. \[
  4 * 0 ^2 - 4 \left( 4 \right) \left( -4 \right)   & \ge 0  \implies  \text{?????}
 \end{split} 
 \] 
-\textbf{Example.} Tank reactor.  Let $q $ be inflow rate, $\left[ q \right] = m^3 s^{-1}$. With a concentration $c_{in} $ and temperature $\theta _{in}$ and out $c ^{*} , \theta ^{*}$ . 
+\textbf{Example.} Tank Reactor.  Let $q $ be inflow rate, $\left[ q \right] = m^3 s^{-1}$. With a concentration $c_{in} $ and temperature $\theta _{in}$ and out $c ^{*} , \theta ^{*}$ . 
 \begin{itemize}
   \item $c^{*}$ reactor concentration.
   \item  $\theta ^{*}$ Temperature. 
@@ -2018,6 +2018,75 @@ kc ^{* } e ^{ -\frac{A}{\theta ^{*}}} .
 The reaction generates heat given by \[
 h\left( kc^{*}e^{\frac{A}{\theta ^{*}}} \right)
 \] 
+where $h$ is a constant,   $\left[ k \right] = s^{-1}$, $\left[ A \right]= Kelvin = K$ and  $\left[ h \right] = J mole ^{-1} $ . The consentration of reactant is as follows \[
+  \begin{split}
+\frac{d }{d t^{*}}  \left( V c^{*} \right) &=  q c_{in} - q c ^{*} - Vk c^{*} e^{- \frac{A }{ \theta ^{*}} } \\
+\frac{d }{d t} \left( V C_{v} \theta ^{*} \right) &=  qC_{v} \theta _{in} - q C_{v} \theta ^{*} + V hl c^{*} e^{\frac{-A}{\theta ^{*}} } \\
+  \end{split} 
+\]  
+Where $C_{v} $ is heat capacity .   Let start with scaling \[
+  \begin{split}
+  c^{* }   & = c_{in} c , \quad  \theta ^{*} = \theta _{in} \theta  \\
+  t^{*} &=  Tt \\
+  \end{split} 
+\] 
+Then is the equations \[
+  \begin{split}
+\frac{V}{T} c_{in} \frac{d c}{d t}  &=  q c_{in} - q c_{in} C - k V c_{in} e^{-\frac{A}{\theta _{in} \theta }}\\ 
+ \implies  \frac{d c}{d t}   & = T\left( \frac{q}{v} \right) - T \left( \frac{q}{v} \right) -T kc\cdot e^{-\frac{A}{\theta _{in} \theta }}
+  \end{split} 
+\] 
+If we choose $T = \frac{V}{q}$ then is \[
+\implies  c'  = 1- c + \left( \frac{Vk}{q} \right)c e^{-\frac{A}{\theta _{in} \theta }}
+\]  
+To simplify, let us define $\mu  = \frac{q}{kv}$ and $\gamma = \frac{A}{\theta _{in} \theta }$. We then end up with the problem \[
+  c'  = 1- c \frac{1}{\mu } e^{\gamma \frac{1}{\theta } }, \quad  c\left( 0 \right) = 1 
+\] 
+For the other problem is \[
+  \begin{split}
+\frac{1}{T} v C_{v} \theta _{in} \theta '  \left( t \right)  & = qC_{v} \theta _{in} \frac{1}{V }  - \frac{q C_{v} \theta _{in} \theta }{V}  + hk V c_{in}c e^{\frac{\gamma}{\theta } }
+\implies  \theta '   & = 1 - \theta  - + \left( \frac{Vhkc_{in}}{qc_{v} \theta _{in}}  \right) c e^{\frac{\gamma }{\theta } } \\
+\theta &=  1- \theta + \nu \frac{1}{\mu }  c e^{\gamma \frac{1}{\theta } }  \\
+  \end{split} 
+\]  
+Where $\nu  = \frac{h c_{1}n}{c_{v} \theta _{in}} $ . We then have the equations 
+\begin{align}
+  \label{eq:eq11}
+  c'  &=  1- c - \frac{1}{\mu } c e^{\gamma \frac{1}{\theta } } \\
+  \label{eq:eq12}
+  \theta '  &=  1- \theta  + \frac{\nu}{\mu }ce^{\frac{\gamma}{\theta } }   
+.\end{align}
+Multiply \eqref{eq:eq11}  by $\mu $ and add \[
+  \begin{split}
+\left( \mu c + \theta  \right)'  &=  \mu  - \mu  c + 1 - \theta  \\
+\implies  \left( \nu c + \theta  \right) '   & = \nu + 1  \\
+h'  + h = \nu +1
+\nu c + \theta &=  \nu +1 \implies  \nu c = \nu + 1 - \theta  \\
+  \end{split} 
+\] 
+Inserted into \eqref{eq:eq12}  given \[
+  \begin{split}
+\theta '  = 1 - \theta  + \frac{\left( \nu +1 - \theta   \right)}{ \mu }  e^{\frac{\gamma }{- \theta } }
+\implies  \theta '  &=  1- \theta + \frac{\nu  + 1 - \theta }{\mu } e^{- \frac{\gamma }{\theta } } \\
+\theta  & = u +1  \\
+\implies  u'   & = -u + \frac{\nu  - u}{ \mu }  e^{\frac{\gamma}{u+1} }
+  \end{split} 
+\] 
+Where $u\left( 0 \right) = 0$ since $\theta \left( 0 \right) = 1$ . Assume that $\gamma , \nu $ are constant while we vary $\mu = \frac{q}{Vk}$ physically \[
+f\left( \mu , u \right)  = -u + \frac{\left( \nu - u \right)}{\mu }  e^{-\frac{\gamma }{u+1} }
+\] 
+Define $h\left( u \right) = \left( \nu - u \right) e^{- \frac{\gamma }{u+1} }$ . \[
+f = 0 \implies  -u + \frac{h\left( u \right)}{\mu } = 0 \implies  \mu  u = h\left( u \right) 
+\] 
+
+Lets check the stability \[
+  \begin{split}
+f\left( \mu ,u \right) &=  -u h\left( u \right) \cdot \frac{1}{\mu } \\
+\frac{\partial f}{\partial u}  &=  -1 + \frac{h' \left( u \right)}{\mu }  < 0 \\
+\implies  h' \left( u \right)  & < \mu \quad  \implies \text{stability}
+  \end{split} 
+\] 
+
 
 \newpage
 
