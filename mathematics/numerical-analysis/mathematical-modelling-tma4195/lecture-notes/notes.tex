@@ -1912,6 +1912,112 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
 
  \end{enumerate}
 
+ \newpage
+ \section{Lecture 2020-09-21}%
+ \label{sec:lecture_2020_09_21}
+ 
+
+ \subsection{Bifurcation}%
+ \label{sub:bifurcation}
+
+ First, wee will only consider 1-D dynamical systems in general. Given \[
+   \frac{d u}{dt  }  = f\left( \mu , u \right)
+ \] 
+ where $\mu  \in  \mathbb{R} $ is a parameter. For given $\mu $, we have equilibrium points when \[
+ f\left( \mu ,u \right) = 0
+ \] 
+ If $u_{e} = u\left( \mu  \right)$ is an equilibrium  point, $u_{e}$ is asymptotically stable if \[
+ \frac{\partial f}{\partial u}  \left( \mu ,u_{e} \right) < 0
+ \]  
+ and unstable if \[
+ \frac{\partial f}{\partial u}  \left( \mu, u_{e}  \right) > 0
+ \] 
+
+ \textbf{Example.} 
+ Let the problem be formulated as \[
+ \begin{split}
+   u'  &=  \left( u-1 \right)\left( \mu - u^2 \right) = f\left( \mu , u \right) \\
+   f\left( \mu ,u \right) &=  0, \implies  u=1 \text{ or } u^2 = \mu  \\
+ \end{split} 
+ \] 
+
+ \textbf{Example.}  \[
+ \frac{d u}{d t}  = u \mu - u^2 = \underbrace{u\left( \mu  - u \right)}_{f\left( \mu ,u \right)} 
+ \] 
+ \[
+ \begin{split}
+   \frac{\partial f}{\partial u}  &=  \mu  -2u , \quad   \\
+   \frac{\partial f}{\partial u} \left( \mu , u= 0 \right)  & = \mu \\
+   \frac{\partial f}{\partial u} \left( \mu , u= \mu  \right) &=  -\mu  \\
+ \end{split} 
+ \] 
+
+ \newpage
+
+\begin{definition}
+  \textbf{Implicit function theorem.} Let $\left( \mu ,u \right)$ have continious derivatives around $\left( \mu _{0}, u_{0} \right)$, where $f\left( \mu _{0}, u_{0} \right)= 0$.  Then there are constants $a>0, b> 0 $ such that $f\left( \mu ,u \right) = 0$ has a unique solution $u\left( \mu  \right)$ for \[
+  \|\mu - \mu _{0}\|_{}^{} > a, \quad  \|u - u_{0}\|_{}^{} > b 
+  \] 
+  if $\displaystyle  \frac{\partial f}{\partial u} \left( \mu _{0}, u_{0} \right) \neq 0$ . Then   
+  \[
+  \frac{d u}{d \mu }  = - \frac{\frac{\partial f}{\partial \mu } }{\frac{\partial f}{\partial u} }  , \quad \frac{\partial f}{\partial \mu }  \left( \mu _{0}, u_{0} \right) \neq 0
+  \] 
+  We can find \[
+  \mu \left( u \right)
+  \] 
+\end{definition}
+ 
+ 
+\begin{remark}
+  If \[
+  \begin{split}
+    f\left( \mu _{0}, u_{0} \right) &=  \frac{\partial f}{\partial \mu } \left( \mu _{0}, u_{0} \right) \\
+    &=  \frac{\partial f}{\partial u}  \left( \mu _{0}, u_{0} \right) \\
+  \end{split} .
+  \] 
+  Then $\left( \mu _{0}, u_{0} \right)$ is a singular point. Assume ass second derivatives are continuous, and not all zero. then \[
+  f\left( \mu _{0} + \Delta \mu _{1}, u_{0} + \Delta  u \right) \approx \frac{1}{2} f_{\mu \mu } \left( \mu _{0}, u_{0} \right) \Delta \mu ^2 + f_{\mu u } \left( \mu _{0}, u_{0} \right) \Delta \mu  \Delta u + \frac{1}{2} f_{uu} \left( \mu _{0} ,u_{0} \right) \Delta u^2 = 0
+  \] 
+  Assume $f_{uu}\left( \mu _{0} , u_{0} \right) \neq 0$. \[
+    \begin{split}
+  \implies  \underbrace{f_{\mu \mu }}_{c}  + \underbrace{2 f_{\mu u}}_{b}  \left( \frac{\Delta u}{\Delta \mu }  \right) + \underbrace{f_{uu}}_{a}  \left( \frac{\Delta u}{\Delta \mu }  \right)^2 &=  0 \\
+   4 f^2_{\mu u}  - 4 f_{\mu \mu }f_{uu}   &  > 0, \quad \text{two solutions for } \frac{\Delta u}{\Delta \mu }   \\
+    \end{split} 
+  \] 
+\end{remark}
+ 
+\textbf{Example.}  Legislate: \[
+f\left( \mu  , u \right) = \left( \mu ^2 + u^2 \right) ^2 - 2 \left( \mu ^2 - u^2 \right)
+\] 
+Where $\left( 0,0 \right)$ is a solution. \[
+  \begin{rcases}
+\frac{\partial f}{\partial \mu }   & = 2 \left( \mu ^2 + u^2 \right) \cdot 2 \mu  - 2 \left( 2 \mu   \right) \\
+\frac{\partial f}{\partial u}  &=  2 \left( \mu ^2 + u^2  \right) 2u + 4 u  \\
+  \end{rcases}
+  = 0 \text{ at } \left( 0,0 \right)
+\] 
+Where $\left( 0,0 \right)$ is singular. \[
+\begin{split}
+  f_{\mu \mu } &=  12 \mu ^2 + 4 u^2 - 4 \\
+  f_{\mu \mu }  & = 8 u \mu  \\
+ f_{uu } &=  12  u ^2 + 4 \\ 
+ 4 * 0 ^2 - 4 \left( 4 \right) \left( -4 \right)   & \ge 0  \implies  \text{?????}
+\end{split} 
+\] 
+\textbf{Example.} Tank reactor.  Let $q $ be inflow rate, $\left[ q \right] = m^3 s^{-1}$. With a concentration $c_{in} $ and temperature $\theta _{in}$ and out $c ^{*} , \theta ^{*}$ . 
+\begin{itemize}
+  \item $c^{*}$ reactor concentration.
+  \item  $\theta ^{*}$ Temperature. 
+  \item $c^{*}\left( 0 \right) = c_{\text{in}}$
+  \item $\theta ^{*}\left( 0 \right) = \theta _{in}$
+\end{itemize}
+Assume that $c ^{*}$ disappears at rate 
+\[
+kc ^{* } e ^{ -\frac{A}{\theta ^{*}}} .
+\] 
+The reaction generates heat given by \[
+h\left( kc^{*}e^{\frac{A}{\theta ^{*}}} \right)
+\] 
 
 \newpage
 
