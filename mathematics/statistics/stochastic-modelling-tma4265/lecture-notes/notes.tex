@@ -1445,7 +1445,7 @@ Recall
     1, \quad  \text{at least one event  in } (t_{i-1}, t_{i}] \\
     0, \quad \text{Otherwise} 
   \end{cases}
-  , \quad  $i = 1, 2, \ldots, m $ 
+  , \quad  i = 1, 2, \ldots, m  
   \] 
   Then we can let $\displaystyle S_{m} = \sum_{i=1}^{m} \varepsilon _{i} $ .
 \item $\displaystyle  \varepsilon _{1} , \varepsilon _{2}, \ldots , \varepsilon _{m} \sim Bernoulli\left( p_{m} \right) $ where $p_{m} = \frac{\lambda h}{m}  + o\left( \frac{h}{m} \right) $  as $ m\to  \infty$. 
@@ -1524,7 +1524,107 @@ Recall
 
 
 
+\begin{remark}
+  \begin{itemize}
+    \item
+  We will always use this parameterization.
+\item Other: Scale paremter $\beta > 0$ : \[
+f\left( y \right) = \frac{1}{\beta } , \quad  y> 0 
+\] 
+  \end{itemize}
 
+\end{remark}
+
+\begin{theorem}
+  Let $\left\{ N\left( t \right): t \ge0 \right\}$ be a Poission process with rate $\lambda $.  Then $S_{0}, S_{1}, \ldots, S_{n-1}\sim Exp\left( \lambda  \right)$
+\end{theorem}
+
+\begin{proof}
+  For $n = 1$
+  \begin{enumerate}[label=(\roman*)]
+\item  $\displaystyle  Pr \left \{ S_{0} > s_{0} \right \}  = Pr \left \{   N\left( s_{0} \right) - N\left( 0 \right)    = 0 \right)\right \} $ \[
+\] 
+\item n= 2
+\begin{enumerate}[label=(\alph*)]
+  \item $S_{0} \sim Exp\left( \lambda  \right)$ 
+  \item $\displaystyle Pr \left \{ S_{1} > s_{1}  \mid  S_{0} = s_{0} \right \}  = Pr \left \{ N\left( s_{0} + s_{1} \right) - N\left( s_{0}  \right) = 0   \mid  S_{0} = s_{0 }\right \} $ \[
+      \begin{split}
+    &  \downarrow \text{ Independent increments } \implies \text{Markov}  \\
+    &= Pr \left \{ N\left( s_{0} +s_{1}  \right) - N\left( s_{0} \right) = 0 \right \}  \\
+     &  \downarrow \text{ Stationary increments}  \\
+    &= Pr \left \{ N\left( s_{1} \right) - N\left( 0 \right) = 0 \right \}  \\ 
+    &=  e^{-\lambda s_{1}} , \quad  s_{1 } > 0  \\
+      \end{split} 
+  \] 
+\item $\displaystyle  S\sim Exp\left( \lambda  \right)$ and $S_{0}$ and $S_{1}$ are independent. 
+\end{enumerate}
+\item For $n= 3,4 , \ldots$ \[
+\text{Markoc property} \quad  \implies  \quad \text{independence.}  .
+\] 
+$Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$. 
+  \end{enumerate}
+\end{proof}
+\begin{remark}
+  Alternatice definition of the possion process: 
+  \begin{enumerate}[label=(\roman*)]
+    \item Start in $0$
+    \item Spend a time  $Exp\left( \lambda  \right)$ in each state.
+  \end{enumerate}
+\end{remark}
+\begin{definition}
+  The stochastic variable $Y$ has a \textbf{gamma distrobution }  with \textbf{shape parameter}  $\alpha > 0 $ and \textbf{rate parameter }  $\lambda > 0$ if \[
+  f\left( y \right) = \frac{\lambda ^{\lambda }}{\Gamma \left( \alpha  \right)} y^{n-1} e^{-\lambda  y} , \quad  y> 0 
+  \] 
+  We write $Y \sim Gamma\left( \alpha , \lambda  \right)$
+\end{definition}
+
+\begin{remark}
+  \begin{enumerate}[label=(\roman*)]
+    \item Check which parametrization which is used.
+    \item Scale parameter: $\beta  = \frac{1}{\lambda }$ is very common.
+    \item We will use shape and rate. 
+    \item $Gamma\left( 1, \lambda  \right) = Exp \left( \lambda  \right)$
+  \end{enumerate}
+\end{remark}
+\begin{theorem}
+  For a Possion process with rate $\lambda  > 0$ $W_{n} \sim Gamma\left( n, \lambda  \right)$ for all integers  $n > 0$.
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle S_{0}, S_{1}, \ldots, S_{n-1} \sim Exp\left( \lambda  \right)$
+    \item $\displaystyle W_{n} = S_{0} + S_{1} + \ldots + S_{n-1}  $ \[
+        \begin{split}
+      &  \downarrow  \\
+       &  \sim Gamma\left( \sum_{i=1}^{n} 1 , \lambda  \right) \\
+       &= Gamma\left( n, \lambda  \right) \\
+        \end{split} 
+    \] 
+  \end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}
+  \textbf{Example.} Assume the occurance of a rare disease follows a Poission process with rate $ \lambda  = 2$ 
+  \begin{enumerate}[label=(\alph*)]
+    \item What is the probability that the first case accurs after 1 month?
+      \begin{enumerate}[label=(\roman*)]
+        \item Let $S_{0}  \sim Exp \left( 2 \right)$ \[
+        Pr \left \{ S _{0} > 1 \right \}  = \int_{1}^{\infty}  2 e^{ -2t} dt = e^{-2} \approx 0.135 
+        \] 
+        Where  $\displaystyle  Pr \left \{ N\left( 1 \right) - N\left( 0 \right) \right \} $
+      \end{enumerate}
+    \item What is the expected time until the 10th case occurs?
+      \begin{enumerate}[label=(\roman*)]
+        \item Let $ W_{10} \sim Gamma\left( 10,2 \right)$ \[
+        E\left[ W_{10} \right] = \frac{10}{2} = 5, \quad  \text{ months.} 
+        \] 
+      \end{enumerate}
+  \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+  \textbf{Example.} Let $\left\{ X\left( t \right): t \ge 0 \right\}$ is a Poission process with rate $\lambda > 0$. Determine the distrobution of $W_{1}  \mid  X\left( t  \right) = 1$
+\end{tcolorbox}
 \section{References}
 \label{sec:references}
 
