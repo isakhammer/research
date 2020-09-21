@@ -1455,12 +1455,76 @@ Recall
   \lim_{m\to \infty}  mo_{m} = \lim_{m\to \infty}  \left( \lambda h + o \left( 1 \right)  \right) = \lambda h
   \] 
   This is calles the "Law of rare events" $S \sim Possion\left( \lambda h \right)$. 
-\item \[
-Pr \left \{  N\left( h \right)- N\left( 0 \right)\neq S_{m} \right \}  \le \sum_{i=1}^{m} Pr \left \{ N\left( t_{i} \right) - N\left( t_{i-1} \right) \ge 2 \right \} 
+\item $ \displaystyle Pr \left \{  N\left( h \right)- N\left( 0 \right)\neq S_{m} \right \}  \le \sum_{i=1}^{m} Pr \left \{ N\left( t_{i} \right) - N\left( t_{i-1} \right) \ge 2 \right \} $ \[
+    \begin{split}
+      & \le \sum_{i=1}^{m}  o\left( \frac{h}{m} \right) \\ 
+      &= m\cdot o\left( \frac{h}{m} \right) \\
+      &= h o\left( 1 \right) \\
+       & \to _{m\to \infty} 0 \\
+        & \downarrow \\
+        N\left( h \right) - N\left( 0 \right)    &  =S \sim Poission \left( \lambda h \right)
+    \end{split} 
 \] 
+
   \end{enumerate}
   \end{itemize}
 \end{proof}
+
+\newpage
+\section{Lecture 2020-09-21}%
+\label{sec:lecture_2020_09_21}
+
+\textbf{Example. } Is it reasonable to model the following phenomena as Poission processes  ?
+\begin{enumerate}[label=(\alph*)]
+  \item Cases of a non-infectious rare disease. 
+    \begin{itemize}
+      \item Independent incremens: Yes, people are independent. 
+      \item Stationary increments: Yes. Few people get sick.
+      \item Many trials, "success " is rare: Yes. many people get sick.
+    \end{itemize}
+  \item Calls going through a phone central. 
+    \begin{itemize}
+      \item Yes. For specific time intervals. 
+    \end{itemize}
+  \item Goals in football.
+    \begin{itemize}
+      \item No. Number of goals are not independent.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Properties of the Poission process}%
+\label{sub:properties_of_the_poission_process}
+
+\begin{definition}
+  Let $\left\{ N\left( t \right): t \ge 0 \right\}$ be a Poission process.  Tee \textbf{waiting time } $W_{n}$  is the time of occurance of the $n$-th event. We define $W_{0} = 0$
+\end{definition}
+
+\begin{definition}
+  The difference $S_{n} = W_{n+1} - W_{n}$ are called the \textbf{sojurn times }  (interarrival times.)
+\end{definition}
+
+\begin{remark}.
+ \newpara
+  \begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle S_{n} = $ Time spent in stationary.
+    \item Two viewpoints. 
+    \begin{enumerate}[label=(\alph*)]
+      \item Possion process $\left\{ N\left( t \right):  t\ge 0  \right\}$
+      \item Poission point process. $\left( W_{1}, W_{2}, W_{3}, \ldots \right)$
+    \end{enumerate}
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  The stocastic variable $Y$ has an \textbf{exponantial distrobution }  with the rate parameter $\lambda  > 0$ \[
+  f\left( y \right) = \lambda  e^{-\lambda  y} , \quad  y>0  
+  \] 
+  We write $Y \sim Exp \left( \lambda  \right)$.
+\end{definition}
+
+
+
+
 \section{References}
 \label{sec:references}
 
