@@ -629,7 +629,7 @@ Which is a major simplification.
    General notes on simulation 
    \begin{itemize}
      \item
-   $Pr \left \{ A  \right \} \approx \frac{\text{# times A occure}}{ \text{ Simulations}}  $
+   $Pr \left \{ A  \right \} \approx \frac{\text{ times A occure}}{ \text{ Simulations}}  $
  \item $E\left[ X \right] \approx \frac{1}{N}  \sum_{i=1}^{B}  x_{i}$
    \end{itemize}
  \end{tcolorbox}
@@ -667,6 +667,7 @@ P_{ij} = \begin{cases}
 %     \label{fig:vizzz}
 % \end{figure}
 
+\newpage
 \textbf{Motivation}  
 \begin{definition}
   For a markov chain, a state $i$ sich that $P_{ij} = 0 \forall j\neq i$  is called \textbf{absorbing.} 
@@ -862,9 +863,11 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
      \] 
    \item \[
    \begin{split}
-     \chi _{1} + \chi _{2} + \ldots + \chi _{k} &= \left[ u - u_{0} \right] + \left[ u_{2} - u_{1} \right] + \ldots + \left[ u_{k} - u_{k-1} \right] \\
+     \chi _{1} + \chi _{2} + \ldots + \chi _{k} &= \left[ u - u_{0} \right] + \left[ u_{2} - u_{1} \right] \\
+      & + \ldots + \left[ u_{k} - u_{k-1} \right] \\
        &  \downarrow  \quad \text{Telescoping sum}  \\
-        \chi _{1}\left[ 1 + \frac{q}{p} + \left( \frac{q}{p} \right)^2 + \ldots + \left( \frac{q}{p} \right)^{k-1}  \right]&=  u_{k} -1, \quad k = 1,2,3,\ldots,N  \\
+        \chi _{1}\left[ 1 + \frac{q}{p} + \left( \frac{q}{p} \right)^2 + \ldots + \left( \frac{q}{p} \right)^{k-1}  \right]&=  u_{k} -1, \\
+        &  \quad k = 1,\ldots,N  \\
    \end{split} 
    \] 
    For $k = N$ : \[
@@ -883,8 +886,9 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
      &=  \begin{cases}
        1-\frac{1}{N} \cdot k =  \frac{N-k}{N}  ,  &  \quad  p = q = \frac{1}{2}  \\
        1- \frac{1- \left( \frac{q}{p}  \right)^{k}}{ 1- \left( \frac{q}{p} \right)^{N}} = \frac{\left( \frac{q}{p} \right)^{k} - \left( \frac{q}{p} \right) ^{ N}}{1- \left( \frac{q}{p} \right) ^{N}}  ,   & \quad  p\neq q 
-     \end{cases}, \quad \text{where} \quad    k = 1,2, \ldots.  \\
+     \end{cases} 
    .\end{align*}
+   where $k = 1,2, \ldots $
    \end{enumerate}
  \item The final step \[
  u_{10} = \begin{cases}
@@ -981,8 +985,8 @@ Must have \[
 \end{itemize}
 \end{enumerate}
 
-\subsubsection{Section 4.5}%
-\label{ssub:section_4_5}
+\subsection{Section 4.5}%
+\label{sub:section_4_5}
 Read it yourself .
 
 
@@ -1070,15 +1074,16 @@ Read it yourself .
   \textbf{Example.} We assume the arrival of customers to a store follows a Poission process with rate $\lambda  = 4$ customers per hours. The stor opens a 09:00. What is the probability that exactly one customer has arrived by 09:30 and exactly five customers have arrived bu 11:30.
   
   \newpara
-  \textbf{Answer.} Let $X\left( t \right) = \text{#arrivals by time $t$}$ For $t\ge 0$ (measured in hours). Then is the question \[
+  \textbf{Answer.} Let $X\left( t \right) = \text{arrivals by time } t$ For $t\ge 0$ (measured in hours). Then is the question \[
     \begin{split}
-  Pr \left \{ X\left( \frac{1}{2} \right) = 1,  &   X\left( \frac{5}{2}  \right) = 5 \right \}  \\
+   &  Pr \left \{ X\left( \frac{1}{2} \right) = 1,     X\left( \frac{5}{2}  \right) = 5 \right \}     \\
   \downarrow   &  = \text{ Rephrase as incements } \\
                &= Pr \left \{ X\left( \frac{1}{2} \right) - X\left( 0 \right) = 1 , X\left( \frac{5}{2}  \right) - X\left( \frac{1}{2} \right) = 4  \right \}  \\
                \downarrow  &  \text{Independent increments} \\
-                           &= Pr  \underbrace{\left \{ X\left( \frac{1}{2} \right)- X\left( 0 \right) = 1 \right \}}_{ Poission(\frac{1}{2} \lambda )}  \cdot  Pr  \overbrace{\left \{X\left( \frac{5}{2} \right) - X\left( \frac{1}{2} \right\}}^{Possion(2 \lambda )}  = 4 \right \}  \\ 
+                           &= Pr  \underbrace{\left \{ X\left( \frac{1}{2} \right)- X\left( 0 \right) = 1 \right \}}_{ Poission(\frac{1}{2} \lambda )}  \cdot \\
+                            & \quad     Pr \left \{  \underbrace{ X\left( \frac{5}{2} \right) - X\left( \frac{1}{2} \right)}_{Possion(2 \lambda )}  = 4 \right\}  \\ 
 &= \frac{2^{1}}{1!} e^{-2}  \cdot \frac{8^{4}}{4!} e^{-8}   \\
-    &= 0.0155 \\
+    &= 0.0155 
     \end{split} 
   \] 
 \end{tcolorbox}
@@ -1295,8 +1300,11 @@ Typical examples
   \item Telephone calls.
 \end{itemize}
 
-\subsubsection{Little Oh notation}%
-\label{ssub:little_oh_notation}
+
+\subsection{Little oh-notation}%
+
+\label{sub:little_oh_notation}
+
 
 \begin{enumerate}[label=(\roman*)]
   \item
@@ -1349,8 +1357,9 @@ May be thought as "$h^2$ is much smaller than $h$ as $h \to  0^{+}$"
   \end{enumerate}
 \end{tcolorbox}
 
+\newpage 
 \begin{definition}
-  A \textbf{C\inftunting process}  is a stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ so that 
+  A \textbf{C process}  is a stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ so that 
   \begin{enumerate}[label=(\roman*)]
     \item $N\left(  t \right)$ is a integer for $t\ge 0$
     \item $N\left( t \right) \ge 0$, for $t\ge0$
@@ -1363,7 +1372,10 @@ May be thought as "$h^2$ is much smaller than $h$ as $h \to  0^{+}$"
 \end{definition}
 
 \begin{definition}
-  Let $\left\{ N\left( t \right) : t \ge 0 \right\}$ be a counting process. Then $\left\{ N\left( t \right): t \ge 0 \right\}$ is  a \textbf{Poission proccess}  with \textbf{rate (intensity)}  $\lambda > 0 $  if 
+  Let $\left\{ N\left( t \right) : t \ge 0 \right\}$ be a counting process.  Then \[
+  \left\{ N\left( t \right): t \ge 0 \right\} 
+  \] is  a \textbf{Poission proccess}  with \textbf{rate (intensity)}  $\lambda > 0 $  if 
+
   \begin{enumerate}[label=(\roman*)]
     \item For every integer $m> 1$ for any timepoints \[
         \begin{split}
@@ -1542,7 +1554,7 @@ f\left( y \right) = \frac{1}{\beta } , \quad  y> 0
 \begin{proof}
   For $n = 1$
   \begin{enumerate}[label=(\roman*)]
-\item  $\displaystyle  Pr \left \{ S_{0} > s_{0} \right \}  = Pr \left \{   N\left( s_{0} \right) - N\left( 0 \right)    = 0 \right)\right \} $ \[
+\item  $\displaystyle  Pr \left \{ S_{0} > s_{0} \right \}  = Pr \left \{   N\left( s_{0} \right) - N\left( 0 \right)    = 0  \right \} $ \[
 \] 
 \item n= 2
 \begin{enumerate}[label=(\alph*)]
@@ -1571,6 +1583,7 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
     \item Spend a time  $Exp\left( \lambda  \right)$ in each state.
   \end{enumerate}
 \end{remark}
+\newpage
 \begin{definition}
   The stochastic variable $Y$ has a \textbf{gamma distrobution }  with \textbf{shape parameter}  $\alpha > 0 $ and \textbf{rate parameter }  $\lambda > 0$ if \[
   f\left( y \right) = \frac{\lambda ^{\lambda }}{\Gamma \left( \alpha  \right)} y^{n-1} e^{-\lambda  y} , \quad  y> 0 
@@ -1625,9 +1638,139 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
 \begin{tcolorbox}
   \textbf{Example.} Let $\left\{ X\left( t \right): t \ge 0 \right\}$ is a Poission process with rate $\lambda > 0$. Determine the distrobution of $W_{1}  \mid  X\left( t  \right) = 1$
 \end{tcolorbox}
+
+\newpage
+\section{Lecture 2020-09-23}%
+\label{sec:lecture_2020_09_23}
+
+
+
+\begin{theorem}
+  Let $W_{1}, W_{2} , \ldots$ be occurance in a Poission process \[
+  \left\{ \left( t \right) : t \ge 0\right\}
+  \] 
+  with rate $\lambda  > 0$. Then is \[
+    \begin{split}
+  \left( W_{1}, W_{2}, \ldots, W_{n} \right)  \mid  X\left( t \right)   = n   & \sim f\left( w_{1}, w_{2}, \ldots,  \mid  X\left( t \right) = n \right) \\
+  &= \frac{n!}{t^{n} } , \quad  0, w_{1} < w_{2} < \ldots<   w_{n} < t   \\
+    \end{split} 
+  \] 
+\end{theorem}
+\textbf{Disscusion}  
+\begin{enumerate}[label=(\roman*)]
+  \item $X\left( t \right) = n$ , then exactly $n$ events occur in $(0,t]$ . Let  $V_{1}, V_{2}, \ldots , V_{n}$ be the locations of the events not necessarily ordered. 
+\item $\left\{ X\left( t \right) \right\}$ can be approximated by a collection of Bernoulli trials on intervals $(  \frac{\left( i-1 \right)}{m} t, \frac{i}{m} t  ]$ , $i = 1, 2 , \ldots , m$. 
+\item The $m$ trials are independent. That means any selection of $n$ unique intervals \[
+\left\{ i_{1}, i_{2}, \ldots, i_{n} \right\} \le \left\{ 1,2,\ldots, m \right\}
+\] 
+locations follow a uniform distribution as $m \to  \infty$, which indicated that \[
+V_{1}, V_{2}, \ldots, V_{n}  \mid  X\left( t \right) =n  \stackrel{iid}{\sim } u\left( 0,t \right) 
+\] 
+\item Let sort such that \[
+    \begin{split}
+\left( w_{1} , w_{2} , \ldots, 2_{n} \right)  & = sort\left( V_{1}, V_{2} , \ldots \right). \\
+\implies  f\left( w_{1}, w_{2}, \ldots , w_{n}  \mid X\left( t \right) = n \right) &=  \left( \frac{1}{t} \right)^{n} n! \\
+   \text{ for } 0< w_{1} < w_{2} < \ldots < w_{n}  & \le t
+    \end{split} 
+\] 
+\textbf{Remark} . 
+\begin{itemize}
+  \item Conditional on $n$ events occuring in $(0, t]$ ,  the locations of the events are idd uniform distrobution on  $(0,t]$
+\end{itemize}
+\end{enumerate}
+
+\begin{tcolorbox}
+  \textbf{Example.} Customers arrive according to a Poission process with rate $\lambda  > 0$ per hours.  The store opens at 09:00. If 10 people have arrived at 11:00. What is the probability that texactly 5 of the 10 poeple arrived before 10:00.
+  
+  \newpara
+  Conditional on $X\left( 2 \right) = 10$, arrival time are iid  $u\left( 0,2 \right)$. This implies that \[
+    \begin{split}
+     &  Pr \left \{ X\left( 1 \right)   = 5  \mid  X\left( 2 \right) = 10 \right \}  \\
+   & = Pr \left \{ 5 \text{ arrive in } (0, 1] \text{ and }5 \text{ in } (1,2] \right \}  \\
+   &= \begin{pmatrix}
+   10 \\
+   5
+   \end{pmatrix} 
+    \end{split} 
+  \] 
+\end{tcolorbox}
+
+\textbf{Joint simulation} 
+
+\newpara
+Input
+\begin{itemize}
+  \item Time interval $(0, t]$
+  \item Rate,  $\lambda  > 0$
+\end{itemize}
+
+Algorithm 
+\begin{enumerate}[label=(\roman*)]
+  \item Simulate $n \sim Poission \left( \lambda t \right)$
+  \item Simulate $v_{1} , v_{2} , \ldots , v_{n} \sim U\left( 0,t \right)$
+  \item Let $\left( w_{1}, w_{2}, \ldots, w_{n} \right) = sort \left( v_{1}, v_{2}, \ldots, v_{n} \right)$
+\end{enumerate}
+
+Output \[
+  x\left( s \right) = 
+\begin{cases}
+  0, &  \quad  0< s \le w_{1}  \\
+  1,  &  \quad w_{1} < s < w_{2} \\
+  \vdots   &  \\
+  n, &   w_{n} \le s < t
+\end{cases}
+\] 
+
+
+\subsection{Continous Markov Chains}%
+\label{sub:continous_markov_chains}
+
+We call the stochastic process $\left\{ X\left( t \right): t\ge 0 \right\}$ a contionious-time markov chain with state space $\left\{ 0,1, \ldots \right\}$ if it satisfies the Markov property \[
+  \begin{split}
+&Pr \left \{   X\left( t+s \right) = j  \mid  X\left( s \right) = i, X\left( u \right),   0\le u \le s \right \}   \\
+ & \quad   = Pr \left \{   X\left( t+s \right) = j  \mid  X\left( s \right) = i\right \} 
+  \end{split} 
+\] 
+For $i,j = 0,1,\ldots$ for all $s \le 0$ and $t > 0$ .
+
+\newpage
+\begin{remark}
+  \begin{itemize}
+    \item We are only interested in stationary transition probabilities . \[
+    Pr \left \{  X\left( s + t \right) = j  \mid  X\left( s \right) = i \right \}  = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \} 
+    \] 
+    For all $ s \ge 0$, $t> 0$ and states $i,j$ .  
+  \item Continuous time Markov chain is "random sojourn time + random jumps."
+  \end{itemize}
+\end{remark}
+
+
+\begin{definition}
+  Let $\left\{ X\left( t \right) : t\ge 0 \right\}$ be a continious time Markov Chain with state space $\left\{ 0,1, \ldots \right\}$ and stationary probabilities. we call \[
+  P_{ij} \left( t \right) = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \}  , \quad  ij, = 0,1, \ldots 
+  \] 
+  The \textbf{transition probability function} .
+\end{definition}
+
+
+\subsubsection{Transition probability function}%
+\label{ssub:transition_probability_function}
+
+Given \[
+  \begin{split}
+P_{ij}\left( t \right)  & = Pr \left \{  X\left( t \right) = j  \mid  X\left( 0 \right) = i \right \}  \\
+ &=  Pr \left \{  \underbrace{X\left( t \right) . X\left( 0 \right)}_{Poission\left( \lambda t \right)}  = i - j \right \}  \\
+ &=  \begin{cases}
+    \frac{\left( \lambda t \right)^{i-j}}{\left( j-i \right)!}  e^{-\lambda t}, &  
+     \quad j \ge 0 \\
+    0 , &  \quad \text{otherwise} 
+ \end{cases} \\
+  \end{split} 
+\] 
+
+
 \section{References}
 \label{sec:references}
-
 
 
 \bibliographystyle{plain}
