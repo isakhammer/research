@@ -2044,7 +2044,7 @@ To simplify, let us define $\mu  = \frac{q}{kv}$ and $\gamma = \frac{A}{\theta _
 \] 
 For the other problem is \[
   \begin{split}
-\frac{1}{T} v C_{v} \theta _{in} \theta '  \left( t \right)  & = qC_{v} \theta _{in} \frac{1}{V }  - \frac{q C_{v} \theta _{in} \theta }{V}  + hk V c_{in}c e^{\frac{\gamma}{\theta } }
+\frac{1}{T} v C_{v} \theta _{in} \theta '  \left( t \right)  & = qC_{v} \theta _{in} \frac{1}{V }  - \frac{q C_{v} \theta _{in} \theta }{V}  + hk V c_{in}c e^{\frac{\gamma}{\theta } } \\
 \implies  \theta '   & = 1 - \theta  - + \left( \frac{Vhkc_{in}}{qc_{v} \theta _{in}}  \right) c e^{\frac{\gamma }{\theta } } \\
 \theta &=  1- \theta + \nu \frac{1}{\mu }  c e^{\gamma \frac{1}{\theta } }  \\
   \end{split} 
@@ -2089,6 +2089,222 @@ f\left( \mu ,u \right) &=  -u h\left( u \right) \cdot \frac{1}{\mu } \\
 
 
 \newpage
+
+\newpage
+\section{Lecture 2020-09-23}%
+\label{sec:lecture_2020_09_23}
+
+\subsection{Dynamic population models}%
+\label{sub:dynamic_population_models}
+
+   Natural growth: $ \displaystyle  \frac{d v^{*}}{d t^{*}}  = r v^{*}$. Ok as long as there is food and space. But in reality there are limitiation to growth, so a model \[
+  \frac{d v^{*}}{d t^{*}}  = r N^{*} \left( 1- \left( \frac{N^{*}}{K} \right)^{\alpha }  \right), \quad K>0 
+  \] 
+  when $ N^{*} \ll  K$ \[
+  \frac{d N^{*}}{d t^{*}}  \approx r N^{*}
+  \] 
+  \textbf{Scaling.}  $\left[ r \right]=\frac{1}{s}$. One time scale is $T=\frac{1}{r}$.  $K$ natural scale for $N ^{*}$ \[
+    \begin{split}
+  t^{*}  & = \frac{1}{r} t , \quad  N^{*} = KN  \\
+  rkN'&= KrN\left( 1 - \frac{KN}{K}  \right) \\
+  \implies  N'  &=  N\left( 1-N \right) \\
+  f\left( N \right) &=  0, \quad \implies  N = 0, N=1  \\
+    \end{split} 
+  \] 
+
+  \textbf{Stability.}  \[
+  \begin{split}
+    f' \left( N \right) &=  1- 2N \\
+    f' \left( 0 \right) &=  1 > 0 , \quad \text{unstable}    \\
+    f' \left( 1 \right) = 1 - 2 = -1 < 0 , \text{totally stable}
+  \end{split} 
+  \] 
+  The solution is \[
+  N\left( t \right) = \frac{N\left( 0 \right)}{ N\left( 0 \right) + \left( 1 - N\left( 0 \right) e^{-t} \right)} 
+  \] 
+  \subsubsection{Whales and krill}%
+  \label{ssub:whales_and_krill}
+  Let $N^{*}\left( t^{*} \right) $ and $H^{*}\left( t^{*} \right)$ be the number of krill and whales respectively.  
+  \begin{align}
+    \label{eq:a1}
+  \frac{d N^{*}}{d t^{*}}   & = rN^{*}\left( 1- \frac{N^{*}}{K_{N}}  \right) - \alpha _{2} N^{*}H^{*} - u_{N}F_{N} N^{*} \\
+    \label{eq:a2}
+  \frac{d H^{*}}{d t^{*}}  &=  q H^{*} \left( 1- \frac{H^{*}}{\alpha  N^{*}}  \right) - u_{H} F_{H} H^{*} , \quad  N^{*} \neq 0  \\
+  r \ll  q  & \implies  T_{N} = \frac{1}{r} \ll  T_{H} = \frac{1}{q} 
+  .\end{align}
+  \textbf{Scaling.}  Choose $T = T_{H} $ as time scale. $K_{N}$ scale for $N^{*}$, $\alpha K_{N}$ scale for $H^{*}$. \[
+  t^{*} = \frac{1}{q} t, \quad  N^{*} =  K_{N} N , \quad  H^{*} = \alpha  K_{N} H  
+  \]  
+  Using \eqref{eq:a1}    \[
+    \begin{split}
+  qN'   & = rK_{N} \left( 1- \frac{K_{N} N}{K_{N}}  \right) - \frac{\alpha _{2} K_{N}K_{r} NH}{r} - u_{N} F_{N} \frac{K_{N} N}{ r}    \\
+  \implies  \left( \frac{q}{r} \right) N'  &=  N \left( 1 - N \right) - \left( \frac{\alpha \alpha _{2} K_{N}}{r}  \right) NH - \left( u_{N} F_{N} \frac{1}{r}  \right)N \\
+    \end{split} 
+  \] 
+  Lets put \[
+  \varepsilon  = \frac{q}{r} , \quad  \gamma  = \frac{\alpha \alpha _{2} K_{N}}{r}, \quad  f_{N} = \frac{u_{N} F_{N}}{r}   
+  \] 
+  We then end up with
+  \[
+    \varepsilon  N'  = N\left( 1- N \right) - \gamma  HN - f_{N} N
+  .
+  \] 
+  For equation $\eqref{eq:a2} $ \[
+  \alpha K_{N} q H'  = \alpha  K_{N} q H \left( 1 - \frac{\alpha  K_{N} H }{ \alpha  K_{N} N}  \right) - u_{H} F_{H} K_{N} \alpha H
+  \] 
+
+  Let $f_{H} = \frac{u_{N} F_{N}}{q} $ be \[
+  H'  = H\left( 1 - \frac{H}{N} \right) - f_{H} H
+  \] 
+  such that \[
+    \begin{split}
+  \varepsilon N'  &=  N\left( 1 - N \right) - \gamma HN - f_{N} N \\
+  H'  &=  H\left( 1 - \frac{H}{N} \right) - f_{H} H \\
+    \end{split} 
+  \] 
+  \textbf{Stability Properties.}  \[
+  \mathbf{f}\left( N,H \right) = \begin{bmatrix} 
+  N\left(  1 - N  \right)  - \gamma  HN f_{N} N \\
+  H\left( 1 - \frac{H}{N} \right) - f_{H} H
+  \end{bmatrix} 
+   = \begin{bmatrix} 
+   0 \\
+   0
+   \end{bmatrix} 
+  , \quad  N\neq0  
+  \] 
+  Fromt he first equation \[
+    \begin{split}
+  N\left( 1- N - \gamma  H - f_{N} \right)  &=  0 \\
+  H\left( 1- \frac{H}{N} - f_{H} \right) &=  0 \\
+    \end{split} 
+  \] 
+  If we llok at $H = 0$ it implies that \[
+    \begin{split}
+  1 - N - f_{N} &=  0 \\
+ N  & = 1 - f_{N}
+    \end{split} 
+  \] 
+  We have now one eq. point such that \[
+    \left( 1 - f_{N}, 0 \right) = \left( N_{e}, H_{e} \right)
+  \] 
+  which can be considered as an unstable point if we introduce perturb by introducing , let say, one whale.  For $H\neq 0$ \[
+  \begin{split}
+    1 - N - \gamma  H f_{N} &=  0 \\
+    1 - \frac{H}{N}  f_{H} &=  0 \\
+  \end{split} 
+  \] 
+  \begin{align}
+      \label{eq:a4}
+      1- N - \gamma  H f_{N} &=  0  \\
+      \label{eq:a5}
+      N - H - f_{H} N = 0
+  .\end{align}
+
+  Insert \eqref{eq:a5}  we get $ H = \left( 1 - f _{H}  \right) N$. And inserting \eqref{eq:a4}  \[
+    \begin{split}
+  1 - N - \gamma  \left( 1 - f_{H} \right) N - f_{N} &=  0 \\
+  \implies  N\left(  1 + \gamma  \left(  1 - f_{H} \right) \right)  & = 1- f_{N} \\
+  \implies  N = \frac{1 - f_{N}}{ 1 + \gamma  \left(  1 - f_{H} \right)} 
+    \end{split} 
+  \] 
+  In summary is the eq. point \[
+  \left( N_{e}, H _{e} \right) = \left(  \frac{1 - f_{N}}{ 1 + \gamma  \left( 1 - f_{H} \right)}  \right) , \frac{\left( 1 - f_{H} \right) \left( 1 - f_{N} \right)}{ 1 + \gamma  \left( 1 - f_{H} \right)} 
+  \] 
+
+  Rate of krill being caught is \[
+  N_{e} f_{N} = \frac{f_{N} \left( 1 - f_{N} \right)}{ 1 + \gamma  \left( 1 - f_{H} \right) }  = P_{N}
+  \] 
+  $P_{N}$ has maximum when $f_{N} = \frac{1}{2}$.  \[
+  \mathbf{f}\left( N,H \right) =  
+  \begin{bmatrix} 
+  N\left( 1 - N \right) - \gamma  NH - f_{N}N \\
+  H\left(  1 - \frac{H}{N} \right) - f_{H}H 
+  \end{bmatrix} 
+  \] 
+
+  The jacobian matrix \[
+  J\left( N, H \right) = \begin{bmatrix} 
+  1 - 2N - \gamma   &  -\gamma N \\
+  \frac{H^2}{N^2}   &  1- \frac{2H}{N} - f_{H}
+  \end{bmatrix} 
+  \] 
+  The first eq. point we obtained $\left( N_{e}, H_{e} \right) = \left( 1 - f_{N}, 0 \right)$ \[
+  J\left( N_{e}, H_{e} \right) = \begin{bmatrix} 
+  \overbrace{1 - f_{N} - 2 \left( 1 - f_{N} \right)}^{- \left( 1 - f_{N} \right)}   &  - \gamma \left( 1 - f_{N} \right) \\
+  0  & 1 - f_{H}
+  \end{bmatrix} 
+  \] 
+  Observe that \[
+    \begin{split}
+  det\left( J \right) &=  - \left( 1 - f_{N} \right) \left( 1 - f_{H} \right) < 0 \\
+  \implies  \left( 1 - f_{N}, 0 \right)  & , \text{ is in fact unstable.}
+    \end{split} 
+  \] 
+  However,
+  \[
+   \begin{split}
+    \begin{bmatrix} 
+    \widetilde{N} \\
+    \widetilde{H}
+    \end{bmatrix} 
+    '  & = J\left( N_{e}, 0 \right) \begin{bmatrix} 
+    \widetilde{N} \\
+    \widetilde{H}
+    \end{bmatrix}  \\
+    \begin{bmatrix} 
+    \widetilde{N}\left( t \right) \\
+    \widetilde{H}\left( t \right)
+    \end{bmatrix}  
+    &= c_{1}
+    \begin{bmatrix} 
+    1 \\
+    0
+    \end{bmatrix} 
+    e^{- \left( 1 - f_{N} \right)t} \
+   + c_{2} \begin{bmatrix} 
+   1  \\
+   \frac{- \left( 1 - f_{N} \right) - \left( 1 - f_{H} \right)}{\gamma \left( 1 - f_{H} \right)} e^{\left( 1 - f_{H} \right)t}
+   \end{bmatrix} 
+   \end{split}  
+  \] 
+
+
+  In the same manner we find \[
+  J\left( N_{e}, H_{e} \right) 
+  \] 
+  for \[
+  \left( N_{e} , H_{e} \right) = \left( \frac{1-f_{N}}{ 1 + \gamma  \left( 1 - f_{H} \right)}, \frac{\left( 1 - f_{N} \right) \left( 1 - f_{N} \right)}{ 1 + \gamma \left( 1 - f_{H} \right) } 1  \right)
+  \] 
+  And discover that $det\left( J \right) > 0$ and $trace\left( J \right) < 0$ 
+\begin{itemize}
+  \item Both eigenvalues have negative part
+  \item  $\left( N_{e}, H_{e} \right)$ is asymptotic stable
+\end{itemize}
+Rate of whale catching \[
+H_{e}f_{H} = P_{H}
+\] 
+$p_{N} $ and $p_{H}$ is the return value of each $N$ and $H$ \[
+f\left( f_{N} , f_{H}  \right) = p_{N} P_{N} + p_{H}  P_{H}
+\] 
+  
+\subsection{Conservation Laws}%
+\label{sub:conservation_laws}
+
+In general we can formulate everything in $n$- dimensions. But we stick to $n = 3 $.  Three main players .
+ \begin{itemize}
+  \item Conserved entity: $\phi $
+  \item  Flux density: $\mathbf{J}$
+  \item Sinks/sources : $Q$
+\end{itemize}
+  
+  
+
+  
+  
+
+
+
 
 \section{References}%
 \label{sec:references}
