@@ -851,6 +851,137 @@ We need to understand for wich $z$ the root condition holds for the roots $\zeta
 
 
 
+\newpage
+\section{Lecture 2020-09-22}%
+\label{sec:lecture_2020_09_22}
+
+
+\subsection{Splitting Methods}%
+\label{sub:splitting_methods}
+
+
+In physics get vector field $f\left( t,y \right)$ can arise from different types of phenomena.
+
+\newpara
+\textbf{Example.} Reaction-diffusion. \[
+  \frac{\partial u}{\partial t} = M \Delta  u + R\left( u \right)
+\] 
+$u$ is a vector of concentrations, $u = u\left( x,t \right)$, $M$ is a diagonal matrix (positive diagonal), and $R\left( u \right)$ are local reactions. Can be split into two parts: 
+\begin{align}
+  \label{eq:dif1}
+\frac{\partial u}{\partial t}   & = M \Delta v, \quad v\left( t_{n}, x \right) = u_{n}\left( x \right)  \\
+  \label{eq:dif2}
+\frac{\partial w}{\partial t}  &=  R \left( w \right), \quad w\left( t_{n},x \right) \text{ is given}  
+.\end{align}
+
+For a given $u_{n}\left( x \right)$, solve \eqref{eq:dif1}  to obtain $\widetilde{v}\left( t_{n+1}, x \right)$. Then solve \eqref{eq:dif2} , with $w\left( t_{n} , x \right) = \widetilde{v}\left( t_{n+1}, x \right)$ then obtain $w\left( t_{n+1},x \right) = u_{n+1}\left( x \right)$ . Even if  \eqref{eq:dif1} and \eqref{eq:dif2} are solved exactly the splitting introduce an error. Assume from now on that we have autonomous problems. Recall flows of vector fields. Let $z\left(
+t\right) = \phi_{f,t} \left( y_{0}  \right)$, i.e $z'  = f\left( z \right), \quad  z\left( 0 \right)= y_{0} $. 
+
+\newpara
+Consider   
+\begin{equation}
+\label{eq:bigF}
+y' = f\left( y \right) + g\left( y \right) = F\left( y \right).
+.\end{equation}
+ Then the Lie-Trotter Splitting is
+ \begin{equation}
+ \label{eq:phi1}
+y_{n+1} = \phi _{n,g} \left( \phi _{n,f} \left( y_{n} \right) \right) = \phi _{n,g} \circ \phi _{n,f} \left( y_{n} \right).
+ .\end{equation}
+
+Here we assume exact version of the flows. Compare
+     $\phi _{F,h}\left( y_{0} \right) $ to   $\phi _{n,g} \circ \phi _{n,f}$.  \[
+     \begin{split}
+       y_{1} =  y\left( h \right)  & = y_{0} + y' \left( 0 \right) + \frac{1}{2} h^2 y''  + O\left( h^3 \right) \\
+       &=  y_{0} + h F\left( y_{0} \right) + \frac{1}{2} F' F\left( y_{0} \right) + O\left( h^3 \right) \\
+       &= y_{0} + h \left( f\left( y_{0} \right) + g\left( y_{0} \right) \right) \frac{1}{2} h^2 \left( f' f + f' g + g' g  \right)\left( y_{0} \right) + O\left( h^2 \right) \\
+     \end{split} 
+     \] 
+
+     And for the other one \[
+     \begin{split}
+       y'  & = f\left( y \right) , \quad  y\left( 0 \right) = y_{0}  \\
+       \overline{u} &= \phi _{n,f}\left( y_{0} \right) = y_{0} h f\left( y_{0} \right) + \frac{1}{2} h^2 f'  f\left( y_{0} \right) + O\left( h^3 \right) \\
+       z'   & = g\left( z \right) , \quad  z\left( 0 \right) = \overline{u}   \\
+       u_{1} &=  \phi _{n,g} = \overline{u}  + h g\left( \overline{u}  \right) + \frac{1}{2} h^2 g' g\left( \overline{u}  \right) + O\left( h^3 \right) \\
+       &=  y_{0} + hf\left( y_{0} \right) + \frac{1}{2} h^2  f' f\left( y_{0} \right) h\cdot g\left( y_{0} + h f\left( y_{0} \right) + \ldots \right) + \frac{1}{2} h^2 g' g\left( y_{0} + O\left( h \right) \right)  \\ 
+       &=  y_{0} + hf\left( y_{0} \right) + \frac{1}{2} h^2 + \frac{1}{2} ^2 f'  f\left( y_{0} \right) + h\left( g\left( y_{0} \right) + h g' f\left( y_{0} \right) + \ldots \right) + \frac{1}{2} h ^2 g'  g\left( y_{0} \right) + O\left( h^3 \right) \\
+       &= y_{0} + h\left( f\left( y_{0} \right) + g\left( y_{0} \right) \right) \frac{1}{2} h^2 \left( f'  f\left( y_{0} \right) + 2 g' f\left( y_{0} \right) g' g\left( y_{0} \right) \right) +  +  O\left( h^3 \right)  \\
+     \end{split} 
+     \] 
+     We can the the difference such that \[
+     y_{1} - u_{1} = \frac{1}{2} h^2 \left( f' g - g' g \right)\left( y_{0} \right) + O\left( h^3 \right)
+     \] 
+
+     \begin{tcolorbox}
+       Digression. \[
+       y_{1} - u_{1} = \varepsilon = h \tau 
+       \] 
+     \end{tcolorbox}
+The order of Lie-Trotter is $p=1$ since $y_{1} - u_{1} = O\left( h^3 \right)$.
+
+\newpara
+
+Let $u^{*}_{1} = \phi _{n,f} \circ \phi _{n,g} \left( y_{0} \right)$. Same order as $u_{1}$ and principal error term of opposite sign. So \[
+\frac{1}{2} \left( \phi _{n,g} \circ  \phi _{n,f} + \phi _{n,f} \circ \phi _{n,g} \right)\left( y_{0} \right) , \text{ has order } p= 2
+\] 
+An even more popular improvement to Lie-Trotter is the Strang splitting. \[
+u_{1}^{s} = \phi _{\frac{h}{2}, f} \circ \phi _{h,g} \circ \phi _{\frac{h}{2}, f}\left( y_{0} \right)
+\] 
+A similar calculation shows that $y_{1} - u_{1} ^{s} = O\left( h^3 \right)$. 
+
+\newpara
+
+\textbf{Example.}  \[
+y'  = \sqrt{y}  + y^2, \quad y\left( 0 \right) = 1 
+\] 
+\begin{enumerate}[label=(\roman*)]
+  \item $z' = \sqrt{z}  , \quad  z\left( 0 \right) = y_{0} = 1 $, \[
+  z\left( t \right) = y_{0} + t \sqrt{y_{0}}  + \frac{1}{4} t ^2  \] 
+\item $w'  = w ^2 $ , $ w\left( 0 \right) = w_{0} $ \[
+w\left( t \right) = \frac{w_{0}}{1- tw_{0}} 
+\] 
+\end{enumerate}
+
+Using Strang Splitting, $\frac{h}{2}$ with  i)\[
+u^{*} = \left( \sqrt{y_{0}}  + \frac{h}{4} \right) ^2 = \left( 1 + \frac{h}{4} \right)^2
+\] 
+and $h$ with ii) where $u^{*} = \left( 1 + \frac{h}{4} \right) = w_{0}$ \[
+  \begin{split}
+u^{* * }  & = \frac{u^{*}}{ 1- h u^{*}}  \\
+u_{1}  & = \left( \sqrt{u^{* * }} + \frac{h}{4}  \right) ^2
+  \end{split} 
+\] 
+Complicated to write out in terms of $y_{0}$.  
+
+
+\newpara
+\textbf{Why use splitting methods?} 
+\begin{enumerate}[label=(\roman*)]
+  \item Each terms may be easier to integrate and the sum. 
+  \item Software for each of the terms may be available (multi physics, PDEs ).
+  \item Geometric arguments. Makes it easier to preserve certain properties of exact solution.May lead to better long time behaviour of the solution. 
+\end{enumerate}
+
+\subsection{ Nonlinear Systems and Numerical Optimization}%
+\label{sub:_nonlinear_systems_and_numerical_optimization}
+
+Reading Material Quertoni and Ch 7.1, Ch 7.2.  Duration 2-weeks. 
+\subsubsection{Nonlinear Systems}%
+\label{ssub:nonlinear_systems}
+
+Given a map $F: \mathbb{R} ^{n} \to \mathbb{R} ^{n}$, find $x ^{*} \in \mathbb{R} ^{n}$ such that $F\left( x^{*} \right) = 0$. Some notation. $D C \subseteq  \mathbb{R} ^{n} $ : domain of a function. For $ k\ge 0$ , $C^{k} \left( D \right) $ is the set of functions whose $k$-th derivative is  contionious. 
+
+\newpara
+\textbf{Jacobian Matrix} . \[
+D F\left( x \right) = J_{F}\left( x \right) = F'  \left( x \right) 
+\] 
+is the $ n \times  n $ matrix, where \[
+\left( J_{F}\left( x \right) \right)_{ij} = \frac{\partial F_{i}}{\partial x_{j}} 
+\] 
+
+
+
  
 
 \newpage
