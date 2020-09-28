@@ -1025,7 +1025,7 @@ Where  $v\left( 0 \right) = 0, \quad    C\left( \lambda  \right)  =1 $.
 In addition $v$ and $C$ must be continuous. 
 
 \newpara
-Let assume $ 0 < \varepsilon  \ll  1$. Put $C = c_{0} + \varepsilon  C_{1} + O \left( \varepsilon ^2 \right)$ and $v = v_{0} + \varepsilon  v_{1} + Ø\left( \varepsilon ^2 \right)$ . Inserted into the equation \[
+Let assume $ 0 < \varepsilon  \ll  1$. Put $C = c_{0} + \varepsilon  C_{1} + O \left( \varepsilon ^2 \right)$ and $v = v_{0} + \varepsilon  v_{1} + \O\left( \varepsilon ^2 \right)$ . Inserted into the equation \[
   \begin{split}
 \varepsilon \left( v_{0}'   \right) &=  C_{0} + \varepsilon C_{1} - 1 + O\left( \varepsilon ^2 \right)  \\
 \left( v_{0} + \varepsilon  v_{1} \right) \left( 1 + C_{1} \varepsilon  \right) ^2 - \mu \left(  \varepsilon  C_{1}'    \right)  &  = f\left( x \right) + O\left( \varepsilon ^2 \right)   \\
@@ -1898,7 +1898,7 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
     trA < 0 , \quad  det A &=  M\beta _{n}^2 \left( D \beta _{n}^2 + q_{2} \right) - q_{1} E \phi _{0}\beta _{n} \begin{cases}
       <0 , \quad \text{stable}  \\
       <0 ,  \quad  text{unstable}
-    \end{ases} \\ 
+    \end{cases} \\ 
        \end{split} 
    \] 
    Unstable when \[
@@ -1976,7 +1976,10 @@ Where $ c_{1}, \ldots, c_{n} $ is determined by $ \Delta \mathbf{x} \left( 0 \ri
   \end{split} .
   \] 
   Then $\left( \mu _{0}, u_{0} \right)$ is a singular point. Assume ass second derivatives are continuous, and not all zero. Then \[
-  f\left( \mu _{0} + \Delta \mu _{1}, u_{0} + \Delta  u \right) \approx \frac{1}{2} f_{\mu \mu } \left( \mu _{0}, u_{0} \right) \Delta \mu ^2 + f_{\mu u } \left( \mu _{0}, u_{0} \right) \Delta \mu  \Delta u + \frac{1}{2} f_{uu} \left( \mu _{0} ,u_{0} \right) \Delta u^2 = 0
+    \begin{split}
+  f\left( \mu _{0} + \Delta \mu _{1}, u_{0} + \Delta  u \right) \approx  &  \frac{1}{2} f_{\mu \mu } \left( \mu _{0}, u_{0} \right) \Delta \mu ^2 \\
+   & + f_{\mu u } \left( \mu _{0}, u_{0} \right) \Delta \mu  \Delta u + \frac{1}{2} f_{uu} \left( \mu _{0} ,u_{0} \right) \Delta u^2 = 0
+    \end{split} 
   \] 
   Assume $f_{uu}\left( \mu _{0} , u_{0} \right) \neq 0$. \[
     \begin{split}
@@ -2300,8 +2303,197 @@ In general we can formulate everything in $n$- dimensions. But we stick to $n = 
   
   
 
-  
-  
+\newpage
+\section{Lecture 2020-09-28}%
+\label{sec:lecture_2020_09_28}
+
+\subsection{Universial conservation law}%
+\label{sub:universial_conservation_law}
+
+\textbf{Main criterias} 
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Converved entity}   $\varphi $.
+  \item \textbf{Flux density}  $\mathbf{y}$
+  \item \textbf{Source/sink term}  $Q$
+\end{enumerate}
+
+
+\subsubsection{Conserved entity}%
+\label{ssub:conserved_entity_e}
+
+$\varphi $ could be a number off different entities, such as, nass, energy, momentum etc.  Let $\varphi $ be the number of gas molecules . Density of gas. Let $r_{m}$ be the typical distance betweeen molecules. We need a moving average to describe the density $\rho $ as smoothly varying quantity. Let \[
+\rho \left( \mathbf{x},t \right) = \frac{\text{Number molecules in } B_{\mathbf{x}' }\left( r_{a} \right)}{\text{volume} \left( B_{\mathbf{x}}\left( r_{a} \right) \right)} 
+\] 
+Where $B_{\mathbf{x_{0}}}\left( r_{a} \right) = \left\{ \mathbf{x}\in \mathbb{R} ^3: \|\mathbf{x} - \mathbf{x_{0}}\|_{}^{} < r_{a} \right\}$. we want $r_{a}\gg  r_{m}$. If $r_{\rho }$ is the length scala where $\rho $ changes then we want \[
+r_{\rho } \gg  r_{a} \gg  r_{m}
+\] 
+which is called the separation .
+
+\subsubsection{Flux density}%
+\label{ssub:flux_density}
+
+Let $\mathbf{J} \left( \mathbf{x} , t \right)$ be a vector field for each $t$. Let $\mathbf{n}$ be a unit vector, then is the flux described as \[
+\left\lvert \mathbf{J} \right\rvert  \cos \left( \alpha  \right) = \mathbf{J}\cdot \mathbf{n}, \quad   \left\lvert \mathbf{n} \right\rvert  = 1 
+\]  
+THen is the flux through a area $\Delta A$ computed as \[
+\Delta A = \mathbf{J}\cdot \mathbf{n} \Delta S
+\] 
+
+Where $\Delta S$ is the surface area of $\Delta A$. $S $ is an oriented surface. Flux through $S$ is \[
+\sum_{}^{} \mathbf{J}\cdot  \mathbf{n} \Delta S  \stackrel{\Delta S \to  0}{\implies   }  \int_{S}^{} \int_{}^{}  \mathbf{J} \cdot \mathbf{n} dS  
+\] 
+$\left[ \mathbf{J} \right]  = \left[ \varphi  \right] m^{-2}s^{-1}$
+
+\begin{tcolorbox}
+  \textbf{Example.} Let $S_{R}$ be the sphere surface \[
+  S_{R} = \left\{ \mathbf{x} : \|\mathbf{x}\|_{}^{} =R \right\}
+  \] 
+  and let $\mathbf{r} = \left[ x,y,z \right]$. We define $\mathbf{J} = a \frac{\mathbf{r}}{ \|r\|_{}^{3}} $ , a constant. \[
+    \begin{split}
+  \int_{S_{R}}^{}  \int_{}^{}  \mathbf{J} \cdot \mathbf{n}\cdot    dS  & = \int_{S_{R}}^{}  \int_{}^{}    a \frac{\mathbf{r}}{R^{3}}  \frac{\mathbf{r}}{R}  dS   \\
+  &= \int_{S_{R}}^{}  \int_{}^{}  a \frac{\|\mathbf{r}\|_{}^{2} }{R^{4}} dS = \int_{S_{R}}^{}  \int_{}^{}  \frac{a}{R^{3}} dS    \\
+  &=  \frac{a}{R^{2}} 4 \pi R^{2} = 4 \pi  a \\
+    \end{split} 
+  \] 
+\end{tcolorbox}
+
+
+\subsection{Divergence Theorem}%
+\label{sub:divergence_theorem}
+
+Let $V \subseteq  \mathbb{R} ^3  $ be a domain with a piecewise smooth surface $\partial  V$, and let $\mathbf{J}$ be a vectorfield with components that are continiously differential in $V$. Then \[
+\iint_{\partial V}^{}  \mathbf{F} \cdot  \mathbf{n} dS   = \iiint_{V}^{} \nabla \cdot \mathbf{J} dV    
+\] 
+
+Where $\displaystyle \nabla \cdot \mathbf{J} = \frac{\partial J_{1}}{\partial x}  + \frac{\partial J_{2}}{\partial y}  + \frac{\partial J_{3}}{\partial z} $ . Check $ \displaystyle  \nabla \cdot  \frac{\mathbf{r}}{\|\mathbf{r}\|_{}^{3}} = 0 $ 
+
+
+\subsubsection{Source/Sink}%
+\label{ssub:source_sink}
+
+If the system we are considering is not closed, and we have a source for $\varphi $ from the outside we let \[
+\iiint_{V}^{} Q \cdot dV = \text{rate }  Q
+\] 
+flows into $V$ . $Q$ is a source density function \[
+\left[Q \right] = \left[ \varphi  \right] m^{-3} s^{-1}
+\] 
+
+It does exists several kind of sources 
+\begin{itemize}
+  \item Point source 
+  \item Line source 
+  \item Surface source.
+\end{itemize}
+
+To include these types of sources in our formalism $Q$ need to be a so-called distribution. Let us define $\displaystyle  Q = a \delta _{\mathbf{x}_{0}} \left( \mathbf{x} \right)$ such that \[
+\iint_{V}^{}  Q dV = \begin{cases}
+  a ,   &  \quad x _{0} \in V \\
+  0,  &  \quad x_{0} \not\in V  
+\end{cases} 
+\] 
+
+Let us define \[
+\iiint_{V}^{}  f\left( \mathbf{x} \right) \delta _{x_{0}}  dV = f\left( \mathbf{x_{0}} \right)
+\] 
+
+For the line source define  \[
+Q = f\left( \mathbf{x} \right) \delta _{c}\left( \mathbf{x} \right)
+\] 
+by \[
+\iiint_{V}^{}  f\left( \mathbf{x} \right) \delta _{c} \left( x \right) dV = \int_{C \cap V  }^{}  f\left( x \right) ds  
+\] 
+
+Surface source density \[
+Q = f\left( x \right) \delta _{s} \left( \mathbf{x} \right) 
+\] 
+where
+\[
+\displaystyle \iiint_{V \cap  S}^{} Q dV =  \iint_{V \cap  S}^{}  f\left( x \right) dS 
+\] 
+
+
+\subsection{Conservation law}%
+\label{sub:conservation_law}
+
+Let our solution domain be $\Omega \subseteq \mathbb{R} ^3$ and let $V \subseteq \Omega $ have piecewise smooth surface . Accounting for $\varphi $ in $V$ \[
+\frac{d }{d t}  \iiint_{V}^{}  \rho \left( \mathbf{x}, t \right)   dV = - \iint_{\partial V}^{}  \mathbf{J}\cdot \mathbf{n} dS + \iiint_{V}^{} Q dV  
+\] 
+Often written like this \[
+  \begin{split}
+  \frac{d }{d t}  \iiint_{V}^{} \rho dV + \iint_{\partial V}^{}  \mathbf{J}\cdot \mathbf{n} dS  & = \iiint_{V}^{} Q dV    \\
+  \downarrow  &  \text{ Subject to } V \text{ conditions.} \\
+  \implies  \iiint_{V}^{}  \frac{\partial \rho }{\partial t}  dV + \iiint_{V}^{} \nabla \cdot \mathbf{J} dV &= \iiint_{V}^{}  Q dV  \\  
+   \implies \iiint_{V}^{} \left( \frac{\partial \rho }{\partial t} + \nabla \cdot \mathbf{J} - Q  \right) &=  0    \\
+  \end{split} 
+\] 
+
+Valid for any region in $\Omega $. Thus \[
+\frac{\partial \rho }{\partial t}  + \nabla \cdot \mathbf{J} = Q 
+\] 
+in $\Omega $ . Conservation law of differentiable form.
+
+\begin{tcolorbox}
+  \textbf{Example.} Heat conduction. \[
+  k\left( \mathbf{x} \right) = \left\{ k_{ij}\left( x \right) \right\}
+  \] is a symmetric non-negative $3 \times  3 $ matrix, the conductivity. Fouriers law states that \[
+  \mathbf{J} = -k \nabla T
+  \] 
+  where $J$ is the thermal energy flux density and $T $ the temperature. Thermal energy in $V \subseteq  \Omega $ is \[
+  \iiint_{V}^{} C_{V}\rho T dV 
+  \] 
+  where $C_{V}$ is the specific heat capacity which is assumed to be constant, $\rho $ the mass density.  Then can this be further described as \[
+  C_{V} \rho \frac{d }{d t}  \iiint_{V}^{ }  T dV + \iint_{\partial v }^{}  \left( -k \nabla T \right) \cdot \mathbf{n} dS = \iiint_{V}^{} Q dV  
+  \] 
+  If $k$ is continuously differentiable \[
+  C_{V} \rho  \frac{\partial \rho }{\partial t }  - \nabla\cdot  \left( k \nabla T  \right) = Q
+  \] 
+  Assume $k = k_{0 } I$ we get \[
+  \frac{\partial T}{\partial t}  = \left( \frac{k_{0}}{C_{v} \rho } \right) \nabla ^2T + Q 
+  \] 
+\end{tcolorbox}
+
+\subsection{Method of Characteristics}%
+\label{sub:method_of_characteristics}
+
+We consider equations on the form \[
+u_{t} + a\left( u,x,t \right) u_{x} = b\left( u,x,t \right)
+\] 
+If we put $z\left( t \right) = u\left( x\left( t \right), t \right)$. If $x' \left( t \right) =a$, then $z'  = u_{x} x'  + u_{t} = b$. Assume $u\left( x,0 \right) = u_{0} \left( x \right) $ we can solve for each $x_{0}$ \[
+\begin{split}
+  x'   & = a\left( z,x,t \right),\quad x\left( 0 \right) = x_{0} \\
+  z'  &=  b\left( z,x,t \right), \quad z\left( 0 \right) = u_{0}\left( x_{0} \right)  
+\end{split} 
+\] 
+To obtain $x\left( t,x_{0} \right)$ and $z\left( t, x_{0} \right)$ we solve for $x = x\left( t, x_{0} \right)$ for $x_{0}$ , i.e \[
+x_{0} = x_{0} \left( x,t \right).
+\] 
+
+We get the solution \[
+u\left( x,t \right) = z \left( t,x_{0}\left( x,t \right) \right)
+\] 
+
+\begin{tcolorbox}
+  \textbf{Example.} Let $u_{t} + 3u = u^2$  and $u\left( x,0 \right) = u_{0} \left( x \right)$ \[
+  \begin{split}
+    x'  &=  3, \quad x\left( 0 \right) = x_{0}  \\
+    z'  &=  z^2, \quad z\left( 0 \right) = u_{0}\left( x_{0} \right)  
+  \end{split} 
+  \]  
+  Solve for $x_{0} $ : \[
+  x = 3t + x_{0} , \quad  x_{0} = x-3t 
+  \] 
+  And the second one \[
+    \begin{split}
+  z'   & = z^2 \implies \frac{dz}{z^2}  = dt , \implies  -\frac{1}{z} = t - C
+  z &=  \frac{1}{C - t} \\
+  z\left( 0 \right)  & = u_{0} \left( x_{0} \right) , \quad  \implies  C = \frac{1}{u_{0}\left( x_{0} \right)}  \\
+  z&= \frac{1}{\frac{1}{u_{0}\left( x_{0} \right)} - t} - \frac{u_{0}\left( x_{0} \right)}{1 - t u_{0}\left( x_{0} \right)}  \\
+  \implies  u\left( x,t \right) &=  \frac{u_{0} \left( x-3t \right)}{1 - t u_{0}\left( x -3t \right)}  \\
+    \end{split} 
+  \] 
+\end{tcolorbox}
+
+
 
 
 
