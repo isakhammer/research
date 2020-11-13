@@ -1,4 +1,5 @@
 \documentclass{article}
+
 \usepackage[utf8]{inputenc}
 
 \title{Stochastic Modelling}
@@ -20,12 +21,12 @@
 \usepackage{float}
 
 
-\usepackage{hyperref} 
+\usepackage{hyperref}
 \hypersetup{
   colorlinks=true, %set true if you want colored links
   linktoc=all,     %set to all if you want both sections and subsections linked
   linkcolor=blue,  %choose some color if you want links to stand out
-} 
+}
 \hypersetup{linktocpage}
 
 
@@ -72,14 +73,14 @@
 \subsection{Practical Information}%
 \label{sub:practical_information}
 
-Two projects 
+Two projects
 \begin{itemize}
   \item The projects count $20 \%$ and exam $80 \%$.
   \item Must be done with two people.
   \item If you want to do statistics is it worth learning $R$.
 \end{itemize}
 
-\textbf{Course Overview} 
+\textbf{Course Overview}
 \begin{itemize}
   \item Markov chains for discret time and discrete outcome.
     \begin{itemize}
@@ -103,18 +104,18 @@ Two projects
 
 A random experiment is perfomed the outcome of the experiment is random.
 \begin{itemize}
-  \item THe set of possible outcomes is the \textbf{sample space}  $\omega $ 
+  \item THe set of possible outcomes is the \textbf{sample space}  $\omega $
     \begin{itemize}
       \item An \textbf{event}  $A \subset \omega $  if the outcome is contained in $A$
-      \item The \textbf{complement}  of an event $A$ is  $A^{c} = \omega  \setminus A$ 
-      \item The \textbf{null event} $\emptyset$ is the empty set $\emptyset = \omega \setminus \omega $ 
+      \item The \textbf{complement}  of an event $A$ is  $A^{c} = \omega  \setminus A$
+      \item The \textbf{null event} $\emptyset$ is the empty set $\emptyset = \omega \setminus \omega $
     \end{itemize}
 \end{itemize}
 
 \subsubsection{Combining Event}%
 \label{ssub:combining_event}
 
-Let $A$ and B be events 
+Let $A$ and B be events
 \begin{itemize}
   \item The \textbf{union} $A \cup  B$ is the event that at least one of $A$ and $B$ occur.
   \item the \textbf{intersection}  $A \cap B$ is the event that both $A$ and $B$ occur.
@@ -125,14 +126,14 @@ The events $A_{1}, A_{2}, \ldots$ are called disjoint (or \textbf{mutually exclu
 \subsubsection{Probability}%
 \label{ssub:probability}
 
-$Pr$ is called a probability on $\omega $ if 
+$Pr$ is called a probability on $\omega $ if
 
 \begin{itemize}
-  \item Pr $\{ \omega \} = 1  $ 
-  \item $0 \le P\left\{ A \right\} \le 1$ for all events $A$ 
+  \item Pr $\{ \omega \} = 1  $
+  \item $0 \le P\left\{ A \right\} \le 1$ for all events $A$
   \item For $A_{1}, A_{2} , \ldots$ that are mutually exclusive \[
   P \left\{ \bigcup_{i = 1}^{\infty}A_{i}  \right\} = \sum_{i=1}^{\infty} P \left\{ A_{i} \right\}
-  \] 
+  \]
 \end{itemize}
 We call $P\left\{ A \right\}$ the probability of $A$.
 
@@ -140,7 +141,7 @@ We call $P\left\{ A \right\}$ the probability of $A$.
 \subsubsection{Law of total probability}%
 \label{ssub:law_of_total_probability}
 
-Let $A_{1}, A_{2}, \ldots$ be a partition of $\omega $ ie 
+Let $A_{1}, A_{2}, \ldots$ be a partition of $\omega $ ie
 \begin{itemize}
   \item $\omega  = \bigcup_{i=1}^{\infty} A_{i}$
   \item $A_{1}, A_{2}, A_{3}, \ldots$ are mutually exclusive.
@@ -148,18 +149,18 @@ Let $A_{1}, A_{2}, \ldots$ be a partition of $\omega $ ie
 
 Then for any event $B$ \[
   P\left\{ B \right\} = \sum_{i=1}^{\infty} P\left\{ B \cap A_{i} \right\}
-\] 
+\]
 
-\textbf{This concept is very important.} 
+\textbf{This concept is very important.}
 
 \subsubsection{Independence}%
 \label{ssub:independence_2s}
 Event $A$ and $B$ are independent of \[
 P\left\{ A\cap B \right\} = P\left\{ A \right\}P\left\{ B \right\}
-\] 
+\]
 Events $A_{1}, \ldots, A_{n}$ are independent if for any subset \[
-P\left\{ \bigcap_{j=1}^{k} A_{i_j} \right\} = \prod_{j=1}^{k} P \left\{ A_{i_j} \right\} 
-\] 
+P\left\{ \bigcap_{j=1}^{k} A_{i_j} \right\} = \prod_{j=1}^{k} P \left\{ A_{i_j} \right\}
+\]
 
 In this case $P\left\{ \bigcap_{i = 1}^{n} A_{1} \right\} =  \prod_{i = 1}^{n} P\left\{ A_{i} \right\} $
 
@@ -174,7 +175,7 @@ In this case $P\left\{ \bigcap_{i = 1}^{n} A_{1} \right\} =  \prod_{i = 1}^{n} P
 
 
 \begin{tcolorbox}
-  \textbf{Example.} 
+  \textbf{Example.}
   \begin{itemize}
     \item Throw two dice. $X = \text{sum of the two dice}$
     \item Throw a coin.  $X$ is $1$ for heads and $X$ is $0$ for tails.
@@ -185,7 +186,7 @@ In this case $P\left\{ \bigcap_{i = 1}^{n} A_{1} \right\} =  \prod_{i = 1}^{n} P
 \subsubsection{Notation for random variables}%
 \label{ssub:notation_for_random_variables}
 
-We use 
+We use
 \begin{itemize}
   \item upper case letters such at $X$, $Y$ and $Z$  to represent random variables.
   \item lower case letters as $x$, $y$, $z$ to denote the real-valued realized value of a the random variable.
@@ -201,18 +202,18 @@ The random variable $X$ is \textbf{discrete}  if it has a finite or countablle n
   \item The \textbf{probability mass function } $p_{x} \left( x \right) $ is given by \[
   p_{x}\left( x \right) = P \left\{ X = x \right\}
   \] and satisfies \[
-  \sum_{i=1}^{\infty} p_{x}\left( x_{i} \right) = 1 \quad  \text{and} \quad  0\le p_{x} \left( x_{i} \right) \le  1 
-  \] 
+  \sum_{i=1}^{\infty} p_{x}\left( x_{i} \right) = 1 \quad  \text{and} \quad  0\le p_{x} \left( x_{i} \right) \le  1
+  \]
 \item The \textbf{cumulative distribution function} (CDF) a of $X$ can be written \[
-F_{x}\left( x \right) = P\left\{ X \le x \right\} = \sum_{i: x_{i} \le x}^{} p_{x}\left( x_{i} \right) 
-\]  
+F_{x}\left( x \right) = P\left\{ X \le x \right\} = \sum_{i: x_{i} \le x}^{} p_{x}\left( x_{i} \right)
+\]
 \end{itemize}
 
 \subsubsection{CFD}%
-\label{ssub:cfd} 
+\label{ssub:cfd}
 
-The CDF of $X$ may also be called the \textbf{distrobution function}  of $X$ \par 
-Let $F_{x}\left( x \right)$ be the CDF of $X$, then 
+The CDF of $X$ may also be called the \textbf{distrobution function}  of $X$ \par
+Let $F_{x}\left( x \right)$ be the CDF of $X$, then
 \begin{itemize}
   \item $F_{x}\left( x \right)$ is monetonaly increasing.
   \item $F_{x}$ is a stepfunction, which is a pieace-wise constant with jumps at $x_{i}.$
@@ -229,9 +230,9 @@ Let $F_{x}\left( x \right)$ be the CDF of $X$, then
    \item The \textbf{probability density function} (PDF) $f_{x}\left( x \right) = F_{x}' \left( x \right)$ can be used to calculate probablities \[
    \begin{split}
      Pr \left\{ a < X < b \right\} &=  Pr \left\{ a \le X < b \right\} = Pr\left\{ a < X \le b \right\} \\
-     &=  Pr\left\{ a \le X \le b \right\} = \int_{a}^{b}  f_{x}\left( x \right)dx   
-   \end{split} 
-   \] 
+     &=  Pr\left\{ a \le X \le b \right\} = \int_{a}^{b}  f_{x}\left( x \right)dx
+   \end{split}
+   \]
  \end{itemize}
 
 
@@ -259,30 +260,30 @@ Let $F_{x}\left( x \right)$ be the CDF of $X$, then
 Let $g: \mathbb{R}  \to \mathbb{R} $ be a function and $X$ be a random variable.
 \begin{itemize}
   \item If $X$ is discrete, the expected value of $g\left( X \right) $ is \[
-  E\left[ g\left( X \right) \right] =  \sum_{x: p_{x}\left( x \right)> 0}^{} g\left( x \right) p_{x}\left( x \right)  
-  \] 
+  E\left[ g\left( X \right) \right] =  \sum_{x: p_{x}\left( x \right)> 0}^{} g\left( x \right) p_{x}\left( x \right)
+  \]
 \item If $X$ is continous, the expected value of $g\left( X \right) $ is  \[
-E\left[ g\left( X \right) \right] = \int_{-\infty}^{\infty} g\left( x \right)f_{x}\left( x \right) dx 
-\] 
+E\left[ g\left( X \right) \right] = \int_{-\infty}^{\infty} g\left( x \right)f_{x}\left( x \right) dx
+\]
 \end{itemize}
 
 \subsubsection{Variance}%
 \label{ssub:variance}
 
 The variance of the random variable $X$ is \[
-  Var\left[ X \right] =  E \left[( X - E\left[ X \right])^{2} \right] =  E\left[ X^2 \right] - E\left[ X \right]^2 
-\] 
+  Var\left[ X \right] =  E \left[( X - E\left[ X \right])^{2} \right] =  E\left[ X^2 \right] - E\left[ X \right]^2
+\]
 Important properties of expectation and variance.
 \begin{itemize}
   \item Expectations is linear \[
   E\left[ aX + bY +c \right] = aE\left[ X \right] + bE\left[ Y \right] + c.
-  \] 
+  \]
 \item Variance scales quadratically and is invaraient to the addition of constants \[
-Var\left[ aX + b \right] = a^2 Var \left[ X \right] 
-\] 
+Var\left[ aX + b \right] = a^2 Var \left[ X \right]
+\]
 \item fir independent stochastic variables.\[
     Var \left[ X + Y \right] = Var \left[ X \right] + Var\left[ Y \right]
-\] 
+\]
 \end{itemize}
 
 \subsubsection{Joint CDF}%
@@ -290,31 +291,31 @@ Var\left[ aX + b \right] = a^2 Var \left[ X \right]
 
 If $\left( X,Y \right)$ is a pair for random variables, their \textbf{joint comulative distribution function } is given by \[
 F_{X,Y} = F\left( x,y \right) =  Pr\left\{ X \le x \cap Y \le y \right\}
-\]. 
+\].
 \subsubsection{Joint distrubution for discrete random variables}%
 \label{ssub:joint_distrobution_for_discrete_random_variables}
 If $X$ and $Y$  are discrete, the \textbf{joint probability mass function } $ p_{x,y} = Pr\left\{ X = x, Y =y \right\} $. can be used to compute probabilities \[
 Pr\left\{ a < X < b, c < Y \le d \right\} =  \sum_{a < x \le b}^{}  \sum_{c < y \le d}^{} p_{X,Y}   \left( x,y \right)
-\] 
+\]
 
 \subsubsection{Joint distrubution for continous random variables}%
 \label{ssub:joint_distrobution_for_continous_random_variables}
 
 If $X$ and $Y$ are continious the \textbf{joint probability density function}  \[
-.f_{X,Y} \left( x,y \right) = f\left( x,y \right) = \frac{\partial ^2}{\partial x \partial y } F\left( x,y \right)   
+.f_{X,Y} \left( x,y \right) = f\left( x,y \right) = \frac{\partial ^2}{\partial x \partial y } F\left( x,y \right)
 \]  can be used to compute probabilities \[
-Pr\left\{ a < X \le b,  \quad  c < Y \le d  \right\} = \int_{a}^{b} \int_{c}^{d} f\left( x,y \right)dxdy    
-\] 
+Pr\left\{ a < X \le b,  \quad  c < Y \le d  \right\} = \int_{a}^{b} \int_{c}^{d} f\left( x,y \right)dxdy
+\]
 
 \subsubsection{Independence}%
 \label{ssub:independence_3}
 
 The random variables $X$ and Y are independent if \[
-Pr\left\{ X \le a , Y \le b \right\} =  Pr\left\{ X \le a \right\} \cdot  Pr\left\{ Y \le b \right\}, \quad  \forall a,b \in  \mathbb{R}  
-\] 
+Pr\left\{ X \le a , Y \le b \right\} =  Pr\left\{ X \le a \right\} \cdot  Pr\left\{ Y \le b \right\}, \quad  \forall a,b \in  \mathbb{R}
+\]
 In terms of CDFs:  $F_{X,Y}(a,b ) =  F_{X}\left( a \right)\cdot F_{Y}\left( b \right) \quad  \forall a,b \in \mathbb{R}  $
 \par
-Thus we have 
+Thus we have
 \begin{itemize}
   \item $p_{X,Y} \left( x,y \right) = p_{X}\left( x \right) \cdot  p_{Y}\left( Y \right)$ for discrete random variables
   \item $f_{X,Y}\left( x,y \right) = f_{X}\left( x \right) \cdot  f_{Y}\left( Y \right)$ for continuous random variables.
@@ -325,8 +326,8 @@ Thus we have
 
 
 
- 
- 
+
+
 
 
 
@@ -341,36 +342,36 @@ Thus we have
 Building on the hunter example from last week. we can more generally consider random sums \[
   X = \begin{cases}
     0,  &  \quad  N = 0 \\
-    \zeta_{1} + \zeta _{2} + \ldots + \zeta_N , \quad  N >0  
+    \zeta_{1} + \zeta _{2} + \ldots + \zeta_N , \quad  N >0
   \end{cases}
-\] 
-where 
+\]
+where
 \begin{itemize}
-  \item $N$ is a discrete random variable with values $0,1, \ldots$ 
+  \item $N$ is a discrete random variable with values $0,1, \ldots$
   \item $\zeta _{1}, \zeta _{2}, \ldots $ are independent random variables
-  \item $N$ is independent of $\zeta _{1}, \zeta _{2} + \ldots + \zeta _{N}$ 
-  \item \textbf{Notation}  $X = \sum_{i=1}^{N} \zeta _{i} = \zeta _{1} + \zeta _{2} + \ldots + \zeta _{N}$ 
+  \item $N$ is independent of $\zeta _{1}, \zeta _{2} + \ldots + \zeta _{N}$
+  \item \textbf{Notation}  $X = \sum_{i=1}^{N} \zeta _{i} = \zeta _{1} + \zeta _{2} + \ldots + \zeta _{N}$
 \end{itemize}
 
 \begin{tcolorbox}
-  \textbf{Example.} 
+  \textbf{Example.}
   \begin{enumerate}
     \item Insurance company \[
-    N: \text{ Number of claims.} 
-    \] 
+    N: \text{ Number of claims.}
+    \]
   \[
-    \zeta _{1} , \zeta _{2} , \ldots \quad  : \quad \text{Sizes of the claims} 
-  \] 
+    \zeta _{1} , \zeta _{2} , \ldots \quad  : \quad \text{Sizes of the claims}
+  \]
 
   Total liabilility: \[
   X = \zeta _{1}+ \zeta _{2} + \ldots + \zeta _{N}
-  \] 
+  \]
 \item  Be careful! \[
     \begin{split}
       \overbrace{E\left[ \sum_{i=1}^{N} \zeta _{i} \right]}^{\neq \sum_{i=1}^{N} E\left[ \zeta _{i} \right]}   & = E\left[ E\left[ \sum_{i=1}^{N} \zeta _{i}  \mid N \right] \right]\\
-&= E\left[ \sum_{i=1}^{N} E\left[ \zeta _{i}  \mid  N \right] \right] 
-    \end{split} 
-\] 
+&= E\left[ \sum_{i=1}^{N} E\left[ \zeta _{i}  \mid  N \right] \right]
+    \end{split}
+\]
   \end{enumerate}
 \end{tcolorbox}
 
@@ -386,7 +387,7 @@ Section 2.2, 2.3, 2.4
   \begin{itemize}
     \item We use $T = \left\{ 0,1,2,.. \right\}$ and write $X_{n}$ instead of $X_{t}$
     \item  we call $X_{n}$ the \textbf{state}  at time $n =  0,1,2,3, \ldots$
-    \item We call the set of all possible states the \textbf{state space} 
+    \item We call the set of all possible states the \textbf{state space}
   \end{itemize}
 \end{definition}
 
@@ -395,7 +396,7 @@ Section 2.2, 2.3, 2.4
   \caption{Table for example}
   \label{tab:label}
   \begin{tabular}{l|cccc}
-    Day & $n =0$ & $n=1$ & $n=2$ & \ldots \\ 
+    Day & $n =0$ & $n=1$ & $n=2$ & \ldots \\
     Random Variable  & $X_{0} $ & $X_{1}$ & $X_{2}$ & \ldots \\
     Realization  1& $x_{0} = 0$ & $x_{1} =1$ &  $x_{2} = 1 $ & \ldots \\
     Realization 2 & $x_{0} = 1$ & $x_{1} =1$ &  $x_{2} = 1 $ & \ldots \\
@@ -407,7 +408,7 @@ Section 2.2, 2.3, 2.4
     1 ,  &  \quad \text{if it rains on day } n \\
     0,   &  \quad     \text{no rain on day } n
   \end{cases}
-  \] 
+  \]
   State space $= \left\{ 0,1 \right\}$
   \par
   \textbf{We have a problem.} Need \[
@@ -424,27 +425,27 @@ Section 2.2, 2.3, 2.4
   A \textbf{ Discrete time markoc chain}  is a discrete time stochastic process $\left\{ X_{n} : n = 0,1,\ldots \right\}$ that statisfied the \textbf{markov property}  such that \[
   \begin{split}
        & Pr \left \{ X_{n-1} = j  \mid  X_{n} = i ,    X_{n-1} = i_{n-1} , \ldots, X_{0} = i_{0} \right \}  \\
-    &=  Pr \left \{ X_{n+1} = j  \mid  X_{n} = i \right \}  
-  \end{split} 
-  \] 
+    &=  Pr \left \{ X_{n+1} = j  \mid  X_{n} = i \right \}
+  \end{split}
+  \]
   for $n = 0,1,2,3, \ldots$ and for all states $i$ and $j$
 \end{definition}
 
 \begin{definition}[One-step transition probabilities]
-  We can define it  as 
+  We can define it  as
   \begin{itemize}
-    \item For a discrete Markov chain $\left\{ X_{n}: n= 0,1,2, \ldots \right\}$ we call $P_{ij}^{n, n+1} = Pr \left \{ X_{n+1} = j , X_{n} =i \right \} $ the \textbf{one step trainsition probabilities} . 
+    \item For a discrete Markov chain $\left\{ X_{n}: n= 0,1,2, \ldots \right\}$ we call $P_{ij}^{n, n+1} = Pr \left \{ X_{n+1} = j , X_{n} =i \right \} $ the \textbf{one step trainsition probabilities} .
     \item We will assume \textbf{stationary transition probabilities} , i.e that \[
     P_{ij}^{n, n+1} = P_{ij}
-    \]   for $n = 0,1,2, \ldots$ and all states $i $ and $j$ . 
+    \]   for $n = 0,1,2, \ldots$ and all states $i $ and $j$ .
   \end{itemize}
 \end{definition}
 
-Some of the properties 
+Some of the properties
 \begin{enumerate}
   \item "You will always go somewhere" \[
-  \sum_{j}^{}  P_{ij} = 1 \quad  \forall i 
-  \] 
+  \sum_{j}^{}  P_{ij} = 1 \quad  \forall i
+  \]
 \item The markov chain can be described as follows. \[
     \begin{split}
   & Pr \left \{ X_{0} = i_{0} , X_{1} = i_{1}, \ldots, X_{n} = i_{n} \right \}   \\
@@ -454,36 +455,36 @@ Some of the properties
  &=  Pr \left \{ X_{0} = i_{0}  \right \}  \cdot  Pr \left \{ X_{1} = i_{1}  \mid X_{0} = i_{0} \right \} \ldots \\
   & \quad \quad    Pr \left \{ X_{n} = x_{n}  \mid  X_{n-1} = i_{n-1} \right \}   \\
  &=  Pr \left \{ X_{0} = i_{0}  \right \} P_{i_{0}, i_{1}} \cdot  P_{i_{1}, i_{2}} \ldots P_{i_{n-1}, i_{n}}
-    \end{split} 
-\] 
+    \end{split}
+\]
 Which is a major simplification.
 \end{enumerate}
 
 \begin{definition}[Transition Probability Matrix] \quad
   For a discrete time markov-chain with state space $\left \{ 0,1, \ldots, N \right \}$ we call
   \[
-  \mathbf{P} = \begin{bmatrix} 
+  \mathbf{P} = \begin{bmatrix}
     P_{00} & \ldots & P_{0N} \\
     P_{10}  & \ldots \\
     \vdots  &   &  \ddots \\
-    P_{N0} & \ldots & P_{NN} 
-  \end{bmatrix} 
-  \] 
+    P_{N0} & \ldots & P_{NN}
+  \end{bmatrix}
+  \]
   Is the transition matrix.
   For statespace $\left\{ 0,1,2, \ldots \right\}$ we envision an infinitely sized matrix.
 \end{definition}
 
  \begin{tcolorbox}
-   \textbf{Example.} 
+   \textbf{Example.}
    \begin{itemize}
      \item Markoc chain : $\left\{ X_{n} : n = 0,1,2,\ldots \right\}$
      \item State space  $= \left\{ 0,1 \right\}$
      \item Transition Matrix \[
-     \mathbf{P} = \begin{bmatrix} 
+     \mathbf{P} = \begin{bmatrix}
      0.9  &  0.1 \\
      0.6  &  0.4
-     \end{bmatrix} 
-     \] 
+     \end{bmatrix}
+     \]
    \end{itemize}
    We can compute \[
      \begin{split}
@@ -491,8 +492,8 @@ Which is a major simplification.
         &= 0.1   \\
         Pr \left \{ X_{10} = 0  \mid  X_{9} = 1 \right \} &=  P_{10} \\
         &= 0.6  \\
-     \end{split} 
-   \] 
+     \end{split}
+   \]
  \end{tcolorbox}
 
 \begin{definition}[Transition Diagram]
@@ -501,13 +502,13 @@ Which is a major simplification.
 
 \begin{tcolorbox}
   \textbf{Example.} State space $= \left\{ 0,1,2 \right\}$ and \[
-  P = \begin{bmatrix} 
+  P = \begin{bmatrix}
   0.95  & 0.05 & 9 \\
   0  & 0.9  &  0.1 \\
   0.01  &  0  &  0.99
-  \end{bmatrix} 
-  \] 
-  Transisition diagram 
+  \end{bmatrix}
+  \]
+  Transisition diagram
   \begin{tcolorbox}
     Nice figure of the diagram
   \end{tcolorbox}
@@ -518,14 +519,14 @@ Which is a major simplification.
 
  \begin{theorem}
    For a Markoc chain $\left\{ X_{n}: n= 0,1, \ldots \right\}$ and any $m\ge 0$ we have \[
-     Pr \left \{ X_{m-n} = j  \mid X_{m} = i  \right \}  = P _{ij}^{(n)} =  \sum_{k=0}^{\infty}  P _{ik} P_{kj}^{(n-1)} ,  \quad  n>0 
-   \] 
+     Pr \left \{ X_{m-n} = j  \mid X_{m} = i  \right \}  = P _{ij}^{(n)} =  \sum_{k=0}^{\infty}  P _{ik} P_{kj}^{(n-1)} ,  \quad  n>0
+   \]
    where we define \[
    P_{ij}^{(0)} = \begin{cases}
      1 , \quad  i= j \\
-     0, i \neq j 
+     0, i \neq j
    \end{cases}
-   \] 
+   \]
  \end{theorem}
 
  \begin{proof}
@@ -535,35 +536,35 @@ Which is a major simplification.
      &= \sum_{k}^{}  Pr \left \{ X_{n+1} = j, X_{1} = k  \mid  X_{0} = i \right \}   \\
      &=  \sum_{k}^{} Pr \left \{ X_{n+1} = j  \mid  X_{1} = k, X_{0} = i \right \} \cdot Pr \left \{ X_{1} = k  \mid  X_{0} = i \right \}   \\
      &= \sum_{k}^{} P_{kj}^{(h)} \cdot P_{ik}  = \sum_{k}^{}  P_{ik} P_{kj}^{(h)}
-   \end{split} 
-   \] 
+   \end{split}
+   \]
  \end{proof}
- 
+
  \begin{tcolorbox}
    \textbf{Example.} $\left\{ X_{n} : n= 0,1,2, \ldots \right\}$ is a markoc chain and \[
-   P = \begin{bmatrix} 
+   P = \begin{bmatrix}
    0.1  &  0.9 \\
-   0.6  &  0.4 
-   \end{bmatrix} 
-   \] 
+   0.6  &  0.4
+   \end{bmatrix}
+   \]
    Find $P_{01}^{(4)}$ .
    \textbf{Solution}. \[
-   P^2 = \begin{bmatrix} 
+   P^2 = \begin{bmatrix}
    0.55  &  0.45 \\
    0.30  &  0.70
-   \end{bmatrix} 
-   \] 
+   \end{bmatrix}
+   \]
    So by doing matrix multiplication and we end up with \[
-   P^{4} = P^{2} \cdot  P^{2} = \begin{bmatrix} 
+   P^{4} = P^{2} \cdot  P^{2} = \begin{bmatrix}
    0.4375  &  0.5625 \\
    0.3750  &  0.6250
-   \end{bmatrix} 
-   \] 
+   \end{bmatrix}
+   \]
    Which therefore ends up with the answer \[
    P_{01}^{(4)} = 0.5625
-   \] 
+   \]
  \end{tcolorbox}
- 
+
 
 
 
@@ -576,42 +577,42 @@ Which is a major simplification.
  \subsection{Introduction to first step analysis}%
  \label{sub:introduction_to_first_step_analysis}
 
- \textbf{Input} 
+ \textbf{Input}
  \begin{itemize}
    \item $i_{0}$ : starting state
     \item $P$ : transition probability matrix
     \item T: number of time steps
  \end{itemize}
- \textbf{Algorithm} 
+ \textbf{Algorithm}
  \begin{enumerate}
    \item Set $x_{0} = i_{0}$
    \item for $n=1 \ldots T$
    \item $\quad   $ Simulate $x_{n}$ from $X_{n}  \mid  X_{n-1} = x_{n-1}$
    \item end
  \end{enumerate}
- 
- \textbf{output} : One realization $x_{0}, x_{1} , \ldots, x_{T}$ 
- 
+
+ \textbf{output} : One realization $x_{0}, x_{1} , \ldots, x_{T}$
+
  \begin{tcolorbox}
-   \textbf{Example.} 
+   \textbf{Example.}
    \[
    P = \begin{pmatrix}
    0.95  &  0.05  &  0 \\
    0  &  0.90  &  0.10 \\
    0.01  &  0  &  0.99
-   \end{pmatrix} 
-   \] 
+   \end{pmatrix}
+   \]
    Let $x_{0} = 0$
    \begin{enumerate}
-     \item $x_{0} = 0$  
-     \item 
+     \item $x_{0} = 0$
+     \item
        \begin{align*}
        Pr \left \{ X_{1} = 0 | X_{0} = 0 \right \} = &  P_{00} = 0.95  \\
        Pr \left \{ X_{1}  \mid  X_{0}  \right \}  &=  P_{01} = 0.05 \\
        Pr \left \{ X_{1}  \mid  X_{0} = 0 \right \}  &=  P_{02} = 0 \\
        .\end{align*}
        Assume we get $x_{1} = 1$
-     \item States 
+     \item States
        \begin{itemize}
          \item \[
              \begin{split}
@@ -619,14 +620,14 @@ Which is a major simplification.
          1: P_{11 } &=  0.90 \\
          2: P_{12} &=  0.10 \\
          \vdots  \\
-             \end{split} 
-         \] 
+             \end{split}
+         \]
        \end{itemize}
    \end{enumerate}
  \end{tcolorbox}
 
  \begin{tcolorbox}
-   General notes on simulation 
+   General notes on simulation
    \begin{itemize}
      \item
    $Pr \left \{ A  \right \} \approx \frac{\text{ times A occure}}{ \text{ Simulations}}  $
@@ -636,10 +637,10 @@ Which is a major simplification.
 
    \textbf{Example.} We have $N=100$ divided into two containers labelled $A$ and $ b$. At each time $n$, one ball is selected at random and moved to the container. Let $Y_{n}$ denote the number of balls in container $A$ at time $n$, and define $X_{n} = Y_{n} -50$. Find the transition probabilities and simulate and plot one realization of \[
    \left\{ X_{n}: n  = 0,1, \ldots, 500 \right\}
-   \] 
+   \]
 
-   \textbf{Answer} 
- 
+   \textbf{Answer}
+
 \begin{figure}[ht]
     \centering
     \incfig{balls}
@@ -657,7 +658,7 @@ P_{ij} = \begin{cases}
    \frac{50+i}{100}   & , j = i-1 \\
    0  & , \text{otherwise}.
 \end{cases}
-\] 
+\]
 
 % Visualization
 % \begin{figure}[ht]
@@ -668,9 +669,9 @@ P_{ij} = \begin{cases}
 % \end{figure}
 
 \newpage
-\textbf{Motivation}  
+\textbf{Motivation}
 \begin{definition}
-  For a markov chain, a state $i$ sich that $P_{ij} = 0 \forall j\neq i$  is called \textbf{absorbing.} 
+  For a markov chain, a state $i$ sich that $P_{ij} = 0 \forall j\neq i$  is called \textbf{absorbing.}
 \end{definition}
  \begin{tcolorbox}
    \textbf{Example.} Let $\left\{ X_{n} \right\}$ be a Markov chain woth transition probability matrix \[
@@ -678,8 +679,8 @@ P_{ij} = \begin{cases}
    1  &  0  &  0 \\
    \alpha   &  \beta  &  \gamma  \\
    0  & 0  & 1
-   \end{pmatrix} 
-   \] 
+   \end{pmatrix}
+   \]
    where $\alpha , \beta , \gamma > 0$ and $\beta = 1- \alpha -\gamma $. Assume $x_{0} = 1$
    \begin{enumerate}
      \item  What is the expected time until absortion ?
@@ -688,17 +689,17 @@ P_{ij} = \begin{cases}
 
    \textbf{Realization} . \[
    \overbrace{1,1,1,1,1,2}^{4 \text{ steps to absorption}} ,2,2 \ldots
-   \] 
-   \textbf{Mathematically} 
-   
+   \]
+   \textbf{Mathematically}
+
    \newpara
    Let $T = \min_{} \left\{ n \ge 0 : X_{n} = 0 \quad \text{or} \quad  X_{n} = 2   \right\}$. Then is \[
    \begin{split}
      Q1:  &  \quad E\left[ T  \mid X_{0} = 1 \right]  \\
-     Q2:  &  \quad  Pr \left \{ X_{T} = 0  \mid  X_{0} = 1 \right \}  
-   \end{split} 
-   \] 
-   The idea of first step analysis is to define 
+     Q2:  &  \quad  Pr \left \{ X_{T} = 0  \mid  X_{0} = 1 \right \}
+   \end{split}
+   \]
+   The idea of first step analysis is to define
    \begin{itemize}
      \item $T^{(n) } = \min_{}  \left\{ n \ge :: X_{m\times n } = 0 \quad \text{or} \quad X _{m+b} =2   \right\}$
      \item $T = T^{(0)}$
@@ -720,20 +721,20 @@ P_{ij} = \begin{cases}
      \end{tabular}
    \end{table}
 
-   \textbf{First step analysis for Q1} 
+   \textbf{First step analysis for Q1}
    \[
      \begin{split}
    v_{i}  & = \sum_{k=0}^{2}  Pr \left \{ X_{1} = k  \mid  X_{0} = i \right \}  \left( 1 + v_{k} \right) \\
 &= \sum_{k=0}^{2}  P_{ik} \left( 1+ v_{k} \right) = \sum_{k=0}^{2} P_{ik} v_{k} +1 \quad  \text{which is true for } \quad i = 0,1,2   \\
-     \end{split} 
-   \] 
+     \end{split}
+   \]
    Which is reduced to linear algebra. Solving it by \[
    \begin{split}
      v_{0} &=  v_{2} = 0 \\
      \implies  v_{1} &= \alpha  v_{0} + \beta v_{1} + \gamma v_{2} + 1 \\
      \implies  v_{1} &=  \frac{1}{ 1- \beta } \quad  \text{[Q1]}  \\
-   \end{split} 
-   \] 
+   \end{split}
+   \]
    \begin{tcolorbox}
      $P_{ij} \implies  i = \text{row} , \quad j = \text{column} $
    \end{tcolorbox}
@@ -742,53 +743,53 @@ P_{ij} = \begin{cases}
    u_{i}  & = Pr \left \{ X_{T} = 0  \mid  X_{0} = i \right \}  \\
      &  \downarrow \\
    u_{i} &= \sum_{k=0}^{2}  P_{ik} u_{k}, \quad i = 0,1,2   \\
-     \end{split} 
-   \] 
+     \end{split}
+   \]
      \begin{itemize}
        \item Easy: $u_{0} = 1, u_{2} =0$
        \item Harder: $u_{1} = \alpha  u_{0} + \beta u_{1} + \gamma u_{2}$ such that \[
-           u_{1} = \alpha \frac{1}{1- \beta }  = \frac{\alpha }{\alpha  - \beta }  \quad \text{[Q2]} 
-       \] 
+           u_{1} = \alpha \frac{1}{1- \beta }  = \frac{\alpha }{\alpha  - \beta }  \quad \text{[Q2]}
+       \]
      \end{itemize}
-   
+
      \begin{tcolorbox}
        \textbf{Example.} let $\left[ X_{n} \right]$ be a markov chain with transition matrix \[
        \mathbf{P} = \begin{pmatrix}
        1  &  0 &  0  &  0 \\
        0.4  &  0.3  &  0.2  &  0.1 \\
        0.1  &  0.3  &  0.3 &  0.3 \\
-       0  &  0 &  0 &  0 
-       \end{pmatrix} 
-       \] 
+       0  &  0 &  0 &  0
+       \end{pmatrix}
+       \]
        The starting state is $x_{0} = 1$. Calculate the probability to be absorbed in the state $D$.
        \begin{enumerate}
-         \item Define $u_{i} = Pr \left \{ \text{absorbed in state 0}  \mid  X _{0} = i \right \} $ for $i = 0,1,2,3$ 
+         \item Define $u_{i} = Pr \left \{ \text{absorbed in state 0}  \mid  X _{0} = i \right \} $ for $i = 0,1,2,3$
          \item Get the easy ones out of the way. In this case $u_{0} = 1$ and $u_{3} = 0$
-         \item 
+         \item
            \[
            \begin{split}
             u_{1}  &  = P_{10} u_{0} + P_{11} u_{1} + P_{12} u_{2} + P_{13}u_{3}  \\
             &= 0.4 + 0.3 u_{1} + 0.2 u_{2}  \\
             u_{2} &= P_{20} u_{0} + P_{21} u_{1} + P_{22} u_{2} + P_{23} u_{3} \\
             &= 0.1 + 0.3 u_{1} + 0.3 u _{2} \\
-           \end{split} 
-           \] 
+           \end{split}
+           \]
          \item Solve for $u_{1}$ and $u_{2}$
        \end{enumerate}
      \end{tcolorbox}
- 
+
 \newpage
 \section{Lecture 5}%
 \label{sec:lecture_5}
 
 \textbf{Example.} Let $P$ be the matrix \[
-P = \begin{bmatrix} 
+P = \begin{bmatrix}
 1  & 0  &  0 &  0 \\
 0.4  &  0.3  &  0.2  &  0.1 \\
 0.1   &  0.3  &  0.3  &  0.3 \\
 0  &  0  &  0 &  0
-\end{bmatrix} 
-\] 
+\end{bmatrix}
+\]
 With starting state $x_{0} = 1$
 
 \begin{enumerate}
@@ -796,13 +797,13 @@ With starting state $x_{0} = 1$
   \item Set $v_{0} = v_{3} = 0$
   \item \[
   v_{1} = P_{10} v_{0} + P_{11} v_{1} + P_{12} v_{2} + P_{13} v_{3}  = 0.3 v_{1} + 0.2_{v2} +1
-  \] 
+  \]
   and \[
   v_{2} = P_{20 } v_{0}  + P_{21} v_{1} + P_{22}v_{2} + P_{23 } v_{3} + 1 = 0.3 v_{1} + 0.3 v_{2} + 1
-  \] 
+  \]
 \item Solve the equations and end up with \[
-v_{1} = \frac{90}{43} \quad \text{and} \quad v_{2} \frac{100}{43}  
-\] 
+v_{1} = \frac{90}{43} \quad \text{and} \quad v_{2} \frac{100}{43}
+\]
 
 \end{enumerate}
 
@@ -814,14 +815,14 @@ v_{1} = \frac{90}{43} \quad \text{and} \quad v_{2} \frac{100}{43}
     \begin{split}
       v_{i}  & = 0, \quad  i \in  A   \\
       v_{i} &=  1+ \sum_{ i \in  \mathbb{R} }^{} P_{ik} v_{k} \quad i \in  A^{c}  \\
-    \end{split} 
-    \] 
+    \end{split}
+    \]
   \end{enumerate}
 \end{theorem}
 
 
-\textbf{Example.} 
-A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increases $ 1 \$$.  The probability of winning each round is  $ 0  < p < 1$ and the probability of losing each round is $q = 1 - p$. The gambler will continue gambling until his fortine is \$ $N$ or $0 \$$ where  $N > 10$. What is the probability the gambler will be ruined. 
+\textbf{Example.}
+A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increases $ 1 \$$.  The probability of winning each round is  $ 0  < p < 1$ and the probability of losing each round is $q = 1 - p$. The gambler will continue gambling until his fortine is \$ $N$ or $0 \$$ where  $N > 10$. What is the probability the gambler will be ruined.
 
 \begin{enumerate}
   \item Extract the essential stuff. \[
@@ -829,29 +830,29 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
         X_{n} &=  \text{Fortune at time} \quad  n, \quad n = 0,1,2,\ldots   \\
         \text{State space } &=  \left\{ 0,1, \ldots, N \right\} \\
         \text{Target: } u_{k}   & = Pr \left \{ \text{Absorption in state 0}  \mid X_{0} = k \right \}, \quad  k = 0,1, \ldots, N \\
-      \end{split} 
-  \] 
+      \end{split}
+  \]
 \item  Visualize the transitions.  Insert figure of tranistions.
    \item Make the eprobability matrix. The rows are "to" and the columns are "1"
      \[
-     P = \begin{bmatrix} 
+     P = \begin{bmatrix}
      1   &  0 & 0 & 0  & \ldots  &  0 \\
      q  & 0  &   p  & 0  &   \ldots  &  0 \\
      0  &  q  &   0  &  p  &  \ldots   \\
-     
+
      \vdots   &  &   \ddots    \\
       &  &  & q  & 0  &  p \\
      0  &  0  &  \ldots  &   &  & 1
-     \end{bmatrix} 
-     \] 
+     \end{bmatrix}
+     \]
    \item Set up the iteration \[
    \begin{split}
      u _{0}  & = 1 , \quad  u_{N} = 0 , \quad  \text{Easy}   \\
      u_{i} &=  P_{i, i.1} u_{i-1} + P _{i,i+1} u_{i+1}  \\
      &= q u_{i-1} + p u_{i+1} , \quad i=1,2, \ldots, N-1  \\
-   \end{split} 
-   \] 
- \item 
+   \end{split}
+   \]
+ \item
    \begin{enumerate}
      \item  \[
          \begin{split}
@@ -859,8 +860,8 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
     q\left[ u _{ i} - u_{i-1} \right] &=  p \left[ u_{i+1} - u_{i} \right] \\
       &  \downarrow \quad \text{Trick}    \quad \chi _{i} = u_{i} - u_{i-1}   \\
     q \chi _{1} &=  p \chi _{i+1} , \quad  \implies  \chi _{i+1} = \frac{q}{p}  \chi _{i}  \quad  i = 1,2 , \ldots , N  \\
-         \end{split} 
-     \] 
+         \end{split}
+     \]
    \item \[
    \begin{split}
      \chi _{1} + \chi _{2} + \ldots + \chi _{k} &= \left[ u - u_{0} \right] + \left[ u_{2} - u_{1} \right] \\
@@ -868,8 +869,8 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
        &  \downarrow  \quad \text{Telescoping sum}  \\
         \chi _{1}\left[ 1 + \frac{q}{p} + \left( \frac{q}{p} \right)^2 + \ldots + \left( \frac{q}{p} \right)^{k-1}  \right]&=  u_{k} -1, \\
         &  \quad k = 1,\ldots,N  \\
-   \end{split} 
-   \] 
+   \end{split}
+   \]
    For $k = N$ : \[
    \begin{split}
      \chi _{1} &=    \frac{u_{N} -1}{\sum_{k=0}^{N-1} \left( \frac{q}{p} \right)^{k}}  = \frac{-1}{ \sum_{k = 0}^{N-1}  \left( \frac{q}{p} \right)^{k}}   \\
@@ -877,25 +878,25 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
        -\frac{1}{N}\quad   & , q = p = \frac{1}{2} \\
        \frac{- \left( 1- \frac{q}{p} \right)}{\left( 1- \left( \frac{q}{p} \right) \right)} \quad   &  q\neq p \\
      \end{cases} \\
-   \end{split} 
-   \] 
- \item 
-   From  the telescoping sum 
+   \end{split}
+   \]
+ \item
+   From  the telescoping sum
    \begin{align*}
      u_{k} &=  1+ \chi _{1} \sum_{i=0}^{k-1} \left( \frac{q}{p} \right)^{i} \\
      &=  \begin{cases}
        1-\frac{1}{N} \cdot k =  \frac{N-k}{N}  ,  &  \quad  p = q = \frac{1}{2}  \\
-       1- \frac{1- \left( \frac{q}{p}  \right)^{k}}{ 1- \left( \frac{q}{p} \right)^{N}} = \frac{\left( \frac{q}{p} \right)^{k} - \left( \frac{q}{p} \right) ^{ N}}{1- \left( \frac{q}{p} \right) ^{N}}  ,   & \quad  p\neq q 
-     \end{cases} 
+       1- \frac{1- \left( \frac{q}{p}  \right)^{k}}{ 1- \left( \frac{q}{p} \right)^{N}} = \frac{\left( \frac{q}{p} \right)^{k} - \left( \frac{q}{p} \right) ^{ N}}{1- \left( \frac{q}{p} \right) ^{N}}  ,   & \quad  p\neq q
+     \end{cases}
    .\end{align*}
    where $k = 1,2, \ldots $
    \end{enumerate}
  \item The final step \[
  u_{10} = \begin{cases}
    \frac{N- 10}{ N}  ,  &  \quad  p = q = \frac{1}{2} \\
-   \frac{\left( \frac{q}{p} \right)^{10} - \left( \frac{q}{p} \right) ^{N}}{ 1 - \left( \frac{q}{p} \right)^{N}}  , &\quad     q \neq p 
+   \frac{\left( \frac{q}{p} \right)^{10} - \left( \frac{q}{p} \right) ^{N}}{ 1 - \left( \frac{q}{p} \right)^{N}}  , &\quad     q \neq p
  \end{cases}
- \] 
+ \]
 \end{enumerate}
 
 \begin{remark}
@@ -904,8 +905,8 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
         \begin{split}
     q \ge p \quad   & \implies  \quad  \text{Almost certain you will loose.}   \\
     q < p  & \implies  P\left( \text{ruined} \right) = \left( \frac{q}{p} \right)^{10} \\
-        \end{split} 
-    \] 
+        \end{split}
+    \]
   \end{itemize}
 \end{remark}
 
@@ -913,13 +914,13 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
 \label{sub:markov_chain_in_infinitive_time}
 
 \begin{definition}
-  \textbf{Regular Markov Chain} . Consider a Markov chain $\left\{ X_{n}: \quad  n = 0,1,\ldots  \right\}$ with finite state space $ \left\{ 0,1,2, \ldots \right\}$ and transition matrix $\mathbf{P}$. IF there exists an integer $k >0$ so that all regular elements $\mathbf{P}^{k}$ are strictly positive, we call $\mathbf{P}$ and $\left\{ X_{n} \right\}$ regular. 
+  \textbf{Regular Markov Chain} . Consider a Markov chain $\left\{ X_{n}: \quad  n = 0,1,\ldots  \right\}$ with finite state space $ \left\{ 0,1,2, \ldots \right\}$ and transition matrix $\mathbf{P}$. IF there exists an integer $k >0$ so that all regular elements $\mathbf{P}^{k}$ are strictly positive, we call $\mathbf{P}$ and $\left\{ X_{n} \right\}$ regular.
 \end{definition}
 
 \begin{remark}
    \begin{enumerate}
      \item $P$ is regular means that it exists an $k > 0$ so that $P^{(k)} _{ ij} > 0 \quad  \forall i,j $
-     \item  If $P^{(k)} _{ij} \quad  \forall i,j $, then is $P^{(k)} _{ij} > 0 \quad  \forall i,j $ and $K \ge k$ 
+     \item  If $P^{(k)} _{ij} \quad  \forall i,j $, then is $P^{(k)} _{ij} > 0 \quad  \forall i,j $ and $K \ge k$
    \end{enumerate}
 \end{remark}
 
@@ -930,25 +931,25 @@ A gambler has $10 \$$ and bets  $1\$$  If he wins the round, his fortune increas
 Find Stationary distributions
 
 \begin{enumerate}[label=(\roman*)]
-  \item $\mathbf{P } = \begin{bmatrix} 
+  \item $\mathbf{P } = \begin{bmatrix}
   \frac{1}{2}  &  \frac{1}{2} \\
-  \frac{1}{2}  &  \frac{1}{2} 
-  \end{bmatrix} 
+  \frac{1}{2}  &  \frac{1}{2}
+  \end{bmatrix}
   $
-  
+
   \newpara
   \begin{itemize}
-    \item 
-  Positive recurrent, aperiodic  and irreducible. 
-\item 
+    \item
+  Positive recurrent, aperiodic  and irreducible.
+\item
   $\implies $ Limiting distribution: \[
   \mathbf{\pi } = \left( \frac{1}{2}, \frac{1}{2} \right)
-  \] 
+  \]
   \end{itemize}
-\item $\mathbf{P} = \begin{bmatrix} 
+\item $\mathbf{P} = \begin{bmatrix}
 0  &  1 \\
 1  &  0
-\end{bmatrix} 
+\end{bmatrix}
 $
 \begin{itemize}
   \item Positive recurrent and irreducible.
@@ -956,10 +957,10 @@ $
   \item $\mathbf{\pi } = \left( \frac{1}{2} , \frac{1}{2} \right)$
 \end{itemize}
 
-\item $\mathbf{P} = \begin{bmatrix} 
+\item $\mathbf{P} = \begin{bmatrix}
 1  &  0 \\
 0  &  1
-\end{bmatrix} 
+\end{bmatrix}
 $
 
 \begin{itemize}
@@ -970,18 +971,18 @@ $
   \pi _{1}  & = 0 \pi _{0} + 1 \pi _{1} = \pi _{1} \\
   \implies  \pi _{}  & = 1 - \pi _{1} \\
   \implies  \mathbf{\pi }  & = \left( \pi _{1} , 1 - \pi _{1} \right)
-      \end{split} 
-  \] 
-\item Part 2: 
+      \end{split}
+  \]
+\item Part 2:
 
 \newpara
 Must have \[
 \begin{split}
   \pi _{0} \ge 0 \\
   \pi _{1 } \ge 0 \\
-  \implies  \mathbf{\pi } =  \left( \pi _{0} , 1- \pi _{0}  \right)  & , \quad 0\le \pi _{0} \le 1 
-\end{split} 
-\] 
+  \implies  \mathbf{\pi } =  \left( \pi _{0} , 1- \pi _{0}  \right)  & , \quad 0\le \pi _{0} \le 1
+\end{split}
+\]
 \end{itemize}
 \end{enumerate}
 
@@ -1007,7 +1008,7 @@ Read it yourself .
 \begin{definition}
   The stochastic variable $X$  has a \textbf{Poission distribution}  with (mean) parameter $\mu > 0$ if \[
   p\left( x \right) = \frac{\mu ^{x}}{x!}  e^{- \mu }
-  \] 
+  \]
   We write $X \sim Possion (\mu )$
 \end{definition}
 
@@ -1021,19 +1022,19 @@ Read it yourself .
 \end{remark}
 
 \begin{theorem}
-  If $X \sim Possion (\mu ), \quad  Y \sim \left( \chi  \right) $ and $Y $ are independent. 
+  If $X \sim Possion (\mu ), \quad  Y \sim \left( \chi  \right) $ and $Y $ are independent.
 \end{theorem}
 
 \begin{theorem}
   If $N \sim Possion(\mu )$  and $ M  \mid  N \sim Binomial(N,p)$ then \[
     M \sim Poission(\mu P)
-  \]  
+  \]
 \end{theorem}
 
 \begin{remark}
   \begin{enumerate}[label=(\roman*)]
-    \item $M = \sum_{k= 1}^{ N}  I_{k}$ , where $ I_{1}, I_{2} , \ldots \sim Bernoulli (p)$ and $I_{1}, I_{2} , \ldots$ and $N$ are independent. 
-    \item This is called \textbf{thinning}.  
+    \item $M = \sum_{k= 1}^{ N}  I_{k}$ , where $ I_{1}, I_{2} , \ldots \sim Bernoulli (p)$ and $I_{1}, I_{2} , \ldots$ and $N$ are independent.
+    \item This is called \textbf{thinning}.
   \end{enumerate}
 \end{remark}
 
@@ -1041,26 +1042,26 @@ Read it yourself .
 \label{ssub:section_5_1_2}
 
 \begin{definition}
-  A \textbf{Possion process}  with rate  \textbf{inensity}  $ \lambda > 0$ is an integet-valued stochastic process $\left\{ X\left( t \right): t \ge 0 \right\}$ 0 for which.  
+  A \textbf{Possion process}  with rate  \textbf{inensity}  $ \lambda > 0$ is an integet-valued stochastic process $\left\{ X\left( t \right): t \ge 0 \right\}$ 0 for which.
   \begin{itemize}
     \item For any $n>0$ and any time point $0< t_{0} < t_{1} < \ldots < t_{n}$ the increments \[
     X\left( t_{1}  \right) - X\left( t_{0} \right) , X\left( t_{2} \right) - X\left( t_{1} \right) , \ldots , \ldots X\left( t_{n} \right) - X\left( t_{n-1} \right)
-    \] 
-    are independent 
+    \]
+    are independent
   \item For $s\ge 0$ and $t> 0$  \[
       X\left( s+t \right)  - X\left( s \right) \sim Poission(\lambda t)
-  \] 
+  \]
 \item $X\left( 0 \right) = 0$
   \end{itemize}
 \end{definition}
 
 \begin{remark}
   \begin{itemize}
-    \item 1. is called independent increments 
+    \item 1. is called independent increments
     \item In 2, we have \[
         X\left( s+ \Delta t \right) - X\left( s \right) \sim Possion(\lambda  \Delta t)
-    \] 
-  \item Illustration 
+    \]
+  \item Illustration
 \begin{figure}[ht]
     \centering
     \incfig{iillustration}
@@ -1072,7 +1073,7 @@ Read it yourself .
 \end{remark}
 \begin{tcolorbox}
   \textbf{Example.} We assume the arrival of customers to a store follows a Poission process with rate $\lambda  = 4$ customers per hours. The stor opens a 09:00. What is the probability that exactly one customer has arrived by 09:30 and exactly five customers have arrived bu 11:30.
-  
+
   \newpara
   \textbf{Answer.} Let $X\left( t \right) = \text{arrivals by time } t$ For $t\ge 0$ (measured in hours). Then is the question \[
     \begin{split}
@@ -1081,21 +1082,21 @@ Read it yourself .
                &= Pr \left \{ X\left( \frac{1}{2} \right) - X\left( 0 \right) = 1 , X\left( \frac{5}{2}  \right) - X\left( \frac{1}{2} \right) = 4  \right \}  \\
                \downarrow  &  \text{Independent increments} \\
                            &= Pr  \underbrace{\left \{ X\left( \frac{1}{2} \right)- X\left( 0 \right) = 1 \right \}}_{ Poission(\frac{1}{2} \lambda )}  \cdot \\
-                            & \quad     Pr \left \{  \underbrace{ X\left( \frac{5}{2} \right) - X\left( \frac{1}{2} \right)}_{Possion(2 \lambda )}  = 4 \right\}  \\ 
+                            & \quad     Pr \left \{  \underbrace{ X\left( \frac{5}{2} \right) - X\left( \frac{1}{2} \right)}_{Possion(2 \lambda )}  = 4 \right\}  \\
 &= \frac{2^{1}}{1!} e^{-2}  \cdot \frac{8^{4}}{4!} e^{-8}   \\
-    &= 0.0155 
-    \end{split} 
-  \] 
+    &= 0.0155
+    \end{split}
+  \]
 \end{tcolorbox}
 \begin{tcolorbox}
   \textbf{Example.} Assume the arrical of customers to follows an inhomogenous Poission process with rate $\lambda \left( t \right)  =t$ , $t\ge 0 $. Assume the store opens at $09:00$. What is the probability that no-one has arrived at $10:00$.
-   
+
   \newpara
   \textbf{Answer.} \[
     \begin{split}
   X\left( 1 \right) - X\left( 0 \right)  & \sim Poission\overbrace{\left( \int_{0}^{ 1}  t dt  \right)}^{ = \frac{1}{2}}   \\
-    \end{split} 
-  \]  
+    \end{split}
+  \]
 \end{tcolorbox}
 \newpage
 \section{Lecture 08/09/20}%
@@ -1111,7 +1112,7 @@ Things to check
   \item Extend regularity to infinite spaces.
 \end{itemize}
 
-\textbf{Example} 
+\textbf{Example}
 Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
 
 \begin{enumerate}[label=(\alph*)]
@@ -1119,28 +1120,28 @@ Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
   \begin{split}
       &  0, 0,0,0,0,0,    \ldots\\
       &  1,1,1,1,1,1,  \ldots  \\
-    P &= \begin{bmatrix} 
+    P &= \begin{bmatrix}
     1  &  0 \\
     0  &  1
-    \end{bmatrix}  \implies  P^{n} = \begin{bmatrix} 
+    \end{bmatrix}  \implies  P^{n} = \begin{bmatrix}
     1  &  0 \\
     0  &  1
-    \end{bmatrix} 
+    \end{bmatrix}
      \\
-  \end{split} 
-  \] 
+  \end{split}
+  \]
 \end{enumerate}
 
 \begin{definition}
-  Let $\left\{ X_{n}: 0, 1 , \ldots \right\}$ be a Markov chain with state space $\left\{ 0, 1 , \ldots \right\}$ then is 
+  Let $\left\{ X_{n}: 0, 1 , \ldots \right\}$ be a Markov chain with state space $\left\{ 0, 1 , \ldots \right\}$ then is
   \begin{enumerate}[label=(\roman*)]
-    \item State $j$ is \textbf{ accessible}  from state $i $ if $\exists n \ge 0$  so that $P^{(n)} > 0$ 
+    \item State $j$ is \textbf{ accessible}  from state $i $ if $\exists n \ge 0$  so that $P^{(n)} > 0$
     \item If states $i$ and $j$ are accessable from each other they are said to \textbf{communcate }  we write $ i \sim j$. If states $i$ and $j$ do not communcate we write $i \not \sim  j$
   \end{enumerate}
 \end{definition}
 
 \begin{remark}
-  If $ i \not \sim  j$ , then either (or both) 
+  If $ i \not \sim  j$ , then either (or both)
   \begin{enumerate}[label=(\alph*)]
     \item
     \begin{enumerate}[label=(\roman*)]
@@ -1157,7 +1158,7 @@ Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
 \end{remark}
 
 \begin{theorem}
-  Communication is an \textbf{equicalence relation} 
+  Communication is an \textbf{equicalence relation}
   \begin{enumerate}[label=(\roman*)]
     \item \textbf{reflexive} , $i ~ j$
     \item  \textbf{symmentric }  $i \sim  j \implies  j \sim i$
@@ -1168,34 +1169,34 @@ Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
 
 \begin{proof}
   \begin{enumerate}[label=(\roman*)]
-    \item $P ^{\left( 0 \right)} _{ii} = 1 \quad  \implies  i \sim i   $ 
+    \item $P ^{\left( 0 \right)} _{ii} = 1 \quad  \implies  i \sim i   $
     \item By definition is this true.
-    \item 
+    \item
       \begin{enumerate}[label=(\alph*)]
         \item $ i \sim j$ $\implies  \quad  \exists n\ge 0: P ^{(n)} _{ij} > 0 $ \[
         j \sim  k \implies  \exists m\ge 0 : P^{(m)} _{jk} > 0
-        \] 
+        \]
       \item Chapman-kilogram \[
       P^{(n+m)} _{ik} = \sum_{r=0}^{\infty} P^{(n)}_{ir} P^{(m)}_{rj} \ge P^{(n)}_{ij} P^{(m)}_{jk}
-      \] 
+      \]
       $\implies $ $k$ is accessible from $i$.
-    \item Show yourself 
-      
+    \item Show yourself
+
       \newpara
-      \textbf{$i$ is accessible from $k$} 
+      \textbf{$i$ is accessible from $k$}
 
       \end{enumerate}
   \end{enumerate}
 \end{proof}
 
 \begin{definition}
-  A Markov chain is \textbf{irreducible}  if $ \sim $ (communication) induces exactly one equivalent class.  If not, it is called reducible. 
+  A Markov chain is \textbf{irreducible}  if $ \sim $ (communication) induces exactly one equivalent class.  If not, it is called reducible.
 \end{definition}
 \begin{definition}
   The \textbf{period}  of state $i$, written as $d\left( i \right)$ is \[
   d\left( i \right) = \text{gcd}\left\{ n \ge 1: P ^{(n)} _{ii} > 0 \right\}
-  \] 
-  If $P^{(n)} _{ii} = 0$ for all $n\ge 1$, we define $d\left( i \right) = 0$. If $d\left( i \right) = 1$, we call the state $i$ is \textbf{aperiodic.} 
+  \]
+  If $P^{(n)} _{ii} = 0$ for all $n\ge 1$, we define $d\left( i \right) = 0$. If $d\left( i \right) = 1$, we call the state $i$ is \textbf{aperiodic.}
 \end{definition}
 \begin{theorem}
   if $i \sim j$, then $d\left( i \right) = d\left( j \right)$
@@ -1204,15 +1205,15 @@ Let $\left\{ X_{n}: 0,1,\ldots,N \right\}$ be a markov chain.
    The period is a property of the equivalence class.
 \end{remark}
 
-\textbf{Notation} THe state space may be infinite: $\left\{ 0,1, \ldots \right\}$. We introduce  
+\textbf{Notation} THe state space may be infinite: $\left\{ 0,1, \ldots \right\}$. We introduce
 \begin{enumerate}[label=(\roman*)]
   \item The probability the first return happend after exactly $n$ steps \[
-  f_{ii}^{(n)} = Pr \left \{ X_{n} = i, X_{\mu }\neq i, i  = 1,2, \ldots, n-1  \mid X_{0} = i  \right \}  \quad  n> 0 
-  \] 
+  f_{ii}^{(n)} = Pr \left \{ X_{n} = i, X_{\mu }\neq i, i  = 1,2, \ldots, n-1  \mid X_{0} = i  \right \}  \quad  n> 0
+  \]
   We will define $f_{ii}^{(0)} = 0$
 \item The probability of returning at some time \[
 f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^{n} f^{(k)} _{ii} .
-\] 
+\]
 \end{enumerate}
  \begin{remark}
    $f_{ii} < i \leftrightarrow  \text{Positive probability of never returning to $i$}$
@@ -1225,10 +1226,10 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
  \begin{theorem}
    A state $i$ is recurrent if and only if \[
    \sum_{n=1}^{\infty} P_{ii}^{(n)} = \infty
-   \] 
+   \]
    Equivalently, state $i$ is transient if and only if \[
    \sum_{n=1}^{\infty}  P^{(n)}_{ii} < \infty
-   \] 
+   \]
  \end{theorem}
 
  \begin{proof}
@@ -1239,11 +1240,11 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
        & = E\left[ \sum_{n=1}^{ \infty}  \mathbb{I} \left\{ X_{n} = i  \mid  X_{0} = i \right\} \right] \\
        &= E\left[ M  \mid  X_{0} = i \right] \\
         & M \to  \text{Returns to state.}
-         \end{split} 
-     \] 
+         \end{split}
+     \]
    \item $E \left[ M  \mid  X_{0} = i \right] = \begin{cases}
      f_{ii}\frac{1}{1- f_{ii}}  , &  \quad  f_{ii} < 1 \\
-     \infty ,  &  f_{ii} = 1 
+     \infty ,  &  f_{ii} = 1
    \end{cases}$
    \end{enumerate}
  \end{proof}
@@ -1251,21 +1252,21 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
  \newpage
  \section{Lecture 2020-09-18}%
  \label{sec:lecture_2020_09_18}
- 
+
  \begin{tcolorbox}
    Read Section 5.1.4 by yourself.
  \end{tcolorbox}
 
-\textbf{Section 5.2 Motivation}  
- 
+\textbf{Section 5.2 Motivation}
+
 \begin{enumerate}[label=(\alph*)]
   \item $\left\{ X\left( t \right): t \ge 0 \right\} \text{ with rate } \lambda _{1} = 5, \quad  0 \le t \le 10 $
     \[
-    E\left[ X\left( t \right) \right] = \lambda t = 5t, \quad 
-    \]  
+    E\left[ X\left( t \right) \right] = \lambda t = 5t, \quad
+    \]
   \item $\left\{ Y\left( t \right): t \ge 0 \right\} \text{ with rate } \lambda _{2} = t, \quad  0\ge t \le 10 $\[
-      E \left[ Y\left( t \right) \right] = \frac{t^2}{2} 
-  \] 
+      E \left[ Y\left( t \right) \right] = \frac{t^2}{2}
+  \]
 \end{enumerate}
 
 \begin{tcolorbox}
@@ -1277,14 +1278,14 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
   \lim_{n\to \infty}  \begin{pmatrix}
   n \\
   k
-  \end{pmatrix} 
-  p^{k}_{n} \left( 1-p_{n} \right) ^{n-k} = \lambda ^{n} \frac{1}{k!}  e^{-\lambda } , \quad  k=0,1 , \ldots 
-  \] 
+  \end{pmatrix}
+  p^{k}_{n} \left( 1-p_{n} \right) ^{n-k} = \lambda ^{n} \frac{1}{k!}  e^{-\lambda } , \quad  k=0,1 , \ldots
+  \]
 \end{theorem}
 \begin{remark}
   In TMA4295 Statistical Inference we will say that $Binomial\left( n, p_{n} \right)$ converges in $Possion\left( \lambda  \right)$ is $n\to \infty$.
 \end{remark}
- 
+
 \begin{remark}
   .
   \begin{enumerate}[label=(\roman*)]
@@ -1293,7 +1294,7 @@ f_{ii} = \sum_{k= 0}^{\infty}  f_{ii}^{(k)} = \lim_{n \to  \infty}  \sum_{k= 0}^
   \end{enumerate}
 \end{remark}
 
-Typical examples 
+Typical examples
 \begin{itemize}
   \item Customers arrivals.
   \item Car accident.
@@ -1309,83 +1310,83 @@ Typical examples
 \begin{enumerate}[label=(\roman*)]
   \item
 You may be familar with the expessions such as \[
-n = o\left( n^2 \right), \quad \text{as } n\to \infty 
-\] 
+n = o\left( n^2 \right), \quad \text{as } n\to \infty
+\]
 May be thought as  "$n$ is much smallet than $n^2$ as $n\to  \infty$"
-\item 
+\item
 We are going to mostly work with expressions of the form \[
-h^2 = o\left( h \right) , \quad  h \to  0^{+} 
-\] 
+h^2 = o\left( h \right) , \quad  h \to  0^{+}
+\]
 May be thought as "$h^2$ is much smaller than $h$ as $h \to  0^{+}$"
 
 \end{enumerate}
 
 
 \begin{definition}
-  Let $f$ and $g$ be real functions. We use \textbf{little-oh-notation}  in the two following ways 
+  Let $f$ and $g$ be real functions. We use \textbf{little-oh-notation}  in the two following ways
   \begin{enumerate}[label=(\roman*)]
-    \item $\displaystyle f\left( n \right) = o\left( g\left( n \right) \right) , \quad  n\to \infty \implies  \lim_{n\to \infty} \frac{f\left( n \right)}{g\left( n \right) }  = 0 $ 
+    \item $\displaystyle f\left( n \right) = o\left( g\left( n \right) \right) , \quad  n\to \infty \implies  \lim_{n\to \infty} \frac{f\left( n \right)}{g\left( n \right) }  = 0 $
     \item $\displaystyle f\left( h \right) = o\left( g\left( h \right) \right) \quad h\to 0^{+} \implies  \lim_{ n\to \infty } \frac{f\left( h \right)}{ g\left( h \right)} = 0    $
   \end{enumerate}
 \end{definition}
 
 \begin{tcolorbox}
-  \textbf{Example.} Are the following statements false or true? 
+  \textbf{Example.} Are the following statements false or true?
   \begin{enumerate}[label=(\roman*)]
     \item $h^2 = o\left( h \right) \quad  h\to  0  + $ \[
     \lim_{n\to  0^{+}}  \frac{h^2}{h} = 0
-    \] 
+    \]
     True
     \item $h^2 = o\left( h \right) \quad  h \to  \infty $ \[
         \lim_{h \to  \infty}  \frac{h^2}{h} = \lim_{n \to \infty} h = \infty
-    \] 
+    \]
     False
     \item $\sqrt{h}  = o\left( h \right) \quad  h\to  0^{+} $ \[
     \lim_{h \to 0^{+}}  \frac{\sqrt{h} }{h}  = \infty
-    \] 
+    \]
     False
     \item $h\to  o\left( 1 \right)\quad h\to 0^{+} $ \[
     \lim_{h \to 0^{+}}  \frac{h}{1 }  = 0
-    \] 
+    \]
     True
 
     \begin{remark}
       \[
-      h^{p} = o\left( h \right) \quad h \to 0^{+}\quad \implies p >1  
-      \] 
+      h^{p} = o\left( h \right) \quad h \to 0^{+}\quad \implies p >1
+      \]
     \end{remark}
   \end{enumerate}
 \end{tcolorbox}
 
-\newpage 
+\newpage
 \begin{definition}
-  A \textbf{C process}  is a stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ so that 
+  A \textbf{C process}  is a stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ so that
   \begin{enumerate}[label=(\roman*)]
     \item $N\left(  t \right)$ is a integer for $t\ge 0$
     \item $N\left( t \right) \ge 0$, for $t\ge0$
     \item If $s \ge t$, then $N\left( s \right) \le N\left( t \right)$
   \end{enumerate}
   We sometimes write \[
-    N\left( a,b \right) = N\left( b \right) - N\left( a \right) = \text{Number or events in } (a,b] , \quad   0\le a \le 
-  \] 
-  However, the notation will not be used in the lecture. 
+    N\left( a,b \right) = N\left( b \right) - N\left( a \right) = \text{Number or events in } (a,b] , \quad   0\le a \le
+  \]
+  However, the notation will not be used in the lecture.
 \end{definition}
 
 \begin{definition}
   Let $\left\{ N\left( t \right) : t \ge 0 \right\}$ be a counting process.  Then \[
-  \left\{ N\left( t \right): t \ge 0 \right\} 
-  \] is  a \textbf{Poission proccess}  with \textbf{rate (intensity)}  $\lambda > 0 $  if 
+  \left\{ N\left( t \right): t \ge 0 \right\}
+  \] is  a \textbf{Poission proccess}  with \textbf{rate (intensity)}  $\lambda > 0 $  if
 
   \begin{enumerate}[label=(\roman*)]
     \item For every integer $m> 1$ for any timepoints \[
         \begin{split}
     0  & = t_{0} < t_{1} < \ldots < t_{m} \\
     N\left( t_{1} \right) - N\left( t_{0} \right)  & , N\left( t_{2} \right) - N\left( t_{1} \right), \ldots N\left( t_{m} \right) - N\left( t_{m-1} \right)  \\
-        \end{split} 
-    \] 
+        \end{split}
+    \]
     "independent increments"
   \item For $t\ge 0$ and $h > 0$ ,  the distrobution of $N\left( t + h \right) - N\left( t \right)$  only depends on $h$ and $t$.
-    "Stationary Increnements" 
+    "Stationary Increnements"
   \item  $Pr \left \{ N\left( t + h \right) - N\left( t \right) = 1 \right \}  = \lambda  h + o\left( h \right), \quad h \to 0^{+} \quad   \forall t\ge0 $
   \item $Pr \left \{ N\left( t + h \right) - N\left( t \right) = 0 \right \}  = 1 - \lambda h  + o\left( h \right),  \quad h\to 0^{+} \quad  \forall t\ge 0  $
   \item $N\left( 0 \right) = 0$
@@ -1397,19 +1398,19 @@ May be thought as "$h^2$ is much smaller than $h$ as $h \to  0^{+}$"
     &= o\left( h \right) \\
     \implies  & \text{Events cannout occur at the same time} \\
     \implies  &  \text{ Jumps are of size 1}
-  \end{split} 
-  \] 
+  \end{split}
+  \]
 \end{definition}
 
 Recall
 
 \begin{definition}
-  (Simplified version.) A \textbf{Poission process}  with rate \textbf{rate}  $\lambda > 0$ is an integer valued  stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ for which 
+  (Simplified version.) A \textbf{Poission process}  with rate \textbf{rate}  $\lambda > 0$ is an integer valued  stochastic process $\left\{ N\left( t \right) : t \ge 0 \right\}$ for which
   \begin{enumerate}[label=(\roman*)]
     \item Increments are independent,
     \item For $s \ge 0$ and $t > 0$ \[
     N\left( s+t \right) - N\left( s \right) \sim Possion\left( \lambda t \right)
-    \] 
+    \]
   \item $N\left( 0 \right) = 0$
   \end{enumerate}
 \end{definition}
@@ -1419,64 +1420,64 @@ Recall
 \end{theorem}
 
 \begin{proof}
-  Lets call the simplified version P1 and the general version P2, then we need to prove 
+  Lets call the simplified version P1 and the general version P2, then we need to prove
   \begin{itemize}
     \item Prove that $P1 \implies  P2$: i),ii) and v) is proved by definition.
-      
+
       \newpara
-      
+
     $\displaystyle Pr \left \{  N\left( t + h \right) + N\left( t \right) = 1 \right \}  = \frac{\left( \lambda h \right)^{1}}{1}  e^{\lambda h}$ \[
         \begin{split}
-     & = \lambda h \left( 1- \lambda  h o\left( h \right) \right) , \quad  \text{ as } h\to 0^{+}  \\ 
+     & = \lambda h \left( 1- \lambda  h o\left( h \right) \right) , \quad  \text{ as } h\to 0^{+}  \\
      &=  \lambda  h - \lambda ^{2} h^2 + \lambda h o\left( h \right) \\
      &=  \lambda h + o\left( h \right) \\
-        \end{split} 
-    \] 
+        \end{split}
+    \]
     This type of manipulations are importan on the exam.
-    
+
       For iv):
     \newpara
   $\displaystyle Pr \left \{ N\left( t+ h \right) - N\left( t \right) = 0 \right \} = \frac{\left( \lambda h \right)^{0}}{0!}  e^{-\lambda h}$ \[
   \begin{split}
     &=  1\cdot \left( 1  \lambda  h + o\left( h \right) \right) \\
     &= 1 - \lambda h + o\left( h \right), \quad \forall t\ge0  \\
-  \end{split} 
-  \] 
+  \end{split}
+  \]
 \item Prove that $P2 \implies  P1$: i) and iii) are proved by definition.
-  
+
   \newpara
   For ii): Set $s = 0$ Ned to show that \[
   N\left( h \right) - N\left( 0 \right) \sim Poission\left( \lambda h \right)
-  \] 
+  \]
   \begin{enumerate}[label=(\roman*)]
     \item Divide $\left( 0, h \right ]$ into equal size sub-intervals.\[
-    \implies  t_{i} = \frac{i}{m} , \quad  i=0,1, \ldots, m. 
-    \] 
+    \implies  t_{i} = \frac{i}{m} , \quad  i=0,1, \ldots, m.
+    \]
   \item Let \[
   \varepsilon = \begin{cases}
     1, \quad  \text{at least one event  in } (t_{i-1}, t_{i}] \\
-    0, \quad \text{Otherwise} 
+    0, \quad \text{Otherwise}
   \end{cases}
-  , \quad  i = 1, 2, \ldots, m  
-  \] 
+  , \quad  i = 1, 2, \ldots, m
+  \]
   Then we can let $\displaystyle S_{m} = \sum_{i=1}^{m} \varepsilon _{i} $ .
-\item $\displaystyle  \varepsilon _{1} , \varepsilon _{2}, \ldots , \varepsilon _{m} \sim Bernoulli\left( p_{m} \right) $ where $p_{m} = \frac{\lambda h}{m}  + o\left( \frac{h}{m} \right) $  as $ m\to  \infty$. 
-  
+\item $\displaystyle  \varepsilon _{1} , \varepsilon _{2}, \ldots , \varepsilon _{m} \sim Bernoulli\left( p_{m} \right) $ where $p_{m} = \frac{\lambda h}{m}  + o\left( \frac{h}{m} \right) $  as $ m\to  \infty$.
+
   \newpara
   Let $S = \lim_{m\to  \infty}  S_{m}a $ we get \[
   \lim_{m\to \infty}  mo_{m} = \lim_{m\to \infty}  \left( \lambda h + o \left( 1 \right)  \right) = \lambda h
-  \] 
-  This is calles the "Law of rare events" $S \sim Possion\left( \lambda h \right)$. 
+  \]
+  This is calles the "Law of rare events" $S \sim Possion\left( \lambda h \right)$.
 \item $ \displaystyle Pr \left \{  N\left( h \right)- N\left( 0 \right)\neq S_{m} \right \}  \le \sum_{i=1}^{m} Pr \left \{ N\left( t_{i} \right) - N\left( t_{i-1} \right) \ge 2 \right \} $ \[
     \begin{split}
-      & \le \sum_{i=1}^{m}  o\left( \frac{h}{m} \right) \\ 
+      & \le \sum_{i=1}^{m}  o\left( \frac{h}{m} \right) \\
       &= m\cdot o\left( \frac{h}{m} \right) \\
       &= h o\left( 1 \right) \\
        & \to _{m\to \infty} 0 \\
         & \downarrow \\
         N\left( h \right) - N\left( 0 \right)    &  =S \sim Poission \left( \lambda h \right)
-    \end{split} 
-\] 
+    \end{split}
+\]
 
   \end{enumerate}
   \end{itemize}
@@ -1488,15 +1489,15 @@ Recall
 
 \textbf{Example. } Is it reasonable to model the following phenomena as Poission processes  ?
 \begin{enumerate}[label=(\alph*)]
-  \item Cases of a non-infectious rare disease. 
+  \item Cases of a non-infectious rare disease.
     \begin{itemize}
-      \item Independent incremens: Yes, people are independent. 
+      \item Independent incremens: Yes, people are independent.
       \item Stationary increments: Yes. Few people get sick.
       \item Many trials, "success " is rare: Yes. many people get sick.
     \end{itemize}
-  \item Calls going through a phone central. 
+  \item Calls going through a phone central.
     \begin{itemize}
-      \item Yes. For specific time intervals. 
+      \item Yes. For specific time intervals.
     \end{itemize}
   \item Goals in football.
     \begin{itemize}
@@ -1519,7 +1520,7 @@ Recall
  \newpara
   \begin{enumerate}[label=(\roman*)]
     \item $\displaystyle S_{n} = $ Time spent in stationary.
-    \item Two viewpoints. 
+    \item Two viewpoints.
     \begin{enumerate}[label=(\alph*)]
       \item Possion process $\left\{ N\left( t \right):  t\ge 0  \right\}$
       \item Poission point process. $\left( W_{1}, W_{2}, W_{3}, \ldots \right)$
@@ -1529,8 +1530,8 @@ Recall
 
 \begin{definition}
   The stocastic variable $Y$ has an \textbf{exponantial distrobution }  with the rate parameter $\lambda  > 0$ \[
-  f\left( y \right) = \lambda  e^{-\lambda  y} , \quad  y>0  
-  \] 
+  f\left( y \right) = \lambda  e^{-\lambda  y} , \quad  y>0
+  \]
   We write $Y \sim Exp \left( \lambda  \right)$.
 \end{definition}
 
@@ -1541,8 +1542,8 @@ Recall
     \item
   We will always use this parameterization.
 \item Other: Scale paremter $\beta > 0$ : \[
-f\left( y \right) = \frac{1}{\beta } , \quad  y> 0 
-\] 
+f\left( y \right) = \frac{1}{\beta } , \quad  y> 0
+\]
   \end{itemize}
 
 \end{remark}
@@ -1555,29 +1556,29 @@ f\left( y \right) = \frac{1}{\beta } , \quad  y> 0
   For $n = 1$
   \begin{enumerate}[label=(\roman*)]
 \item  $\displaystyle  Pr \left \{ S_{0} > s_{0} \right \}  = Pr \left \{   N\left( s_{0} \right) - N\left( 0 \right)    = 0  \right \} $ \[
-\] 
+\]
 \item n= 2
 \begin{enumerate}[label=(\alph*)]
-  \item $S_{0} \sim Exp\left( \lambda  \right)$ 
+  \item $S_{0} \sim Exp\left( \lambda  \right)$
   \item $\displaystyle Pr \left \{ S_{1} > s_{1}  \mid  S_{0} = s_{0} \right \}  = Pr \left \{ N\left( s_{0} + s_{1} \right) - N\left( s_{0}  \right) = 0   \mid  S_{0} = s_{0 }\right \} $ \[
       \begin{split}
     &  \downarrow \text{ Independent increments } \implies \text{Markov}  \\
     &= Pr \left \{ N\left( s_{0} +s_{1}  \right) - N\left( s_{0} \right) = 0 \right \}  \\
      &  \downarrow \text{ Stationary increments}  \\
-    &= Pr \left \{ N\left( s_{1} \right) - N\left( 0 \right) = 0 \right \}  \\ 
+    &= Pr \left \{ N\left( s_{1} \right) - N\left( 0 \right) = 0 \right \}  \\
     &=  e^{-\lambda s_{1}} , \quad  s_{1 } > 0  \\
-      \end{split} 
-  \] 
-\item $\displaystyle  S\sim Exp\left( \lambda  \right)$ and $S_{0}$ and $S_{1}$ are independent. 
+      \end{split}
+  \]
+\item $\displaystyle  S\sim Exp\left( \lambda  \right)$ and $S_{0}$ and $S_{1}$ are independent.
 \end{enumerate}
 \item For $n= 3,4 , \ldots$ \[
 \text{Markoc property} \quad  \implies  \quad \text{independence.}  .
-\] 
-$Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$. 
+\]
+$Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
   \end{enumerate}
 \end{proof}
 \begin{remark}
-  Alternatice definition of the possion process: 
+  Alternatice definition of the possion process:
   \begin{enumerate}[label=(\roman*)]
     \item Start in $0$
     \item Spend a time  $Exp\left( \lambda  \right)$ in each state.
@@ -1586,8 +1587,8 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
 \newpage
 \begin{definition}
   The stochastic variable $Y$ has a \textbf{gamma distrobution }  with \textbf{shape parameter}  $\alpha > 0 $ and \textbf{rate parameter }  $\lambda > 0$ if \[
-  f\left( y \right) = \frac{\lambda ^{\lambda }}{\Gamma \left( \alpha  \right)} y^{n-1} e^{-\lambda  y} , \quad  y> 0 
-  \] 
+  f\left( y \right) = \frac{\lambda ^{\lambda }}{\Gamma \left( \alpha  \right)} y^{n-1} e^{-\lambda  y} , \quad  y> 0
+  \]
   We write $Y \sim Gamma\left( \alpha , \lambda  \right)$
 \end{definition}
 
@@ -1595,7 +1596,7 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
   \begin{enumerate}[label=(\roman*)]
     \item Check which parametrization which is used.
     \item Scale parameter: $\beta  = \frac{1}{\lambda }$ is very common.
-    \item We will use shape and rate. 
+    \item We will use shape and rate.
     \item $Gamma\left( 1, \lambda  \right) = Exp \left( \lambda  \right)$
   \end{enumerate}
 \end{remark}
@@ -1611,26 +1612,26 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
       &  \downarrow  \\
        &  \sim Gamma\left( \sum_{i=1}^{n} 1 , \lambda  \right) \\
        &= Gamma\left( n, \lambda  \right) \\
-        \end{split} 
-    \] 
+        \end{split}
+    \]
   \end{enumerate}
 \end{proof}
 
 \begin{tcolorbox}
-  \textbf{Example.} Assume the occurance of a rare disease follows a Poission process with rate $ \lambda  = 2$ 
+  \textbf{Example.} Assume the occurance of a rare disease follows a Poission process with rate $ \lambda  = 2$
   \begin{enumerate}[label=(\alph*)]
     \item What is the probability that the first case accurs after 1 month?
       \begin{enumerate}[label=(\roman*)]
         \item Let $S_{0}  \sim Exp \left( 2 \right)$ \[
-        Pr \left \{ S _{0} > 1 \right \}  = \int_{1}^{\infty}  2 e^{ -2t} dt = e^{-2} \approx 0.135 
-        \] 
+        Pr \left \{ S _{0} > 1 \right \}  = \int_{1}^{\infty}  2 e^{ -2t} dt = e^{-2} \approx 0.135
+        \]
         Where  $\displaystyle  Pr \left \{ N\left( 1 \right) - N\left( 0 \right) \right \} $
       \end{enumerate}
     \item What is the expected time until the 10th case occurs?
       \begin{enumerate}[label=(\roman*)]
         \item Let $ W_{10} \sim Gamma\left( 10,2 \right)$ \[
-        E\left[ W_{10} \right] = \frac{10}{2} = 5, \quad  \text{ months.} 
-        \] 
+        E\left[ W_{10} \right] = \frac{10}{2} = 5, \quad  \text{ months.}
+        \]
       \end{enumerate}
   \end{enumerate}
 \end{tcolorbox}
@@ -1648,32 +1649,32 @@ $Exp\left( \lambda  \right)$ as for $S_{0}$ and $S_{1}$.
 \begin{theorem}
   Let $W_{1}, W_{2} , \ldots$ be occurance in a Poission process \[
   \left\{ \left( t \right) : t \ge 0\right\}
-  \] 
+  \]
   with rate $\lambda  > 0$. Then is \[
     \begin{split}
   \left( W_{1}, W_{2}, \ldots, W_{n} \right)  \mid  X\left( t \right)   = n   & \sim f\left( w_{1}, w_{2}, \ldots,  \mid  X\left( t \right) = n \right) \\
   &= \frac{n!}{t^{n} } , \quad  0, w_{1} < w_{2} < \ldots<   w_{n} < t   \\
-    \end{split} 
-  \] 
+    \end{split}
+  \]
 \end{theorem}
-\textbf{Disscusion}  
+\textbf{Disscusion}
 \begin{enumerate}[label=(\roman*)]
-  \item $X\left( t \right) = n$ , then exactly $n$ events occur in $(0,t]$ . Let  $V_{1}, V_{2}, \ldots , V_{n}$ be the locations of the events not necessarily ordered. 
-\item $\left\{ X\left( t \right) \right\}$ can be approximated by a collection of Bernoulli trials on intervals $(  \frac{\left( i-1 \right)}{m} t, \frac{i}{m} t  ]$ , $i = 1, 2 , \ldots , m$. 
+  \item $X\left( t \right) = n$ , then exactly $n$ events occur in $(0,t]$ . Let  $V_{1}, V_{2}, \ldots , V_{n}$ be the locations of the events not necessarily ordered.
+\item $\left\{ X\left( t \right) \right\}$ can be approximated by a collection of Bernoulli trials on intervals $(  \frac{\left( i-1 \right)}{m} t, \frac{i}{m} t  ]$ , $i = 1, 2 , \ldots , m$.
 \item The $m$ trials are independent. That means any selection of $n$ unique intervals \[
 \left\{ i_{1}, i_{2}, \ldots, i_{n} \right\} \le \left\{ 1,2,\ldots, m \right\}
-\] 
+\]
 locations follow a uniform distribution as $m \to  \infty$, which indicated that \[
-V_{1}, V_{2}, \ldots, V_{n}  \mid  X\left( t \right) =n  \stackrel{iid}{\sim } u\left( 0,t \right) 
-\] 
+V_{1}, V_{2}, \ldots, V_{n}  \mid  X\left( t \right) =n  \stackrel{iid}{\sim } u\left( 0,t \right)
+\]
 \item Let sort such that \[
     \begin{split}
 \left( w_{1} , w_{2} , \ldots, 2_{n} \right)  & = sort\left( V_{1}, V_{2} , \ldots \right). \\
 \implies  f\left( w_{1}, w_{2}, \ldots , w_{n}  \mid X\left( t \right) = n \right) &=  \left( \frac{1}{t} \right)^{n} n! \\
    \text{ for } 0< w_{1} < w_{2} < \ldots < w_{n}  & \le t
-    \end{split} 
-\] 
-\textbf{Remark} . 
+    \end{split}
+\]
+\textbf{Remark} .
 \begin{itemize}
   \item Conditional on $n$ events occuring in $(0, t]$ ,  the locations of the events are idd uniform distrobution on  $(0,t]$
 \end{itemize}
@@ -1681,7 +1682,7 @@ V_{1}, V_{2}, \ldots, V_{n}  \mid  X\left( t \right) =n  \stackrel{iid}{\sim } u
 
 \begin{tcolorbox}
   \textbf{Example.} Customers arrive according to a Poission process with rate $\lambda  > 0$ per hours.  The store opens at 09:00. If 10 people have arrived at 11:00. What is the probability that texactly 5 of the 10 poeple arrived before 10:00.
-  
+
   \newpara
   Conditional on $X\left( 2 \right) = 10$, arrival time are iid  $u\left( 0,2 \right)$. This implies that \[
     \begin{split}
@@ -1690,12 +1691,12 @@ V_{1}, V_{2}, \ldots, V_{n}  \mid  X\left( t \right) =n  \stackrel{iid}{\sim } u
    &= \begin{pmatrix}
    10 \\
    5
-   \end{pmatrix} 
-    \end{split} 
-  \] 
+   \end{pmatrix}
+    \end{split}
+  \]
 \end{tcolorbox}
 
-\textbf{Joint simulation} 
+\textbf{Joint simulation}
 
 \newpara
 Input
@@ -1704,7 +1705,7 @@ Input
   \item Rate,  $\lambda  > 0$
 \end{itemize}
 
-Algorithm 
+Algorithm
 \begin{enumerate}[label=(\roman*)]
   \item Simulate $n \sim Poission \left( \lambda t \right)$
   \item Simulate $v_{1} , v_{2} , \ldots , v_{n} \sim U\left( 0,t \right)$
@@ -1712,14 +1713,14 @@ Algorithm
 \end{enumerate}
 
 Output \[
-  x\left( s \right) = 
+  x\left( s \right) =
 \begin{cases}
   0, &  \quad  0< s \le w_{1}  \\
   1,  &  \quad w_{1} < s < w_{2} \\
   \vdots   &  \\
   n, &   w_{n} \le s < t
 \end{cases}
-\] 
+\]
 
 
 \subsection{Continous Markov Chains}%
@@ -1728,18 +1729,18 @@ Output \[
 We call the stochastic process $\left\{ X\left( t \right): t\ge 0 \right\}$ a contionious-time markov chain with state space $\left\{ 0,1, \ldots \right\}$ if it satisfies the Markov property \[
   \begin{split}
 &Pr \left \{   X\left( t+s \right) = j  \mid  X\left( s \right) = i, X\left( u \right),   0\le u \le s \right \}   \\
- & \quad   = Pr \left \{   X\left( t+s \right) = j  \mid  X\left( s \right) = i\right \} 
-  \end{split} 
-\] 
+ & \quad   = Pr \left \{   X\left( t+s \right) = j  \mid  X\left( s \right) = i\right \}
+  \end{split}
+\]
 For $i,j = 0,1,\ldots$ for all $s \le 0$ and $t > 0$ .
 
 \newpage
 \begin{remark}
   \begin{itemize}
     \item We are only interested in stationary transition probabilities . \[
-    Pr \left \{  X\left( s + t \right) = j  \mid  X\left( s \right) = i \right \}  = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \} 
-    \] 
-    For all $ s \ge 0$, $t> 0$ and states $i,j$ .  
+    Pr \left \{  X\left( s + t \right) = j  \mid  X\left( s \right) = i \right \}  = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \}
+    \]
+    For all $ s \ge 0$, $t> 0$ and states $i,j$ .
   \item Continuous time Markov chain is "random sojourn time + random jumps."
   \end{itemize}
 \end{remark}
@@ -1747,8 +1748,8 @@ For $i,j = 0,1,\ldots$ for all $s \le 0$ and $t > 0$ .
 
 \begin{definition}
   Let $\left\{ X\left( t \right) : t\ge 0 \right\}$ be a continious time Markov Chain with state space $\left\{ 0,1, \ldots \right\}$ and stationary probabilities. we call \[
-  P_{ij} \left( t \right) = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \}  , \quad  ij, = 0,1, \ldots 
-  \] 
+  P_{ij} \left( t \right) = Pr \left \{ X\left( t \right) = j  \mid  X\left( 0 \right) = i  \right \}  , \quad  ij, = 0,1, \ldots
+  \]
   The \textbf{transition probability function} .
 \end{definition}
 
@@ -1761,12 +1762,12 @@ Given \[
 P_{ij}\left( t \right)  & = Pr \left \{  X\left( t \right) = j  \mid  X\left( 0 \right) = i \right \}  \\
  &=  Pr \left \{  \underbrace{X\left( t \right) . X\left( 0 \right)}_{Poission\left( \lambda t \right)}  = i - j \right \}  \\
  &=  \begin{cases}
-    \frac{\left( \lambda t \right)^{i-j}}{\left( j-i \right)!}  e^{-\lambda t}, &  
+    \frac{\left( \lambda t \right)^{i-j}}{\left( j-i \right)!}  e^{-\lambda t}, &
      \quad j \ge 0 \\
-    0 , &  \quad \text{otherwise} 
+    0 , &  \quad \text{otherwise}
  \end{cases} \\
-  \end{split} 
-\] 
+  \end{split}
+\]
 
 
 \section{References}
@@ -1776,4 +1777,3 @@ P_{ij}\left( t \right)  & = Pr \left \{  X\left( t \right) = j  \mid  X\left( 0 
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
-
