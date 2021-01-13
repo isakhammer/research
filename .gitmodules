@@ -1,0 +1,3 @@
+[submodule "control-and-modeling/state_estimation/Kalman-and-Bayesian-Filters-in-Python"]
+	path = control-and-modeling/state_estimation/Kalman-and-Bayesian-Filters-in-Python
+	url = https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python.git
