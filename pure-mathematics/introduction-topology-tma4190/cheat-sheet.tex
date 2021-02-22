@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Cheat Sheet}
+\author{isakhammer }
+\date{2020}
+
+%
+%%%% DEPENDENCIES v1.4 %%%%%%
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{esint}
+\usepackage{float}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+% \DeclareMathOperator{\span}{span}
+
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\arctantwo}{arctan2}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+    {
+    \vskip 0.4cm
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Definitions}%
+\label{sec:Bases}
+
+\begin{definition}[Topological spaces.] Recall that a topological space is a set $X$ together with a collection $Y$ of subsets
+    of $X$ that are open in $X$ s.t.
+    \begin{itemize}
+        \item \textbf{T1}.  $ \emptyset , X \in  \tau $
+        \item \textbf{T2.} $ \tau $ is closed under union if $U_{\lambda } \in  \tau $ for all $\lambda  \in \Lambda $, then \[
+                \bigcup_{\lambda  \in  \Lambda }^{} U_{\lambda } \in \tau
+        \]
+    \item \textbf{T3.} $\tau  $ is under finite intersections if $U_{1}, U_{2}, \ldots, U_{n} \in \tau $ , then \[
+    U_{1} \cap U_{2} \cap \ldots \cap  U_{n} \in \tau
+    \]
+
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Basis]
+    A \textbf{basis} for a topology on $X$ is a collection of subsets of $X$ s.t.
+\begin{itemize}
+    \item \textbf{B1.} For each $x \in X$ there is a $B \in  \mathfrak{B} $ s.t. $x \in  B$.
+    \item \textbf{B2.} $B_{1}, B_{2}$ and $x \in  B_{1} \cap B_{2} $ there is a $B_{3} \in  \mathfrak{B}  $ s.t. $x \in
+        B_{3} \subseteq  B_{1} \cap B_{2} $
+\end{itemize}
+
+\end{definition}
+
+\begin{definition}
+    [Open and closed sets]. Let $\left( X, \tau  \right)$, $U \subseteq X$
+    \begin{itemize}
+        \item
+\textbf{Open set}.  If $ U \in \tau $, then is $U$ open.
+    \item \textbf{Closed set.}  If $U^{c} = X- U \in \tau $, then is $U$ closed
+    \end{itemize}
+\end{definition}
+
+
+\begin{remark}
+Let $X = \left\{ a,b,c \right\}$ and let $U = \left\{ a,b \right\}$. Then if $\tau = \left\{ X, \emptyset  \right\}$,
+$U$ is not open nor closed.
+\end{remark}
+
+\begin{theorem}
+    \textbf{Continuity between topological spaces.}
+Let $X,Y$ be topological spaces. A map $f: X \to Y$ is said to be continious if preimages of open sats are open, i.e.,
+if $V$ is an open set in $Y$ then the preimage $f^{-1} \left( V \right)$ of $V$ is open in $X$.
+\end{theorem}
+
+\begin{definition}[Neighbourhoods]
+    Let $X$ be a topological space,  $U$ a subset of $X$ and $x \in  X$. We say $ U$ is a neighborhood of $x$ if $ x \in
+    U $ and $U$ is open in $X$.
+\end{definition}
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
