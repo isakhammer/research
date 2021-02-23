@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Notes}
+\author{isakhammer }
+\date{2020}
+
+
+%
+%%%% DEPENDENCIES v1.4 %%%%%%
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{esint}
+\usepackage{float}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+\hypersetup{linktocpage}
+
+
+% inscape-figures
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex} } \pdfsuppresswarningpagegroup=1
+
+% Box environment
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv{theorem}{Theorem}[section]
+\newmdtheoremenv{lemma}{Lemma}[section]
+
+% \DeclareMathOperator{\span}{span}
+
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\arctantwo}{arctan2}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem{example}{Example}
+
+\newcommand{\newpara}
+    {
+    \vskip 0.4cm
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\newpage
+\section{Notes}%
+\label{sec:notes}
+
+
+\subsection{Task 1}%
+\label{sub:task_1}
+
+
+We want to solve $u_{xx} = f\left( x \right)$ such that $u_{x}\left( 1 \right) = \sigma $ and $u _{x}\left( 1 \right) =
+\sigma $. To validate the algorithm
+will we assume that \[
+f\left( x \right) = \cos \left( 2 \pi x \right),
+\]
+which can be easily be solved analytically by integrating $u$.\[
+    \begin{split}
+u\left( x \right)  & =  - \frac{\cos \left( 2\pi x \right)}{ 4 \pi ^{2}} +  \frac{x^{3}}{6} +  \left( \sigma  - \frac{1}{2} \right)x +  \alpha, \quad u_{}\left( 0 \right) = \alpha    \\
+    u_{x}\left( x \right) &=   \frac{\sin \left( 2 \pi x \right)}{2 \pi } + \frac{x^{2}}{2} + \left( \sigma -
+    \frac{1}{2} \right), \quad u_{x}\left( 1 \right) = \sigma      \\
+    u_{xx} \left( x \right) &= \cos \left( 2 \pi x \right)  + x \\
+    \end{split}
+\]
+
+
+
+
+\newpage
+\section{References}%
+\label{sec:references}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
