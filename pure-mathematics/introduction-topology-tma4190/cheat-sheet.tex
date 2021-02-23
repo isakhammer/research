@@ -66,12 +66,17 @@
 
 \begin{document}
 \maketitle
-\tableofcontents
-\newpage
+% \tableofcontents
+% \newpage
 
-\newpage
-\section{Definitions}%
-\label{sec:Bases}
+\section{ Introduction}%
+\label{sec:Ch1}
+
+\section{ Continious maps}%
+\label{sec:continious_maps}
+
+\section{ Topological spaces}%
+\label{sec:Ch3}
 
 \begin{definition}[Topological spaces.] Recall that a topological space is a set $X$ together with a collection $Y$ of subsets
     of $X$ that are open in $X$ s.t.
@@ -85,16 +90,6 @@
     \]
 
     \end{itemize}
-\end{definition}
-
-\begin{definition}[Basis]
-    A \textbf{basis} for a topology on $X$ is a collection of subsets of $X$ s.t.
-\begin{itemize}
-    \item \textbf{B1.} For each $x \in X$ there is a $B \in  \mathfrak{B} $ s.t. $x \in  B$.
-    \item \textbf{B2.} $B_{1}, B_{2}$ and $x \in  B_{1} \cap B_{2} $ there is a $B_{3} \in  \mathfrak{B}  $ s.t. $x \in
-        B_{3} \subseteq  B_{1} \cap B_{2} $
-\end{itemize}
-
 \end{definition}
 
 \begin{definition}
@@ -112,16 +107,57 @@ Let $X = \left\{ a,b,c \right\}$ and let $U = \left\{ a,b \right\}$. Then if $\t
 $U$ is not open nor closed.
 \end{remark}
 
+\begin{definition}[Neighbourhoods]
+    Let $X$ be a topological space,  $U$ a subset of $X$ and $x \in  X$. We say $ U$ is a neighborhood of $x$ if $ x \in
+    U $ and $U$ is open in $X$.
+\end{definition}
+
 \begin{theorem}
     \textbf{Continuity between topological spaces.}
 Let $X,Y$ be topological spaces. A map $f: X \to Y$ is said to be continious if preimages of open sats are open, i.e.,
 if $V$ is an open set in $Y$ then the preimage $f^{-1} \left( V \right)$ of $V$ is open in $X$.
 \end{theorem}
 
-\begin{definition}[Neighbourhoods]
-    Let $X$ be a topological space,  $U$ a subset of $X$ and $x \in  X$. We say $ U$ is a neighborhood of $x$ if $ x \in
-    U $ and $U$ is open in $X$.
+\section{ Generating topologies}%
+\label{sec:chapter_4_generating_topologies}
+
+\begin{definition}[Basis]
+    A \textbf{basis} for a topology on $X$ is a collection of subsets of $X$ s.t.
+\begin{itemize}
+    \item \textbf{B1.} For each $x \in X$ there is a $B \in  \mathfrak{B} $ s.t. $x \in  B$.
+    \item \textbf{B2.} $B_{1}, B_{2}$ and $x \in  B_{1} \cap B_{2} $ there is a $B_{3} \in  \mathfrak{B}  $ s.t. $x \in
+        B_{3} \subseteq  B_{1} \cap B_{2} $
+\end{itemize}
+
 \end{definition}
+
+
+\section{ Constructing topological spaces}%
+\label{sec:chapter_5_constructing_topological_spaces}
+
+\section{ Topological properties}%
+\label{sec:chapter_6_topological_properties}
+
+\begin{definition}[Connected space]
+Let $X$ be a topological space. A \textbf{seperation} of $X$ is a pair of non-empty subsets $U $ and $V$ that are open
+in $X$, disjoint and whose union equal $X$. We say that $X$ is \textbf{connected} if there are no seperations of $X$.
+Otherwise it is \textbf{disconnected.}
+\end{definition}
+
+
+\begin{theorem}[Connectivity]
+    Let $X$ be a topological space. Then $X$ is connected if and only if the are no non-empty proper subsets of $X$ that
+    are both open and closed.
+\end{theorem}
+
+\section{ The fundamental group}%
+\label{sec:the_fundamental_group}
+
+
+\section{ The fundamental group of the circle}%
+\label{sec:the_fundamental_group_of_the_circle}
+
+
 
 \newpage
 \section{References}%
