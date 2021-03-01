@@ -68,7 +68,7 @@
 
 \begin{document}
 \maketitle
-\tableofcontents
+% \tableofcontents
 \newpage
 
 \newpage
@@ -148,7 +148,7 @@ f\left( x \right) & = k \cdot  \exp \left( - \left( x- \mu  \right)^{T} \Sigma \
 Thus $b = \ln k - \ln a$, where $\displaystyle k = \frac{1}{2 \pi \left| \Sigma  \right|}$. Clearly, can we observe that
 the aligment of the ellipse is oriented along the eigenvectors of $\Sigma $ . Furthermore, the half lengths is described by the
 scalar $b$  and eigenvalues \[
-    l_{1} = \sqrt{b} \sqrt{\lambda _{1}}  \quad \text{and} \quad  \sqrt{b}  \sqrt{\lambda _{2}} .
+    l_{1} = \sqrt{b} \sqrt{\lambda _{1}}  \quad \text{and} \quad  l_{2} =   \sqrt{b}  \sqrt{\lambda _{2}} .
 \]
 Since $\left( x- \mu  \right) \Sigma ^{-1} \left( x - \mu  \right)$ is a sum of normal distributed variables can we
 compute the probability a random variable being inside the ellipse $\alpha $ by using the fact that \[
@@ -212,19 +212,25 @@ Hence, $\overline{X} $ and $S^{2}$ are independent.
 
 Let $\displaystyle Y = \Sigma ^{-1} \left( X- \mu  \right)$ and \[
     \begin{split}
-Y C Y^{T} & = \left( \Sigma ^{-1} \left( X- \mu  \right) \right) C \left( \Sigma ^{-1} \left( X- \mu  \right) \right) ^{T}
-= \frac{1}{\sigma ^2}   \left( X- \mu  \right)  C   \left( X- \mu  \right)  ^{T} \\
+Y^{T} C Y & = \left( \Sigma ^{-1} \left( X- \mu  \right) \right) ^{T} C \left( \Sigma ^{-1} \left( X- \mu  \right) \right)
+= \frac{1}{\sigma ^2}   \left( X- \mu  \right)^{T}  C   \left( X- \mu  \right)   \\
 &= \frac{1}{\sigma^2 } X^{T} C X \\
     \end{split}
 \]
-The last step comes from that $\left( C \mu  \right)_i  = 0$.
+The last step comes from that $\left( C \mu  \right)_i  = 0$. Recall from the exercise description that $Y = N\left( 0, \Sigma
+\right)$ implies $Y R Y^{T} \sim  \chi _{r}^{2}$, where $R$  is idempotent with the rank $r$. Thus can we compute  \[
+X^{T} C X \sim \chi _{r}^{2}\sigma ^{2}
+\]
+Hence, can we use the fact that \[
+S^{2} = \frac{1}{n-1} X^{T}C X \implies \left( n -1 \right)\frac{S^{2}}{\sigma } \sim \chi _{r}^{2}
+\]
+
+Utilizing the fact that the rank of $C$  is the sum of the trace $\displaystyle tr\left( C \right) = n-1$ can we
+conclude that \[
+\left( n -1 \right)\frac{S^{2}}{\sigma^{2} } \sim \chi _{n-1}^{2}
+\].
 
 
-
-
-\newpage
-\section{References}%
-\label{sec:references}
 
 \bibliographystyle{plain}
 \bibliography{references}
