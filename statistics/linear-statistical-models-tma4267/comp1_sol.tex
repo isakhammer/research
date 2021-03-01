@@ -2,8 +2,8 @@
 \usepackage[utf8]{inputenc}
 
 \title{Compulsory Assignment 1}
-\author{isakhammer }
-\date{2020}
+\author{Isak Hammer }
+\date{1. March 2021}
 
 %
 %
@@ -193,19 +193,31 @@ Let  $ X= [ X_{1}, X_{2}, X_{3}, \ldots , X_{n} ]^{T}$ be a stochastic vector an
 \subsection*{2b}%
 \label{sub:2b}
 
-We want to show the independence of $\overline{X} $  and $S^{2}$. Firstly,  we want to emphasis the result that \[
+We want to show the independence of $\overline{X} $  and $S^{2}$. Firstly,  let us emphasize the result that \[
       \displaystyle  \frac{1}{n} \mathbf{1} ^{T} \left( C \right) = \frac{1}{n} \mathbf{1}^{T} \left( I -
-        \frac{\mathbf{1}\mathbf{1}^{T}}{n} \right) = \frac{1}{n} \mathbf{1}^{T} - \frac{1}{n} \mathbf{1}^{T} = 0
+        \frac{\mathbf{1}\mathbf{1}^{T}}{n} \right) = \frac{1}{n} \mathbf{1}^{T} - \frac{1}{n} \mathbf{1}^{T} = 0.
 \]
 
-We will utilize the fact that \[
+And utilize the fact that \[
     cov\left( \overline{X} , S^{2} \right) = cov\left( \frac{1}{n} \mathbf{1^{T}} X, C X \right)  = \frac{1}{n}
     \mathbf{1^{T}} \sigma I C = \sigma \cdot 0.
 \]
 
-Hence $\overline{X} $ and $S^{2}$ are independent.
+Hence, $\overline{X} $ and $S^{2}$ are independent.
+
+\newpage
+\subsection*{2c}%
+\label{sec:2c}
 
 
+Let $\displaystyle Y = \Sigma ^{-1} \left( X- \mu  \right)$ and \[
+    \begin{split}
+Y C Y^{T} & = \left( \Sigma ^{-1} \left( X- \mu  \right) \right) C \left( \Sigma ^{-1} \left( X- \mu  \right) \right) ^{T}
+= \frac{1}{\sigma ^2}   \left( X- \mu  \right)  C   \left( X- \mu  \right)  ^{T} \\
+&= \frac{1}{\sigma^2 } X^{T} C X \\
+    \end{split}
+\]
+The last step comes from that $\left( C \mu  \right)_i  = 0$.
 
 
 
