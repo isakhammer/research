@@ -5,7 +5,7 @@
 \title{Solutions}
 \author{isakhammer }
 %
-%%%% DEPENDENCIES v1.5 %%%%%%
+%%%% DEPENDENCIES v1.6 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -58,9 +58,15 @@
     \vskip 0.4cm
     }
 
+\usepackage{geometry}
+%\usepackage{showframe} %This line can be used to clearly show the new margins
+
+\newgeometry{vmargin={15mm}, hmargin={12mm,17mm}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %
+
 
 %
 
@@ -148,8 +154,8 @@ progression )
 
 $\mathbb{R} $. $\mathbb{R} $  with the standard topology \[
 \begin{split}
-    X & = \left( a,b \right) \subseteq  \quad  \mathbb{R}  \text{is subpace} \\
-    Y &= \left( -1,1 \right) \subseteq \quad   \mathbb{R} \text{is subspace} \\
+    X & = \left( a,b \right) \subseteq    \mathbb{R}  \text{  is subspace} \\
+    Y &= \left( -1,1 \right) \subseteq    \mathbb{R} \text{ is subspace} \\
     X  &  \simeq   Y
 \end{split}
 \]
@@ -165,8 +171,6 @@ Then $f$  is a bijectictive continious map with inverse \begin{align*}
 .\end{align*}
 Which is continious. Thus $f$  is a homeomorphism.
 
-\subsection*{Ex 5.2}%
-\label{ssub:ex_5_2}
 
 Let \begin{align*}
     g: Y &\longrightarrow \mathbb{R}  \\
@@ -193,7 +197,7 @@ Let \begin{align*}
 Then $h$  is a homeomorphism as it is the composition of $f$  and $g$ .
 
 
-\subsection*{Ex 5.3}%
+\subsection*{Ex 5.2}%
 \label{ssub:5_3}
 
 \begin{itemize}
@@ -208,7 +212,7 @@ Let $\tau $  be the topology on $X$, and let $\tau _{Y}$  be the subspace topolo
 \begin{split}
    \tau_{Y} &=  \left\{ Y \cap U  \mid U \subseteq X \text{ is open}   \right\}\\
    \tau _{X_{A}} &=  \left\{ A \cap V  \mid V \subseteq X \text{ is open} \right\} \\
-   \tau _{Y_{A}}  &  = \left\{ A \cap  \mid w \in \tau _{Y} \right\} \\
+   \tau _{Y_{A}}  &  = \left\{ A \cap W  \mid W \in \tau _{Y} \text{ is open }\right\} \\
 \end{split}
 \]
 
@@ -236,64 +240,9 @@ Let $\tau $  be the topology on $X$, and let $\tau _{Y}$  be the subspace topolo
 $\tau _{X_{A}} = \tau _{Y_{A}}$
 
 
-\subsection*{Ex 5.4}%
-\label{sub:ex_4}
-
-Let $\emptyset  \subseteq  \mathbb{R} $ be a subspace. \[
-A = \left\{ x \in  \emptyset   \mid  - \sqrt{5}  < x < \sqrt{5}  \right\}
-\]
-
-\textbf{Fact.}
-\begin{enumerate}[label=(\roman*)]
-    \item $X $  topological space
-    \item $S \subseteq X$  subspace
-\end{enumerate}
-
-$K \subseteq S$  is closed \[
-\implies
-\]
-There is a $L \subseteq  X$  closed in $X$  with $K = S \cap L$
 
 
-\begin{proof}
-    \begin{enumerate}[label=(\roman*)]
-        \item $\implies :$  Assume that $K \subseteq  S$  is closed in $S$ . Then \[
-        V  = S \setminus K
-        \]
-        is open in $S$ . Thus there is some $U \subseteq  X$  open with \[
-        V = S \cap U.
-        \] Furthermore \[
-        L = X \setminus  U
-        \]
-        is closed in $X$. Also \[
-            \begin{split}
-        S \cap  L  & = S \cap \left( X \setminus U \right) = S \setminus \left( S \cap U \right) \\
-        &= S \cap V = K \\
-            \end{split}
-        \]
-    \item $\impliedby $: By asumption. $U = X \setminus L$ is open in $X$. Thus $V = S\cap U $ is open in $S$ . Since \[
-            \begin{split}
-            S \setminus K &= S \setminus \left( S \cap L \right)  \\
-            &= S \cap \left( X \setminus L \right) \\
-            &= S \cap U \\
-            &= V \\
-            \end{split}
-    \]
-    Thus $K$  is closed. Since $\left( - \sqrt{5}, \sqrt{5}   \right) \subseteq \mathbb{R} $ is open and \[
-    A = \left( -\sqrt{5} , \sqrt{5}  \right) \cap \mathbb{Q}
-    \]
-    $A $  is open in $\mathbb{Q} $ . Similarly as \[
-    \left[ - \sqrt{5} , \sqrt{5}  \right] \subseteq \mathbb{R}
-    \]
-    is closed and  \[
-    A = \left( -\sqrt{5}  , \sqrt{5}  \right) \cap  \mathbb{Q}
-    \]
-    $A$  is closed in $\mathbb{Q} $ .
-    \end{enumerate}
-\end{proof}
-
-
-\subsection*{5.5}%
+\subsection*{5.3 }%
 \label{sub:5_5}
 
 $X,Y$ topological spaces. $A \subseteq  X, B \subseteq Y$  subspaces. $\tau _{A \times B}$  product topology on $A
@@ -332,7 +281,7 @@ We have \[
 
 is a basis for $\tau _{A  \times B}$.
 
-\subsection*{5.6}%
+\subsection*{5.4}%
 \label{sub:5_6}
 
 $X,Y$  topological spaces  Let \[
@@ -361,7 +310,7 @@ Hence ,
 \tau _{X \times Y} \in \tau
 \]
 
-\subsection*{Ex 5.8}%
+\subsection*{Ex 5.5}%
 \label{sub:ex_5_8}
 
 Let

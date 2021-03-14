@@ -6,7 +6,7 @@
 \date{2020}
 
 %
-%%%% DEPENDENCIES v1.5 %%%%%%
+%%%% DEPENDENCIES v1.7 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -46,6 +46,7 @@
 \newmdtheoremenv{definition}{Definition}[section]
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
+\newmdtheoremenv{corollary}{Corollary}[section] % Use theorem counter as
 
 \DeclareMathOperator{\atantwo}{atan2}
 \DeclareMathOperator{\arctantwo}{arctan2}
@@ -59,12 +60,20 @@
     \vskip 0.4cm
     }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+%\usepackage{showframe} %This line can be used to clearly show the new margins
 
+\newgeometry{vmargin={15mm}, hmargin={12mm,17mm}}
+
+%
+
+% \usepackage{multicol}
+% \setlength{\columnsep}{1cm}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
 \begin{document}
 \maketitle
+% \begin{multicols}{2}
 % \tableofcontents
 % \newpage
 
@@ -75,11 +84,123 @@
 \section{ Introduction}%
 \label{sec:Ch1}
 
+
+\begin{theorem}[Brouwer fixed point theorem]
+    Let $f: D^{n} \to D^{n} $ be continious map from the (unit) disk in $\mathbb{R} ^{n}$ to itself. Then $f$ has a
+    fixed point, i.e., there is some point $x \in  D^{n}$ such that $f\left( x \right) = x$.
+\end{theorem}
+
+\begin{theorem}[The fundemental theorem of algebra]
+    A polynomial equation \[
+    z^{n} + a_{n-1}z^{n-1} + \ldots + a_{1}z + a_{0} = 0
+    \]
+\end{theorem}
+
 \section{ Continious maps}%
 \label{sec:continious_maps}
 
+\subsection{Metric spaces}%
+\label{sub:metric_spaces}
+
+\begin{definition}[Metric spaces]
+A metric psace $\left( X,d \right)$ is a non-empty set $X$ toghether with a map $d: X \times X  \to \mathbb{R} $ called
+a metric such that the following properties hold:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{M1} $d\left( x,y \right) \ge 0$ for all $x,y \in X$, and $d\left( x,y \right) = 0$ if and only if $x =
+        y$ .
+    \item \textbf{M2} $d\left( x,y \right) = d\left( y,x \right) $  for all $x,y \in  X$
+    \item \textbf{M3} $d\left( x,z \right) \le d\left( x,y \right) + d\left( y,z \right)$  for all $x,y,z \in  X$ .
+\end{enumerate}
+\end{definition}
+
+
+\subsection{Continious maps between metric spaces}%
+\label{sub:continious_maps_between_spaces}
+
+\begin{definition}[Continious maps between metric spaces]
+    Let $d\left( X, d_{X} \right)$ and $\left( Y, d_{Y} \right)$ be two metric spaces. A map $f: X\to Y$ is continious
+    at $p \in X$ if for all $\varepsilon > 0$  there exists a $\delta > 0 $ such that if $d_{X}\left( p,q \right) <
+    \varepsilon $ then $d_{Y}\left( f\left( p \right), f\left( q \right) \right) < \varepsilon $.
+    If $f$  is continious at every point $p \in  X$ , we say that $f$ is continious.
+\end{definition}
+
+
+
+\begin{definition}[Open and closed balls]
+    Let $X\left( X,d \right)$ be a metric space, and let $a \in X$ and $r >0$ be real number. The open ball centered at
+    $a$ with radius $r$  is the subset \[
+        B\left( a;r \right) = \left\{ x \in X  \mid  d\left( x,a \right) < r \right\}
+    \]
+    of $X$. The closed ball centered at $a$ with radius $r$ is the subset \[
+    \overline{B} \left( a;r \right) = \left\{ x \in X  \mid  d\left( x,a \right) \le r \right\}
+    \]
+    of $X$.
+
+\end{definition}
+
+
+\begin{definition}[Open and closed sets]
+    Let $\left( X,d \right)$ be a metric space. A subset $A \subseteq X$ is open in $X$ if for every point $a \in A$,
+    there exists an open ball $B\left( a;r \right)$ about $a$ contained in $A$. We say that $A$ is closed in $X$ if the
+    complement $A^{c} = X \setminus A = \left\{ x \in X  \mid  x \not\in A  \right\}$ is open
+\end{definition}
+
+
+
+
+
+% \begin{definition}
+%     [Open and closed sets]. Let $\left( X, \tau  \right)$, $U \subseteq X$
+%     \begin{itemize}
+%         \item
+% \textbf{Open set}.  If $ U \in \tau $, then is $U$ open.
+%     \item \textbf{Closed set.}  If $U^{c} = X- U \in \tau $, then is $U$ closed
+%     \end{itemize}
+% \end{definition}
+
+
+\begin{remark}
+Let $X = \left\{ a,b,c \right\}$ and let $U = \left\{ a,b \right\}$. Then if $\tau = \left\{ X, \emptyset  \right\}$,
+$U$ is not open nor closed.
+\end{remark}
+
+\begin{lemma}
+    Let $\left( X,d \right)$ be a metric space, $x \in X$ and $r >0$ a real number. Then the open ball $B\left( x;r
+    \right) \subseteq X$ is open in $X$ , and the closed ball $\overline{B}\left( x;r \right) \subseteq X$ is closed in
+    $X$ .
+\end{lemma}
+
+\begin{definition}[Neightbourhoods]
+    Let $\left( X,d \right)$ be a metric space, $A$ a subset of $X$ and $x \in X$. We say that $A$ is a neighbourhood of
+    $x$ if there is an open ball about $x$ contained in $A$. We say that $A$ is an open neighborhood (of $x$ ) if $A$
+    itself is open.
+\end{definition}
+
+\begin{theorem}[Continuity of a point]
+    Let $\left( X,d_{X} \right)$ and $\left( Y, d_{Y} \right)$ be two metric spaces and let $p \in X$ . A map $f: X \to
+    Y$ is continious at $p$ if and only if for all neighbourhoods $B$ of $f\left( p \right)$, there is a neighbourhood
+    $A$ of $p$ such that $f\left( A \right)\subseteq B$ .
+\end{theorem}
+% \begin{definition}[Neighbourhoods]
+%     Let $X$ be a topological space,  $U$ a subset of $X$ and $x \in  X$. We say $ U$ is a neighborhood of $x$ if $ x \in
+%     U $ and $U$ is open in $X$.
+% \end{definition}
+\begin{theorem}[Continious maps between metric spaces]
+    Let $\left( X,d_{X} \right)$ and $\left( Y,d_{Y} \right)$ be two metric spaces. A map $f: X\to Y$ is continious if
+    and only if for every subset $B \subseteq Y$ open in $Y$ , the preimage of $B$ under $f$ , \[
+    f^{-1}\left( B \right) = \left\{ x \in X  \mid  f\left( x \right) \in B \right\} \subseteq X,
+    \]
+    is open in $X$ .
+
+\end{theorem}
+
 \section{ Topological spaces}%
 \label{sec:Ch3}
+
+\subsection{Definitions and examples}%
+\label{sub:definitions_and_examples}
+
+
 
 \begin{definition}[Topological spaces.] Recall that a topological space is a set $X$ together with a collection $Y$ of subsets
     of $X$ that are open in $X$ s.t.
@@ -95,30 +216,112 @@
     \end{itemize}
 \end{definition}
 
-\begin{definition}
-    [Open and closed sets]. Let $\left( X, \tau  \right)$, $U \subseteq X$
-    \begin{itemize}
-        \item
-\textbf{Open set}.  If $ U \in \tau $, then is $U$ open.
-    \item \textbf{Closed set.}  If $U^{c} = X- U \in \tau $, then is $U$ closed
-    \end{itemize}
+\begin{theorem}[Metric spaces are topological spaces]
+
+    Let $\left( X,d \right)$  be a metrix space. Let $\tau _{d}$ be the collection of subsets $U \subseteq X$ with the
+    property that $U \in \tau _{d}$ if and only if for each $x \in U$  there is an $r > 0$ such that $B\left( x;r
+    \right) \subseteq  U$. Then $\tau _{d}$  defines a topology on $X$.
+\end{theorem}
+
+\begin{theorem}
+    Let $X$  be any set, and let $d_{1}$  and $d_{2}$ be two equivalent metrics on $X$ . Then \[
+    \tau _{d_{1}} = \tau _{d_{2}} .
+    \]
+\end{theorem}
+
+\begin{definition}[Comparable topologies]
+    Let $X$  be a set and suppose that $\tau _{1}$  and $\tau _{2}$  are two topologies on $X$ . If $\tau _{1} \subseteq
+    \tau _{2}$, we say that $\tau _{1 }$  is coarser than $\tau _{2}$ and  that $\tau _{2}$ is finar than $\tau _{1}$.
+    We say that $\tau _{1} $ and $\tau _{2}$  are comparable if either $\tau _{1} \subseteq \tau _{2}$  or $\tau _{2}
+    \subseteq  \tau _{1}$.
+
 \end{definition}
 
-
-\begin{remark}
-Let $X = \left\{ a,b,c \right\}$ and let $U = \left\{ a,b \right\}$. Then if $\tau = \left\{ X, \emptyset  \right\}$,
-$U$ is not open nor closed.
-\end{remark}
-
-\begin{definition}[Neighbourhoods]
-    Let $X$ be a topological space,  $U$ a subset of $X$ and $x \in  X$. We say $ U$ is a neighborhood of $x$ if $ x \in
-    U $ and $U$ is open in $X$.
-\end{definition}
+\subsection{Continious maps .}%
+\label{sub:continious_maps}
 
 \begin{theorem}
     \textbf{Continuity between topological spaces.}
-Let $X,Y$ be topological spaces. A map $f: X \to Y$ is said to be continious if preimages of open sats are open, i.e.,
+Let $X,Y$ be topological spaces. A map $f: X \to Y$ is said to be continious if preimages of open sets are open, i.e.,
 if $V$ is an open set in $Y$ then the preimage $f^{-1} \left( V \right)$ of $V$ is open in $X$.
+\end{theorem}
+
+\begin{theorem}[Composition of continious maps]
+    Let $X,Y $ and $ Z $ be topological sapces. If $f: X\to Y$  and $g: Y\to Z$  are continious maps, then the composite
+    $g \circ f: X \to Z $ is continious.
+\end{theorem}
+
+\begin{definition}[Continuity at a point]
+    Let $X$ and $Y$ be topological space, and let $x \in X$ . A map $f: X \to Y$  is continiousat $x$  if for all
+    neighbourhoods $V$  of $f\left( x \right)$  there is a neighbourhood $U$ of $x$  such that \[
+    f\left( U \right) \subseteq V
+    \]
+
+\end{definition}
+
+\begin{theorem}
+    Let $X$ and $Y$  be topological spaces. A map $f: X \to Y$ is continious if and only if it is continious at each $x
+    \in X$ .
+\end{theorem}
+
+\subsection{Homeomorhpism}%
+\label{sub:homeomorhpism}
+
+\begin{definition}[Homeomorphism]
+Let $X$  and $Y$  be topological spaces. A bijective map $f: \to Y$  with the property that both $f$ and $f^{-1}: Y \to
+X $   are continious, is called a homeomorhpism. if there exists a homeomorhpism $f: X \to Y$, we say that $X$
+and $Y$ are homeomorphic.
+\end{definition}
+
+\begin{theorem}
+    Let $X,Y$  and $Z$ be topological spaces.
+    \begin{enumerate}[label=(\roman*)]
+        \item \textbf{Reflexivity} : The identity map: $id: X\to X$ (where the domain and the codomain are equipped
+            witht the same topology) , given by $id\left( x \right) = x$ for $x \in X$ , is a homeomorphism.
+        \item \textbf{Symmentry} : If $f: X\to Y$ is a homeomorphis, then $f^{-1}: Y \to X$ is also a homeomorphism.
+        \item \textbf{Transitivity} : If $f: X\to Y$  and $g: Y\to Z$ are homeomorhism, then $g \circ f: X \to Z$ is
+            also a homeomorphism.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Closes sets}%
+\label{sub:closes_sets}
+
+\begin{definition}[Closed subsets]
+
+    A subset $K$  of a topological space $X$  is closed in $X$  if and only if the complement \[
+    K^{c} = X \setminus K
+    \] is open in $X$ .
+\end{definition}
+
+\begin{theorem}
+    Let $X$  be a topological space.
+    \begin{enumerate}[label=(\roman*)]
+        \item Both $\emptyset $  and $X$  are closed (as subsets) in $X$.
+        \item The intersection of any subcollection of closed sets in $X$  is closed in $X$ .
+        \item The union of any finite subcollection of closed sets in $X$  is closed in $X$ .
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Closure]
+    Let $X$  be a topological space, and let $A$  be a subset of $X$. The closure of $A$, written $\overline{A} $, is
+    the intersection of all subsets of $X$  that constains A and which are closed in $X$ .
+\end{definition}
+
+\begin{definition}[Dense]
+    Let $X$ be a topological space, and let $A$ be a subset of $X$ . We say that $A$ is dense in $X$ if $\overline{A}  =
+    X$ .
+\end{definition}
+
+\begin{theorem}
+    Let $f: X \to Y$  be a map between the topological spaces. Then the following are equivalent:
+   \begin{enumerate}[label=(\roman*)]
+       \item $f$  is continious.
+       \item for everry subset $A$  of $X$, we have $f\left( \overline{A}  \right) \subseteq \overline{f\left( A
+           \right)} $ .
+       \item for every closed subset $B$ of $Y$, the preimage $f^{-1}\left( B \right)$ of $B$ under $f$  is closed in
+           $X$ .
+   \end{enumerate}
 \end{theorem}
 
 \section{ Generating topologies}%
@@ -139,7 +342,6 @@ if $V$ is an open set in $Y$ then the preimage $f^{-1} \left( V \right)$ of $V$ 
     $\mathscr{S}$ is the topology \[
     \left<\mathscr{S}  \right> = \bigcap_{\substack{\tau  \text{ topology} \\ S \subseteq \tau  } }^{}  \tau
     \]
-
 \end{definition}
 
 \subsection{Basis for a topology}%
@@ -242,7 +444,7 @@ $X$.
 \subsection{Subspaces}%
 \label{sub:subspaces}
 
-\begin{definition}[Substapce topology]
+\begin{definition}[Subspace topology]
     Let $X$ be a topological space, and let $A$ be a subset of $X$ . The collection \[
     \tau _{A} = \left\{ A \cap U  \mid   U \text{ is open in }X  \right\}
     \]
@@ -251,7 +453,7 @@ $X$.
 
 \begin{lemma}
     Let $X$  be a topological space, and let $A$  be a subsets of $X$. Then the collection \[
-        \tau _{A} ) \left\{ A \cap  U   \mid  U \text{ is open in }X \right\}
+        \tau _{A} = \left\{ A \cap  U   \mid  U \text{ is open in }X \right\}
     \]
     is a topology on A.
 \end{lemma}
@@ -265,7 +467,7 @@ $X$.
 \end{theorem}
 
 \begin{theorem}
-    Let $X$  be a topological space, and let $A$ be a subset of $X$ . THen the subspace topology on $A$  is the only
+    Let $X$  be a topological space, and let $A$ be a subset of $X$ . Then the subspace topology on $A$  is the only
     topology on $A$  witht the following universal property: for every topological space $Y$ and every map : \[
     f: Y \to A
     \]
@@ -286,9 +488,9 @@ $X$.
 
 \begin{lemma}
     Let $X$ and $Y$  be topological spaces. Then the collection \[
-        \mathscr{B }  ) \left\{ U \times  V  \mid  U \text{ is open in } X \text{ and } V \text{ is open in }Y \right\}
+        \mathscr{B }  = \left\{ U \times  V  \mid  U \text{ is open in } X \text{ and } V \text{ is open in }Y \right\}
     \]
-    is a bsis for a topology on $ X \times Y $ .
+    is a basis for a topology on $ X \times Y $ .
 \end{lemma}
 
 
@@ -565,14 +767,275 @@ Let $\mathbb{R} $ be the set of real numbers equipped with the standard topology
 \section{ The fundamental group}%
 \label{sec:the_fundamental_group}
 
+\subsection{Homotopy of paths}%
+\label{sub:homotopy_of_paths}
 
 
+
+\begin{definition}[Homotopy]
+    Let $X$  and $Y$ be topological spaces, and let $f_{0}, f_{1}: X \to Y$ be two continious maps. Furthermotre, let
+    $\mathbb{R} $  be the set of real numbers with the standard topology, $I = \left[ 0,1 \right]$ be a subsapce of
+    $\mathbb{R} $ , and let $X \times I$ be the given topology. We say that $f_{0}$ is homotopic to $f_{1}$ , written
+    $ f_{0} \simeq f_{1}$, if there is a continious map \[
+    H: X \times I \to Y
+    \]
+    such that $H\left( x,0 \right) = f_{0}\left( x \right)$  and $H\left( x,1 \right) = f_{1}\left( x \right)$ for all
+    $x \in  X$. The map $H$ is called a homotopy between $f_{0}$  and $f_{1}$ . If $ f_{0} \simeq  f_{1} $ and $f_{1}$
+    is a constant map, we say that $f_{0}$ is nullhomotopic.
+\end{definition}
+
+
+\begin{lemma}[Pasting lemma]
+    Let $X = A \cup B$  be a topological space where $A$ and $B$  are closed in $X$. Furthermore, et $Y$ be a
+    topological space, and assume that $f: A \to Y$  and $g: B \to Y$ are continious maps. If $f\left( x \right)  =
+    g\left( x \right)$ for all $x \in A\cap B$, then the map $h: X\to Y$  given by \[
+    h\left( x \right)
+    \begin{cases}
+        f\left( x \right),&  \quad x \in A \\
+        g\left( x \right), &  \quad x \in  B
+    \end{cases}
+    \]
+    is continious.
+\end{lemma}
+
+\begin{theorem}
+    The relation $\simeq $ is an equivalence relation on the set of all continious maps from a topological space $X$ to
+    a topological space $Y$ .
+\end{theorem}
+
+\begin{definition}[Homotopy classes]
+    Let $X$ and $Y$ be topological spaces, and let $C\left(X,Y  \right)$  be the set of continious maps from $X$ to $Y$.
+    The homotopy classes in $C\left( X,Y \right)$ are the equivalence classes under the relation $\simeq  $ . We write
+    $\left[ f \right]$ for the homotopy class of $f \in C\left( X,Y \right)$ , i.e., \[
+    \left[ f \right] = \left\{ g \in C\left( X,Y \right)  \mid f \simeq  g \right\}
+    \]
+    and we write $\left[ X,Y \right]$ for the set of homotopy classes of continious maps from $X$ to $Y$ , i.e., \[
+        \left[ X,Y \right] ) C\left( X,Y \right) \setminus \simeq
+    \]
+\end{definition}
+
+\begin{definition}[Path homotopy]
+    Let $X$ be a topologicala space, and let $x_{0},x_{1} \in X$. We say that two paths $f,g: I \to X$ in $X$ from
+    $x_{0}$ to $x_{1}$ are path homotopic, written $ f \simeq  _{p}g$, if there is a continious map $F: I \times I \to
+    X$ such that \[
+    H\left( s,0 \right) = f\left( s \right) \quad \text{and} \quad H\left( s,1 \right) = g\left( s \right)
+    \]
+    for all $s \in  I$, and \[
+    H\left( 0,t \right) = x_{0} \quad \text{and} \quad H\left( 1,t \right) = x_{1}
+    \]
+    for all $t \in  I$. We call $H$  a path homotopy from $f$  to $g$ .
+\end{definition}
+
+\begin{theorem}
+    Let $X$  be a topological space, and let $x_{0}, x_{1} \in  X$. Then the relation $\simeq _{p}$ is an equivalence
+    relation on the set of all paths from $x_{0}$  to $x_{1}$ in $X$ .
+\end{theorem}
+
+\begin{definition}[Path homotopy classes]
+    Let $X$ be a topological space, and let $x_{0}, x_{1} \in X$. If $f: I \to X$  is a path from $x_{0}$  to $x_{1}$,
+    we write $\left[ f \right]$ for its path homotopy class, i.e., \[
+    \left[ f \right] = \left\{ g: I \to X  \mid g \text{ is a path from }x_{0} \text{ to } x_{1} \text{ and } f \simeq
+    _{p} g \right\}
+    \]
+\end{definition}
+
+\begin{definition}[Product of paths]
+    Let $X$ be a topologicala space, and let $x_{0}, x_{1}, x_{2} \in X$. If $f: I \to X$ is a path from $x_{0}$  to
+    $x_{1}$ , and $g: I \to X$ is a is a path from $x_{1}$ to $x_{2}$, we define the product of $f$ and $g$  as the path
+    $f * g: I \to X$ from $x_{0}$ to $x_{2}$ given by \[
+    \left( f*g \right)\left( s \right) = \begin{cases}
+        f\left( 2s \right) ,&  \quad 0\le s \le \frac{1}{2}\\
+        g\left( 2s -1 \right),&  \quad  \frac{1}{2} \le s \le 1.
+    \end{cases}
+    \]
+\end{definition}
+
+\begin{lemma}
+    Let $X$  be a topological space, and let $x_{0}, x_{1}, x_{2} \in  X$ . If $f: I \to X$ is a path from $x_{0}$ to
+    $x_{1}$ and $g: I\to X$ is a path from $x_{1}$ to $x_{2}$, then the product $f * g$ induses a well-defined operation
+    on path homotopy classes given by \[
+    \left[ f \right] * \left[ g \right] = \left[ f * g \right]
+    \]
+
+\end{lemma}
+
+\begin{theorem}
+    Let $X$   be a topological space. Then the product paths, $*$  , has the following properties on the set of path
+    homotopy classes.
+
+    \begin{enumerate}[label=(\roman*)]
+        \item \textbf{Associativity.} Let $x_{0}, x_{1}, x_{2}$   and $x_{3}$  be the points in $X$  . If $f_{0}: I \to X$
+             is a path from $x_{0}$  to $x_{1}, f_{1}: I\to X$  is a path from $x_{1}$  to $x_{2}$, and $f_{2}: I \to X$  is
+            a path from $x_{2}$  to $x_{3}$, then \[
+            \left( \left[ f_{0} \right] * \left[ f_{1} \right] \right) * \left[ f_{2} \right] = \left[ f_{0} \right] *
+            \left( \left[ f_{1} \right] * \left[ f_{2} \right] \right)
+            \]
+        \item \textbf{Left and right units} . For $x \in X$ , let $c_{x}: I\to X$ denote the constant path at $x$ ,
+            given $c_{x}\left( s \right) = x$ for all $s \in  I$. If $f: I \to X$ is a path from $x_{0}$ to $x_{1}$
+            then \[
+            \left[ c_{x_{0}} \right] * \left[ f \right] = \left[ f \right] = \left[ f \right] * \left[ c_{x_{0}} \right]
+            \]
+        \item \textbf{inverse} If $f: I\to X$  is a path from $x_{0}$ to $x_{1}$, let $\overline{f} : I \to X$ be the
+            reverrse path from $x_{1}$  to $x_{0}$ , given by $\overline{f} \left( s \right) = f\left( 1-s \right)$  for
+            all $s \in I$ . Then \[
+            \left[ f \right] * \left[ \overline{f}  \right] = \left[ c_{x_{0}} \right] \text{ and } \quad \left[
+            \overline{f}  \right] * \left[ f \right] = \left[ c_{x_{1}} \right]
+            \]
+    \end{enumerate}
+
+\end{theorem}
+\subsection{Definition and elementary properties of the fundamental group}%
+\label{sub:definition_and_elementary_properties_of_the_fundamental_group}
+
+\begin{definition}[The fundemental group]
+    Let $\left( X, x_{0} \right)$ be a based space. A path $f: I \to X$  from $x_{0}$  to $x_{0}$ is called a loop in
+    $X$  based at $x_{0}$ . Let \[
+        \pi _{1}\left( X, x_{0} \right) = \left\{ \left[ f \right]  \mid  f \text{ is a loop in } X \text{ based at
+        }x_{0}  \right\}
+    \]
+    be the set of path hotopy classes of loops in $X$ at $x_{0}$ . We say that $\pi _{1} \left( X,x_{0} \right)$ is the
+    fundemental group of $X$  based at $x_{0}$ .
+\end{definition}
+
+\begin{theorem}
+    Let $\left( X, X_{0} \right)$ be a based space. THen the fundementa group $\pi _{1} \left( X, x_{0} \right)$ of $X$
+    based at $x_{0}$  is, in fact, a group with product paths, $*$ , as its binary operation. The identity element $e$
+    is equal to the path homotopy class of the constant path at $x_{0}$, $e = \left[ c_{x_{0}} \right]$ , and the
+    inverse of $\left[ f \right]$ is $\left[ f \right]^{-1}= \left[ \overline{f}  \right]$, where $\overline{f} $ is the
+    reverse path of $f$ .
+\end{theorem}
+
+\begin{theorem}
+    Let $X$ be a path connected space, and let $x_{0}, x_{1} \in X$ . Then $\pi _{1}\left( X, x_{0} \right)$ is
+    isomorphic to $\pi _{1}\left( X, x_{1} \right)$ .
+\end{theorem}
+
+\begin{definition}[Simply connected spaces]
+    Let $X$  be a path connected sace. We say that $X$ is simply connected if $\pi _{1}\left( X, x_{0} \right)$ is the
+    trivial group for some $x_{0} \in  X$, and hence, for all $x_{0} \in X$ .
+\end{definition}
+
+\begin{definition}[Based maps]
+    Let $\left( X, x_{0} \right)$ and $\left( Y, y_{0} \right)$ be based spaces. A based map \[
+    h: \left( X, x_{0} \right) \to \left( Y,y_{0} \right)
+    \] is a continious map $h: X \to Y$ such that $h\left( x_{0} \right) = y_{0}$ .
+\end{definition}
+
+\begin{definition}[Homomorphism induced by based maps]
+    Let $\left( X, x_{0} \right) $  and $\left( Y, y_{0} \right)$ be based spaces, and let $h: \left( X, x_{0} \right)
+    \to  \left( Y , y_{0} \right)$ be based map.  The map \[
+        h_{*} : \pi _{1}\left( X, x_{0} \right)  \to \pi _{1}\left( Y , y_{0} \right)
+    \] given by \[
+    h_{*}\left( \left[ f \right] \right) = \left[ h \circ f \right]
+    \] is called the homomorphism indeiced by h.
+\end{definition}
+
+\begin{lemma}
+    Let $\left( X, x_{0}\right)$   and $\left( Y ,y_{0} \right)$  be based spaces, and let $h: \left( X, x_{0} \right) \to
+    \left( Y ,y_{0} \right)$  be a based map. The map \[
+    h_{*} : \pi _{1} \left( X, x_{0} \right)  \to \pi _{2} \left( Y ,y_{0} \right).
+    \]
+    given by \[
+    h_{*} \left( \left[ f \right] \right) =  \left[ h \circ f \right]
+    \] is a homomorphism.
+\end{lemma}
+
+\begin{theorem}[Functoriality]
+   Let $\left( X, x_{0} \right)$ , $\left( Y ,y_{0} \right)$ and $\left( Z ,z_{0} \right)$ be based spaces, and let
+   $h_{2}: \left( X, x_{0} \right) \to \left( Y, y_{0} \right)$ and $h_{2}\left( Y, y_{0} \right) \to  \left( Z, z_{0}
+   \right)$ be based maps. Then \[
+   \left( h_{2} \circ h_{1} \right) = \left( h_{2} \right)_{*} \circ \left( h_{1} \right)_{*}.
+   \]
+   If $id_{X} : X \to X$ is the identity map, then $\left( id_{X} \right)_{*}$ is the identity automorphism of $\pi
+   _{1}\left( X,x_{0} \right)$ .
+\end{theorem}
+
+\begin{corollary}
+    Let $\left( X, x_{0} \right)$  and $\left( Y ,y_{0} \right)$ be based spaces. If $h: X \to Y$ is a homeomorphism
+    such that $h\left( x_{0} \right) = y_{0}$, then \[
+        h_{*} : \pi _{1}\left( X, x_{0} \right) \to \pi _{1} \left( Y, y_{0} \right)
+    \]
+    is an isomorphism.
+\end{corollary}
+
+\begin{theorem}
+    Let $\left( X,  x_{0} \right) $ and $\left( Y, y_{0} \right)$ be based spaces. Then $\pi _{1}\left( X \times Y,
+    \left( x_{0}, y_{0} \right) \right)$ is isomorphic to the direct product $\pi _{1} \left( X, x_{0} \right) \times
+    \pi _{1}\left( Y ,y_{0} \right)$ .
+\end{theorem}
+
+\subsection{Homotopy type}%
+\label{sub:homotopy_type}
+
+\begin{lemma}
+    Let $\left( X, x_{0} \right)$ and $\left( Y,y_{0} \right)$ be based spacaes, and let $h: \left( X ,x_{0} \right) \to
+    \left( Y,y_{0} \right)$ and $k: \left( X,x_{0} \right) \to \left( Y, y_{0} \right)$ be based mmaps. If there is a
+    homotopy $H: X \times I \to Y$  from $h$  to $k$ such that $H\left( X_{0}, t \right) =  y_{0}$ . for all $t \in  I$,
+    then the homomorphism $h_{*} : \pi _{1} \left( X, x_{0} \right) \to \pi _{1}\left( Y, y_{0} \right)$  and $k_{* } :
+    \pi _{1} : \left( X ,x_{0} \right) \to \pi \left( Y, y_{0} \right) $ induced by $h$ and $k$ , respectively , are
+    equal.
+\end{lemma}
+
+\begin{definition}[Retractions]
+    Let $X$ be topological space, and let $A$ be subspace of $X$.  We say that a continious map $r: X \to A$ is a
+    retraction of $X$  onto $A$ if $r\left( a \right) = a$ for each $a \in  A$. If there is a retraction of $X$ onto
+    $A$, we say that $A$ is retract of $X$ .
+\end{definition}
+
+\begin{lemma}
+    Let $X$ be topological space, and let $A$ be a subspace of $X$. If $x_{0} \in  A$ and $A $ is a retract of $X$. THen
+    the homomorphism $i_{* } : \pi  _{1} \left( A, x_{0} \right) \to \pi _{1}\left(X, x_{0}  \right)$ induced by the
+    inclusion map $i: A \to X$ is a monomorphism.
+\end{lemma}
+
+\begin{definition}[Deformation retracts]
+    Let $X$ be a topological space, and let $A$ be a subspace of $X$. A homotopy \[
+    H: X \times I \to X
+    \]
+    is called deformation retraction of $X$  onto $A$  if $H\left( x, 0 \right) = x$ and $H\left( x,1 \right) \in  A$
+    for all $x \in X$, and $H\left(  a,t \right) = a$  for all $a \in  A$ and all $t \in  I$. We say that $A$ is a
+    deformation tract of $X$ .
+\end{definition}
+
+\begin{theorem}
+    Let $X$ be a topological space, and let $A$ be a subspace of $X$ . If $x_{0} \in  A$ and $A$ is a deformation
+    retract of $X$, then the homomorphism $i_{*}: \pi _{1}\left( A, x_{0} \right) \to \pi \left( X , x_{0} \right)$
+    indeuced by the inclusion map $i: A \to X$ is an isomorphism.
+\end{theorem}
+
+\begin{definition}[Homotopy equivalences]
+    Let $X$  and $Y$ be topological spaces. If $f: X\to Y$ and $g: Y \to X$ are continious maps such that $g \circ f$ is
+    homotopic to the identity map of $X$, $id_{X}$, and $f \circ g$ is homotopic to the identity map of $Y$, $id_{Y}$ ,
+    we say that $f$ and $g$  are homotopy equivalences. We say that each of $f$ and $g$  is a homotopy inverse of the
+    other.
+\end{definition}
+
+\begin{definition}[Homotopy types]
+    Let $X $ and $Y$ be topological spaces. We say that $X$ and $Y$ have the same homotopy type if there is a homotopy
+    equivalence $f: X \to Y$ .
+\end{definition}
+
+\begin{lemma}
+    Let $X$  and $Y$ be topoplogical spaces, and let $f :X \to Y$ and $g: X \to Y$ be continious maps such that $f\left(
+    x_{0}\right) =  y_{0}$ and $g\left( x_{0} \right) = y_{1}$. if $H: X \times I \to Y  $ is a homotopy from $f$  to
+    $g$, there is a path $\alpha : I \to Y$ in $Y$ from $y_{0}$ to $y_{1}$ fiven by $\alpha \left( t \right) = H\left(
+    x_{0}, t \right)$ such that $g _{*} = \hat{\alpha }\circ f_{*}$
+\end{lemma}
+
+\begin{theorem}
+    Let $X$ and $Y$ be topological spaces, and let $f: X \to Y$ be homotopy equivalence such that $f\left( x_{0} \right)
+    0 y_{0}$. tThen \[
+    f_{*}: \pi _{1}\left( X, x_{0} \right) \to  \pi _{1}\left( Y, y_{0} \right)
+    \]
+    is an isomorphism.
+\end{theorem}
 
 \section{ The fundamental group of the circle}%
 \label{sec:the_fundamental_group_of_the_circle}
 
 
 
+% \end{multicols}
 
 \newpage
 \section{References}%
